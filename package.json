@@ -1,0 +1,9 @@
+{
+  "name": "tools",
+  "version": "1.0.0",
+  "description": "Open source frontend focused tools",
+  "repository": "https://github.com/rtivital/tools.git",
+  "author": "Vitaly Rtishchev <rtivital@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
