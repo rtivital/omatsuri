@@ -63,6 +63,22 @@ module.exports = {
       },
 
       {
+        test: /\.(less|css)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              },
+            },
+          },
+          'less-loader',
+        ],
+      },
+
+      {
         test: /\.(svg|png|jpg|gif|woff|woff2|otf|ttf|eot)$/,
         loader: 'file-loader',
       },
