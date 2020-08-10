@@ -129,7 +129,22 @@ module.exports = {
         </html>
     `,
     }),
-    new FaviconsWebpackPlugin(path.join(__dirname, './src/styles/logo.svg')),
+    new FaviconsWebpackPlugin({
+      logo: path.join(__dirname, './src/styles/logo.svg'),
+      background: '#ffeeee',
+      icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: false,
+        opengraph: true,
+        twitter: false,
+        yandex: false,
+        windows: false,
+      },
+    }),
     ...(mode !== 'production'
       ? [
         new webpack.HotModuleReplacementPlugin(),
