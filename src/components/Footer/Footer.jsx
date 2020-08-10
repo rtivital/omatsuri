@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 import GithubButton from '../GithubButton/GithubButton';
-import toolsData from '../../tools-data';
-import creditsData from './credits';
+import toolsData from '../../data/tools';
+import creditsData from '../../data/credits';
 import classes from './Footer.styles.less';
 
 export default function Footer({ className }) {

@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import settings from '../../data/settings';
 import classes from './GithubButton.styles.less';
 
 export default function GithubButton({ className }) {
   return (
-    <a
-      className={cx(classes.wrapper, className)}
-      href="https://github.com/rtivital/frontend-toolbox"
-    >
+    <a className={cx(classes.wrapper, className)} href={settings.repository}>
       <svg
         className={classes.icon}
         xmlns="http://www.w3.org/2000/svg"

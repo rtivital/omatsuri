@@ -1,9 +1,9 @@
-import cssTriangle from './assets/css-triangle.svg';
-import gradient from './assets/gradient.svg';
-import svgCompression from './assets/svg-compression.svg';
-import svg2jsx from './assets/svg-to-jsx.svg';
-import symbols from './assets/symbols.svg';
-import pageDividers from './assets/page-dividers.svg';
+import cssTriangle from '../assets/css-triangle.svg';
+import gradient from '../assets/gradient.svg';
+import svgCompression from '../assets/svg-compression.svg';
+import svg2jsx from '../assets/svg-to-jsx.svg';
+import symbols from '../assets/symbols.svg';
+import pageDividers from '../assets/page-dividers.svg';
 
 export default [
   {
