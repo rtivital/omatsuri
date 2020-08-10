@@ -14,8 +14,8 @@ export default function Index() {
     <main className={classes.wrapper}>
       <header className={classes.header}>
         <div className={classes.headerBody}>
-          <h1 className={classes.title}>Fontend Toolbox</h1>
-          <p className={classes.description}>Frontend oriented browser tools for everyday use</p>
+          <h1 className={classes.title}>Omatsuri</h1>
+          <p className={classes.description}>Open source browser tools for everyday use</p>
         </div>
         <GithubButton />
       </header>
