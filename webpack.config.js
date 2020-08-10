@@ -107,7 +107,28 @@ module.exports = {
 
   plugins: [
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(mode) }),
-    new HtmlWebpackPlugin({ template: path.join(__dirname, './template.ejs') }),
+    new HtmlWebpackPlugin({
+      templateContent: ({ htmlWebpackPlugin }) => `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            ${htmlWebpackPlugin.tags.headTags}
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Frontend Toolbox</title>
+          </head>
+          <body>
+            <noscript>
+              Enable JavaScript to use Frontend toolbox
+            </noscript>
+
+            <div id="app"></div>
+            ${htmlWebpackPlugin.tags.bodyTags}
+          </body>
+        </html>
+    `,
+    }),
     new FaviconsWebpackPlugin(path.join(__dirname, './src/styles/logo.svg')),
     ...(mode !== 'production'
       ? [
