@@ -1,5 +1,6 @@
 import React from 'react';
 import ToolCard from '../../components/ToolCard/ToolCard';
+import GithubButton from '../../components/GithubButton/GithubButton';
 import toolsData from './tools-data';
 import classes from './Index.styles.less';
 
@@ -11,8 +12,11 @@ export default function Index() {
   return (
     <main className={classes.wrapper}>
       <header className={classes.header}>
-        <h1 className={classes.title}>Fontend Toolbox</h1>
-        <p className={classes.description}>Frontend oriented browser tools for everyday use</p>
+        <div className={classes.headerBody}>
+          <h1 className={classes.title}>Fontend Toolbox</h1>
+          <p className={classes.description}>Frontend oriented browser tools for everyday use</p>
+        </div>
+        <GithubButton />
       </header>
 
       <div className={classes.tools}>{tools}</div>
