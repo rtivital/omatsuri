@@ -2,6 +2,7 @@ import React from 'react';
 import ToolCard from '../../components/ToolCard/ToolCard';
 import Footer from '../../components/Footer/Footer';
 import GithubButton from '../../components/GithubButton/GithubButton';
+import Container from '../../components/Container/Container';
 import toolsData from '../../tools-data';
 import classes from './Index.styles.less';
 
@@ -12,16 +13,18 @@ export default function Index() {
 
   return (
     <main className={classes.wrapper}>
-      <header className={classes.header}>
-        <div className={classes.headerBody}>
-          <h1 className={classes.title}>Omatsuri</h1>
-          <p className={classes.description}>Open source browser tools for everyday use</p>
-        </div>
-        <GithubButton />
-      </header>
+      <Container>
+        <header className={classes.header}>
+          <div className={classes.headerBody}>
+            <h1 className={classes.title}>Omatsuri</h1>
+            <p className={classes.description}>Open source browser tools for everyday use</p>
+          </div>
+          <GithubButton />
+        </header>
 
-      <div className={classes.tools}>{tools}</div>
-      <Footer />
+        <div className={classes.tools}>{tools}</div>
+        <Footer />
+      </Container>
     </main>
   );
 }
