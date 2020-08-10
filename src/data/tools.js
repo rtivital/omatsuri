@@ -1,23 +1,23 @@
-import cssTriangle from '../assets/css-triangle.svg';
-import gradient from '../assets/gradient.svg';
+import triangleGenerator from '../assets/triangle-generator.svg';
+import gradientGenerator from '../assets/gradient-generator.svg';
 import svgCompression from '../assets/svg-compression.svg';
 import svg2jsx from '../assets/svg-to-jsx.svg';
-import symbols from '../assets/symbols.svg';
-import pageDividers from '../assets/page-dividers.svg';
+import symbolsCollection from '../assets/symbols-collection.svg';
+import curvedDividers from '../assets/curved-dividers.svg';
 
 export default [
   {
     link: '/triangle-generator',
     name: 'Triangle generator',
     description: 'Generate css triangles styles for elements and pseudo-elements',
-    icon: cssTriangle,
+    icon: triangleGenerator,
   },
 
   {
     link: '/css-gradient',
     name: 'Gradients generator',
     description: 'Generate linear and radial gradients, includes ready to use gradients library',
-    icon: gradient,
+    icon: gradientGenerator,
   },
 
   {
@@ -41,13 +41,13 @@ export default [
     name: 'Symbols collection',
     description:
       'Collection of commonly used html symbols: arrows, marks, currency signs and many others',
-    icon: symbols,
+    icon: symbolsCollection,
   },
 
   {
     link: '/pages-dividers',
     name: 'Curved page dividers',
     description: 'Tool to generate curved page dividers with css and svg images',
-    icon: pageDividers,
+    icon: curvedDividers,
   },
 ];
