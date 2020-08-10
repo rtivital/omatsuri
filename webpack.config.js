@@ -5,6 +5,7 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const babelrc = require('./.babelrc');
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
@@ -107,6 +108,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(mode) }),
     new HtmlWebpackPlugin({ template: path.join(__dirname, './template.ejs') }),
+    new FaviconsWebpackPlugin(path.join(__dirname, './src/styles/logo.svg')),
     ...(mode !== 'production'
       ? [
         new webpack.HotModuleReplacementPlugin(),
