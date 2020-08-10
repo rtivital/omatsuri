@@ -1,0 +1,41 @@
+@import 'open-color/open-color.less';
+
+.footer {
+  border-top: 1px solid @oc-gray-1;
+  margin-top: 60px;
+  padding-top: 20px;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  color: @oc-gray-6;
+
+  &:hover {
+    color: @oc-violet-7;
+  }
+
+  & + & {
+    margin-top: 10px;
+  }
+}
+
+.links {
+  & + & {
+    margin-left: 45px;
+  }
+}
+
+.main {
+  display: flex;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: normal;
+}

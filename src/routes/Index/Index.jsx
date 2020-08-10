@@ -1,7 +1,8 @@
 import React from 'react';
 import ToolCard from '../../components/ToolCard/ToolCard';
+import Footer from '../../components/Footer/Footer';
 import GithubButton from '../../components/GithubButton/GithubButton';
-import toolsData from './tools-data';
+import toolsData from '../../tools-data';
 import classes from './Index.styles.less';
 
 export default function Index() {
@@ -20,6 +21,7 @@ export default function Index() {
       </header>
 
       <div className={classes.tools}>{tools}</div>
+      <Footer />
     </main>
   );
 }
