@@ -12,7 +12,7 @@ export default function Index() {
     <main className={classes.wrapper}>
       <header className={classes.header}>
         <h1 className={classes.title}>Fontend Toolbox</h1>
-        <p className={classes.description}>Simple online tools for everyday use</p>
+        <p className={classes.description}>Frontend oriented browser tools for everyday use</p>
       </header>
 
       <div className={classes.tools}>{tools}</div>
