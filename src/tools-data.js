@@ -7,7 +7,7 @@ import pageDividers from './assets/page-dividers.svg';
 
 export default [
   {
-    link: '/css-triangle',
+    link: '/triangle-generator',
     name: 'Triangle generator',
     description: 'Generate css triangles styles for elements and pseudo-elements',
     icon: cssTriangle,
