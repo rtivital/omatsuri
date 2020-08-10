@@ -11,6 +11,7 @@ const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development
 const port = 8260;
 const entry = path.join(__dirname, './src/index.jsx');
 const output = path.join(__dirname, './dist');
+const publicPath = '/';
 
 module.exports = {
   mode,
@@ -23,7 +24,7 @@ module.exports = {
     port,
     compress: true,
     contentBase: output,
-    publicPath: '/',
+    publicPath,
     stats: { colors: true },
     hot: true,
     historyApiFallback: true,
@@ -43,7 +44,7 @@ module.exports = {
   output: {
     path: output,
     filename: 'bundle.js',
-    publicPath: '/',
+    publicPath,
   },
 
   resolve: {
@@ -76,7 +77,7 @@ module.exports = {
             ? {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: '/public/path/to/',
+                publicPath,
               },
             }
             : 'style-loader',
