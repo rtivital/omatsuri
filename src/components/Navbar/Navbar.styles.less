@@ -1,0 +1,57 @@
+@import 'open-color/open-color.less';
+
+.navbar {
+  height: 100vh;
+  background-color: red;
+  background-color: @oc-white;
+  border-right: 1px solid @oc-gray-1;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  margin-bottom: 30px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 15px 15px;
+  border-radius: 15px;
+  font-size: 18px;
+  letter-spacing: -0.5px;
+  color: @oc-gray-6;
+}
+
+.linkActive {
+  background-color: #f9f9fd;
+  color: @oc-gray-9;
+  font-weight: bold;
+}
+
+.icon {
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+}
+
+.links {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
