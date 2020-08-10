@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const babelrc = require('./.babelrc');
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
@@ -65,12 +66,22 @@ module.exports = {
       {
         test: /\.(less|css)$/,
         use: [
-          'style-loader',
+          mode === 'production'
+            ? {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath: '/public/path/to/',
+              },
+            }
+            : 'style-loader',
           {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                localIdentName:
+                  mode === 'production'
+                    ? '[hash:base64:10]'
+                    : '[path][name]__[local]--[hash:base64:5]',
               },
             },
           },
@@ -93,6 +104,6 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new OpenBrowserPlugin({ url: `http://localhost:${port}` }),
       ]
-      : []),
+      : [new MiniCssExtractPlugin()]),
   ],
 };
