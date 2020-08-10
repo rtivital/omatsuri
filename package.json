@@ -10,6 +10,10 @@
     "start": "webpack-dev-server",
     "build": "NODE_ENV=production webpack"
   },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
   "devDependencies": {
     "@babel/core": "^7.11.1",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
@@ -32,12 +36,16 @@
     "less-loader": "^6.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "open-browser-webpack-plugin": "^0.0.5",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
     "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^4.0.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "autoprefixer": "^9.8.6",
     "classnames": "^2.2.6",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",

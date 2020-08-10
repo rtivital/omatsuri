@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const babelrc = require('./.babelrc');
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
@@ -12,6 +14,10 @@ const output = path.join(__dirname, './dist');
 
 module.exports = {
   mode,
+
+  optimization: {
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+  },
 
   devServer: {
     port,
@@ -86,6 +92,7 @@ module.exports = {
             },
           },
           'less-loader',
+          ...(mode === 'production' ? ['postcss-loader'] : []),
         ],
       },
 
