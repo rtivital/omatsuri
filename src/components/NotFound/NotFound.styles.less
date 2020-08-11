@@ -1,0 +1,54 @@
+@import 'open-color/open-color.less';
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  max-width: 400px;
+}
+
+.title {
+  font-size: 40px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.description {
+  color: @oc-gray-7;
+  max-width: 300px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.links {
+  display: flex;
+  align-content: center;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  color: @oc-gray-9;
+
+  &:first-of-type {
+    text-align: left;
+  }
+
+  &:last-of-type {
+    text-align: right;
+  }
+
+  &:hover {
+    color: @oc-violet-7;
+  }
+
+  & + & {
+    margin-left: 20px;
+  }
+}
