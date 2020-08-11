@@ -33,6 +33,7 @@ export default function DirectionPicker({ className, value, onChange }) {
       type="button"
       onClick={() => onChange(direction)}
       className={cx(classes.control, { [classes.active]: value === direction })}
+      key={direction}
     >
       <Triangle
         color={value === direction ? oc.violet[5] : oc.gray[7]}
@@ -42,7 +43,7 @@ export default function DirectionPicker({ className, value, onChange }) {
     </button>
   ));
 
-  contols.splice(4, 0, <div className={classes.blank} />);
+  contols.splice(4, 0, <div className={classes.blank} key="blank" />);
 
   return <div className={cx(classes.wrapper, className)}>{contols}</div>;
 }
