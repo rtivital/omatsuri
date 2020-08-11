@@ -4,6 +4,7 @@ import Background from '../../../components/Background/Background';
 import directions from '../directions';
 import DirectionPicker from '../DirectionPicker/DirectionPicker';
 import SizePicker from '../SizePicker/SizePicker';
+import ColorPicker from '../ColorPicker/ColorPicker';
 import classes from './Settings.styles.less';
 
 export default function Settings({ values, handlers }) {
@@ -24,6 +25,11 @@ export default function Settings({ values, handlers }) {
           onWidthChange={handlers.onWidthChange}
           onHeightChange={handlers.onHeightChange}
         />
+      </div>
+
+      <div className={classes.section}>
+        <h2 className={classes.title}>Color</h2>
+        <ColorPicker value={values.color} onChange={handlers.onColorChange} />
       </div>
     </Background>
   );

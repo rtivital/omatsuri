@@ -1,0 +1,37 @@
+import oc from 'open-color';
+import React from 'react';
+import PropTypes from 'prop-types';
+import Swatch from '../../../components/Swatch/Swatch';
+import classes from './ColorPicker.styles.less';
+
+const predefinedColors = [
+  oc.black,
+  oc.red[5],
+  oc.pink[5],
+  oc.grape[5],
+  oc.violet[5],
+  oc.indigo[5],
+  oc.blue[5],
+  oc.cyan[5],
+  oc.teal[5],
+  oc.green[5],
+  oc.lime[5],
+  oc.yellow[5],
+];
+
+export default function ColorPicker({ value, onChange }) {
+  const swatches = predefinedColors.map(color => (
+    <Swatch className={classes.swatch} key={color} value={color} onClick={() => onChange(color)} />
+  ));
+
+  return (
+    <div>
+      <div className={classes.swatches}>{swatches}</div>
+    </div>
+  );
+}
+
+ColorPicker.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
