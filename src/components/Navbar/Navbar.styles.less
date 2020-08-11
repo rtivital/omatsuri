@@ -27,11 +27,25 @@
   width: 200px;
 }
 
+.linkBackground {
+  top: 0;
+  background-color: #f9f9fd;
+  height: 70px;
+  width: calc(100% - 30px);
+  border-radius: 15px;
+  position: absolute;
+  z-index: 1;
+  transition: transform 200ms ease;
+}
+
 .link {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 15px 15px;
+  padding: 15px;
+  height: 72px;
   border-radius: 15px;
   font-size: 18px;
   letter-spacing: -0.5px;
@@ -39,7 +53,6 @@
 }
 
 .linkActive {
-  background-color: #f9f9fd;
   color: @oc-gray-9;
   font-weight: bold;
 }
@@ -51,6 +64,7 @@
 }
 
 .links {
+  position: relative;
   padding-left: 15px;
   padding-right: 15px;
 }

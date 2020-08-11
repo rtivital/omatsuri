@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import GithubButton from '../GithubButton/GithubButton';
@@ -8,8 +8,16 @@ import toolsData from '../../data/tools';
 import classes from './Navbar.styles.less';
 
 const isActive = (path, match, location) => !!(match || path === location.pathname);
+const findCurrentIndex = pathname => toolsData.findIndex(tool => pathname.includes(tool.link));
 
 export default function Navbar({ className }) {
+  const { pathname } = useLocation();
+  const [current, setCurrent] = useState(findCurrentIndex(pathname));
+
+  useEffect(() => {
+    setCurrent(findCurrentIndex(pathname));
+  }, [pathname]);
+
   const items = toolsData.map(tool => (
     <NavLink
       key={tool.name}
@@ -31,7 +39,13 @@ export default function Navbar({ className }) {
           <Link to="/" className={classes.logo}>
             <img className={classes.logoImage} src={logoText} alt="" />
           </Link>
-          <div className={classes.links}>{items}</div>
+          <div className={classes.links}>
+            {items}
+            <div
+              className={classes.linkBackground}
+              style={{ transform: `translateY(${current * 72}px)` }}
+            />
+          </div>
         </div>
 
         <div className={classes.footer}>
