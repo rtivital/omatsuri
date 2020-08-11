@@ -24,7 +24,7 @@ export default function Slider({ min, max, value, onChange }) {
         },
 
         active: {
-          backgroundColor: oc.violet[5],
+          backgroundColor: oc.violet[2],
         },
       }}
     />

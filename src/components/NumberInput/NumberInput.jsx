@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
+import Input from '../Input/Input';
 import useIntermediateValue from '../../hooks/use-intermediate-value';
-import classes from './NumberInput.styles.less';
 
-export default function NumberInput({ className, value, onChange, min = 0, max = 100 }) {
+export default function NumberInput({ value, onChange, min = 0, max = 100, ...others }) {
   const { intermediateValue, valid, handleChange, handleSubmit } = useIntermediateValue({
     value,
     onChange,
@@ -13,8 +12,9 @@ export default function NumberInput({ className, value, onChange, min = 0, max =
   });
 
   return (
-    <input
-      className={cx(classes.input, { [classes.invalid]: !valid }, className)}
+    <Input
+      {...others}
+      invalid={!valid}
       type="text"
       value={intermediateValue}
       onChange={event => handleChange(event.target.value)}
@@ -24,7 +24,6 @@ export default function NumberInput({ className, value, onChange, min = 0, max =
 }
 
 NumberInput.propTypes = {
-  className: PropTypes.string,
   value: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   min: PropTypes.number,
