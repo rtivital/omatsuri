@@ -5,6 +5,12 @@
   position: relative;
   height: 300px;
   width: 300px;
+
+  &:hover {
+    & .overlay {
+      background-color: @oc-white;
+    }
+  }
 }
 
 .overlay {
@@ -14,6 +20,7 @@
   left: 0;
   bottom: 0;
   background-image: radial-gradient(circle, transparent 0%, @oc-white 80%);
+  transition: background-color 250ms ease;
 }
 
 .background {
