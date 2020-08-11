@@ -5,6 +5,7 @@ import useDocumentTitle from '../../hooks/use-document-title';
 import Settings from './Settings/Settings';
 import TrianglePreview from './TrianglePreview/TrianglePreview';
 import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
+import Code from './Code/Code';
 import classes from './TriangleGenerator.styles.less';
 
 const predefinedSizes = {
@@ -71,12 +72,22 @@ export default function TriangleGenerator() {
       </div>
 
       <div className={classes.column}>
-        <div className={classes.header}>
-          <h2 className={classes.title}>Preview</h2>
-          <ThemeToggle theme={theme} onToggle={toggleTheme} label="preview" />
+        <div className={classes.section}>
+          <div className={classes.header}>
+            <h2 className={classes.title}>Preview</h2>
+            <ThemeToggle theme={theme} onToggle={toggleTheme} label="preview" />
+          </div>
+
+          <TrianglePreview values={values} theme={theme} />
         </div>
 
-        <TrianglePreview values={values} theme={theme} />
+        <div className={classes.section}>
+          <div className={classes.header}>
+            <h2 className={classes.title}>Generated code</h2>
+          </div>
+
+          <Code values={values} />
+        </div>
       </div>
     </div>
   );
