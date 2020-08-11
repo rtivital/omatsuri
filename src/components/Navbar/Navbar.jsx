@@ -8,7 +8,7 @@ import toolsData from '../../data/tools';
 import classes from './Navbar.styles.less';
 
 const isActive = (path, match, location) => !!(match || path === location.pathname);
-const findCurrentIndex = pathname => toolsData.findIndex(tool => pathname.includes(tool.link));
+const findCurrentIndex = pathname => toolsData.findIndex(tool => pathname === tool.link);
 
 export default function Navbar({ className }) {
   const { pathname } = useLocation();
@@ -43,7 +43,7 @@ export default function Navbar({ className }) {
             {items}
             <div
               className={classes.linkBackground}
-              style={{ transform: `translateY(${current * 72}px)` }}
+              style={{ transform: current !== -1 ? `translateY(${current * 72}px)` : 'scaleY(0)' }}
             />
           </div>
         </div>
