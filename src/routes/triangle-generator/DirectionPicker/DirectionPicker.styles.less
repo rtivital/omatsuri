@@ -1,0 +1,47 @@
+@import 'open-color/open-color.less';
+
+.wrapper {
+  width: 150px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.control {
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+
+  background-color: #fff;
+  border: 1px solid @oc-gray-3;
+  padding-left: 15px;
+  padding-right: 15px;
+  outline: 0;
+  appearance: none;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background-color: @oc-gray-0;
+  }
+}
+
+.active {
+  pointer-events: none;
+  background-color: @oc-violet-0;
+
+  &:hover {
+    background-color: @oc-violet-0;
+  }
+}
+
+.blank {
+  margin: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: @oc-gray-0;
+  border-radius: 5px;
+}
