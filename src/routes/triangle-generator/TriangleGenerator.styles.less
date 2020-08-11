@@ -1,3 +1,5 @@
+@import 'open-color/open-color.less';
+
 .wrapper {
   display: flex;
 }
@@ -12,4 +14,20 @@
   &:last-of-type {
     flex: 1;
   }
+}
+
+.header {
+  margin-bottom: 10px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  color: @oc-gray-7;
+  margin: 0;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 1;
 }

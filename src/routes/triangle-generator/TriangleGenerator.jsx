@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import useDocumentTitle from '../../hooks/use-document-title';
 import Settings from './Settings/Settings';
 import TrianglePreview from './TrianglePreview/TrianglePreview';
+import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 import classes from './TriangleGenerator.styles.less';
 
 const predefinedSizes = {
@@ -25,6 +26,8 @@ export default function TriangleGenerator() {
   const [width, onWidthChange] = useState(predefinedSizes.lg.width);
   const [height, onHeightChange] = useState(predefinedSizes.lg.height);
   const [color, onColorChange] = useState(oc.violet[7]);
+  const [theme, setTheme] = useState('light');
+  const toggleTheme = () => setTheme(current => (current === 'light' ? 'dark' : 'light'));
 
   const setPredefinedSize = size => {
     if (size in predefinedSizes) {
@@ -58,7 +61,12 @@ export default function TriangleGenerator() {
       </div>
 
       <div className={classes.column}>
-        <TrianglePreview values={values} />
+        <div className={classes.header}>
+          <h2 className={classes.title}>Preview</h2>
+          <ThemeToggle theme={theme} onToggle={toggleTheme} label="preview" />
+        </div>
+
+        <TrianglePreview values={values} theme={theme} />
       </div>
     </div>
   );

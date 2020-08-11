@@ -23,6 +23,6 @@ export default function HexInput({ value, onChange, ...others }) {
 }
 
 HexInput.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
