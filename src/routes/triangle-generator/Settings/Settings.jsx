@@ -18,7 +18,9 @@ export default function Settings({ values, handlers }) {
         <h2 className={classes.title}>Size</h2>
         <SizePicker
           value={{ width: values.width, height: values.height }}
+          predefinedSizes={values.predefinedSizes}
           setPredefinedSize={handlers.setPredefinedSize}
+          activePredefinedSize={values.activePredefinedSize}
           onWidthChange={handlers.onWidthChange}
           onHeightChange={handlers.onHeightChange}
         />
@@ -29,10 +31,12 @@ export default function Settings({ values, handlers }) {
 
 Settings.propTypes = {
   values: PropTypes.shape({
+    predefinedSizes: PropTypes.object,
+    activePredefinedSize: PropTypes.string,
     direction: PropTypes.oneOf(directions).isRequired,
     height: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
-    color: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired,
   }).isRequired,
 
   handlers: PropTypes.shape({

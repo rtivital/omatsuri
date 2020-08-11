@@ -12,7 +12,7 @@ const predefinedSizes = {
 
 function getActivePredefinedSize({ width, height }) {
   return Object.keys(predefinedSizes).find(
-    size => predefinedSizes[size].with === width && predefinedSizes.height === height
+    size => predefinedSizes[size].width === width && predefinedSizes[size].height === height
   );
 }
 
@@ -31,6 +31,7 @@ export default function TriangleGenerator() {
   };
 
   const values = {
+    predefinedSizes,
     activePredefinedSize: getActivePredefinedSize({ width, height }),
     direction,
     height,

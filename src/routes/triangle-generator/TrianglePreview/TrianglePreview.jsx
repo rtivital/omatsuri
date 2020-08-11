@@ -9,7 +9,8 @@ export default function TrianglePreview({ values }) {
   return (
     <Background className={classes.wrapper}>
       <div className={classes.overlay} />
-      <div className={classes.background}>
+      <div className={classes.background} />
+      <div className={classes.triangle}>
         <Triangle {...values} />
       </div>
     </Background>
