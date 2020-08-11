@@ -1,47 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import useIntermediateValue from '../../hooks/use-intermediate-value';
 import classes from './NumberInput.styles.less';
 
 export default function NumberInput({ className, value, onChange, min = 0, max = 100 }) {
-  const [valid, setValid] = useState(true);
-  const [intermidiateValue, setIntermediateValue] = useState(value.toString());
-  const isInputValid = val => !Number.isNaN(val) && val <= max && val >= min;
-
-  useEffect(() => {
-    setIntermediateValue(value);
-  }, [value]);
-
-  const handleChange = event => {
-    const parsedValue = Number(event.target.value, 10);
-    const isValid = isInputValid(parsedValue);
-
-    setIntermediateValue(event.target.value);
-    setValid(isValid);
-
-    isValid && onChange(parsedValue);
-  };
-
-  const handleBlur = event => {
-    const parsedValue = Number(event.target.value, 10);
-    const isValid = isInputValid(parsedValue);
-
-    setValid(true);
-
-    if (isValid) {
-      setIntermediateValue(parsedValue.toString());
-    } else {
-      setIntermediateValue(value.toString());
-    }
-  };
+  const { intermediateValue, valid, handleChange, handleSubmit } = useIntermediateValue({
+    value,
+    onChange,
+    rule: val => !Number.isNaN(val) && val <= max && val >= min,
+    format: val => Number(val),
+  });
 
   return (
     <input
       className={cx(classes.input, { [classes.invalid]: !valid }, className)}
       type="text"
-      value={intermidiateValue}
-      onChange={handleChange}
-      onBlur={handleBlur}
+      value={intermediateValue}
+      onChange={event => handleChange(event.target.value)}
+      onBlur={event => handleSubmit(event.target.value)}
     />
   );
 }

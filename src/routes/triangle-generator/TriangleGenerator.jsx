@@ -1,5 +1,6 @@
 import oc from 'open-color';
 import React, { useState } from 'react';
+import useDocumentTitle from '../../hooks/use-document-title';
 import Settings from './Settings/Settings';
 import TrianglePreview from './TrianglePreview/TrianglePreview';
 import classes from './TriangleGenerator.styles.less';
@@ -18,6 +19,8 @@ function getActivePredefinedSize({ width, height }) {
 }
 
 export default function TriangleGenerator() {
+  useDocumentTitle('Triangle generator');
+
   const [direction, onDirectionChange] = useState('bottom');
   const [width, onWidthChange] = useState(predefinedSizes.lg.width);
   const [height, onHeightChange] = useState(predefinedSizes.lg.height);
