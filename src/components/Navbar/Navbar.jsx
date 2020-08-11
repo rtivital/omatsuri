@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import GithubButton from '../GithubButton/GithubButton';
+import logoText from '../../assets/logo-text.svg';
 import toolsData from '../../data/tools';
 import classes from './Navbar.styles.less';
 
@@ -28,7 +29,7 @@ export default function Navbar({ className }) {
       <div className={classes.inner}>
         <div className={classes.main}>
           <Link to="/" className={classes.logo}>
-            Omatsuri (logo placeholder)
+            <img className={classes.logoImage} src={logoText} alt="" />
           </Link>
           <div className={classes.links}>{items}</div>
         </div>
