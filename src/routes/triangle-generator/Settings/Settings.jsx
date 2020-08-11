@@ -32,12 +32,14 @@ Settings.propTypes = {
     direction: PropTypes.oneOf(directions).isRequired,
     height: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
+    color: PropTypes.number.isRequired,
   }).isRequired,
 
   handlers: PropTypes.shape({
     onDirectionChange: PropTypes.func.isRequired,
     onWidthChange: PropTypes.func.isRequired,
     onHeightChange: PropTypes.func.isRequired,
+    onColorChange: PropTypes.func.isRequired,
     setPredefinedSize: PropTypes.func.isRequired,
   }),
 };
