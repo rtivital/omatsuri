@@ -18,9 +18,14 @@
   appearance: none;
   cursor: pointer;
   user-select: none;
+  transition: transform 100ms ease;
 
   &:hover {
     background-color: @oc-gray-0;
+  }
+
+  &:active {
+    transform: translateY(1px);
   }
 
   & + & {
