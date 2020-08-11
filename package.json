@@ -59,6 +59,7 @@
     "react-hot-loader": "^4.12.21",
     "react-input-slider": "^6.0.0",
     "react-router-dom": "^5.2.0",
+    "tinycolor2": "^1.4.1",
     "typeface-source-sans-pro": "^1.1.5"
   }
 }

@@ -1,5 +1,6 @@
 import oc from 'open-color';
 import React, { useState } from 'react';
+import tinycolor from 'tinycolor2';
 import useDocumentTitle from '../../hooks/use-document-title';
 import Settings from './Settings/Settings';
 import TrianglePreview from './TrianglePreview/TrianglePreview';
@@ -37,6 +38,15 @@ export default function TriangleGenerator() {
     }
   };
 
+  const handleColorChange = value => {
+    onColorChange(value);
+    if (tinycolor(value).isLight()) {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
+
   const values = {
     predefinedSizes,
     activePredefinedSize: getActivePredefinedSize({ width, height }),
@@ -51,7 +61,7 @@ export default function TriangleGenerator() {
     onWidthChange,
     onHeightChange,
     setPredefinedSize,
-    onColorChange,
+    onColorChange: handleColorChange,
   };
 
   return (
