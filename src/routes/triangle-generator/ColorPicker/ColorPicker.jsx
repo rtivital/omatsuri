@@ -2,6 +2,7 @@ import oc from 'open-color';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Swatch from '../../../components/Swatch/Swatch';
+import HexInput from '../../../components/HexInput/HexInput';
 import classes from './ColorPicker.styles.less';
 
 const predefinedColors = [
@@ -27,6 +28,7 @@ export default function ColorPicker({ value, onChange }) {
   return (
     <div>
       <div className={classes.swatches}>{swatches}</div>
+      <HexInput className={classes.input} value={value} onChange={onChange} />
     </div>
   );
 }
