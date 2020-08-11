@@ -22,7 +22,7 @@ export default function Tabs({ className, data, active, onTabChange }) {
 
 Tabs.propTypes = {
   className: PropTypes.string,
-  active: PropTypes.string.isRequired,
+  active: PropTypes.string,
   onTabChange: PropTypes.func.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({

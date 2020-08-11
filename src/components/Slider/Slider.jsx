@@ -13,6 +13,7 @@ export default function Slider({ min, max, value, onChange }) {
       onChange={({ x }) => onChange(x)}
       styles={{
         track: {
+          width: 220,
           backgroundColor: oc.gray[2],
           height: 12,
         },
@@ -34,5 +35,5 @@ Slider.propTypes = {
   min: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
-  onChange: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
 };

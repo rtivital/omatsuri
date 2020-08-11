@@ -2,6 +2,7 @@ import oc from 'open-color';
 import React, { useState } from 'react';
 import Settings from './Settings/Settings';
 import TrianglePreview from './TrianglePreview/TrianglePreview';
+import classes from './TriangleGenerator.styles.less';
 
 const predefinedSizes = {
   sm: { width: 10, height: 6 },
@@ -48,10 +49,12 @@ export default function TriangleGenerator() {
   };
 
   return (
-    <div>
-      <Settings values={values} handlers={handlers} />
+    <div className={classes.wrapper}>
+      <div className={classes.column}>
+        <Settings values={values} handlers={handlers} />
+      </div>
 
-      <div>
+      <div className={classes.column}>
         <TrianglePreview values={values} />
       </div>
     </div>

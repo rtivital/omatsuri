@@ -1,0 +1,19 @@
+@import 'open-color/open-color.less';
+
+.input {
+  background-color: @oc-white;
+  border: 1px solid @oc-gray-5;
+  height: 36px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+
+  &:focus {
+    outline: 0;
+    border-color: @oc-violet-5;
+  }
+}
+
+.invalid {
+  border-color: @oc-red-5 !important;
+}

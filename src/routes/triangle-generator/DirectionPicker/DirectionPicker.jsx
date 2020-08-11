@@ -10,17 +10,17 @@ function getSize(direction) {
   switch (direction) {
     case 'top':
     case 'bottom':
-      return { width: 16, height: 10 };
+      return { width: 26, height: 16 };
 
     case 'right':
     case 'left':
-      return { width: 10, height: 16 };
+      return { width: 16, height: 26 };
 
     case 'top-right':
     case 'top-left':
     case 'bottom-left':
     case 'bottom-right':
-      return { width: 12, height: 12 };
+      return { width: 20, height: 20 };
 
     default:
       return null;
@@ -36,7 +36,7 @@ export default function DirectionPicker({ className, value, onChange }) {
       key={direction}
     >
       <Triangle
-        color={value === direction ? oc.violet[5] : oc.gray[7]}
+        color={value === direction ? oc.violet[5] : oc.gray[6]}
         direction={direction}
         {...getSize(direction)}
       />
