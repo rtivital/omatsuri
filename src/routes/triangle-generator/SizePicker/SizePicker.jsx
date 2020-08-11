@@ -22,12 +22,12 @@ export default function SizePicker({
       />
 
       <div className={classes.field}>
-        <div className={classes.title}>Width</div>
+        <div className={classes.title}>Width, px</div>
         <SliderInput value={value.width} onChange={onWidthChange} min={1} max={200} />
       </div>
 
       <div className={classes.field}>
-        <div className={classes.title}>Height</div>
+        <div className={classes.title}>Height, px</div>
         <SliderInput value={value.height} onChange={onHeightChange} min={1} max={200} />
       </div>
     </div>
