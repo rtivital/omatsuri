@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import Background from '../Background/Background';
 import GithubButton from '../GithubButton/GithubButton';
 import logoText from '../../assets/logo-text.svg';
 import toolsData from '../../data/tools';
@@ -33,7 +34,7 @@ export default function Navbar({ className }) {
   ));
 
   return (
-    <nav className={cx(classes.navbar, className)}>
+    <Background component="nav" className={cx(classes.navbar, className)}>
       <div className={classes.inner}>
         <div className={classes.main}>
           <Link to="/" className={classes.logo}>
@@ -52,7 +53,7 @@ export default function Navbar({ className }) {
           <GithubButton />
         </div>
       </div>
-    </nav>
+    </Background>
   );
 }
 

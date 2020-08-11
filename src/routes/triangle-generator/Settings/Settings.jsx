@@ -1,0 +1,43 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import Background from '../../../components/Background/Background';
+import directions from '../directions';
+import DirectionPicker from '../DirectionPicker/DirectionPicker';
+import SizePicker from '../SizePicker/SizePicker';
+import classes from './Settings.styles.less';
+
+export default function Settings({ values, handlers }) {
+  return (
+    <Background className={classes.wrapper}>
+      <div className={classes.section}>
+        <h2 className={classes.title}>Direction</h2>
+        <DirectionPicker value={values.direction} onChange={handlers.onDirectionChange} />
+      </div>
+
+      <div className={classes.section}>
+        <h2 className={classes.title}>Size</h2>
+        <SizePicker
+          value={{ width: values.width, height: values.height }}
+          setPredefinedSize={handlers.setPredefinedSize}
+          onWidthChange={handlers.onWidthChange}
+          onHeightChange={handlers.onHeightChange}
+        />
+      </div>
+    </Background>
+  );
+}
+
+Settings.propTypes = {
+  values: PropTypes.shape({
+    direction: PropTypes.oneOf(directions).isRequired,
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+  }).isRequired,
+
+  handlers: PropTypes.shape({
+    onDirectionChange: PropTypes.func.isRequired,
+    onWidthChange: PropTypes.func.isRequired,
+    onHeightChange: PropTypes.func.isRequired,
+    setPredefinedSize: PropTypes.func.isRequired,
+  }),
+};
