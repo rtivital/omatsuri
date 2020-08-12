@@ -1,7 +1,8 @@
 import oc from 'open-color';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import tinycolor from 'tinycolor2';
 import useDocumentTitle from '../../hooks/use-document-title';
+import useLocalStorage from '../../hooks/use-local-storage';
 import Settings from './Settings/Settings';
 import TrianglePreview from './TrianglePreview/TrianglePreview';
 import Code from './Code/Code';
@@ -14,6 +15,14 @@ const predefinedSizes = {
   xl: { width: 128, height: 94 },
 };
 
+const INITIAL_VALUES = {
+  direction: 'bottom',
+  width: predefinedSizes.lg.width,
+  height: predefinedSizes.lg.height,
+  color: oc.violet[7],
+  theme: 'light',
+};
+
 function getActivePredefinedSize({ width, height }) {
   return Object.keys(predefinedSizes).find(
     size => predefinedSizes[size].width === width && predefinedSizes[size].height === height
@@ -23,11 +32,19 @@ function getActivePredefinedSize({ width, height }) {
 export default function TriangleGenerator() {
   useDocumentTitle('Triangle generator');
 
-  const [direction, onDirectionChange] = useState('bottom');
-  const [width, onWidthChange] = useState(predefinedSizes.lg.width);
-  const [height, onHeightChange] = useState(predefinedSizes.lg.height);
-  const [color, onColorChange] = useState(oc.violet[7]);
-  const [theme, setTheme] = useState('light');
+  const ls = useLocalStorage({ key: '@omatsuri/triangle-generator', delay: 1000 });
+  const initialValues = ls.retrieve() || INITIAL_VALUES;
+
+  const [direction, onDirectionChange] = useState(initialValues.direction);
+  const [width, onWidthChange] = useState(initialValues.width);
+  const [height, onHeightChange] = useState(initialValues.height);
+  const [color, onColorChange] = useState(initialValues.color);
+  const [theme, setTheme] = useState(initialValues.theme);
+
+  useEffect(() => {
+    ls.save({ direction, width, height, color, theme });
+  }, [direction, width, height, color, theme]);
+
   const toggleTheme = () => setTheme(current => (current === 'light' ? 'dark' : 'light'));
 
   const setPredefinedSize = size => {

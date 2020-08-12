@@ -1,15 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-export default function useLocalStorage({ key, values, delay }) {
+export default function useLocalStorage({ key, delay }) {
   const [saved, setSaved] = useState(true);
+  const [saveTimeout, setSaveTimeout] = useState(null);
 
-  const save = () => {
-    try {
-      global.localStorage.setItem(key, JSON.stringify(values));
-      setSaved(true);
-    } catch (e) {
-      setSaved(false);
-    }
+  const save = values => {
+    global.clearTimeout(saveTimeout);
+
+    const timeout = setTimeout(() => {
+      try {
+        global.localStorage.setItem(key, JSON.stringify(values));
+        setSaved(true);
+      } catch (e) {
+        setSaved(false);
+      }
+    }, delay);
+
+    setSaveTimeout(timeout);
   };
 
   const retrieve = () => {
@@ -19,11 +26,6 @@ export default function useLocalStorage({ key, values, delay }) {
       return null;
     }
   };
-
-  useEffect(() => {
-    const timeout = global.setTimeout(save, delay);
-    return () => global.clearTimeout(timeout);
-  }, []);
 
   return { saved, save, retrieve };
 }
