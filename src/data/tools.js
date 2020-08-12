@@ -53,7 +53,7 @@ export default [
   },
 
   {
-    link: '/lorem-impsum',
+    link: '/lorem-ipsum',
     name: 'Lorem ipsum',
     description: 'Generate different kinds of lorem ipsum text',
     icon: loremIpsum,

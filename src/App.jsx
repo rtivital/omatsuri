@@ -7,6 +7,7 @@ import NotFound from './components/NotFound/NotFound';
 
 import Index from './routes/Index/Index';
 import TriangleGenerator from './routes/triangle-generator/TriangleGenerator';
+import LoremIpsum from './routes/lorem-ipsum/LoremIpsum';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <AppContainer>
             <Switch>
               <Route path="/triangle-generator" exact component={TriangleGenerator} />
+              <Route path="/lorem-ipsum" exact component={LoremIpsum} />
               <Route component={NotFound} />
             </Switch>
           </AppContainer>
