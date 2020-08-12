@@ -1,0 +1,47 @@
+@import 'open-color/open-color.less';
+
+.highlight {
+  position: relative;
+  overflow: auto;
+  padding: 15px 20px !important;
+  background-color: #f9f9fd !important;
+  border-radius: 15px;
+  font-size: 13px;
+
+  pre {
+    background-color: #f9f9fd !important;
+    margin: 0 !important;
+  }
+
+  code {
+    padding: 0 !important;
+  }
+}
+
+.copy {
+  position: absolute;
+  appearance: none;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  padding: 10px 15px;
+  font-size: 14px;
+  line-height: 1;
+  border: 0;
+  border-top-right-radius: 14px;
+  border-bottom-left-radius: 5px;
+  background-color: @oc-violet-0;
+  color: @oc-violet-9;
+  outline: 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: @oc-violet-1;
+  }
+}
+
+.copied {
+  pointer-events: none;
+  background-color: @oc-green-0;
+  color: @oc-green-9;
+}

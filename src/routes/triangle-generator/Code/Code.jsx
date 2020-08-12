@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import PropTypes from 'prop-types';
 import Tabs from '../../../components/Tabs/Tabs';
 import Background from '../../../components/Background/Background';
+import Highlight from '../../../components/Hightlight/Highlight';
+import directions from '../directions';
 import generateExample from './generate-example';
 import classes from './Code.styles.less';
 
@@ -16,16 +17,25 @@ export default function Code({ values }) {
     <Background className={classes.wrapper}>
       <Tabs data={languages} active={language} onTabChange={setLanguage} />
       <div className={classes.code}>
-        <div className={classes.tilte}>Element</div>
-        <SyntaxHighlighter language={lang} style={coy}>
-          {examples[0]}
-        </SyntaxHighlighter>
+        <div className={classes.section}>
+          <div className={classes.title}>Element</div>
+          <Highlight language={lang}>{examples[0]}</Highlight>
+        </div>
 
-        <div className={classes.tilte}>Pseudo-element</div>
-        <SyntaxHighlighter language={lang} style={coy}>
-          {examples[1]}
-        </SyntaxHighlighter>
+        <div className={classes.section}>
+          <div className={classes.title}>Pseudo-element</div>
+          <Highlight language={lang}>{examples[1]}</Highlight>
+        </div>
       </div>
     </Background>
   );
 }
+
+Code.propTypes = {
+  values: PropTypes.shape({
+    direction: PropTypes.oneOf(directions).isRequired,
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired,
+  }).isRequired,
+};
