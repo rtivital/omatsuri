@@ -94,7 +94,12 @@ module.exports = {
               },
             },
           },
-          'less-loader',
+          {
+            loader: 'less-loader',
+            options: {
+              prependData: "@import 'open-color/open-color.less';",
+            },
+          },
           ...(mode === 'production' ? ['postcss-loader'] : []),
         ],
       },
