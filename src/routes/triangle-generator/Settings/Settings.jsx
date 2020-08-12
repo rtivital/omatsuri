@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Background from '../../../components/Background/Background';
+import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
 import directions from '../directions';
 import DirectionPicker from '../DirectionPicker/DirectionPicker';
 import SizePicker from '../SizePicker/SizePicker';
@@ -12,12 +13,12 @@ export default function Settings({ values, handlers }) {
     <Background className={classes.wrapper}>
       <div className={classes.inner}>
         <div className={classes.section}>
-          <h2 className={classes.title}>Direction</h2>
+          <SettingsLabel>Direction</SettingsLabel>
           <DirectionPicker value={values.direction} onChange={handlers.onDirectionChange} />
         </div>
 
         <div className={classes.section}>
-          <h2 className={classes.title}>Size</h2>
+          <SettingsLabel>Size</SettingsLabel>
           <SizePicker
             value={{ width: values.width, height: values.height }}
             predefinedSizes={values.predefinedSizes}
@@ -29,7 +30,7 @@ export default function Settings({ values, handlers }) {
         </div>
 
         <div className={classes.section}>
-          <h2 className={classes.title}>Color</h2>
+          <SettingsLabel>Color</SettingsLabel>
           <ColorPicker value={values.color} onChange={handlers.onColorChange} />
         </div>
       </div>
