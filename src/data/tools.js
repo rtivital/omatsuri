@@ -4,6 +4,7 @@ import svgCompression from '../assets/svg-compression.svg';
 import svg2jsx from '../assets/svg-to-jsx.svg';
 import symbolsCollection from '../assets/symbols-collection.svg';
 import curvedDividers from '../assets/curved-dividers.svg';
+import loremIpsum from '../assets/lorem-inpsum.svg';
 
 export default [
   {
@@ -49,5 +50,12 @@ export default [
     name: 'Curved page dividers',
     description: 'Tool to generate curved page dividers with css and svg images',
     icon: curvedDividers,
+  },
+
+  {
+    link: '/lorem-impsum',
+    name: 'Lorem ipsum',
+    description: 'Generate different kinds of lorem ipsum text',
+    icon: loremIpsum,
   },
 ];
