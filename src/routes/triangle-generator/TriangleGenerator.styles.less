@@ -2,13 +2,14 @@
 
 .wrapper {
   display: flex;
+  flex-direction: column;
 }
 
-.column {
+.row {
   margin: 10px;
 
   & + & {
-    margin-left: 0;
+    margin-top: 0;
   }
 
   &:last-of-type {

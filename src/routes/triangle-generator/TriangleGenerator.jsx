@@ -4,7 +4,6 @@ import tinycolor from 'tinycolor2';
 import useDocumentTitle from '../../hooks/use-document-title';
 import Settings from './Settings/Settings';
 import TrianglePreview from './TrianglePreview/TrianglePreview';
-import ThemeToggle from '../../components/ThemeToggle/ThemeToggle';
 import Code from './Code/Code';
 import classes from './TriangleGenerator.styles.less';
 
@@ -67,27 +66,16 @@ export default function TriangleGenerator() {
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.column}>
+      <div className={classes.row}>
         <Settings values={values} handlers={handlers} />
       </div>
 
-      <div className={classes.column}>
-        <div className={classes.section}>
-          <div className={classes.header}>
-            <h2 className={classes.title}>Preview</h2>
-            <ThemeToggle theme={theme} onToggle={toggleTheme} label="preview" />
-          </div>
+      <div className={classes.row}>
+        <TrianglePreview values={values} theme={theme} onThemeToggle={toggleTheme} />
+      </div>
 
-          <TrianglePreview values={values} theme={theme} />
-        </div>
-
-        <div className={classes.section}>
-          <div className={classes.header}>
-            <h2 className={classes.title}>Generated code</h2>
-          </div>
-
-          <Code values={values} />
-        </div>
+      <div className={classes.row}>
+        <Code values={values} />
       </div>
     </div>
   );

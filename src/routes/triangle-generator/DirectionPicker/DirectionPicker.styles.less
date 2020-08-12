@@ -1,7 +1,9 @@
 @import 'open-color/open-color.less';
 
+@cell-size: 61px;
+
 .wrapper {
-  width: 300px;
+  width: @cell-size * 3 + 30px;
   display: flex;
   flex-wrap: wrap;
   margin-left: -5px;
@@ -10,8 +12,8 @@
 
 .control {
   margin: 5px;
-  width: 90px;
-  height: 90px;
+  width: @cell-size;
+  height: @cell-size;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,8 +44,8 @@
 
 .blank {
   margin: 5px;
-  width: 90px;
-  height: 90px;
+  width: @cell-size;
+  height: @cell-size;
   background-color: @oc-gray-0;
   border-radius: 5px;
 }

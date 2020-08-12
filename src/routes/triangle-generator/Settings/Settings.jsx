@@ -10,26 +10,28 @@ import classes from './Settings.styles.less';
 export default function Settings({ values, handlers }) {
   return (
     <Background className={classes.wrapper}>
-      <div className={classes.section}>
-        <h2 className={classes.title}>Direction</h2>
-        <DirectionPicker value={values.direction} onChange={handlers.onDirectionChange} />
-      </div>
+      <div className={classes.inner}>
+        <div className={classes.section}>
+          <h2 className={classes.title}>Direction</h2>
+          <DirectionPicker value={values.direction} onChange={handlers.onDirectionChange} />
+        </div>
 
-      <div className={classes.section}>
-        <h2 className={classes.title}>Size</h2>
-        <SizePicker
-          value={{ width: values.width, height: values.height }}
-          predefinedSizes={values.predefinedSizes}
-          setPredefinedSize={handlers.setPredefinedSize}
-          activePredefinedSize={values.activePredefinedSize}
-          onWidthChange={handlers.onWidthChange}
-          onHeightChange={handlers.onHeightChange}
-        />
-      </div>
+        <div className={classes.section}>
+          <h2 className={classes.title}>Size</h2>
+          <SizePicker
+            value={{ width: values.width, height: values.height }}
+            predefinedSizes={values.predefinedSizes}
+            setPredefinedSize={handlers.setPredefinedSize}
+            activePredefinedSize={values.activePredefinedSize}
+            onWidthChange={handlers.onWidthChange}
+            onHeightChange={handlers.onHeightChange}
+          />
+        </div>
 
-      <div className={classes.section}>
-        <h2 className={classes.title}>Color</h2>
-        <ColorPicker value={values.color} onChange={handlers.onColorChange} />
+        <div className={classes.section}>
+          <h2 className={classes.title}>Color</h2>
+          <ColorPicker value={values.color} onChange={handlers.onColorChange} />
+        </div>
       </div>
     </Background>
   );
