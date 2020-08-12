@@ -9,7 +9,7 @@ function generateCssExample(value) {
   border-color: ${borderColor};`;
 
   const element = `.element {\n  ${shared}\n}`;
-  const pseudo = `.element::after {\n  ${shared}\n}`;
+  const pseudo = `.element::after {\n  content: '';\n  display: block;\n  ${shared}\n}`;
 
   return [element, pseudo];
 }
@@ -23,7 +23,7 @@ function generateScssExample(value) {
   border-color: ${borderColor};`;
 
   const element = `.element {\n  ${shared}\n}`;
-  const pseudo = `&::after {\n  content: '';\n  ${shared}  \n}`;
+  const pseudo = `&::after {\n  content: '';\n  display: block;\n  ${shared}  \n}`;
 
   return [element, pseudo];
 }
@@ -37,7 +37,7 @@ function generateJssExample(value) {
   border-color: '${borderColor}',`;
 
   const element = `const element = {\n  ${shared}\n};`;
-  const pseudo = `'&::after': {\n  content: "''",\n  ${shared}  \n},`;
+  const pseudo = `'&::after': {\n  content: "''",\n  display: 'block',\n  ${shared}  \n},`;
 
   return [element, pseudo];
 }
