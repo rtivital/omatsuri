@@ -3,7 +3,7 @@ import pokeipsum from 'pokeipsum';
 import samuelIpsum from 'samuel-ipsum';
 
 const generators = {
-  lorem: length => loremIpsum({ count: length }),
+  lorem: length => loremIpsum({ count: length, units: 'paragraphs' }),
   pokemon: pokeipsum.paragraphs,
   samuel: length => samuelIpsum.generateParagraphs(length).join('\n'),
 };
