@@ -1,0 +1,43 @@
+.button {
+  display: block;
+  appearance: none;
+  height: 34px;
+  line-height: 34px;
+  padding-left: 20px;
+  padding-right: 20px;
+  letter-spacing: 0.75px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: @oc-white;
+  border: 0;
+  border-radius: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: 0;
+  transition: transform 150ms ease, color 150ms ease;
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+.primary {
+  background-color: @oc-violet-5;
+  text-shadow: 1px 1px 0 @oc-violet-9;
+
+  &:hover {
+    background-color: @oc-violet-6;
+    transform: scale(1.03);
+  }
+}
+
+.success {
+  background-color: @oc-green-7;
+  text-shadow: 1px 1px 0 @oc-green-9;
+}

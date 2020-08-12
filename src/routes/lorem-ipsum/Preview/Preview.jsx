@@ -7,7 +7,7 @@ export default function Preview({ text }) {
   const nodes = text
     .split('\n')
     .filter(Boolean)
-    .map(node => <p key={node}>{node}</p>);
+    .map((node, index) => <p key={index}>{node}</p>);
 
   return <Background className={classes.wrapper}>{nodes}</Background>;
 }
