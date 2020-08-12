@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import useLocalStorage from '../../../hooks/use-local-storage';
 import Tabs from '../../../components/Tabs/Tabs';
 import Background from '../../../components/Background/Background';
 import Highlight from '../../../components/Hightlight/Highlight';
@@ -10,12 +11,18 @@ import classes from './Code.styles.less';
 const languages = ['.css', '.scss', '.jss'].map(language => ({ value: language, label: language }));
 
 export default function Code({ values }) {
-  const [language, setLanguage] = useState('.css');
+  const ls = useLocalStorage({ key: '@omatsuri/triangle-generator/code', delay: 10 });
+  const [language, setLanguage] = useState(ls.retrieve() || '.css');
   const [lang, examples] = generateExample(language, values);
+
+  const handleLanguageChange = l => {
+    setLanguage(l);
+    ls.save(l);
+  };
 
   return (
     <Background className={classes.wrapper}>
-      <Tabs data={languages} active={language} onTabChange={setLanguage} />
+      <Tabs data={languages} active={language} onTabChange={handleLanguageChange} />
       <div className={classes.code}>
         <div className={classes.section}>
           <div className={classes.title}>Element</div>
