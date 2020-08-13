@@ -73,6 +73,11 @@ module.exports = {
       },
 
       {
+        test: /\.worker\.js$/,
+        use: { loader: 'worker-loader' },
+      },
+
+      {
         test: /\.(less|css)$/,
         use: [
           mode === 'production'
