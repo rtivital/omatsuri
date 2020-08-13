@@ -1,13 +1,9 @@
 import optimize from 'svgo-browser/lib/optimize';
 
-function parseFileContent(file) {
-  return file;
-}
+onmessage = event => {
+  const { payload } = event.data;
 
-onmessage = (event) => {
-  const data = event.data.type === 'raw'
-    ? event.data.content
-    : parseFileContent(event.data.file);
-
-  optimize(data).then(postMessage);
+  optimize(event.data.content)
+    .then(content => postMessage({ error: null, payload, content }))
+    .catch(error => postMessage({ error, payload, content: null }));
 };
