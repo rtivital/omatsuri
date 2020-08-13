@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SvgDropzone from '../../components/SvgDropzone/SvgDropzone';
 import SvgoWorker from '../../workers/svgo.worker';
 import SourceCode from './SourceCode/SourceCode';
@@ -17,75 +17,73 @@ const processFile = file =>
 const INITIAL_PROGRESS_STATE = {
   loading: false,
   output: null,
-  error: false,
+  error: null,
 };
 
 export default function SvgCompressor() {
-  const [value, onChange] = useState('');
-  const [singleFileProgress, setSingleFileProgress] = useState(INITIAL_PROGRESS_STATE);
-  const [miltiFileProgress, setMultiFileProgress] = useState({});
+  const [value, setValue] = useState('');
+  const [results, setResults] = useState({});
+  const queue = useRef(0);
+  const incrementQueue = () => {
+    queue.current += 1;
+  };
 
   useEffect(() => {
     svgo.addEventListener('message', event => {
-      if (event.data.payload.single) {
-        setSingleFileProgress({
+      const { index, name, queue: q } = event.data.payload;
+      console.log(q);
+      setResults(current => ({
+        ...current,
+        [`${index}_${name}`]: {
+          queue: q,
           loading: false,
-          output: event.data.content,
           error: event.data.error,
-        });
-      } else {
-        const { index, name } = event.data.payload;
-        setMultiFileProgress(current => ({
-          ...current,
-          [`@@${index}@@${name}`]: {
-            loading: false,
-            error: event.data.error,
-            content: event.data.content,
-          },
-        }));
-      }
+          content: event.data.content,
+        },
+      }));
     });
   }, []);
 
   const handleFilesDrop = files => {
-    if (files.length > 0) {
-      if (files.length === 1) {
-        setMultiFileProgress({});
+    incrementQueue();
+    Promise.all(files.map(file => processFile(file))).then(filesData => {
+      setResults(current =>
+        filesData.reduce(
+          (acc, fileData, index) => {
+            acc[`${index}_${fileData.file.name}`] = {
+              ...INITIAL_PROGRESS_STATE,
+              queue: queue.current,
+            };
+            return acc;
+          },
+          { ...current }
+        )
+      );
 
-        processFile(files[0]).then(fileData => {
-          onChange(fileData.text);
-          svgo.postMessage({
-            content: fileData.text,
-            payload: { name: fileData.file.name, single: true },
-          });
+      filesData.forEach((fileData, index) => {
+        svgo.postMessage({
+          content: fileData.text,
+          payload: { name: fileData.file.name, index, queue: queue.current },
         });
-      } else {
-        Promise.all(files.map(file => processFile(file))).then(filesData => {
-          setSingleFileProgress(INITIAL_PROGRESS_STATE);
+      });
+    });
+  };
 
-          setMultiFileProgress(
-            filesData.reduce((acc, fileData, index) => {
-              acc[`@@${index}@@${fileData.file.name}`] = INITIAL_PROGRESS_STATE;
-              return acc;
-            }, {})
-          );
+  const handleChange = text => {
+    setValue(text);
+    incrementQueue();
 
-          filesData.forEach((fileData, index) => {
-            svgo.postMessage({
-              content: fileData.text,
-              payload: { name: fileData.file.name, index },
-            });
-          });
-        });
-      }
-    }
+    svgo.postMessage({
+      content: text,
+      payload: { name: 'file', index: 'input', queue: queue.current },
+    });
   };
 
   return (
     <div>
       <SvgDropzone onDrop={handleFilesDrop} />
-      <SourceCode value={value} onChange={onChange} />
-      <Output singleFileProgress={singleFileProgress} miltiFileProgress={miltiFileProgress} />
+      <SourceCode value={value} onChange={handleChange} />
+      <Output results={results} />
     </div>
   );
 }
