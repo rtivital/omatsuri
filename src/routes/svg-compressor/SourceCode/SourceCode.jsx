@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '../../../components/Button/Button';
 import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
 import Background from '../../../components/Background/Background';
 import formatFileName from '../format-file-name';
+import example from './example';
 import classes from './SourceCode.styles.less';
 
 export default function SourceCode({ value, onChange, errors }) {
@@ -12,7 +14,14 @@ export default function SourceCode({ value, onChange, errors }) {
 
   return (
     <Background className={classes.wrapper}>
-      <SettingsLabel>Paste svg markup or drop svg files to browser window</SettingsLabel>
+      <div className={classes.header}>
+        <SettingsLabel className={classes.title}>
+          Paste svg markup or drop svg files to browser window
+        </SettingsLabel>
+        <Button theme="secondary" onClick={() => onChange(example)}>
+          Load example
+        </Button>
+      </div>
       <textarea
         placeholder="Paste svg markup here"
         className={classes.input}
