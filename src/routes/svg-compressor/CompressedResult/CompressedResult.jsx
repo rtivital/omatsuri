@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import useClipboard from '../../../hooks/use-clipboard';
 import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
 import Background from '../../../components/Background/Background';
@@ -9,7 +10,18 @@ import formatFileName from '../format-file-name';
 import classes from './CompressedResult.styles.less';
 
 export default function CompressedResult({ content, fileKey }) {
+  const history = useHistory();
   const { copied, copy } = useClipboard();
+
+  const convertToJsx = () => {
+    localStorage.setItem('@omatsuri/conversion-after-compression/jsx', content);
+    history.push('/svg-to-jsx');
+  };
+
+  const convertToB64 = () => {
+    localStorage.setItem('@omatsuri/conversion-after-compression/b64', content);
+    history.push('/b64-encoding');
+  };
 
   return (
     <Background className={classes.wrapper}>
@@ -18,14 +30,29 @@ export default function CompressedResult({ content, fileKey }) {
         <div dangerouslySetInnerHTML={{ __html: content }} />
         <div className={classes.name}>{formatFileName(fileKey)}</div>
         <div className={classes.controls}>
-          <CopyCodeButton copied={copied} onClick={() => copy(content)} />
+          <CopyCodeButton
+            copied={copied}
+            onClick={() => copy(content)}
+            className={classes.control}
+          />
           <Button
+            className={classes.control}
             component="a"
+            theme="secondary"
             download={fileKey}
             href={`data:image/svg+xml;charset=utf-8;base64,${btoa(content)}`}
           >
             download
           </Button>
+          <div className={classes.controlsLabel}>or convert to</div>
+          <div className={classes.controlsGroup}>
+            <Button className={classes.controlsGroupItem} theme="blue" onClick={convertToJsx}>
+              jsx
+            </Button>
+            <Button className={classes.controlsGroupItem} theme="red" onClick={convertToB64}>
+              base64
+            </Button>
+          </div>
         </div>
       </div>
 

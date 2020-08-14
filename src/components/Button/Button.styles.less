@@ -3,19 +3,22 @@
   appearance: none;
   height: 30px;
   line-height: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0 15px;
   letter-spacing: 0.75px;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 12px;
   color: @oc-white;
-  border: 0;
+  border: 1px solid transparent;
   border-radius: 15px;
   font-weight: bold;
   cursor: pointer;
   outline: 0;
   transition: transform 150ms ease, color 150ms ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   &:active {
     transform: scale(0.97);
@@ -27,22 +30,28 @@
   }
 }
 
+.secondary {
+  background-color: @oc-white;
+  color: @oc-gray-8;
+  border-color: @oc-gray-4;
+}
+
+.blue {
+  background-color: @oc-blue-0;
+  color: @oc-blue-9;
+}
+
+.red {
+  background-color: @oc-red-0;
+  color: @oc-red-9;
+}
+
 .primary {
   background-color: @oc-violet-0;
-  color: @oc-violet-7;
-
-  &:hover {
-    background-color: @oc-violet-1;
-    transform: scale(1.03);
-  }
+  color: @oc-violet-9;
 }
 
 .success {
   background-color: @oc-green-0;
   color: @oc-green-9;
-
-  &:hover {
-    background-color: @oc-green-1;
-    transform: scale(1.03);
-  }
 }
