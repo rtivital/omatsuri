@@ -31,7 +31,6 @@ export default function SvgCompressor() {
   useEffect(() => {
     svgo.addEventListener('message', event => {
       const { index, name, queue: q } = event.data.payload;
-      console.log(q);
       setResults(current => ({
         ...current,
         [`${index}_${name}`]: {
