@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import useLocalStorage from '../../hooks/use-local-storage';
 import SvgDropzone from '../../components/SvgDropzone/SvgDropzone';
 import SvgoWorker from '../../workers/svgo.worker';
 import SourceCode from './SourceCode/SourceCode';
@@ -21,26 +22,41 @@ const INITIAL_PROGRESS_STATE = {
 };
 
 export default function SvgCompressor() {
-  const [value, setValue] = useState('');
+  const ls = useLocalStorage({ key: '@omatsuri/svg-compressor', delay: 500 });
+  const [value, setValue] = useState(ls.retrieve() || '');
   const [results, setResults] = useState({});
   const queue = useRef(0);
   const incrementQueue = () => {
     queue.current += 1;
   };
 
-  useEffect(() => {
-    svgo.addEventListener('message', event => {
-      const { index, name, queue: q } = event.data.payload;
-      setResults(current => ({
-        ...current,
-        [`${index}_${name}`]: {
-          queue: q,
-          loading: false,
-          error: event.data.error,
-          content: event.data.content,
-        },
-      }));
+  const postTextValue = text =>
+    svgo.postMessage({
+      content: text,
+      payload: { name: 'file', index: 'input', queue: queue.current },
     });
+
+  const handleSvgoMessage = event => {
+    const { index, name, queue: q } = event.data.payload;
+    setResults(current => ({
+      ...current,
+      [`${index}_${name}`]: {
+        queue: q,
+        loading: false,
+        error: event.data.error,
+        content: event.data.content,
+      },
+    }));
+  };
+
+  useEffect(() => {
+    svgo.addEventListener('message', handleSvgoMessage);
+
+    if (value.trim().length > 0) {
+      postTextValue(value);
+    }
+
+    return () => svgo.removeEventListener('message', handleSvgoMessage);
   }, []);
 
   const handleFilesDrop = files => {
@@ -71,11 +87,8 @@ export default function SvgCompressor() {
   const handleChange = text => {
     setValue(text);
     incrementQueue();
-
-    svgo.postMessage({
-      content: text,
-      payload: { name: 'file', index: 'input', queue: queue.current },
-    });
+    ls.save(text);
+    postTextValue(text);
   };
 
   const errors = Object.keys(results).filter(key => results[key].error);
