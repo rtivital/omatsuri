@@ -5,6 +5,7 @@ import svg2jsx from '../assets/svg-to-jsx.svg';
 import symbolsCollection from '../assets/symbols-collection.svg';
 import curvedDividers from '../assets/curved-dividers.svg';
 import loremIpsum from '../assets/lorem-inpsum.svg';
+import b64encoding from '../assets/b64-encoding.svg';
 
 export default [
   {
@@ -57,5 +58,12 @@ export default [
     name: 'Lorem ipsum',
     description: 'Generate different kinds of lorem ipsum text',
     icon: loremIpsum,
+  },
+
+  {
+    link: '/b64-encoding',
+    name: 'Base64 encoding',
+    description: 'Convers images or files to base64, generate styles to use as background image',
+    icon: b64encoding,
   },
 ];
