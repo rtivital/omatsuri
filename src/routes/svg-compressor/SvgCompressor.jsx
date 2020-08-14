@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import useLocalStorage from '../../hooks/use-local-storage';
+import useDocumentTitle from '../../hooks/use-document-title';
 import SvgDropzone from '../../components/SvgDropzone/SvgDropzone';
 import SvgoWorker from '../../workers/svgo.worker';
 import SourceCode from './SourceCode/SourceCode';
@@ -22,6 +23,8 @@ const INITIAL_PROGRESS_STATE = {
 };
 
 export default function SvgCompressor() {
+  useDocumentTitle('Svg compressor');
+
   const ls = useLocalStorage({ key: '@omatsuri/svg-compressor', delay: 500 });
   const [value, setValue] = useState(ls.retrieve() || '');
   const [results, setResults] = useState({});
