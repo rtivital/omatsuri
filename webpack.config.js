@@ -15,6 +15,27 @@ const entry = path.join(__dirname, './src/index.jsx');
 const output = path.join(__dirname, './dist');
 const publicPath = '/';
 
+const templateContent = ({ htmlWebpackPlugin }) => `
+  <!DOCTYPE html>
+  <html>
+    <head>
+      ${htmlWebpackPlugin.tags.headTags}
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Omatsuri</title>
+    </head>
+    <body>
+      <noscript>
+        Enable JavaScript to use Frontend toolbox
+      </noscript>
+
+      <div id="app"></div>
+      ${htmlWebpackPlugin.tags.bodyTags}
+    </body>
+  </html>
+`;
+
 module.exports = {
   mode,
 
@@ -118,28 +139,8 @@ module.exports = {
 
   plugins: [
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(mode) }),
-    new HtmlWebpackPlugin({
-      templateContent: ({ htmlWebpackPlugin }) => `
-        <!DOCTYPE html>
-        <html>
-          <head>
-            ${htmlWebpackPlugin.tags.headTags}
-            <meta charset="utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Omatsuri</title>
-          </head>
-          <body>
-            <noscript>
-              Enable JavaScript to use Frontend toolbox
-            </noscript>
-
-            <div id="app"></div>
-            ${htmlWebpackPlugin.tags.bodyTags}
-          </body>
-        </html>
-    `,
-    }),
+    new HtmlWebpackPlugin({ templateContent, filename: 'index.html' }),
+    new HtmlWebpackPlugin({ templateContent, filename: '404.html' }),
     new FaviconsWebpackPlugin({
       logo: path.join(__dirname, './src/assets/logo.svg'),
       background: '#ffeeee',
