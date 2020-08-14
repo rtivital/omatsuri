@@ -9,6 +9,7 @@ import Index from './routes/Index/Index';
 import TriangleGenerator from './routes/triangle-generator/TriangleGenerator';
 import LoremIpsum from './routes/lorem-ipsum/LoremIpsum';
 import SvgCompressor from './routes/svg-compressor/SvgCompressor';
+import SvgToJsx from './routes/svg-to-jsx/SvgToJsx';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route path="/triangle-generator" exact component={TriangleGenerator} />
               <Route path="/lorem-ipsum" exact component={LoremIpsum} />
               <Route path="/svg-compressor" exact component={SvgCompressor} />
+              <Route path="/svg-to-jsx" exact component={SvgToJsx} />
               <Route component={NotFound} />
             </Switch>
           </AppContainer>
