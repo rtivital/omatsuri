@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import useClipboard from '../../../hooks/use-clipboard';
 import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
 import Background from '../../../components/Background/Background';
+import Button from '../../../components/Button/Button';
 import CopyCodeButton from '../../../components/CopyCodeButton/CopyCodeButton';
 import formatFileName from '../format-file-name';
 import classes from './CompressedResult.styles.less';
@@ -18,6 +19,13 @@ export default function CompressedResult({ content, fileKey }) {
         <div className={classes.name}>{formatFileName(fileKey)}</div>
         <div className={classes.controls}>
           <CopyCodeButton copied={copied} onClick={() => copy(content)} />
+          <Button
+            component="a"
+            download={fileKey}
+            href={`data:image/svg+xml;charset=utf-8;base64,${btoa(content)}`}
+          >
+            download
+          </Button>
         </div>
       </div>
 
