@@ -1,31 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import cx from 'classnames';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { coy } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import useClipboard from '../../hooks/use-clipboard';
+import CopyCodeButton from '../CopyCodeButton/CopyCodeButton';
 import classes from './Highlight.styles.less';
 
-export default function Highlight({ children, language }) {
+export default function Highlight({ children }) {
   const { copy, copied } = useClipboard();
 
   return (
     <div className={classes.highlight}>
-      <button
+      <CopyCodeButton
         type="button"
-        className={cx(classes.copy, { [classes.copied]: copied })}
+        copied={copied}
+        className={classes.copy}
         onClick={() => copy(children)}
-      >
-        {copied ? 'Copied to clipboard' : 'Copy to clipboard'}
-      </button>
-      <SyntaxHighlighter language={language} style={coy}>
-        {children}
-      </SyntaxHighlighter>
+      />
+      <pre className={classes.code}>
+        <code>{children}</code>
+      </pre>
     </div>
   );
 }
 
 Highlight.propTypes = {
   children: PropTypes.string.isRequired,
-  language: PropTypes.string.isRequired,
 };

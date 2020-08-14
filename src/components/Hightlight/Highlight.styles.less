@@ -1,45 +1,33 @@
 .highlight {
   position: relative;
   overflow: auto;
-  padding: 15px 20px !important;
-  background-color: #f9f9fd !important;
+  padding: 15px;
+  background-color: #f9f9fd;
   border-radius: 15px;
   font-size: 13px;
+}
 
-  pre {
-    background-color: #f9f9fd !important;
-    margin: 0 !important;
-  }
+.code {
+  background-color: #f9f9fd;
+  margin: 0;
+  line-height: 1.3;
 
   code {
-    padding: 0 !important;
+    font-family: Monaco, monospace;
   }
 }
 
 .copy {
   position: absolute;
-  appearance: none;
   z-index: 1;
   top: 0;
   right: 0;
-  padding: 10px 15px;
   font-size: 14px;
-  line-height: 1;
+  font-weight: normal;
   border: 0;
+  border-radius: 0;
+  text-transform: none;
+  letter-spacing: 0;
   border-top-right-radius: 14px;
   border-bottom-left-radius: 5px;
-  background-color: @oc-violet-0;
-  color: @oc-violet-9;
-  outline: 0;
-  cursor: pointer;
-
-  &:hover {
-    background-color: @oc-violet-1;
-  }
-}
-
-.copied {
-  pointer-events: none;
-  background-color: @oc-green-0;
-  color: @oc-green-9;
 }
