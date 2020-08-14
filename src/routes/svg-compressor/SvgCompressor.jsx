@@ -78,10 +78,12 @@ export default function SvgCompressor() {
     });
   };
 
+  const errors = Object.keys(results).filter(key => results[key].error);
+
   return (
     <div>
       <SvgDropzone onDrop={handleFilesDrop} />
-      <SourceCode value={value} onChange={handleChange} />
+      <SourceCode value={value} onChange={handleChange} errors={errors} />
       <Output results={results} />
     </div>
   );
