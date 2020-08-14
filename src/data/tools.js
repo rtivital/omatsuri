@@ -6,6 +6,7 @@ import symbolsCollection from '../assets/symbols-collection.svg';
 import curvedDividers from '../assets/curved-dividers.svg';
 import loremIpsum from '../assets/lorem-inpsum.svg';
 import b64encoding from '../assets/b64-encoding.svg';
+import fakeDataGenerator from '../assets/fake-data-generator.svg';
 
 export default [
   {
@@ -20,6 +21,13 @@ export default [
     name: 'Gradients generator',
     description: 'Generate linear and radial gradients, includes ready to use gradients library',
     icon: gradientGenerator,
+  },
+
+  {
+    link: '/pages-dividers',
+    name: 'Curved page dividers',
+    description: 'Tool to generate curved page dividers with css and svg images',
+    icon: curvedDividers,
   },
 
   {
@@ -39,6 +47,21 @@ export default [
   },
 
   {
+    link: '/b64-encoding',
+    name: 'Base64 encoding',
+    description: 'Convers images or files to base64, generate styles to use as background image',
+    icon: b64encoding,
+  },
+
+  {
+    link: '/fake-data-generator',
+    name: 'Fake data generator',
+    description:
+      'Generate wide variety of realistic fake data based on custom json schema: address, avatars, names, phones...',
+    icon: fakeDataGenerator,
+  },
+
+  {
     link: '/html-symbols',
     name: 'Symbols collection',
     description:
@@ -47,23 +70,9 @@ export default [
   },
 
   {
-    link: '/pages-dividers',
-    name: 'Curved page dividers',
-    description: 'Tool to generate curved page dividers with css and svg images',
-    icon: curvedDividers,
-  },
-
-  {
     link: '/lorem-ipsum',
     name: 'Lorem ipsum',
     description: 'Generate different kinds of lorem ipsum text',
     icon: loremIpsum,
-  },
-
-  {
-    link: '/b64-encoding',
-    name: 'Base64 encoding',
-    description: 'Convers images or files to base64, generate styles to use as background image',
-    icon: b64encoding,
   },
 ];
