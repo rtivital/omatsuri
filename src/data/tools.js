@@ -7,6 +7,7 @@ import curvedDividers from '../assets/curved-dividers.svg';
 import loremIpsum from '../assets/lorem-inpsum.svg';
 import b64encoding from '../assets/b64-encoding.svg';
 import fakeDataGenerator from '../assets/fake-data-generator.svg';
+import colorShadesGenerator from '../assets/color-shades-generator.svg';
 
 export default [
   {
@@ -21,6 +22,13 @@ export default [
     name: 'Gradients generator',
     description: 'Generate linear and radial gradients, includes ready to use gradients library',
     icon: gradientGenerator,
+  },
+
+  {
+    link: '/color-shades-generator',
+    name: 'Color shades generator',
+    description: 'Generate tints and shades of a given color',
+    icon: colorShadesGenerator,
   },
 
   {
