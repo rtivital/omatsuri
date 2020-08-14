@@ -16,12 +16,15 @@ export default function CompressedResult({ content, fileKey }) {
         <SettingsLabel>Preview</SettingsLabel>
         <div dangerouslySetInnerHTML={{ __html: content }} />
         <div className={classes.name}>{formatFileName(fileKey)}</div>
+        <div className={classes.controls}>
+          <CopyCodeButton copied={copied} onClick={() => copy(content)} />
+        </div>
       </div>
 
       <div className={classes.result}>
         <SettingsLabel>Compressed Code</SettingsLabel>
+
         <div className={classes.codeContainer}>
-          <CopyCodeButton copied={copied} onClick={() => copy(content)} />
           <code className={classes.code}>{content || ''}</code>
         </div>
       </div>

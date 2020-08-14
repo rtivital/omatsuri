@@ -18,9 +18,7 @@ export default function SourceCode({ value, onChange, errors }) {
         <SettingsLabel className={classes.title}>
           Paste svg markup or drop svg files to browser window
         </SettingsLabel>
-        <Button theme="secondary" onClick={() => onChange(example)}>
-          Load example
-        </Button>
+        <Button onClick={() => onChange(example)}>Load example</Button>
       </div>
       <textarea
         placeholder="Paste svg markup here"
