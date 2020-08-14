@@ -28,7 +28,7 @@ export default function Button({
 Button.propTypes = {
   component: PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.object]),
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
-  theme: PropTypes.oneOf(['primary', 'success', 'blue', 'red']),
+  theme: PropTypes.oneOf(['primary', 'success', 'secondary', 'blue', 'red']),
   elementRef: PropTypes.func,
   className: PropTypes.string,
   children: PropTypes.node,

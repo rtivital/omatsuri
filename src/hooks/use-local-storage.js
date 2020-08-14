@@ -4,7 +4,7 @@ export default function useLocalStorage({ key, delay }) {
   const [saved, setSaved] = useState(true);
   const [saveTimeout, setSaveTimeout] = useState(null);
 
-  const save = values => {
+  const save = (values) => {
     global.clearTimeout(saveTimeout);
 
     const timeout = setTimeout(() => {
@@ -19,6 +19,11 @@ export default function useLocalStorage({ key, delay }) {
     setSaveTimeout(timeout);
   };
 
+  const clean = () => {
+    global.clearTimeout(saveTimeout);
+    localStorage.removeItem(key);
+  };
+
   const retrieve = () => {
     try {
       return JSON.parse(global.localStorage.getItem(key));
@@ -27,5 +32,11 @@ export default function useLocalStorage({ key, delay }) {
     }
   };
 
-  return { saved, save, retrieve };
+  const retrieveAndClean = () => {
+    const value = retrieve();
+    clean();
+    return value;
+  };
+
+  return { saved, save, clean, retrieveAndClean, retrieve };
 }

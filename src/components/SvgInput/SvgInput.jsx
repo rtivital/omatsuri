@@ -1,0 +1,49 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import Button from '../Button/Button';
+import SettingsLabel from '../SettingsLabel/SettingsLabel';
+import Background from '../Background/Background';
+import SvgDropzone from '../SvgDropzone/SvgDropzone';
+import example from './example';
+import classes from './SvgInput.styles.less';
+
+export default function SvgInput({
+  value,
+  onChange,
+  errors,
+  onFilesDrop,
+  formatFileName = (f) => f,
+}) {
+  const formattedErrors = errors.map((error) => (
+    <p className={classes.error}>Failed to parse or minify file {formatFileName(error)}</p>
+  ));
+
+  return (
+    <>
+      <SvgDropzone onDrop={onFilesDrop} />
+      <Background className={classes.wrapper}>
+        <div className={classes.header}>
+          <SettingsLabel className={classes.title}>
+            Paste svg markup or drop svg files to browser window
+          </SettingsLabel>
+          <Button onClick={() => onChange(example)}>Load example</Button>
+        </div>
+        <textarea
+          placeholder="Paste svg markup here"
+          className={classes.input}
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+        />
+        {formattedErrors.length > 0 && <div className={classes.errors}>{formattedErrors}</div>}
+      </Background>
+    </>
+  );
+}
+
+SvgInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  errors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onFilesDrop: PropTypes.func.isRequired,
+  formatFileName: PropTypes.func,
+};
