@@ -10,6 +10,7 @@ import TriangleGenerator from './routes/triangle-generator/TriangleGenerator';
 import LoremIpsum from './routes/lorem-ipsum/LoremIpsum';
 import SvgCompressor from './routes/svg-compressor/SvgCompressor';
 import SvgToJsx from './routes/svg-to-jsx/SvgToJsx';
+import HtmlSymbols from './routes/html-symbols/HtmlSymbols';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/lorem-ipsum" exact component={LoremIpsum} />
               <Route path="/svg-compressor" exact component={SvgCompressor} />
               <Route path="/svg-to-jsx" exact component={SvgToJsx} />
+              <Route path="/html-symbols" exact component={HtmlSymbols} />
               <Route component={NotFound} />
             </Switch>
           </AppContainer>
