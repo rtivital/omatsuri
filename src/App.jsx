@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 
 import AppContainer from './components/AppContainer/AppContainer';
@@ -14,7 +14,7 @@ import HtmlSymbols from './routes/html-symbols/HtmlSymbols';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Index} />
         <Route>
@@ -30,7 +30,7 @@ function App() {
           </AppContainer>
         </Route>
       </Switch>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
