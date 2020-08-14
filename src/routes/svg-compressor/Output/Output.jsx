@@ -34,7 +34,7 @@ Output.propTypes = {
   results: PropTypes.objectOf(
     PropTypes.shape({
       content: PropTypes.string,
-      error: PropTypes.instanceOf(Error),
+      error: PropTypes.string,
       loading: PropTypes.bool,
       queue: PropTypes.number.isRequired,
     })
