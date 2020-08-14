@@ -4,7 +4,7 @@ import svg2jsx from 'svg-to-jsx';
 import optimize from 'svgo-browser/lib/optimize';
 
 function generateComponent(svg) {
-  return `import React from 'react'; export default function SvgComponent() { return ${svg} }`;
+  return `import React from 'react';\n\nexport default function SvgComponent() { return ${svg} }`;
 }
 
 onmessage = (event) => {

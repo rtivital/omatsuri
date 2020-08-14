@@ -4,6 +4,7 @@ import useDocumentTitle from '../../hooks/use-document-title';
 import useLocalStorage from '../../hooks/use-local-storage';
 import useSvgProcessor from '../../hooks/use-svg-processor';
 import Svg2jsxWorker from '../../workers/svg-to-jsx.worker';
+import Output from './Output/Output';
 
 const svg2jsx = new Svg2jsxWorker();
 
@@ -17,7 +18,7 @@ export default function SvgToJsx() {
   const [result, setResult] = useState({ loading: false, error: null, content: null });
 
   const handleMessage = (event) => {
-    setResult({ loading: false, error: event.data.error, content: event.data.content });
+    setResult({ loading: false, error: event.data.error, content: event.data.code });
   };
 
   const postMessage = (text) => svg2jsx.postMessage({ content: text });
@@ -26,6 +27,7 @@ export default function SvgToJsx() {
     svg2jsx.addEventListener('message', handleMessage);
 
     if (value.trim().length > 0) {
+      setResult({ loading: true, content: null, error: null });
       postMessage(value);
     }
 
@@ -35,6 +37,7 @@ export default function SvgToJsx() {
   const handleChange = (text) => {
     setValue(text);
     ls.save(text);
+    setResult({ loading: true, content: null, error: null });
     postMessage(text);
   };
 
@@ -49,9 +52,11 @@ export default function SvgToJsx() {
       <SvgInput
         value={value}
         onChange={handleChange}
-        errors={result.error ? ['input file'] : []}
+        errors={result.error && value.trim().length > 0 ? ['input file'] : []}
         onFilesDrop={handleFilesDrop}
       />
+
+      <Output data={result} />
     </div>
   );
 }

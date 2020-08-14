@@ -8,16 +8,18 @@ export default function Highlight({ children }) {
   const { copy, copied } = useClipboard();
 
   return (
-    <div className={classes.highlight}>
+    <div className={classes.wrapper}>
       <CopyCodeButton
         type="button"
         copied={copied}
         className={classes.copy}
         onClick={() => copy(children)}
       />
-      <pre className={classes.code}>
-        <code>{children}</code>
-      </pre>
+      <div className={classes.highlight}>
+        <pre className={classes.code}>
+          <code>{children}</code>
+        </pre>
+      </div>
     </div>
   );
 }

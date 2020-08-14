@@ -1,16 +1,23 @@
-.highlight {
+.wrapper {
   position: relative;
+}
+
+.highlight {
   overflow: auto;
   padding: 15px;
   background-color: #f9f9fd;
   border-radius: 15px;
   font-size: 13px;
+  max-height: 300px;
 }
 
 .code {
   background-color: #f9f9fd;
   margin: 0;
   line-height: 1.3;
+  white-space: pre-wrap;
+  max-width: 100%;
+  overflow-x: auto;
 
   code {
     font-family: Monaco, monospace;

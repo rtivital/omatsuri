@@ -3,19 +3,22 @@ import PropTypes from 'prop-types';
 import useLocalStorage from '../../../hooks/use-local-storage';
 import Tabs from '../../../components/Tabs/Tabs';
 import Background from '../../../components/Background/Background';
-import Highlight from '../../../components/Hightlight/Highlight';
+import Highlight from '../../../components/Highlight/Highlight';
 import directions from '../directions';
 import generateExample from './generate-example';
 import classes from './Code.styles.less';
 
-const languages = ['.css', '.scss', '.jss'].map(language => ({ value: language, label: language }));
+const languages = ['.css', '.scss', '.jss'].map((language) => ({
+  value: language,
+  label: language,
+}));
 
 export default function Code({ values }) {
   const ls = useLocalStorage({ key: '@omatsuri/triangle-generator/code', delay: 10 });
   const [language, setLanguage] = useState(ls.retrieve() || '.css');
   const [lang, examples] = generateExample(language, values);
 
-  const handleLanguageChange = l => {
+  const handleLanguageChange = (l) => {
     setLanguage(l);
     ls.save(l);
   };
