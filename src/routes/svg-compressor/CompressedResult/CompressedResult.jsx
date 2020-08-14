@@ -14,12 +14,12 @@ export default function CompressedResult({ content, fileKey }) {
   const { copied, copy } = useClipboard();
 
   const convertToJsx = () => {
-    localStorage.setItem('@omatsuri/conversion-after-compression/jsx', content);
+    localStorage.setItem('@omatsuri/conversion-after-compression/jsx', JSON.stringify(content));
     history.push('/svg-to-jsx');
   };
 
   const convertToB64 = () => {
-    localStorage.setItem('@omatsuri/conversion-after-compression/b64', content);
+    localStorage.setItem('@omatsuri/conversion-after-compression/b64', JSON.stringify(content));
     history.push('/b64-encoding');
   };
 
