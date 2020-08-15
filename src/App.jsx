@@ -6,6 +6,8 @@ import AppContainer from './components/AppContainer/AppContainer';
 import NotFound from './components/NotFound/NotFound';
 
 import Index from './routes/Index/Index';
+import About from './routes/About/About';
+
 import TriangleGenerator from './routes/triangle-generator/TriangleGenerator';
 import LoremIpsum from './routes/lorem-ipsum/LoremIpsum';
 import SvgCompressor from './routes/svg-compressor/SvgCompressor';
@@ -18,6 +20,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Index} />
+        <Route path="/about" exact component={About} />
         <Route>
           <AppContainer>
             <Switch>
