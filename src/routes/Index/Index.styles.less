@@ -9,22 +9,42 @@
   border-bottom: 1px solid @oc-gray-1;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 850px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .logo {
   width: 340px;
   margin-right: 30px;
+
+  @media screen and (max-width: 850px) {
+    width: 100%;
+    margin-right: 0;
+  }
 }
 
 .description {
   margin-top: 18px;
   margin-bottom: 0;
   font-size: 18px;
+
+  @media screen and (max-width: 850px) {
+    margin-bottom: 18px;
+  }
 }
 
 .tool {
   margin: 10px 15px;
   flex: 1 0 calc(50% - 30px);
+
+  @media screen and (max-width: 850px) {
+    flex: 1 0 calc(100% - 30px);
+  }
 }
 
 .tools {
