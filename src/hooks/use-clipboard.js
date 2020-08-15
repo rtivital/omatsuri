@@ -1,20 +1,20 @@
 import { useState } from 'react';
 
-export default function useClipboard() {
+export default function useClipboard({ timeout = 2000 }) {
   const [error, setError] = useState(null);
   const [copied, setCopied] = useState(false);
   const [copyTimeout, setCopyTimeout] = useState(null);
 
-  const handleCopyResult = value => {
-    setCopyTimeout(setTimeout(() => setCopied(false), 2000));
+  const handleCopyResult = (value) => {
+    setCopyTimeout(setTimeout(() => setCopied(false), timeout));
     setCopied(value);
   };
 
-  const copy = valueToCopy => {
+  const copy = (valueToCopy) => {
     navigator.clipboard
       .writeText(valueToCopy)
       .then(() => handleCopyResult(true))
-      .catch(err => setError(err));
+      .catch((err) => setError(err));
   };
 
   const reset = () => {

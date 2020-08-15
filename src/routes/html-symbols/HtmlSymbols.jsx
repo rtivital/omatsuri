@@ -29,9 +29,30 @@ export default function HtmlSymbols() {
         return null;
       }
 
+      // symbol: '⇚',
+      // entity: '&lAarr;',
+      // name: 'Left Triple Arrow',
+      // css: '\\21DA',
+
       const items = group.data.map((item) => (
         <div className={classes.item} key={item.entity}>
-          {item.entity}
+          <button className={classes.symbol} type="button">
+            {item.symbol}
+          </button>
+
+          <button className={classes.control} type="button">
+            <div className={classes.controlInner}>
+              <div className={classes.controlLabel}>HTML:</div>
+              <div className={classes.controlValue}>{item.entity}</div>
+            </div>
+          </button>
+
+          <button className={classes.control} type="button">
+            <div className={classes.controlInner}>
+              <div className={classes.controlLabel}>CSS:</div>
+              <div className={classes.controlValue}>{item.css}</div>
+            </div>
+          </button>
         </div>
       ));
 

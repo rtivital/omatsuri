@@ -9,3 +9,50 @@
   display: block;
   width: 100%;
 }
+
+.items {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
+}
+
+.item {
+  margin: 5px;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid @oc-gray-3;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.symbol {
+  background-color: @oc-white;
+  color: @oc-gray-9;
+  border: 0;
+  height: 60px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control {
+  background-color: transparent;
+  border: 0;
+  border-top: 1px solid @oc-gray-3;
+  color: @oc-gray-5;
+  padding: 10px 0;
+  font-family: Monaco, monospace;
+  font-size: 11px;
+}
+
+.controlInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
