@@ -7,6 +7,7 @@ import Background from '../Background/Background';
 import GithubButton from '../GithubButton/GithubButton';
 import logoText from '../../assets/logo-text.svg';
 import toolsData from '../../data/tools';
+import settings from '../../data/settings';
 import classes from './Navbar.styles.less';
 
 const isActive = (path, match, location) => !!(match || path === location.pathname);
@@ -41,7 +42,7 @@ export default function Navbar({ className }) {
           <Link to="/" className={classes.logo}>
             <img className={classes.logoImage} src={logoText} alt="" />
           </Link>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 242px)' }}>
+          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 262px)' }}>
             <div className={classes.links}>
               {items}
               <div
@@ -55,6 +56,14 @@ export default function Navbar({ className }) {
         </div>
 
         <div className={classes.footer}>
+          <div className={classes.footerLinks}>
+            <Link to="/about" className={classes.footerLink}>
+              About
+            </Link>
+            <a className={classes.footerLink} href={settings.bugs}>
+              Report an issue
+            </a>
+          </div>
           <GithubButton />
         </div>
       </div>

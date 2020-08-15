@@ -78,3 +78,26 @@
   padding-right: 15px;
   padding-top: 30px;
 }
+
+.footerLinks {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.footerLink {
+  color: @oc-gray-6;
+  text-decoration: none;
+
+  &:not(:first-of-type)::before {
+    content: '\2022';
+    margin-right: 8px;
+  }
+
+  & + & {
+    margin-left: 8px;
+  }
+
+  &:hover {
+    color: @oc-violet-6;
+  }
+}
