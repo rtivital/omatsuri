@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import Scrollbars from 'react-custom-scrollbars';
 import Background from '../Background/Background';
 import GithubButton from '../GithubButton/GithubButton';
 import logoText from '../../assets/logo-text.svg';
@@ -9,7 +10,7 @@ import toolsData from '../../data/tools';
 import classes from './Navbar.styles.less';
 
 const isActive = (path, match, location) => !!(match || path === location.pathname);
-const findCurrentIndex = pathname => toolsData.findIndex(tool => pathname === tool.link);
+const findCurrentIndex = (pathname) => toolsData.findIndex((tool) => pathname === tool.link);
 
 export default function Navbar({ className }) {
   const { pathname } = useLocation();
@@ -19,7 +20,7 @@ export default function Navbar({ className }) {
     setCurrent(findCurrentIndex(pathname));
   }, [pathname]);
 
-  const items = toolsData.map(tool => (
+  const items = toolsData.map((tool) => (
     <NavLink
       key={tool.name}
       to={tool.link}
@@ -40,13 +41,17 @@ export default function Navbar({ className }) {
           <Link to="/" className={classes.logo}>
             <img className={classes.logoImage} src={logoText} alt="" />
           </Link>
-          <div className={classes.links}>
-            {items}
-            <div
-              className={classes.linkBackground}
-              style={{ transform: current !== -1 ? `translateY(${current * 72}px)` : 'scaleY(0)' }}
-            />
-          </div>
+          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 242px)' }}>
+            <div className={classes.links}>
+              {items}
+              <div
+                className={classes.linkBackground}
+                style={{
+                  transform: current !== -1 ? `translateY(${current * 72}px)` : 'scaleY(0)',
+                }}
+              />
+            </div>
+          </Scrollbars>
         </div>
 
         <div className={classes.footer}>
