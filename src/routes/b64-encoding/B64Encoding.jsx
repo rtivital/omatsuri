@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
+import Highlight from '../../components/Highlight/Highlight';
 import Background from '../../components/Background/Background';
 import Dropzone from '../../components/Dropzone/Dropzone';
 import B64Worker from '../../workers/b64.worker';
+import useLocaStorage from '../../hooks/use-local-storage';
 import useDocumentTitle from '../../hooks/use-document-title';
+import classes from './B64Encoding.styles.less';
 
 const b64 = new B64Worker();
 
 export default function B64Encoding() {
   useDocumentTitle('Base64 encoding');
-  const [result, setResult] = useState({ loading: false, error: null, content: null });
+  const ls = useLocaStorage({ key: '@omatsuri/b64-encoding', delay: 500 });
+  const transmittedValue = useLocaStorage({ key: '@omatsuri/conversion-after-compression/b64' });
+  const [result, setResult] = useState({ loading: false, error: null, content: ls.retrieve() });
 
   const handleMessage = (event) => {
     const error = event.data instanceof Error;
+    if (!error) {
+      ls.save(event.data);
+    }
     setResult({
       error,
       loading: false,
@@ -23,6 +31,12 @@ export default function B64Encoding() {
 
   useEffect(() => {
     b64.addEventListener('message', handleMessage);
+    const transmittedContent = transmittedValue.retrieveAndClean();
+
+    if (transmittedContent) {
+      b64.postMessage({ content: transmittedContent });
+    }
+
     return () => b64.removeEventListener('message', handleMessage);
   }, []);
 
@@ -33,9 +47,9 @@ export default function B64Encoding() {
   };
 
   return (
-    <Background>
+    <Background className={classes.wrapper}>
       <Dropzone accepts="*" onDrop={handleFilesDrop} />
-      {result.content}
+      <Highlight className={classes.code}>{result.content}</Highlight>
     </Background>
   );
 }
