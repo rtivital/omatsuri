@@ -7,6 +7,7 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 const babelrc = require('./.babelrc');
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
@@ -163,5 +164,9 @@ module.exports = {
         new OpenBrowserPlugin({ url: `http://localhost:${port}` }),
       ]
       : [new MiniCssExtractPlugin(), new CnameWebpackPlugin({ domain: 'omatsuri.app' })]),
+    new OfflinePlugin({
+      autoUpdate: true,
+      appShell: '/index.html',
+    }),
   ],
 };

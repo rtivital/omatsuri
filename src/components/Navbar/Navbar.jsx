@@ -16,6 +16,15 @@ const findCurrentIndex = (pathname) => toolsData.findIndex((tool) => pathname ==
 export default function Navbar({ className }) {
   const { pathname } = useLocation();
   const [current, setCurrent] = useState(findCurrentIndex(pathname));
+  const [swStatus, setSwStatus] = useState('init');
+
+  useEffect(() => {
+    setSwStatus('loading');
+    navigator.serviceWorker
+      .getRegistration()
+      .then(() => setSwStatus('ready'))
+      .catch(() => setSwStatus('error'));
+  }, []);
 
   useEffect(() => {
     setCurrent(findCurrentIndex(pathname));
@@ -63,6 +72,13 @@ export default function Navbar({ className }) {
             <a className={classes.footerLink} href={settings.bugs}>
               Report an issue
             </a>
+            <span className={cx(classes.footerLink, classes.sw, classes[`sw_${swStatus}`])}>
+              {swStatus === 'loading'
+                ? 'Caching offline version'
+                : swStatus === 'ready'
+                  ? '✓ Ready to use offline'
+                  : '✗ Failed to cache app'}
+            </span>
           </div>
           <GithubButton />
         </div>
