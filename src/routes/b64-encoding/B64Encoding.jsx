@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Highlight from '../../components/Highlight/Highlight';
 import Background from '../../components/Background/Background';
+import SettingsLabel from '../../components/SettingsLabel/SettingsLabel';
 import Dropzone from '../../components/Dropzone/Dropzone';
 import B64Worker from '../../workers/b64.worker';
 import useLocaStorage from '../../hooks/use-local-storage';
@@ -9,8 +10,13 @@ import classes from './B64Encoding.styles.less';
 
 const b64 = new B64Worker();
 
+function generateCssExample(content) {
+  return `.element {\n  background-image: url(${content});\n}`;
+}
+
 export default function B64Encoding() {
   useDocumentTitle('Base64 encoding');
+
   const ls = useLocaStorage({ key: '@omatsuri/b64-encoding', delay: 500 });
   const transmittedValue = useLocaStorage({ key: '@omatsuri/conversion-after-compression/b64' });
   const [result, setResult] = useState({ loading: false, error: null, content: ls.retrieve() });
@@ -49,7 +55,21 @@ export default function B64Encoding() {
   return (
     <Background className={classes.wrapper}>
       <Dropzone accepts="*" onDrop={handleFilesDrop} />
-      <Highlight className={classes.code}>{result.content}</Highlight>
+      <h1 className={classes.title}>Drop file to browser window to convert it to base64 format</h1>
+
+      {result.content && (
+        <>
+          <div className={classes.section}>
+            <SettingsLabel>Raw base 64</SettingsLabel>
+            <Highlight>{result.content}</Highlight>
+          </div>
+
+          <div className={classes.section}>
+            <SettingsLabel>Usage with css</SettingsLabel>
+            <Highlight>{generateCssExample(result.content)}</Highlight>
+          </div>
+        </>
+      )}
     </Background>
   );
 }
