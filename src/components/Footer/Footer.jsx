@@ -4,26 +4,14 @@ import { Link } from 'react-router-dom';
 import cx from 'classnames';
 import GithubButton from '../GithubButton/GithubButton';
 import toolsData from '../../data/tools';
-import creditsData from '../../data/credits';
+import settings from '../../data/settings';
 import classes from './Footer.styles.less';
 
 export default function Footer({ className }) {
-  const tools = toolsData.map(tool => (
+  const tools = toolsData.map((tool) => (
     <Link className={classes.link} to={tool.link} key={tool.name}>
       {tool.name}
     </Link>
-  ));
-
-  const credits = creditsData.map(credit => (
-    <a
-      className={classes.link}
-      key={credit.title}
-      href={credit.link}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {credit.title}
-    </a>
   ));
 
   return (
@@ -32,16 +20,23 @@ export default function Footer({ className }) {
         <div className={classes.main}>
           <div className={classes.links}>
             <h3 className={classes.title}>Tools</h3>
-            {tools}
+            <div className={classes.chunks}>{tools}</div>
           </div>
 
           <div className={classes.links}>
-            <h3 className={classes.title}>Credits</h3>
-            {credits}
+            <h3 className={classes.title}>Application</h3>
+            <Link className={classes.link} to="/about">
+              About
+            </Link>
+            <a href={settings.bugs} className={classes.link}>
+              Report issue
+            </a>
           </div>
         </div>
 
-        <GithubButton />
+        <div className={classes.control}>
+          <GithubButton />
+        </div>
       </div>
     </footer>
   );

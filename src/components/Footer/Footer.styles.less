@@ -17,6 +17,7 @@
   display: block;
   text-decoration: none;
   color: @oc-gray-6;
+  font-size: 14px;
 
   &:hover {
     color: @oc-violet-7;
@@ -28,8 +29,9 @@
 }
 
 .links {
+  flex: 1 0 0;
   & + & {
-    margin-left: 45px;
+    margin-left: 30px;
   }
 
   @media screen and (max-width: 850px) {
@@ -38,6 +40,10 @@
       margin-top: 15px;
     }
   }
+}
+
+.control {
+  white-space: nowrap;
 }
 
 .main {
@@ -52,4 +58,16 @@
 .title {
   font-size: 18px;
   font-weight: normal;
+}
+
+.chunks {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -5px;
+
+  .link {
+    margin: 5px;
+    flex: 0 0 calc(50% - 10px);
+    white-space: nowrap;
+  }
 }
