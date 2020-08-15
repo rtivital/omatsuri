@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function useClipboard({ timeout = 2000 }) {
+export default function useClipboard({ timeout = 2000 } = {}) {
   const [error, setError] = useState(null);
   const [copied, setCopied] = useState(false);
   const [copyTimeout, setCopyTimeout] = useState(null);

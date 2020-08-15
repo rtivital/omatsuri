@@ -1,6 +1,18 @@
 .wrapper {
   margin: 10px;
   padding: 15px;
+  position: relative;
+}
+
+.inputWrapper {
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  padding: 15px;
+  margin: -15px;
+  border-radius: 15px;
+  background-color: @oc-white;
 }
 
 .input {
@@ -25,11 +37,10 @@
   flex-direction: column;
   border: 1px solid @oc-gray-3;
   border-radius: 15px;
-  overflow: hidden;
 }
 
 .symbol {
-  background-color: @oc-white;
+  background-color: #f9f9fd;
   color: @oc-gray-9;
   border: 0;
   height: 60px;
@@ -37,16 +48,77 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 2;
+  transition: transform 150ms ease;
+  cursor: pointer;
+  outline: 0;
+  border-top-right-radius: 14px;
+  border-top-left-radius: 14px;
+}
+
+.symbol,
+.control {
+  &:hover {
+    z-index: 3;
+    &::before {
+      transform: translateY(-25px);
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    z-index: 4;
+    font-size: 11px;
+    content: 'Copy to clipboard';
+    position: absolute;
+    display: block;
+    top: 0;
+    padding: 5px;
+    border-radius: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-family: 'Source Sans Pro', sans-serif;
+    color: @oc-white;
+    opacity: 0;
+    transition: opacity 150ms ease, transform 150ms ease;
+    pointer-events: none;
+  }
+}
+
+.copied {
+  .symbol,
+  .control {
+    &::before {
+      background-color: @oc-green-7;
+      content: 'Copied to clipboard';
+    }
+  }
 }
 
 .control {
-  background-color: transparent;
+  outline: 0;
+  background-color: @oc-white;
+  position: relative;
+  z-index: 2;
   border: 0;
   border-top: 1px solid @oc-gray-3;
   color: @oc-gray-5;
   padding: 10px 0;
   font-family: Monaco, monospace;
   font-size: 11px;
+  cursor: pointer;
+
+  &:last-of-type {
+    border-bottom-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+  }
+
+  &:hover {
+    background-color: @oc-gray-0;
+  }
 }
 
 .controlInner {
@@ -55,4 +127,8 @@
   justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.group {
+  margin-top: 30px;
 }
