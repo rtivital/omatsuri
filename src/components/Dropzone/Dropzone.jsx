@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import classes from './SvgDropzone.styles.less';
+import classes from './Dropzone.styles.less';
 
-const preventDefault = event => event.preventDefault();
+const preventDefault = (event) => event.preventDefault();
 
-export default function SvgDropzone({ onDrop }) {
+export default function Dropzone({ onDrop, accepts = ['image/svg+xml'] }) {
   const [dragOver, setDragOver] = useState(false);
   const dragLeaveTimeout = useRef();
+  const allowAll = accepts === '*';
 
   const onDragOver = () => {
     clearTimeout(dragLeaveTimeout.current);
@@ -20,11 +21,11 @@ export default function SvgDropzone({ onDrop }) {
     }, 20);
   };
 
-  const handleDrop = event => {
+  const handleDrop = (event) => {
     event.preventDefault();
     clearTimeout(dragLeaveTimeout.current);
     setDragOver(false);
-    onDrop([...event.dataTransfer.files].filter(file => file.type === 'image/svg+xml'));
+    onDrop([...event.dataTransfer.files].filter((file) => allowAll || accepts.includes(file.type)));
   };
 
   useEffect(() => {
@@ -43,11 +44,12 @@ export default function SvgDropzone({ onDrop }) {
 
   return dragOver ? (
     <div className={classes.wrapper}>
-      <h1 className={classes.title}>Drop svg files to optimize</h1>
+      <h1 className={classes.title}>Drop files to browser window</h1>
     </div>
   ) : null;
 }
 
-SvgDropzone.propTypes = {
+Dropzone.propTypes = {
   onDrop: PropTypes.func.isRequired,
+  accepts: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
 };

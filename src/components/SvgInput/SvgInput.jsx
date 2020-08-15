@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import SettingsLabel from '../SettingsLabel/SettingsLabel';
 import Background from '../Background/Background';
-import SvgDropzone from '../SvgDropzone/SvgDropzone';
+import Dropzone from '../Dropzone/Dropzone';
 import example from './example';
 import classes from './SvgInput.styles.less';
 
@@ -20,7 +20,7 @@ export default function SvgInput({
 
   return (
     <>
-      <SvgDropzone onDrop={onFilesDrop} />
+      <Dropzone onDrop={onFilesDrop} />
       <Background className={classes.wrapper}>
         <div className={classes.header}>
           <SettingsLabel className={classes.title}>
