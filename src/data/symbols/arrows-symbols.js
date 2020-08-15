@@ -450,12 +450,6 @@ export default [
     css: '\\21E5',
   },
   {
-    symbol: '⇥',
-    entity: '&rarrb;',
-    name: 'Right Arrow to Bar',
-    css: '\\21E5',
-  },
-  {
     symbol: '⇵',
     entity: '&duarr;',
     name: 'Down Arrow Left of Up Arrow',
