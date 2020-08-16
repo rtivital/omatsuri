@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Highlight from '../../components/Highlight/Highlight';
 import Background from '../../components/Background/Background';
 import SettingsLabel from '../../components/SettingsLabel/SettingsLabel';
+import DropPlaceholder from '../../components/DropPlaceholder/DropPlaceholder';
 import Dropzone from '../../components/Dropzone/Dropzone';
 import B64Worker from '../../workers/b64.worker';
 import useLocaStorage from '../../hooks/use-local-storage';
@@ -53,12 +54,11 @@ export default function B64Encoding() {
   };
 
   return (
-    <Background className={classes.wrapper}>
+    <>
       <Dropzone accepts="*" onDrop={handleFilesDrop} />
-      <h1 className={classes.title}>Drop file to browser window to convert it to base64 format</h1>
-
+      <DropPlaceholder>Drop file to browser window to convert it to base64 format</DropPlaceholder>
       {result.content && (
-        <>
+        <Background className={classes.wrapper}>
           <div className={classes.section}>
             <SettingsLabel>Raw base 64</SettingsLabel>
             <Highlight>{result.content}</Highlight>
@@ -68,8 +68,8 @@ export default function B64Encoding() {
             <SettingsLabel>Usage with css</SettingsLabel>
             <Highlight>{generateCssExample(result.content)}</Highlight>
           </div>
-        </>
+        </Background>
       )}
-    </Background>
+    </>
   );
 }
