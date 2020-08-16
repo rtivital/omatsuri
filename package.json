@@ -7,8 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server",
-    "build": "cross-env NODE_ENV=production webpack",
+    "start": "npm run clean && webpack-dev-server",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack",
     "clean": "rimraf ./dist",
     "deploy": "npm run build && gh-pages -d dist"
   },

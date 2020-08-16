@@ -85,16 +85,11 @@
   margin-bottom: 10px;
 }
 
+.dot,
 .footerLink {
   color: @oc-gray-6;
   text-decoration: none;
   font-size: 14px;
-
-  &:not(:first-child)::before {
-    content: '\2022';
-    margin-right: 8px;
-    color: @oc-gray-6;
-  }
 
   & + & {
     margin-left: 8px;
@@ -113,6 +108,7 @@
   color: @oc-green-7;
 }
 
+.sw_disabled,
 .sw_error {
   color: @oc-red-7;
 }

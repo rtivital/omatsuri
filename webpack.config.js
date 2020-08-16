@@ -13,7 +13,7 @@ const babelrc = require('./.babelrc');
 const toolsLinks = require('./src/data/tools-links');
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
-const port = 8260;
+const port = 8262;
 const entry = path.join(__dirname, './src/index.jsx');
 const output = path.join(__dirname, './dist');
 const publicPath = '/';
@@ -137,19 +137,6 @@ module.exports = {
         windows: false,
       },
     }),
-    ...(mode !== 'production'
-      ? [
-        new webpack.HotModuleReplacementPlugin(),
-        new OpenBrowserPlugin({ url: `http://localhost:${port}` }),
-      ]
-      : [
-        new MiniCssExtractPlugin(),
-        new CnameWebpackPlugin({ domain: 'omatsuri.app' }),
-        new PrerenderSPAPlugin({
-          staticDir: output,
-          routes: ['/', '/about', '/404', ...toolsLinks],
-        }),
-      ]),
     new HtmlWebpackPlugin({
       templateContent: ({ htmlWebpackPlugin }) => `
         <!DOCTYPE html>
@@ -172,9 +159,22 @@ module.exports = {
         </html>
       `,
     }),
-    new OfflinePlugin({
-      autoUpdate: true,
-      appShell: '/index.html',
-    }),
+    ...(mode !== 'production'
+      ? [
+        new webpack.HotModuleReplacementPlugin(),
+        new OpenBrowserPlugin({ url: `http://localhost:${port}` }),
+      ]
+      : [
+        new MiniCssExtractPlugin(),
+        new CnameWebpackPlugin({ domain: 'omatsuri.app' }),
+        new PrerenderSPAPlugin({
+          staticDir: output,
+          routes: ['/', '/about', '/404', ...toolsLinks],
+        }),
+        new OfflinePlugin({
+          autoUpdate: true,
+          appShell: '/index.html',
+        }),
+      ]),
   ],
 };

@@ -10,6 +10,24 @@ import toolsData from '../../data/tools';
 import settings from '../../data/settings';
 import classes from './Navbar.styles.less';
 
+function getSwMessage(status) {
+  switch (status) {
+    case 'ready':
+      return '✓ Ready to use offline';
+
+    case 'disabled':
+      return '✗ Cache disabled';
+
+    case 'init':
+    case 'loading':
+      return 'Caching offline version';
+
+    case 'error':
+    default:
+      return '✗ Failed to cache app';
+  }
+}
+
 const isActive = (path, match, location) => !!(match || path === location.pathname);
 const findCurrentIndex = (pathname) => toolsData.findIndex((tool) => pathname === tool.link);
 
@@ -19,11 +37,15 @@ export default function Navbar({ className }) {
   const [swStatus, setSwStatus] = useState('init');
 
   useEffect(() => {
-    setSwStatus('loading');
-    navigator.serviceWorker
-      .getRegistration()
-      .then(() => setSwStatus('ready'))
-      .catch(() => setSwStatus('error'));
+    if (process.env.NODE_ENV === 'production') {
+      setSwStatus('loading');
+      navigator.serviceWorker
+        .getRegistration()
+        .then(() => setSwStatus('ready'))
+        .catch(() => setSwStatus('error'));
+    } else {
+      setSwStatus('disabled');
+    }
   }, []);
 
   useEffect(() => {
@@ -69,15 +91,13 @@ export default function Navbar({ className }) {
             <Link to="/about" className={classes.footerLink}>
               About
             </Link>
+            <span className={classes.dot}>•</span>
             <a className={classes.footerLink} href={settings.bugs}>
               Report an issue
             </a>
+            <span className={classes.dot}>•</span>
             <span className={cx(classes.footerLink, classes.sw, classes[`sw_${swStatus}`])}>
-              {swStatus === 'loading'
-                ? 'Caching offline version'
-                : swStatus === 'ready'
-                  ? '✓ Ready to use offline'
-                  : '✗ Failed to cache app'}
+              {getSwMessage(swStatus)}
             </span>
           </div>
           <GithubButton />
