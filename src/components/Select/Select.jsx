@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import Input from '../Input/Input';
+import chevronDown from '../../assets/chervons/chevron-down.svg';
 import classes from './Select.styles.less';
 
 export default function Select({ className, data, value, onChange, id, label }) {
@@ -12,10 +14,21 @@ export default function Select({ className, data, value, onChange, id, label }) 
 
   return (
     <div className={cx(classes.select, className)}>
-      <label htmlFor={id}>{label}</label>
-      <select id={id} onChange={(event) => onChange(event.target.value)} value={value}>
-        {options}
-      </select>
+      <label className={classes.label} htmlFor={id}>
+        {label}
+      </label>
+      <div className={classes.controlWrapper}>
+        <Input
+          component="select"
+          className={classes.control}
+          id={id}
+          onChange={(event) => onChange(event.target.value)}
+          value={value}
+        >
+          {options}
+        </Input>
+        <img className={classes.chevron} src={chevronDown} alt="" />
+      </div>
     </div>
   );
 }
