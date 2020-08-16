@@ -5,19 +5,19 @@ import { hot } from 'react-hot-loader';
 import AppContainer from './components/AppContainer/AppContainer';
 import NotFound from './components/NotFound/NotFound';
 
-import Index from './routes/Index/Index';
-import About from './routes/About/About';
+import Index from './pages/index/Index';
+import About from './pages/about/About';
 
-import TriangleGenerator from './routes/triangle-generator/TriangleGenerator';
-import LoremIpsum from './routes/lorem-ipsum/LoremIpsum';
-import SvgCompressor from './routes/svg-compressor/SvgCompressor';
-import SvgToJsx from './routes/svg-to-jsx/SvgToJsx';
-import HtmlSymbols from './routes/html-symbols/HtmlSymbols';
-import Base64Encoding from './routes/b64-encoding/B64Encoding';
-import ColorShadesGenerator from './routes/color-shades-generator/ColorShadesGenerator';
-import PageDividers from './routes/page-dividers/PageDividers';
-import GradientsGenerator from './routes/gradients-generator/GradientsGenerator';
-import FakeDataGenerator from './routes/fake-data-generator/FakeDataGenerator';
+import TriangleGenerator from './apps/triangle-generator/TriangleGenerator';
+import LoremIpsum from './apps/lorem-ipsum/LoremIpsum';
+import SvgCompressor from './apps/svg-compressor/SvgCompressor';
+import SvgToJsx from './apps/svg-to-jsx/SvgToJsx';
+import HtmlSymbols from './apps/html-symbols/HtmlSymbols';
+import Base64Encoding from './apps/b64-encoding/B64Encoding';
+import ColorShadesGenerator from './apps/color-shades-generator/ColorShadesGenerator';
+import PageDividers from './apps/page-dividers/PageDividers';
+import GradientsGenerator from './apps/gradients-generator/GradientsGenerator';
+import FakeDataGenerator from './apps/fake-data-generator/FakeDataGenerator';
 
 function App() {
   return (
