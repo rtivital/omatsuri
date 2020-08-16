@@ -14,6 +14,7 @@ import SvgCompressor from './routes/svg-compressor/SvgCompressor';
 import SvgToJsx from './routes/svg-to-jsx/SvgToJsx';
 import HtmlSymbols from './routes/html-symbols/HtmlSymbols';
 import Base64Encoding from './routes/b64-encoding/B64Encoding';
+import ColorShadesGenerator from './routes/color-shades-generator/ColorShadesGenerator';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/svg-to-jsx" exact component={SvgToJsx} />
               <Route path="/html-symbols" exact component={HtmlSymbols} />
               <Route path="/b64-encoding" exact component={Base64Encoding} />
+              <Route path="/color-shades-generator" exact component={ColorShadesGenerator} />
               <Route component={NotFound} />
             </Switch>
           </AppContainer>
