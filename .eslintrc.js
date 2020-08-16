@@ -64,6 +64,7 @@ module.exports = {
     'react/sort-comp': 'off',
     'react/forbid-prop-types': 'off',
     'react/jsx-no-bind': 'off',
+    'jsx-a11y/control-has-associated-label': 'off',
 
     // sometimes there is no alternative
     'react/no-array-index-key': 'off',

@@ -1,12 +1,38 @@
 .wrapper {
+  position: relative;
+}
+
+.control {
+  appearance: none;
+  height: 36px;
+  width: 36px;
+  border: 1px solid @oc-gray-5;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  outline: 0;
+  cursor: pointer;
+}
+
+.input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 0;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
 }
 
 .pickerWrapper {
   user-select: none;
   position: absolute;
+  top: 40px;
+  left: 0;
   z-index: 10;
   padding: 15px;
   border-radius: 15px;
+  border: 1px solid @oc-gray-2;
   background-color: @oc-white;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.03),
     0 4px 8px rgba(0, 0, 0, 0.03), 0 8px 16px rgba(0, 0, 0, 0.03), 0 16px 32px rgba(0, 0, 0, 0.03),
