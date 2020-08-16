@@ -1,44 +1,54 @@
-import oc from 'open-color';
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Triangle from '../Triangle/Triangle';
 import directions from '../directions';
 import classes from './DirectionPicker.styles.less';
 
-function getSize(direction) {
+import bottom from '../../../assets/chervons/chevron-down.svg';
+import bottomLeft from '../../../assets/chervons/chevron-down-left.svg';
+import bottomRight from '../../../assets/chervons/chevron-down-right.svg';
+import right from '../../../assets/chervons/chevron-right.svg';
+import left from '../../../assets/chervons/chevron-left.svg';
+import topLeft from '../../../assets/chervons/chevron-top-left.svg';
+import topRight from '../../../assets/chervons/chevron-top-right.svg';
+import top from '../../../assets/chervons/chevron-top.svg';
+
+const icons = {
+  top,
+  bottom,
+  right,
+  left,
+  'bottom-right': bottomRight,
+  'bottom-left': bottomLeft,
+  'top-right': topRight,
+  'top-left': topLeft,
+};
+
+function isAngle(direction) {
   switch (direction) {
-    case 'top':
-    case 'bottom':
-      return { width: 26, height: 16 };
-
-    case 'right':
-    case 'left':
-      return { width: 16, height: 26 };
-
     case 'top-right':
     case 'top-left':
     case 'bottom-left':
     case 'bottom-right':
-      return { width: 20, height: 20 };
+      return true;
 
     default:
-      return null;
+      return false;
   }
 }
 
 export default function DirectionPicker({ className, value, onChange }) {
-  const contols = directions.map(direction => (
+  const contols = directions.map((direction) => (
     <button
       type="button"
       onClick={() => onChange(direction)}
       className={cx(classes.control, { [classes.active]: value === direction })}
       key={direction}
     >
-      <Triangle
-        color={value === direction ? oc.violet[5] : oc.gray[6]}
-        direction={direction}
-        {...getSize(direction)}
+      <img
+        className={cx(classes.icon, { [classes.angle]: isAngle(direction) })}
+        src={icons[direction]}
+        alt=""
       />
     </button>
   ));
