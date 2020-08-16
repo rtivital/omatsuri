@@ -27,10 +27,20 @@ export default function HtmlSymbols() {
   useDocumentTitle('Symbols collection');
 
   const clipboard = useClipboard({ timeout: 1000 });
-  const savedQuery = useLocaStorage({ key: '@omatsuri/html-symbols/search', delay: 200 });
-  const savedType = useLocaStorage({ key: '@omatsuri/html-symbols/type', delay: 200 });
-  const [query, setQuery] = useState(savedQuery.retrieve() || '');
-  const [type, setType] = useState(savedType.retrieve() || 'Most used');
+  const lsQuery = useLocaStorage({ key: '@omatsuri/html-symbols/search', delay: 200 });
+  const lsType = useLocaStorage({ key: '@omatsuri/html-symbols/type', delay: 200 });
+  const [query, setQuery] = useState(lsQuery.retrieve() || '');
+  const [type, setType] = useState(lsType.retrieve() || 'Most used');
+
+  const handleQueryChange = (event) => {
+    setQuery(event.target.value);
+    lsQuery.save(event.target.value);
+  };
+
+  const handleTypeChange = (value) => {
+    setType(value);
+    lsType.save(value);
+  };
 
   const results = searchSymbols(query, type).map((item) => (
     <tr className={classes.item} key={item.entity}>
@@ -66,11 +76,11 @@ export default function HtmlSymbols() {
   return (
     <Background className={classes.wrapper}>
       <div className={classes.inputWrapper}>
-        <Tabs data={typesData} active={type} onTabChange={setType} />
+        <Tabs data={typesData} active={type} onTabChange={handleTypeChange} />
         <Input
           className={classes.input}
           value={query}
-          onChange={(event) => setQuery(event.target.value)}
+          onChange={handleQueryChange}
           type="text"
           placeholder="Search symbols..."
         />
