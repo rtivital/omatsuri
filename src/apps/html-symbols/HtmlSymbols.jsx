@@ -1,84 +1,72 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 import symbols from '../../data/symbols';
 import useLocaStorage from '../../hooks/use-local-storage';
 import useClipboard from '../../hooks/use-clipboard';
 import useDocumentTitle from '../../hooks/use-document-title';
 import Background from '../../components/Background/Background';
+import Tabs from '../../components/Tabs/Tabs';
 import Input from '../../components/Input/Input';
-import SettingsLabel from '../../components/SettingsLabel/SettingsLabel';
 import classes from './HtmlSymbols.styles.less';
 
-function searchSymbols(query) {
-  if (query.trim().length === 0) {
-    return symbols.map((group) => ({ title: group.title, data: group.data }));
+const typesData = Object.keys(symbols).map((tab) => ({ value: tab, label: tab }));
+
+function searchSymbols(query, type) {
+  if (!(type in symbols)) {
+    return [];
   }
 
-  return symbols.map((group) => ({
-    title: group.title,
-    data: group.fuse.search(query).map(({ item }) => item),
-  }));
+  if (query.trim().length === 0) {
+    return symbols[type].data;
+  }
+
+  return symbols[type].fuse.search(query).map(({ item }) => item);
 }
 
 export default function HtmlSymbols() {
   useDocumentTitle('Symbols collection');
 
   const clipboard = useClipboard({ timeout: 1000 });
-  const ls = useLocaStorage({ key: '@omatsuri/html-symbols/search', delay: 200 });
-  const [query, setQuery] = useState(ls.retrieve() || '');
+  const savedQuery = useLocaStorage({ key: '@omatsuri/html-symbols/search', delay: 200 });
+  const savedType = useLocaStorage({ key: '@omatsuri/html-symbols/type', delay: 200 });
+  const [query, setQuery] = useState(savedQuery.retrieve() || '');
+  const [type, setType] = useState(savedType.retrieve() || 'Most used');
 
-  const results = useMemo(() => searchSymbols(query), [query])
-    .map((group) => {
-      if (group.data.length === 0) {
-        return null;
-      }
+  const results = searchSymbols(query, type).map((item) => (
+    <tr className={classes.item} key={item.entity}>
+      <td className={classes.name}>{item.name}</td>
+      <td>
+        <button
+          className={cx(classes.control, classes.symbol)}
+          type="button"
+          onClick={() => clipboard.copy(item.symbol)}
+        >
+          {item.symbol}
+        </button>
+      </td>
 
-      const items = group.data.map((item) => (
-        <div className={classes.item} key={item.entity}>
-          <button
-            className={classes.symbol}
-            type="button"
-            onClick={() => clipboard.copy(item.symbol)}
-          >
-            {item.symbol}
-          </button>
+      <td>
+        <button
+          className={classes.control}
+          type="button"
+          onClick={() => clipboard.copy(item.entity)}
+        >
+          {item.entity}
+        </button>
+      </td>
 
-          <button
-            className={classes.control}
-            type="button"
-            onClick={() => clipboard.copy(item.entity)}
-          >
-            <div className={classes.controlInner}>
-              <div className={classes.controlLabel}>HTML:</div>
-              <div className={classes.controlValue}>{item.entity}</div>
-            </div>
-          </button>
-
-          <button
-            className={classes.control}
-            type="button"
-            onClick={() => clipboard.copy(item.css)}
-          >
-            <div className={classes.controlInner}>
-              <div className={classes.controlLabel}>CSS:</div>
-              <div className={classes.controlValue}>{item.css}</div>
-            </div>
-          </button>
-        </div>
-      ));
-
-      return (
-        <div className={classes.group} key={group.title}>
-          <SettingsLabel className={classes.title}>{group.title}</SettingsLabel>
-          <div className={classes.items}>{items}</div>
-        </div>
-      );
-    })
-    .filter(Boolean);
+      <td>
+        <button className={classes.control} type="button" onClick={() => clipboard.copy(item.css)}>
+          {item.css}
+        </button>
+      </td>
+    </tr>
+  ));
 
   return (
     <Background className={classes.wrapper}>
       <div className={classes.inputWrapper}>
+        <Tabs data={typesData} active={type} onTabChange={setType} />
         <Input
           className={classes.input}
           value={query}
@@ -87,7 +75,17 @@ export default function HtmlSymbols() {
           placeholder="Search symbols..."
         />
       </div>
-      <div className={cx(classes.resuts, { [classes.copied]: clipboard.copied })}>{results}</div>
+      <table className={cx(classes.results, { [classes.copied]: clipboard.copied })}>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Symbol</th>
+            <th>HTML entity</th>
+            <th>CSS entity</th>
+          </tr>
+        </thead>
+        <tbody>{results}</tbody>
+      </table>
     </Background>
   );
 }

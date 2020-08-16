@@ -9,10 +9,10 @@ import mostUsed from './most-used-symbols';
 
 const f = (data) => new Fuse(data, { keys: ['name'] });
 
-export default [
-  { title: 'Most used', data: mostUsed, fuse: f(mostUsed) },
-  { title: 'Arrows', data: arrows, fuse: f(arrows) },
-  { title: 'Math and fractions', data: [...fractions, ...math], fuse: f([...fractions, ...math]) },
-  { title: 'Punctuation', data: punctuation, fuse: f(punctuation) },
-  { title: 'Special', data: special, fuse: f(special) },
-];
+export default {
+  'Most used': { data: mostUsed, fuse: f(mostUsed) },
+  Arrows: { data: arrows, fuse: f(arrows) },
+  'Math and fractions': { data: [...fractions, ...math], fuse: f([...fractions, ...math]) },
+  Punctuation: { data: punctuation, fuse: f(punctuation) },
+  Special: { data: special, fuse: f(special) },
+};
