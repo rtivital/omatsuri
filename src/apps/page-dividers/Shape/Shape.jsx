@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import Waves from './Waves';
 import WavesOpaque from './WavesOpaque';
 
-const shapes = {
+export const shapes = {
   waves: Waves,
-  'waves-opaque': WavesOpaque,
+  waves_opaque: WavesOpaque,
 };
 
 export default function Shape({ shape, ...others }) {
