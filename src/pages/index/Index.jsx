@@ -1,8 +1,6 @@
 import React from 'react';
 import ToolCard from '../../components/ToolCard/ToolCard';
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header';
-import Container from '../../components/Container/Container';
+import PageBase from '../../components/PageBase/PageBase';
 import toolsData from '../../data/tools';
 import classes from './Index.styles.less';
 
@@ -12,12 +10,8 @@ export default function Index() {
   ));
 
   return (
-    <main className={classes.wrapper}>
-      <Container>
-        <Header />
-        <div className={classes.tools}>{tools}</div>
-        <Footer />
-      </Container>
-    </main>
+    <PageBase className={classes.wrapper}>
+      <div className={classes.tools}>{tools}</div>
+    </PageBase>
   );
 }
