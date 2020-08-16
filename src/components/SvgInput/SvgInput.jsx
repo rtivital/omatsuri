@@ -4,6 +4,7 @@ import Button from '../Button/Button';
 import SettingsLabel from '../SettingsLabel/SettingsLabel';
 import Background from '../Background/Background';
 import Dropzone from '../Dropzone/Dropzone';
+import DropPlaceholder from '../DropPlaceholder/DropPlaceholder';
 import example from './example';
 import classes from './SvgInput.styles.less';
 
@@ -12,6 +13,7 @@ export default function SvgInput({
   onChange,
   errors,
   onFilesDrop,
+  dropLabel,
   formatFileName = (f) => f,
 }) {
   const formattedErrors = errors.map((error) => (
@@ -21,11 +23,10 @@ export default function SvgInput({
   return (
     <>
       <Dropzone onDrop={onFilesDrop} />
+      <DropPlaceholder>{dropLabel}</DropPlaceholder>
       <Background className={classes.wrapper}>
         <div className={classes.header}>
-          <SettingsLabel className={classes.title}>
-            Paste svg markup or drop svg files to browser window
-          </SettingsLabel>
+          <SettingsLabel className={classes.title}>Paste svg markup</SettingsLabel>
           <Button onClick={() => onChange(example)}>Load example</Button>
         </div>
         <textarea
@@ -45,5 +46,6 @@ SvgInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.arrayOf(PropTypes.string).isRequired,
   onFilesDrop: PropTypes.func.isRequired,
+  dropLabel: PropTypes.string.isRequired,
   formatFileName: PropTypes.func,
 };

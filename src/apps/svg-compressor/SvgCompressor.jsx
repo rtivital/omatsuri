@@ -98,6 +98,7 @@ export default function SvgCompressor() {
         errors={errors}
         onFilesDrop={handleFilesDrop}
         formatFileName={formatFileName}
+        dropLabel="Drop one or more svg files to start compression"
       />
       <Output results={results} />
     </>

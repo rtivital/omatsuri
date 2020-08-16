@@ -54,6 +54,7 @@ export default function SvgToJsx() {
         onChange={handleChange}
         errors={result.error && value.trim().length > 0 ? ['input file'] : []}
         onFilesDrop={handleFilesDrop}
+        dropLabel="Drop svg file to browser window to optimize it and convert it to jsx"
       />
 
       <Output data={result} />
