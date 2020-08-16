@@ -15,6 +15,9 @@ import SvgToJsx from './routes/svg-to-jsx/SvgToJsx';
 import HtmlSymbols from './routes/html-symbols/HtmlSymbols';
 import Base64Encoding from './routes/b64-encoding/B64Encoding';
 import ColorShadesGenerator from './routes/color-shades-generator/ColorShadesGenerator';
+import PageDividers from './routes/page-dividers/PageDividers';
+import GradientsGenerator from './routes/gradients-generator/GradientsGenerator';
+import FakeDataGenerator from './routes/fake-data-generator/FakeDataGenerator';
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
               <Route path="/html-symbols" exact component={HtmlSymbols} />
               <Route path="/b64-encoding" exact component={Base64Encoding} />
               <Route path="/color-shades-generator" exact component={ColorShadesGenerator} />
+              <Route path="/page-dividers" exact component={PageDividers} />
+              <Route path="/gradients-generator" exact component={GradientsGenerator} />
+              <Route path="/fake-data-generator" exact component={FakeDataGenerator} />
               <Route component={NotFound} />
             </Switch>
           </AppContainer>

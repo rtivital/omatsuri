@@ -18,7 +18,7 @@ export default [
   },
 
   {
-    link: '/css-gradient',
+    link: '/gradients-generator',
     name: 'Gradients generator',
     description: 'Generate linear and radial gradients, includes ready to use gradients library',
     icon: gradientGenerator,
@@ -32,7 +32,7 @@ export default [
   },
 
   {
-    link: '/pages-dividers',
+    link: '/page-dividers',
     name: 'Curved page dividers',
     description: 'Tool to generate curved page dividers with css and svg images',
     icon: curvedDividers,
