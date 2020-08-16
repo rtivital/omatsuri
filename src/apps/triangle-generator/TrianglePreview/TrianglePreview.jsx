@@ -16,8 +16,6 @@ export default function TrianglePreview({ values, theme, onThemeToggle }) {
         onToggle={onThemeToggle}
         label="preview"
       />
-      <div className={classes.overlay} />
-      <div className={classes.background} />
       <div className={classes.triangle}>
         <Triangle {...values} />
       </div>
