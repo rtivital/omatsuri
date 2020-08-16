@@ -8,34 +8,15 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const babelrc = require('./.babelrc');
+const toolsLinks = require('./src/data/tools-links');
 
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const port = 8260;
 const entry = path.join(__dirname, './src/index.jsx');
 const output = path.join(__dirname, './dist');
 const publicPath = '/';
-
-const templateContent = ({ htmlWebpackPlugin }) => `
-  <!DOCTYPE html>
-  <html>
-    <head>
-      ${htmlWebpackPlugin.tags.headTags}
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Omatsuri</title>
-    </head>
-    <body>
-      <noscript>
-        Enable JavaScript to use Frontend toolbox
-      </noscript>
-
-      <div id="app"></div>
-      ${htmlWebpackPlugin.tags.bodyTags}
-    </body>
-  </html>
-`;
 
 module.exports = {
   mode,
@@ -140,8 +121,6 @@ module.exports = {
 
   plugins: [
     new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(mode) }),
-    new HtmlWebpackPlugin({ templateContent, filename: 'index.html' }),
-    new HtmlWebpackPlugin({ templateContent, filename: '404.html' }),
     new FaviconsWebpackPlugin({
       logo: path.join(__dirname, './src/assets/logo.svg'),
       background: '#ffeeee',
@@ -163,7 +142,36 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new OpenBrowserPlugin({ url: `http://localhost:${port}` }),
       ]
-      : [new MiniCssExtractPlugin(), new CnameWebpackPlugin({ domain: 'omatsuri.app' })]),
+      : [
+        new MiniCssExtractPlugin(),
+        new CnameWebpackPlugin({ domain: 'omatsuri.app' }),
+        new PrerenderSPAPlugin({
+          staticDir: output,
+          routes: ['/', '/about', '/404', ...toolsLinks],
+        }),
+      ]),
+    new HtmlWebpackPlugin({
+      templateContent: ({ htmlWebpackPlugin }) => `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            ${htmlWebpackPlugin.tags.headTags}
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Omatsuri</title>
+          </head>
+          <body>
+            <noscript>
+              Enable JavaScript to use Frontend toolbox
+            </noscript>
+
+            <div id="app"></div>
+            ${htmlWebpackPlugin.tags.bodyTags}
+          </body>
+        </html>
+      `,
+    }),
     new OfflinePlugin({
       autoUpdate: true,
       appShell: '/index.html',
