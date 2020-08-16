@@ -37,7 +37,7 @@ export default function Navbar({ className }) {
   const [swStatus, setSwStatus] = useState('init');
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
       setSwStatus('loading');
       navigator.serviceWorker
         .getRegistration()

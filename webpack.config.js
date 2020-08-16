@@ -171,10 +171,10 @@ module.exports = {
           staticDir: output,
           routes: ['/', '/about', '/404', ...toolsLinks],
         }),
-        new OfflinePlugin({
-          autoUpdate: true,
-          appShell: '/index.html',
-        }),
       ]),
+    new OfflinePlugin({
+      autoUpdate: true,
+      appShell: '/index.html',
+    }),
   ],
 };
