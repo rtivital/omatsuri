@@ -1,0 +1,22 @@
+.wrapper {
+}
+
+.pickerWrapper {
+  user-select: none;
+  position: absolute;
+  z-index: 10;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: @oc-white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.03),
+    0 4px 8px rgba(0, 0, 0, 0.03), 0 8px 16px rgba(0, 0, 0, 0.03), 0 16px 32px rgba(0, 0, 0, 0.03),
+    0 32px 64px rgba(0, 0, 0, 0.03);
+}
+
+.picker {
+  box-shadow: none !important;
+  // removes hex input
+  :global .flexbox-fix:nth-child(2) {
+    display: none !important;
+  }
+}
