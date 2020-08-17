@@ -23,3 +23,21 @@ Omatsuri is offline first PWA with 10 open source frontend focused tools. Omatsu
 - Realistic Fake Data Generator
 - HTML/CSS Symbols Collection
 - Lorem/Samuel/Poke Ipsum Generator
+
+## Contributing
+
+Thanks for taking a look at the project and thinking about contributing!
+
+To get started with application localy use these commands:
+
+```sh
+# Install dependencies
+yarn
+
+# Start application, browser will open automatically
+npm start
+```
+
+Please make sure to use prettier and eslint while developing.
+
+Create awesome stuff and send a pull request!
