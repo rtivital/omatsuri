@@ -2,3 +2,26 @@
   padding: 15px;
   margin: 10px;
 }
+
+.label {
+  color: @oc-gray-6;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+.group {
+  flex: 1 0 calc(32% - 20px);
+  margin: 10px;
+}
+
+.input {
+  & + & {
+    margin-top: 10px;
+  }
+}
