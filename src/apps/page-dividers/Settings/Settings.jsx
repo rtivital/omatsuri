@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Tabs from '../../../components/Tabs/Tabs';
 import SliderInput from '../../../components/SliderInput/SliderInput';
 import Select from '../../../components/Select/Select';
 import HexInput from '../../../components/HexInput/HexInput';
@@ -12,22 +13,56 @@ const data = Object.keys(shapes).map((shape) => ({
   label: (shape.charAt(0).toUpperCase() + shape.slice(1)).replace('_', ' '),
 }));
 
+const positionsData = ['top', 'bottom'].map((position) => ({
+  value: position,
+  label: position.charAt(0).toUpperCase() + position.slice(1),
+}));
+
+const directionsData = ['normal', 'reverse'].map((direction) => ({
+  value: direction,
+  label: direction.charAt(0).toUpperCase() + direction.slice(1),
+}));
+
 export default function Settings({ values, handlers }) {
   return (
     <Background className={classes.wrapper}>
       <div className={classes.inner}>
         <div className={classes.group}>
-          <Select
-            data={data}
-            value={values.type}
-            onChange={handlers.onTypeChange}
-            id="shape-select"
-            label="Shape type"
-          />
+          <div className={classes.input}>
+            <Select
+              data={data}
+              value={values.type}
+              onChange={handlers.onTypeChange}
+              id="shape-select"
+              label="Shape type"
+            />
+          </div>
+          <div className={classes.input}>
+            <div className={classes.label}>Position</div>
+            <Tabs
+              data={positionsData}
+              onTabChange={handlers.onPositionChange}
+              active={values.position}
+            />
+          </div>
         </div>
         <div className={classes.group}>
-          <div className={classes.label}>Color</div>
-          <HexInput value={values.color} onChange={handlers.onColorChange} />
+          <div className={classes.input}>
+            <div className={classes.label}>Color</div>
+            <HexInput
+              className={classes.hexInput}
+              value={values.color}
+              onChange={handlers.onColorChange}
+            />
+          </div>
+          <div className={classes.input}>
+            <div className={classes.label}>Direction</div>
+            <Tabs
+              data={directionsData}
+              onTabChange={handlers.onDirectionChange}
+              active={values.direction}
+            />
+          </div>
         </div>
 
         <div className={classes.group}>
@@ -58,6 +93,8 @@ export default function Settings({ values, handlers }) {
 
 Settings.propTypes = {
   values: PropTypes.shape({
+    position: PropTypes.oneOf(['top', 'bottom']).isRequired,
+    direction: PropTypes.oneOf(['normal', 'reverse']).isRequired,
     color: PropTypes.string.isRequired,
     type: PropTypes.oneOf(Object.keys(shapes)).isRequired,
     width: PropTypes.number.isRequired,
@@ -69,5 +106,7 @@ Settings.propTypes = {
     onColorChange: PropTypes.func.isRequired,
     onWidthChange: PropTypes.func.isRequired,
     onHeightChange: PropTypes.func.isRequired,
+    onPositionChange: PropTypes.func.isRequired,
+    onDirectionChange: PropTypes.func.isRequired,
   }).isRequired,
 };
