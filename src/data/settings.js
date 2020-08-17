@@ -8,7 +8,7 @@ export default {
       name: 'Vitaly Rtishchev',
       tg: 'https://t.me/rtivital',
       github: 'rtivital',
-      wetsite: 'https://github.com/rtivital',
+      website: 'https://github.com/rtivital',
     },
 
     contributors: [
@@ -20,7 +20,7 @@ export default {
          tg: 'https://t.me/rtivital',
          github: 'rtivital',
          twitter: 'rtivital',
-         wetsite: 'https://github.com/rtivital',
+         website: 'https://github.com/rtivital',
        } */
     ],
   },

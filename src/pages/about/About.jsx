@@ -3,6 +3,7 @@ import useDocumentTitle from '../../hooks/use-document-title';
 import PageBase from '../../components/PageBase/PageBase';
 import Credits from './Credits';
 import Application from './Application';
+import Contributors from './Contributors/Contributors';
 import classes from './About.styles.less';
 
 export default function About() {
@@ -12,6 +13,7 @@ export default function About() {
     <PageBase>
       <div className={classes.about}>
         <Application />
+        <Contributors />
         <Credits />
       </div>
     </PageBase>

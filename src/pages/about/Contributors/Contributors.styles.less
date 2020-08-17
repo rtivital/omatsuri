@@ -1,0 +1,61 @@
+.author {
+  display: flex;
+
+  & + & {
+    margin-top: 30px;
+  }
+}
+
+.image {
+  width: 120px;
+  height: 120px;
+}
+
+.name {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.website {
+  color: @oc-gray-5 !important;
+
+  &:hover {
+    color: @oc-violet-5 !important;
+  }
+}
+
+.badge {
+  display: inline-block;
+  background-color: @oc-violet-0;
+  color: @oc-violet-9;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.body {
+  margin-left: 30px;
+}
+
+.social {
+  margin-top: 20px;
+  display: flex;
+}
+
+.icon {
+  width: 30px;
+}
+
+.socialLink {
+  & + & {
+    margin-left: 15px;
+  }
+}
+
+.becomeLink {
+  display: block;
+  margin-top: 15px;
+}

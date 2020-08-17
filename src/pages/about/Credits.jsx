@@ -14,7 +14,8 @@ export default function Credits() {
           >
             Freepik icons via Flaticon
           </a>
-          &nbsp;are used to represent tools. They are free and you can use them in your projects.
+          &nbsp;are used for all graphics that you can find on this website. They are free and you
+          can use them in your projects.
         </li>
         <li>
           <a href="https://github.com/svg/svgo" target="_balnk" rel="noopener noreferrer">
