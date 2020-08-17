@@ -23,7 +23,7 @@ export default function SvgInput({
   return (
     <>
       <Dropzone onDrop={onFilesDrop} />
-      <DropPlaceholder>{dropLabel}</DropPlaceholder>
+      <DropPlaceholder onFileAdd={(file) => onFilesDrop([file])}>{dropLabel}</DropPlaceholder>
       <Background className={classes.wrapper}>
         <div className={classes.header}>
           <SettingsLabel className={classes.title}>Paste svg markup</SettingsLabel>

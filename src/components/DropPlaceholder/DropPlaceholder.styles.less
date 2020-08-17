@@ -7,10 +7,35 @@
   letter-spacing: -0.5px;
   min-height: 100px;
   background-image: linear-gradient(-225deg, @oc-violet-0 0%, @oc-cyan-0 100%);
-  display: -webkit-flex;
-  display: -ms-flex;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 22px;
+}
+
+.input {
+  visibility: hidden;
+}
+
+.inputLabel {
+  margin-left: 15px;
+  font-size: 16px;
+  text-align: center;
+  padding: 0;
+  line-height: 30px;
+  border-radius: 5px;
+  width: 120px;
+  height: 32px;
+  color: @oc-gray-9;
+  background-color: @oc-white;
+  display: block;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+
+  &:hover {
+    transform: scale(1.01) translateY(-1px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.03),
+      0 4px 8px rgba(0, 0, 0, 0.03), 0 8px 16px rgba(0, 0, 0, 0.03), 0 16px 32px rgba(0, 0, 0, 0.03),
+      0 32px 64px rgba(0, 0, 0, 0.03);
+  }
 }

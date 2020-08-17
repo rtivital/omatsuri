@@ -56,7 +56,9 @@ export default function B64Encoding() {
   return (
     <>
       <Dropzone accepts="*" onDrop={handleFilesDrop} />
-      <DropPlaceholder>Drop file to browser window to convert it to base64 format</DropPlaceholder>
+      <DropPlaceholder onFileAdd={(file) => postMessage(file)} accepts="*">
+        Drop file to browser window to convert it to base64 format
+      </DropPlaceholder>
       {result.content && (
         <Background className={classes.wrapper}>
           <div className={classes.section}>
