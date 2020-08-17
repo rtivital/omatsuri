@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import useLocalStorage from '../../hooks/use-local-storage';
 import useSvgProcessor from '../../hooks/use-svg-processor';
 import useDocumentTitle from '../../hooks/use-document-title';
@@ -46,7 +46,7 @@ export default function SvgCompressor() {
     }));
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     svgo.addEventListener('message', handleSvgoMessage);
 
     if (value.trim().length > 0) {
