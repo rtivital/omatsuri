@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useLayoutEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classes from './Dropzone.styles.less';
 
@@ -28,7 +28,7 @@ export default function Dropzone({ onDrop, accepts = ['image/svg+xml'] }) {
     onDrop([...event.dataTransfer.files].filter((file) => allowAll || accepts.includes(file.type)));
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     document.addEventListener('dragover', preventDefault, false);
     document.addEventListener('drop', handleDrop, false);
     document.addEventListener('dragover', onDragOver, false);

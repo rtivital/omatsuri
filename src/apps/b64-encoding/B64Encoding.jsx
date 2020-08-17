@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import Highlight from '../../components/Highlight/Highlight';
 import Background from '../../components/Background/Background';
 import SettingsLabel from '../../components/SettingsLabel/SettingsLabel';
@@ -34,9 +34,11 @@ export default function B64Encoding() {
     });
   };
 
-  const postMessage = (file) => b64.postMessage({ file });
+  const postMessage = (file) => {
+    b64.postMessage({ file });
+  };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     b64.addEventListener('message', handleMessage);
     const transmittedContent = transmittedValue.retrieveAndClean();
 
@@ -56,7 +58,7 @@ export default function B64Encoding() {
   return (
     <>
       <Dropzone accepts="*" onDrop={handleFilesDrop} />
-      <DropPlaceholder onFileAdd={(file) => postMessage(file)} accepts="*">
+      <DropPlaceholder onFileAdd={(file) => handleFilesDrop([file])} accepts={undefined}>
         Drop file to browser window to convert it to base64 format
       </DropPlaceholder>
       {result.content && (
