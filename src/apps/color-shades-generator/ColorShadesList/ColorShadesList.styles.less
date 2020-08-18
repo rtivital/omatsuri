@@ -3,12 +3,13 @@
   margin: 10px;
 }
 
-.controls {
+.header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 }
 
+.copyAll,
 .remove {
   color: @oc-red-7;
   padding: 0;
@@ -24,15 +25,62 @@
   }
 }
 
+.copyAll {
+  color: @oc-violet-7;
+}
+
+.copyAllCopied {
+  color: @oc-green-7;
+  pointer-events: none;
+}
+
+.remove {
+  margin-left: 15px;
+}
+
 .shades {
   display: flex;
   margin-top: 15px;
+}
+
+.copied {
+  .shade {
+    &::before {
+      content: 'Copied';
+      background-color: @oc-green-7;
+    }
+  }
 }
 
 .shade {
   flex: 1;
   border: 1px solid @oc-gray-2;
   overflow: hidden;
+  background-color: transparent;
+  padding: 0;
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+
+  &::before {
+    content: 'Copy hex';
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 60px;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    color: @oc-white;
+    opacity: 0;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
 
   &:first-of-type {
     border-top-left-radius: 5px;

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import color from 'color';
+import cx from 'classnames';
+import useClipboard from '../../../hooks/use-clipboard';
 import HexInput from '../../../components/HexInput/HexInput';
 import Background from '../../../components/Background/Background';
 import classes from './ColorShadesList.styles.less';
@@ -24,24 +26,45 @@ export default function ColorShadesList({
   saturation,
   darken,
 }) {
+  const clipboardAll = useClipboard();
+  const clipboard = useClipboard({ timeout: 500 });
+  const copyAll = () =>
+    clipboardAll.copy(
+      JSON.stringify(generateShades({ steps: 10, value, saturation, darken }), null, 2)
+    );
+
   const shades = generateShades({ steps: 10, value, saturation, darken }).map((shade, index) => (
-    <div key={index} className={classes.shade}>
+    <button
+      type="button"
+      key={index}
+      className={classes.shade}
+      onClick={() => clipboard.copy(shade)}
+    >
       <div className={classes.preview} style={{ backgroundColor: shade }} />
-      <button type="button" className={classes.value}>
-        {shade}
-      </button>
-    </div>
+      <div className={classes.value}>{shade}</div>
+    </button>
   ));
 
   return (
-    <Background className={classes.wrapper}>
-      <div className={classes.controls}>
+    <Background className={cx(classes.wrapper, { [classes.copied]: clipboard.copied })}>
+      <div className={classes.header}>
         <HexInput value={value} onChange={onChange} />
-        {canDelete && (
-          <button type="button" className={classes.remove} onClick={onDelete}>
-            Remove
+
+        <div className={classes.controls}>
+          <button
+            className={cx(classes.copyAll, { [classes.copyAllCopied]: clipboardAll.copied })}
+            type="button"
+            onClick={copyAll}
+          >
+            {clipboardAll.copied ? 'Copied' : 'Copy all values'}
           </button>
-        )}
+
+          {canDelete && (
+            <button type="button" className={classes.remove} onClick={onDelete}>
+              Remove
+            </button>
+          )}
+        </div>
       </div>
       <div className={classes.shades}>{shades}</div>
     </Background>
