@@ -71,7 +71,7 @@ export default function Settings({
           </div>
           <div className={classes.footer}>
             <div className={classes.control}>
-              <Button onClick={onFieldAdd}>Add field</Button>
+              <Button onClick={onFieldAdd}>+ Add field</Button>
             </div>
 
             <div>

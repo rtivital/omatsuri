@@ -1,26 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { v4 } from 'uuid';
+import useLocaStorage from '../../hooks/use-local-storage';
 import useDocumentTitle from '../../hooks/use-document-title';
 import Settings from './Settings/Settings';
 import Output from './Output/Output';
 
-const DEFAULT_FIELDS = [
-  { name: 'name', type: 'name', key: v4() },
-  { name: 'birthday', type: 'date', key: v4() },
-  { name: 'phone', type: 'phone', key: v4() },
-  { name: 'zip', type: 'zip', key: v4() },
-  { name: 'city', type: 'city', key: v4() },
-  { name: 'email', type: 'email', key: v4() },
-];
+const INITIAL_VALUES = {
+  fields: [
+    { name: 'name', type: 'name', key: v4() },
+    { name: 'birthday', type: 'date', key: v4() },
+    { name: 'phone', type: 'phone', key: v4() },
+    { name: 'zip', type: 'zip', key: v4() },
+    { name: 'city', type: 'city', key: v4() },
+    { name: 'email', type: 'email', key: v4() },
+  ],
+  amount: 10,
+  type: 'default',
+};
 
 export default function FakeDataGenerator() {
   useDocumentTitle('Fake data generator');
 
-  const [fields, setFields] = useState(DEFAULT_FIELDS);
-  const [amount, setAmount] = useState(10);
-  const [type, setType] = useState('default');
+  const ls = useLocaStorage({ key: '@omatsuri/fake-data-generator', delay: 1000 });
+  const initialValues = ls.retrieve() || INITIAL_VALUES;
+
+  const [fields, setFields] = useState(initialValues.fields);
+  const [amount, setAmount] = useState(initialValues.amount);
+  const [type, setType] = useState(initialValues.type);
   const [seed, setSeed] = useState(null);
   const regenerate = () => setSeed(v4());
+
+  useEffect(() => {
+    ls.save({ fields, amount, type });
+  }, [type, amount, fields]);
 
   const addField = () =>
     setFields((current) => [...current, { name: '', type: 'name', key: v4() }]);
