@@ -15,6 +15,8 @@ const generators = {
     faker.fake(
       '{{address.cityPrefix}} {{address.city}}, {{address.streetName}}, {{random.number}}'
     ),
+  date: faker.date.past,
+  city: faker.address.city,
 };
 
 export const generatorsData = Object.keys(generators).map((key) => ({
