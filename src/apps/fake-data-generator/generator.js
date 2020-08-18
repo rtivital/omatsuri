@@ -17,6 +17,11 @@ const generators = {
     ),
 };
 
+export const generatorsData = Object.keys(generators).map((key) => ({
+  label: (key.charAt(0).toUpperCase() + key.slice(1)).replace('_', ' '),
+  value: key,
+}));
+
 export default function generate(type) {
   if (type in generators) {
     return generators[type]();
@@ -35,10 +40,12 @@ export function generateRawData() {
 export function generateJsonData(fields, amount) {
   return Array(amount)
     .fill(0)
-    .map(() => fields.reduce((acc, field) => {
-      if (field.type in generators) {
-        acc[field.name] = generators[field.type]();
-      }
-      return acc;
-    }, {}));
+    .map(() =>
+      fields.reduce((acc, field) => {
+        if (field.type in generators && field.name.trim()) {
+          acc[field.name] = generators[field.type]();
+        }
+        return acc;
+      }, {})
+    );
 }

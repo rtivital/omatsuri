@@ -3,11 +3,67 @@
   margin: 10px;
 }
 
+.footer,
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.footer {
+  margin-top: 15px;
 }
 
 .regenerate {
   margin-left: 30px;
+}
+
+.body {
+  margin-top: 15px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.input {
+  flex: 1;
+
+  & + & {
+    margin-left: 15px;
+  }
+}
+
+.nameInput {
+  width: 100%;
+}
+
+.label {
+  color: @oc-gray-6;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.remove {
+  color: @oc-red-7;
+  padding: 0;
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  outline: 0;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 15px;
+  padding-right: 15px;
+  margin-top: 15px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

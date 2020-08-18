@@ -31,3 +31,16 @@ export default function Output({ type, fields, amount, seed = null }) {
     </Background>
   );
 }
+
+Output.propTypes = {
+  type: PropTypes.oneOf(['default', 'json']).isRequired,
+  fields: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      key: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  amount: PropTypes.number.isRequired,
+  seed: PropTypes.string,
+};
