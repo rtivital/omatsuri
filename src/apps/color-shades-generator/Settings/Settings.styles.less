@@ -1,0 +1,30 @@
+.wrapper {
+  padding: 15px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.control {
+  & + & {
+    margin-left: 15px;
+  }
+}
+
+.label {
+  color: @oc-gray-6;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.settingsControl {
+  & + & {
+    margin-top: 10px;
+  }
+}
