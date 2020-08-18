@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 
 export default function useDocumentTitle(title) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof document !== 'undefined') {
       document.title = title;
     }
