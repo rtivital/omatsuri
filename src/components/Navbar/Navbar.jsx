@@ -10,43 +10,12 @@ import toolsData from '../../data/tools';
 import settings from '../../data/settings';
 import classes from './Navbar.styles.less';
 
-function getSwMessage(status) {
-  switch (status) {
-    case 'ready':
-      return '✓ Ready to use offline';
-
-    case 'disabled':
-      return '✗ Cache disabled';
-
-    case 'init':
-    case 'loading':
-      return 'Caching offline version';
-
-    case 'error':
-    default:
-      return '✗ Failed to cache app';
-  }
-}
-
 const isActive = (path, match, location) => !!(match || path === location.pathname);
 const findCurrentIndex = (pathname) => toolsData.findIndex((tool) => pathname === tool.link);
 
 export default function Navbar({ className }) {
   const { pathname } = useLocation();
   const [current, setCurrent] = useState(findCurrentIndex(pathname));
-  const [swStatus, setSwStatus] = useState('init');
-
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
-      setSwStatus('loading');
-      navigator.serviceWorker
-        .getRegistration()
-        .then(() => setSwStatus('ready'))
-        .catch(() => setSwStatus('error'));
-    } else {
-      setSwStatus('disabled');
-    }
-  }, []);
 
   useEffect(() => {
     setCurrent(findCurrentIndex(pathname));
@@ -95,10 +64,6 @@ export default function Navbar({ className }) {
             <a className={classes.footerLink} href={settings.bugs}>
               Report an issue
             </a>
-            <span className={classes.dot}>•</span>
-            <span className={cx(classes.footerLink, classes.sw, classes[`sw_${swStatus}`])}>
-              {getSwMessage(swStatus)}
-            </span>
           </div>
           <GithubButton />
         </div>

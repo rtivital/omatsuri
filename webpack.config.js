@@ -7,7 +7,6 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const babelrc = require('./.babelrc');
 const toolsLinks = require('./src/data/tools-links');
@@ -172,9 +171,5 @@ module.exports = {
           routes: ['/', '/about', '/404', ...toolsLinks],
         }),
       ]),
-    new OfflinePlugin({
-      autoUpdate: true,
-      appShell: '/index.html',
-    }),
   ],
 };
