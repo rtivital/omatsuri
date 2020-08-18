@@ -24,3 +24,21 @@ export default function generate(type) {
 
   return null;
 }
+
+export function generateRawData() {
+  return Object.keys(generators).map((key) => ({
+    key: (key.charAt(0).toUpperCase() + key.slice(1)).replace('_', ' '),
+    data: generators[key](),
+  }));
+}
+
+export function generateJsonData(fields, amount) {
+  return Array(amount)
+    .fill(0)
+    .map(() => fields.reduce((acc, field) => {
+      if (field.type in generators) {
+        acc[field.name] = generators[field.type]();
+      }
+      return acc;
+    }, {}));
+}

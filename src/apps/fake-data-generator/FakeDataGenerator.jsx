@@ -18,6 +18,9 @@ export default function FakeDataGenerator() {
 
   const [fields, setFields] = useState(DEFAULT_FIELDS);
   const [amount, setAmount] = useState(10);
+  const [type, setType] = useState('default');
+  const [seed, setSeed] = useState(null);
+  const regenerate = () => setSeed(v4());
 
   const addField = () =>
     setFields((current) => [...current, { name: '', type: 'name', key: v4() }]);
@@ -39,14 +42,17 @@ export default function FakeDataGenerator() {
   return (
     <div>
       <Settings
+        type={type}
+        onTypeChange={setType}
         amount={amount}
         fields={fields}
         onFieldAdd={addField}
         onFieldRemove={removeField}
         onFieldPropChange={setFieldProp}
         onAmountChange={setAmount}
+        onRegenerate={regenerate}
       />
-      <Output />
+      <Output fields={fields} amount={amount} type={type} seed={seed} />
     </div>
   );
 }
