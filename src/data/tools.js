@@ -1,5 +1,5 @@
 import triangleGenerator from '../assets/triangle-generator.svg';
-import gradientGenerator from '../assets/gradient-generator.svg';
+// import gradientGenerator from '../assets/gradient-generator.svg';
 import svgCompression from '../assets/svg-compression.svg';
 import svg2jsx from '../assets/svg-to-jsx.svg';
 import symbolsCollection from '../assets/symbols-collection.svg';
@@ -17,12 +17,13 @@ export default [
     icon: triangleGenerator,
   },
 
-  {
+  // under development
+  /* {
     link: '/gradients-generator',
     name: 'Gradients generator',
     description: 'Generate linear and radial gradients, includes ready to use gradients library',
     icon: gradientGenerator,
-  },
+  },*/
 
   {
     link: '/color-shades-generator',

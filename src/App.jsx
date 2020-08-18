@@ -16,7 +16,6 @@ import HtmlSymbols from './apps/html-symbols/HtmlSymbols';
 import Base64Encoding from './apps/b64-encoding/B64Encoding';
 import ColorShadesGenerator from './apps/color-shades-generator/ColorShadesGenerator';
 import PageDividers from './apps/page-dividers/PageDividers';
-import GradientsGenerator from './apps/gradients-generator/GradientsGenerator';
 import FakeDataGenerator from './apps/fake-data-generator/FakeDataGenerator';
 
 function App() {
@@ -36,7 +35,6 @@ function App() {
               <Route path="/b64-encoding" exact component={Base64Encoding} />
               <Route path="/color-shades-generator" exact component={ColorShadesGenerator} />
               <Route path="/page-dividers" exact component={PageDividers} />
-              <Route path="/gradients-generator" exact component={GradientsGenerator} />
               <Route path="/fake-data-generator" exact component={FakeDataGenerator} />
               <Route component={NotFound} />
             </Switch>

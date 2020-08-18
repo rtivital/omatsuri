@@ -2,7 +2,6 @@
 
 module.exports = [
   '/triangle-generator',
-  '/gradients-generator',
   '/color-shades-generator',
   '/page-dividers',
   '/svg-compressor',

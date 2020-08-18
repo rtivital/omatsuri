@@ -14,7 +14,6 @@ Omatsuri is offline first PWA with 10 open source frontend focused tools. Omatsu
 ## Included Applications
 
 - CSS Triangle Generator
-- CSS Gradients Generator
 - Color Shades Generator
 - Curved Page Dividers Generator
 - SVG compressor
