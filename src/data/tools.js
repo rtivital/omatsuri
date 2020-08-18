@@ -64,8 +64,7 @@ export default [
   {
     link: '/fake-data-generator',
     name: 'Fake data generator',
-    description:
-      'Generate wide variety of realistic fake data based on custom json schema: address, avatars, names, phones...',
+    description: 'Generate wide variety of realistic fake data: address, avatars, names, phones...',
     icon: fakeDataGenerator,
   },
 
