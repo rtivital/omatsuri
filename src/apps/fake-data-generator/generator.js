@@ -15,7 +15,7 @@ const generators = {
     faker.fake(
       '{{address.cityPrefix}} {{address.city}}, {{address.streetName}}, {{random.number}}'
     ),
-  date: faker.date.past,
+  date: () => faker.date.past().toISOString(),
   city: faker.address.city,
 };
 
