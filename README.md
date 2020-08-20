@@ -37,6 +37,14 @@ yarn
 npm start
 ```
 
-Please make sure to use prettier and eslint while developing.
+Please make sure to use prettier and eslint while developing. Create awesome stuff and send a pull request!
 
-Create awesome stuff and send a pull request!
+### Features to contribute
+
+There are a lot of missing features that can be added, let's focus on most intresting:
+
+- Full offline support with service workers
+- Dark theme support (automatically detected from user os)
+- New application – e.g. gradient generator
+
+If you decide to build one of these featues please be aware of design language of the app and recreate it as similar as possible for new design elements.
