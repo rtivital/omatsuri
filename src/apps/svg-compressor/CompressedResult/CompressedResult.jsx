@@ -40,6 +40,7 @@ export default function CompressedResult({ content, fileKey }) {
             component="a"
             theme="secondary"
             download={fileKey}
+            type={null}
             href={`data:image/svg+xml;charset=utf-8;base64,${btoa(content)}`}
           >
             download
