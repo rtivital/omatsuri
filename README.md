@@ -23,6 +23,29 @@ Omatsuri is offline first PWA with 10 open source frontend focused tools. Omatsu
 - HTML/CSS Symbols Collection
 - Lorem/Samuel/Poke Ipsum Generator
 
+<!-- START OF README-JOB SECTION -->
+<div align="center">
+  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png">
+</div>
+<h1 align="center">README-Jobs</h1>
+<p align="center">
+  <a href="http://readme-jobs.com"><img src="http://static.readme-jobs.com/meta/badge.png?q=1" width="327"></a>
+  <br />
+  This section promotes developer jobs and contributes in sponsoring this open source project.
+  <br />
+  Learn more about it <b><a href="http://readme-jobs.com">here</a></b>.
+<p>
+<p align="center">
+  <a href="https://fetch.readme-jobs.com/rmj-rec58q8AFaUDp99aU/1/link" target="_blank"><img src="https://fetch.readme-jobs.com/rmj-rec58q8AFaUDp99aU/1/ad" width="270"></a>
+  <a href="https://fetch.readme-jobs.com/rmj-rec58q8AFaUDp99aU/2/link" target="_blank"><img src="https://fetch.readme-jobs.com/rmj-rec58q8AFaUDp99aU/2/ad" width="270"></a>
+  <a href="https://fetch.readme-jobs.com/rmj-rec58q8AFaUDp99aU/3/link" target="_blank"><img src="https://fetch.readme-jobs.com/rmj-rec58q8AFaUDp99aU/3/ad" width="270"></a>
+<p>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png">
+</div>
+<br />
+<!-- END OF README-JOB SECTION -->
+
 ## Contributing
 
 Thanks for taking a look at the project and thinking about contributing!
