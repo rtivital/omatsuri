@@ -10,8 +10,14 @@ import toolsData from '../../data/tools';
 import settings from '../../data/settings';
 import classes from './Navbar.styles.less';
 
-const isActive = (path, match, location) => !!(match || path === location.pathname);
-const findCurrentIndex = (pathname) => toolsData.findIndex((tool) => pathname === tool.link);
+const removeTrailingSlash = (path) =>
+  (path.slice(path.length - 1) === '/' ? path.slice(0, path.length - 1) : path);
+
+const isActive = (path, match, location) =>
+  !!(match || removeTrailingSlash(path) === removeTrailingSlash(location.pathname));
+
+const findCurrentIndex = (pathname) =>
+  toolsData.findIndex((tool) => removeTrailingSlash(pathname) === removeTrailingSlash(tool.link));
 
 export default function Navbar({ className }) {
   const { pathname } = useLocation();
@@ -25,7 +31,6 @@ export default function Navbar({ className }) {
     <NavLink
       key={tool.name}
       to={tool.link}
-      exact
       className={classes.link}
       activeClassName={classes.linkActive}
       isActive={isActive.bind(this, tool.link)}
