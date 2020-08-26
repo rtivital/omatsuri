@@ -1,4 +1,5 @@
 import React, { useState, useLayoutEffect } from 'react';
+import cx from 'classnames';
 import Highlight from '../../components/Highlight/Highlight';
 import Background from '../../components/Background/Background';
 import SettingsLabel from '../../components/SettingsLabel/SettingsLabel';
@@ -58,7 +59,11 @@ export default function B64Encoding() {
   return (
     <>
       <Dropzone accepts="*" onDrop={handleFilesDrop} />
-      <DropPlaceholder onFileAdd={(file) => handleFilesDrop([file])} accepts={undefined}>
+      <DropPlaceholder
+        className={cx({ [classes.fullscreenDrop]: !result.content })}
+        onFileAdd={(file) => handleFilesDrop([file])}
+        accepts={undefined}
+      >
         Drop file to browser window to convert it to base64 format
       </DropPlaceholder>
       {result.content && (
