@@ -17,6 +17,7 @@ import Base64Encoding from './apps/b64-encoding/B64Encoding';
 import ColorShadesGenerator from './apps/color-shades-generator/ColorShadesGenerator';
 import PageDividers from './apps/page-dividers/PageDividers';
 import FakeDataGenerator from './apps/fake-data-generator/FakeDataGenerator';
+import CssCursors from './apps/css-cursors/CssCursors';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
               <Route path="/color-shades-generator" exact component={ColorShadesGenerator} />
               <Route path="/page-dividers" exact component={PageDividers} />
               <Route path="/fake-data-generator" exact component={FakeDataGenerator} />
+              <Route path="/css-cursors" exact component={CssCursors} />
               <Route component={NotFound} />
             </Switch>
           </AppContainer>

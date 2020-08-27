@@ -8,6 +8,7 @@ import loremIpsum from '../assets/lorem-inpsum.svg';
 import b64encoding from '../assets/b64-encoding.svg';
 import fakeDataGenerator from '../assets/fake-data-generator.svg';
 import colorShadesGenerator from '../assets/color-shades-generator.svg';
+import cssCursors from '../assets/css-cursors.svg';
 
 export default [
   {
@@ -82,5 +83,12 @@ export default [
     name: 'Lorem ipsum',
     description: 'Generate different kinds of lorem ipsum text',
     icon: loremIpsum,
+  },
+
+  {
+    link: '/css-cursors',
+    name: 'CSS cursors',
+    description: 'All existing CSS cursor property values collection',
+    icon: cssCursors,
   },
 ];

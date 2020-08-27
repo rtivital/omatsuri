@@ -10,4 +10,5 @@ module.exports = [
   '/fake-data-generator',
   '/html-symbols',
   '/lorem-ipsum',
+  '/css-cursors',
 ];
