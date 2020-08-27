@@ -1,0 +1,33 @@
+.control {
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  font-family: Monaco, monospace;
+  background-color: @oc-white;
+  border: 1px solid @oc-gray-5;
+  border-radius: 15px;
+  outline: 0;
+  position: relative;
+
+  &:hover {
+    background-color: @oc-gray-0;
+  }
+
+  @media screen and (max-width: 1000px) {
+    font-size: 16px;
+  }
+}
+
+.active {
+  &::after {
+    content: 'Copied';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: @oc-green-7;
+    border-radius: 15px;
+    color: @oc-white;
+  }
+}
