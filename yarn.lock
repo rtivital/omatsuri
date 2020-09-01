@@ -1375,6 +1375,11 @@
     promise-limit "^2.5.0"
     puppeteer "^1.7.0"
 
+"@rtivital/eslint-config@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@rtivital/eslint-config/-/eslint-config-1.0.0.tgz#66aad3cbeff9de72a0463ddfe3d882cdd4ac7b00"
+  integrity sha512-afzqYAPrXufg8Yc9hekBIPnR/xs/yq4WbuoBdWLZwgPKXWcdBwZN4JoilTs6lxe9Yz9AsqUdrs3o3c8H3sOAUw==
+
 "@types/anymatch@*":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@types/anymatch/-/anymatch-1.3.1.tgz#336badc1beecb9dacc38bea2cf32adf627a8421a"
