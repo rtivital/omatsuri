@@ -18,6 +18,7 @@ import ColorShadesGenerator from './apps/color-shades-generator/ColorShadesGener
 import PageDividers from './apps/page-dividers/PageDividers';
 import FakeDataGenerator from './apps/fake-data-generator/FakeDataGenerator';
 import CssCursors from './apps/css-cursors/CssCursors';
+import EventsKeycode from './apps/events-keycode/EventsKeycode';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               <Route path="/page-dividers" exact component={PageDividers} />
               <Route path="/fake-data-generator" exact component={FakeDataGenerator} />
               <Route path="/css-cursors" exact component={CssCursors} />
+              <Route path="/events-keycode" exact component={EventsKeycode} />
               <Route component={NotFound} />
             </Switch>
           </AppContainer>
