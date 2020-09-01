@@ -9,6 +9,7 @@ import b64encoding from '../assets/b64-encoding.svg';
 import fakeDataGenerator from '../assets/fake-data-generator.svg';
 import colorShadesGenerator from '../assets/color-shades-generator.svg';
 import cssCursors from '../assets/css-cursors.svg';
+import eventsKeycode from '../assets/events-keycode.svg';
 
 export default [
   {
@@ -90,5 +91,12 @@ export default [
     name: 'CSS cursors',
     description: 'All existing CSS cursor property values collection',
     icon: cssCursors,
+  },
+
+  {
+    link: '/events-keycode',
+    name: 'Keyboard events codes',
+    description: 'JavaScript events keycode values',
+    icon: eventsKeycode,
   },
 ];

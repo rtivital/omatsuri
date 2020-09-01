@@ -11,4 +11,5 @@ module.exports = [
   '/html-symbols',
   '/lorem-ipsum',
   '/css-cursors',
+  '/events-keycode',
 ];
