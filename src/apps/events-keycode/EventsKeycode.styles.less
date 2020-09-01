@@ -1,0 +1,49 @@
+.wrapper {
+  padding: 15px;
+  margin: 10px;
+  min-height: calc(100vh - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #f9f9fd;
+  margin: 0;
+  line-height: 1;
+  color: @oc-gray-9;
+  letter-spacing: -1px;
+  border: 1px solid @oc-gray-2;
+  padding: 10px 15px;
+  border-radius: 15px;
+}
+
+.event {
+  width: 100%;
+}
+
+.eventTitle {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.group {
+  & + & {
+    margin-top: 30px;
+  }
+}
+
+.info {
+  display: flex;
+  margin: -5px;
+}
+
+.infoItem {
+  flex: 1;
+  margin: 5px;
+}
