@@ -1,4 +1,4 @@
-export default function useSvgProcessor() {
+export default function getSvgProcessor() {
   return (file) =>
     new Promise((resolve, reject) => {
       const reader = new FileReader();

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
-import { useDocumentTitle, useLocaStorage, useClipboard } from 'xooks';
+import { useDocumentTitle, useLocalStorage, useClipboard } from 'xooks';
 import symbols from '../../data/symbols';
 import Background from '../../components/Background/Background';
 import Tabs from '../../components/Tabs/Tabs';
@@ -25,8 +25,8 @@ export default function HtmlSymbols() {
   useDocumentTitle('Symbols collection');
 
   const clipboard = useClipboard({ timeout: 1000 });
-  const lsQuery = useLocaStorage({ key: '@omatsuri/html-symbols/search', delay: 200 });
-  const lsType = useLocaStorage({ key: '@omatsuri/html-symbols/type', delay: 200 });
+  const lsQuery = useLocalStorage({ key: '@omatsuri/html-symbols/search', delay: 200 });
+  const lsType = useLocalStorage({ key: '@omatsuri/html-symbols/type', delay: 200 });
   const [query, setQuery] = useState(lsQuery.retrieve() || '');
   const [type, setType] = useState(lsType.retrieve() || 'Most used');
 

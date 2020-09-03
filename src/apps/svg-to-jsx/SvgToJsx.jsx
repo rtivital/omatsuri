@@ -1,16 +1,16 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { useDocumentTitle, useLocalStorage } from 'xooks';
 import SvgInput from '../../components/SvgInput/SvgInput';
-import useSvgProcessor from '../../hooks/use-svg-processor';
+import getSvgProcessor from '../../get-svg-processor';
 import Svg2jsxWorker from '../../workers/svg-to-jsx.worker';
 import Output from './Output/Output';
 
 const svg2jsx = new Svg2jsxWorker();
+const svgProcessor = getSvgProcessor();
 
 export default function SvgToJsx() {
   useDocumentTitle('Svg to jsx');
 
-  const svgProcessor = useSvgProcessor();
   const ls = useLocalStorage({ key: '@omatsuri/svg-to-jsx', delay: 1000 });
   const transmittedValue = useLocalStorage({ key: '@omatsuri/conversion-after-compression/jsx' });
   const [value, setValue] = useState(transmittedValue.retrieveAndClean() || ls.retrieve() || '');

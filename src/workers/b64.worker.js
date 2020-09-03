@@ -1,7 +1,7 @@
 import optimize from 'svgo-browser/lib/optimize';
-import useSvgProcessor from '../hooks/use-svg-processor';
+import getSvgProcessor from '../get-svg-processor';
 
-const svgProcessor = useSvgProcessor();
+const svgProcessor = getSvgProcessor();
 
 onmessage = (event) => {
   const { file, content } = event.data;

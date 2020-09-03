@@ -1,7 +1,7 @@
 import oc from 'open-color';
 import React, { useState, useEffect } from 'react';
 import { v4 } from 'uuid';
-import { useDocumentTitle, useLocaStorage } from 'xooks';
+import { useDocumentTitle, useLocalStorage } from 'xooks';
 import Button from '../../components/Button/Button';
 import ColorShadesList from './ColorShadesList/ColorShadesList';
 import Settings from './Settings/Settings';
@@ -23,7 +23,7 @@ const INITIAL_VALUES = {
 export default function ColorShadesGenerator() {
   useDocumentTitle('Color shades generator');
 
-  const ls = useLocaStorage({ key: '@omatsuri', delay: 1000 });
+  const ls = useLocalStorage({ key: '@omatsuri', delay: 1000 });
   const initialValues = ls.retrieve() || INITIAL_VALUES;
 
   const [value, setValue] = useState(initialValues.value);

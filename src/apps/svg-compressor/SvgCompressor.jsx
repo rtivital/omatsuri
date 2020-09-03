@@ -1,12 +1,13 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
 import { useLocalStorage, useDocumentTitle } from 'xooks';
-import useSvgProcessor from '../../hooks/use-svg-processor';
+import getSvgProcessor from '../../get-svg-processor';
 import SvgInput from '../../components/SvgInput/SvgInput';
 import SvgoWorker from '../../workers/svgo.worker';
 import formatFileName from './format-file-name';
 import Output from './Output/Output';
 
 const svgo = new SvgoWorker();
+const svgProcessor = getSvgProcessor();
 
 const INITIAL_PROGRESS_STATE = {
   loading: false,
@@ -17,7 +18,6 @@ const INITIAL_PROGRESS_STATE = {
 export default function SvgCompressor() {
   useDocumentTitle('Svg compressor');
 
-  const svgProcessor = useSvgProcessor();
   const ls = useLocalStorage({ key: '@omatsuri/svg-compressor', delay: 500 });
   const [value, setValue] = useState(ls.retrieve() || '');
   const [results, setResults] = useState({});

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { v4 } from 'uuid';
-import { useDocumentTitle, useLocaStorage } from 'xooks';
+import { useDocumentTitle, useLocalStorage } from 'xooks';
 import Settings from './Settings/Settings';
 import Output from './Output/Output';
 
@@ -20,7 +20,7 @@ const INITIAL_VALUES = {
 export default function FakeDataGenerator() {
   useDocumentTitle('Fake data generator');
 
-  const ls = useLocaStorage({ key: '@omatsuri/fake-data-generator', delay: 1000 });
+  const ls = useLocalStorage({ key: '@omatsuri/fake-data-generator', delay: 1000 });
   const initialValues = ls.retrieve() || INITIAL_VALUES;
 
   const [fields, setFields] = useState(initialValues.fields);

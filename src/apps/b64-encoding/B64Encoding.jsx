@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
 import cx from 'classnames';
-import { useDocumentTitle, useLocaStorage } from 'xooks';
+import { useDocumentTitle, useLocalStorage } from 'xooks';
 import Highlight from '../../components/Highlight/Highlight';
 import Background from '../../components/Background/Background';
 import SettingsLabel from '../../components/SettingsLabel/SettingsLabel';
@@ -18,8 +18,8 @@ function generateCssExample(content) {
 export default function B64Encoding() {
   useDocumentTitle('Base64 encoding');
 
-  const ls = useLocaStorage({ key: '@omatsuri/b64-encoding', delay: 500 });
-  const transmittedValue = useLocaStorage({ key: '@omatsuri/conversion-after-compression/b64' });
+  const ls = useLocalStorage({ key: '@omatsuri/b64-encoding', delay: 500 });
+  const transmittedValue = useLocalStorage({ key: '@omatsuri/conversion-after-compression/b64' });
   const [result, setResult] = useState({ loading: false, error: null, content: ls.retrieve() });
 
   const handleMessage = (event) => {
