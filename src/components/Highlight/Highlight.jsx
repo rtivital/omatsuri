@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import useClipboard from '../../hooks/use-clipboard';
+import { useClipboard } from 'xooks';
 import CopyCodeButton from '../CopyCodeButton/CopyCodeButton';
 import classes from './Highlight.styles.less';
 

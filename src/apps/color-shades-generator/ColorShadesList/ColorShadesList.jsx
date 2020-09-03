@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import color from 'color';
 import cx from 'classnames';
-import useClipboard from '../../../hooks/use-clipboard';
+import { useClipboard } from 'xooks';
 import HexInput from '../../../components/HexInput/HexInput';
 import Background from '../../../components/Background/Background';
 import classes from './ColorShadesList.styles.less';

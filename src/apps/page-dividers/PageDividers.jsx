@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import useLocalStorage from '../../hooks/use-local-storage';
-import useDocumentTitle from '../../hooks/use-document-title';
+import { useDocumentTitle, useLocalStorage } from 'xooks';
 import Settings from './Settings/Settings';
 import Output from './Output/Output';
 import Preview from './Preview/Preview';

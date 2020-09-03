@@ -1,5 +1,5 @@
 import React from 'react';
-import useDocumentTitle from '../../hooks/use-document-title';
+import { useDocumentTitle } from 'xooks';
 import PageBase from '../../components/PageBase/PageBase';
 import Credits from './Credits';
 import Application from './Application';

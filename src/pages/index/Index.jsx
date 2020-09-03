@@ -1,5 +1,5 @@
 import React from 'react';
-import useDocumentTitle from '../../hooks/use-document-title';
+import { useDocumentTitle } from 'xooks';
 import ToolCard from '../../components/ToolCard/ToolCard';
 import PageBase from '../../components/PageBase/PageBase';
 import toolsData from '../../data/tools';

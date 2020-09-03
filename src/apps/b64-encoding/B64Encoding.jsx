@@ -1,13 +1,12 @@
 import React, { useState, useLayoutEffect } from 'react';
 import cx from 'classnames';
+import { useDocumentTitle, useLocaStorage } from 'xooks';
 import Highlight from '../../components/Highlight/Highlight';
 import Background from '../../components/Background/Background';
 import SettingsLabel from '../../components/SettingsLabel/SettingsLabel';
 import DropPlaceholder from '../../components/DropPlaceholder/DropPlaceholder';
 import Dropzone from '../../components/Dropzone/Dropzone';
 import B64Worker from '../../workers/b64.worker';
-import useLocaStorage from '../../hooks/use-local-storage';
-import useDocumentTitle from '../../hooks/use-document-title';
 import classes from './B64Encoding.styles.less';
 
 const b64 = new B64Worker();

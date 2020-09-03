@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import useClipboard from '../../../hooks/use-clipboard';
+import { useClipboard } from 'xooks';
 import data from '../data';
 import classes from './CursorControl.styles.less';
 

@@ -1,7 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
+import { useDocumentTitle, useLocalStorage } from 'xooks';
 import SvgInput from '../../components/SvgInput/SvgInput';
-import useDocumentTitle from '../../hooks/use-document-title';
-import useLocalStorage from '../../hooks/use-local-storage';
 import useSvgProcessor from '../../hooks/use-svg-processor';
 import Svg2jsxWorker from '../../workers/svg-to-jsx.worker';
 import Output from './Output/Output';

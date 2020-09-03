@@ -1,5 +1,5 @@
 import React, { useState, useLayoutEffect } from 'react';
-import useDocumentTitle from '../../hooks/use-document-title';
+import { useDocumentTitle } from 'xooks';
 import Background from '../../components/Background/Background';
 import SettingsLabel from '../../components/SettingsLabel/SettingsLabel';
 import Highlight from '../../components/Highlight/Highlight';

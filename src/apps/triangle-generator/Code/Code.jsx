@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import useLocalStorage from '../../../hooks/use-local-storage';
+import { useLocalStorage } from 'xooks';
 import Tabs from '../../../components/Tabs/Tabs';
 import Background from '../../../components/Background/Background';
 import Highlight from '../../../components/Highlight/Highlight';

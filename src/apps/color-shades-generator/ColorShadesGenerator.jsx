@@ -1,8 +1,7 @@
 import oc from 'open-color';
 import React, { useState, useEffect } from 'react';
 import { v4 } from 'uuid';
-import useLocaStorage from '../../hooks/use-local-storage';
-import useDocumentTitle from '../../hooks/use-document-title';
+import { useDocumentTitle, useLocaStorage } from 'xooks';
 import Button from '../../components/Button/Button';
 import ColorShadesList from './ColorShadesList/ColorShadesList';
 import Settings from './Settings/Settings';

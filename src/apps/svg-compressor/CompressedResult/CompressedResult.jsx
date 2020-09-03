@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import useClipboard from '../../../hooks/use-clipboard';
+import { useClipboard } from 'xooks';
 import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
 import Background from '../../../components/Background/Background';
 import Button from '../../../components/Button/Button';

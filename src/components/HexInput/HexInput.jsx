@@ -2,9 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { ChromePicker as ColorPicker } from 'react-color';
+import { useIntermediateValue, useClickOutside } from 'xooks';
 import Input from '../Input/Input';
-import useClickOutside from '../../hooks/use-click-outside';
-import useIntermediateValue from '../../hooks/use-intermediate-value';
 import classes from './HexInput.styles.less';
 
 export default function HexInput({ className, value, onChange, ...others }) {

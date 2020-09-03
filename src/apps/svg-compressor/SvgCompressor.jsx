@@ -1,7 +1,6 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
-import useLocalStorage from '../../hooks/use-local-storage';
+import { useLocalStorage, useDocumentTitle } from 'xooks';
 import useSvgProcessor from '../../hooks/use-svg-processor';
-import useDocumentTitle from '../../hooks/use-document-title';
 import SvgInput from '../../components/SvgInput/SvgInput';
 import SvgoWorker from '../../workers/svgo.worker';
 import formatFileName from './format-file-name';

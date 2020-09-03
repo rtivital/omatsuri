@@ -1,8 +1,7 @@
 import oc from 'open-color';
 import React, { useState, useEffect } from 'react';
 import tinycolor from 'tinycolor2';
-import useDocumentTitle from '../../hooks/use-document-title';
-import useLocalStorage from '../../hooks/use-local-storage';
+import { useDocumentTitle, useLocalStorage } from 'xooks';
 import Settings from './Settings/Settings';
 import TrianglePreview from './TrianglePreview/TrianglePreview';
 import Code from './Code/Code';
@@ -25,7 +24,7 @@ const INITIAL_VALUES = {
 
 function getActivePredefinedSize({ width, height }) {
   return Object.keys(predefinedSizes).find(
-    size => predefinedSizes[size].width === width && predefinedSizes[size].height === height
+    (size) => predefinedSizes[size].width === width && predefinedSizes[size].height === height
   );
 }
 
@@ -45,9 +44,9 @@ export default function TriangleGenerator() {
     ls.save({ direction, width, height, color, theme });
   }, [direction, width, height, color, theme]);
 
-  const toggleTheme = () => setTheme(current => (current === 'light' ? 'dark' : 'light'));
+  const toggleTheme = () => setTheme((current) => (current === 'light' ? 'dark' : 'light'));
 
-  const setPredefinedSize = size => {
+  const setPredefinedSize = (size) => {
     if (size in predefinedSizes) {
       const values = predefinedSizes[size];
       onWidthChange(values.width);
@@ -55,7 +54,7 @@ export default function TriangleGenerator() {
     }
   };
 
-  const handleColorChange = value => {
+  const handleColorChange = (value) => {
     onColorChange(value);
     if (tinycolor(value).isLight()) {
       setTheme('dark');

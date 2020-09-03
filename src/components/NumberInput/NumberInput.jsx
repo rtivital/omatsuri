@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useIntermediateValue } from 'xooks';
 import Input from '../Input/Input';
-import useIntermediateValue from '../../hooks/use-intermediate-value';
 
 export default function NumberInput({ value, onChange, min = 0, max = 100, ...others }) {
   const { intermediateValue, valid, handleChange, handleSubmit } = useIntermediateValue({
     value,
     onChange,
-    rule: val => !Number.isNaN(val) && val <= max && val >= min,
-    format: val => Number(val),
+    rule: (val) => !Number.isNaN(val) && val <= max && val >= min,
+    format: (val) => Number(val),
   });
 
   return (
@@ -17,8 +17,8 @@ export default function NumberInput({ value, onChange, min = 0, max = 100, ...ot
       invalid={!valid}
       type="text"
       value={intermediateValue}
-      onChange={event => handleChange(event.target.value)}
-      onBlur={event => handleSubmit(event.target.value)}
+      onChange={(event) => handleChange(event.target.value)}
+      onBlur={(event) => handleSubmit(event.target.value)}
     />
   );
 }

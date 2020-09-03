@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
+import { useDocumentTitle, useLocaStorage, useClipboard } from 'xooks';
 import symbols from '../../data/symbols';
-import useLocaStorage from '../../hooks/use-local-storage';
-import useClipboard from '../../hooks/use-clipboard';
-import useDocumentTitle from '../../hooks/use-document-title';
 import Background from '../../components/Background/Background';
 import Tabs from '../../components/Tabs/Tabs';
 import Input from '../../components/Input/Input';

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { v4 } from 'uuid';
-import useLocaStorage from '../../hooks/use-local-storage';
-import useDocumentTitle from '../../hooks/use-document-title';
+import { useDocumentTitle, useLocaStorage } from 'xooks';
 import Settings from './Settings/Settings';
 import Output from './Output/Output';
 
