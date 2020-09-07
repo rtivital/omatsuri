@@ -14,58 +14,32 @@
 }
 
 .input {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  height: 36px;
+  padding-left: 24px;
+  padding-right: 15px;
+  border: 1px solid @oc-gray-5;
   border-left: 0;
+  border-radius: 0 5px 5px 0;
+  background-color: @oc-white;
+
+  &:focus {
+    outline: 0;
+    border-color: @oc-violet-5;
+  }
 }
 
 .inputWrapper {
   display: flex;
-  align-items: center;
+  position: relative;
 }
 
-.pickerWrapper {
-  user-select: none;
+.picker {
   position: absolute;
   top: 40px;
   left: 0;
   z-index: 10;
-  padding: 15px;
-  border-radius: 15px;
-  border: 1px solid @oc-gray-2;
-  background-color: @oc-white;
+  border-radius: 9px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.03),
     0 4px 8px rgba(0, 0, 0, 0.03), 0 8px 16px rgba(0, 0, 0, 0.03), 0 16px 32px rgba(0, 0, 0, 0.03),
     0 32px 64px rgba(0, 0, 0, 0.03);
-
-  // removes not usable elements
-  & > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) {
-    display: none;
-  }
-
-  // removes padding from picker controls
-  & > div > div:nth-child(2) {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    padding-bottom: 0 !important;
-    padding-top: 10px !important;
-  }
-
-  // removes opacity track
-  & > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) {
-    display: none;
-  }
-
-  // removes margin from hue track
-  & > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
-    margin-bottom: 0 !important;
-  }
-}
-
-.picker {
-  box-shadow: none !important;
-  // removes hex input
-  :global .flexbox-fix:nth-child(2) {
-    display: none !important;
-  }
 }
