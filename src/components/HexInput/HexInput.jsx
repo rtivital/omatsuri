@@ -1,27 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { ChromePicker as ColorPicker } from 'react-color';
-import { useIntermediateValue, useClickOutside } from 'xooks';
-import Input from '../Input/Input';
+import { useClickOutside } from 'xooks';
+import { HexColorPicker, HexColorInput } from 'react-colorful';
+import 'react-colorful/dist/index.css';
 import classes from './HexInput.styles.less';
 
 export default function HexInput({ className, value, onChange, ...others }) {
   const ref = useRef(null);
   const [opened, setOpened] = useState(false);
-  const [colorPickerValue, setColorPickerValue] = useState(value);
-  const { intermediateValue, valid, handleChange, handleSubmit } = useIntermediateValue({
-    value,
-    onChange,
-    rule: (val) => /^#[0-9A-F]{6}$/i.test(val),
-  });
-
   const closePicker = () => setOpened(false);
 
   useClickOutside(ref, closePicker);
-  useEffect(() => {
-    setColorPickerValue(value);
-  }, [value]);
 
   return (
     <div className={cx(classes.wrapper, className)} ref={ref}>
@@ -32,26 +22,9 @@ export default function HexInput({ className, value, onChange, ...others }) {
           onClick={() => setOpened((o) => !o)}
           style={{ backgroundColor: value }}
         />
-        <Input
-          {...others}
-          className={classes.input}
-          invalid={!valid}
-          type="text"
-          value={intermediateValue}
-          onChange={(event) => handleChange(event.target.value)}
-          onBlur={(event) => handleSubmit(event.target.value)}
-        />
+        <HexColorInput {...others} className={classes.input} color={value} onChange={onChange} />
       </div>
-      {opened && (
-        <div className={classes.pickerWrapper}>
-          <ColorPicker
-            className={classes.picker}
-            color={colorPickerValue}
-            onChange={(event) => setColorPickerValue(event.hex)}
-            onChangeComplete={(event) => handleChange(event.hex)}
-          />
-        </div>
-      )}
+      {opened && <HexColorPicker className={classes.picker} color={value} onChange={onChange} />}
     </div>
   );
 }
