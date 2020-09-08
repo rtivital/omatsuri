@@ -6,7 +6,7 @@ export default {
       avatar:
         'https://avatars0.githubusercontent.com/u/10353856?s=460&u=88394dfd67727327c1f7670a1764dc38a8a24831&v=4',
       name: 'Vitaly Rtishchev',
-      tg: 'https://t.me/rtivital',
+      tg: 'rtivital',
       github: 'rtivital',
       website: 'https://github.com/rtivital',
     },
@@ -16,7 +16,7 @@ export default {
         avatar:
           'https://avatars1.githubusercontent.com/u/206567?s=460&u=e8dc0aa4202c8e3e5e43a530253297e8bab46407&v=4',
         name: 'Vlad Shilov',
-        tg: 'https://t.me/omgovich',
+        tg: 'omgovich',
         github: 'omgovich',
         twitter: 'omgovich',
         website: 'https://omgovich.ru/',

@@ -40,7 +40,7 @@ export default function Contributors() {
           {contributor.github && (
             <a
               className={classes.socialLink}
-              href={contributor.github}
+              href={`https://github.com/${contributor.github}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -51,7 +51,7 @@ export default function Contributors() {
           {contributor.tg && (
             <a
               className={classes.socialLink}
-              href={contributor.tg}
+              href={`https://t.me/${contributor.tg}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -62,7 +62,7 @@ export default function Contributors() {
           {contributor.twitter && (
             <a
               className={classes.socialLink}
-              href={contributor.twitter}
+              href={`https://twitter.com/${contributor.twitter}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -95,7 +95,7 @@ export default function Contributors() {
           <div className={classes.social}>
             <a
               className={classes.socialLink}
-              href={author.github}
+              href={`https://github.com/${author.github}`}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -104,7 +104,7 @@ export default function Contributors() {
 
             <a
               className={classes.socialLink}
-              href={author.tg}
+              href={`https://t.me/${author.tg}`}
               target="_blank"
               rel="noopener noreferrer"
             >

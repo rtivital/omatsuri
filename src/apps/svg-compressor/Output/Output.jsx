@@ -11,7 +11,7 @@ export default function Output({ results }) {
     return null;
   }
 
-  const items = files.map(fileKey => {
+  const items = files.map((fileKey) => {
     if (!results[fileKey].content) {
       return null;
     }
@@ -19,7 +19,7 @@ export default function Output({ results }) {
     if (results[fileKey].error) {
       return (
         <Background key={fileKey} className={classes.wrapper}>
-          Failed to parse svg file
+          Failed to parse SVG file
         </Background>
       );
     }

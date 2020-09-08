@@ -26,11 +26,11 @@ export default function SvgInput({
       <DropPlaceholder onFileAdd={(file) => onFilesDrop([file])}>{dropLabel}</DropPlaceholder>
       <Background className={classes.wrapper}>
         <div className={classes.header}>
-          <SettingsLabel className={classes.title}>Paste svg markup</SettingsLabel>
+          <SettingsLabel className={classes.title}>Paste SVG markup</SettingsLabel>
           <Button onClick={() => onChange(example)}>Load example</Button>
         </div>
         <textarea
-          placeholder="Paste svg markup here"
+          placeholder="Paste SVG markup here"
           className={classes.input}
           value={value}
           onChange={(event) => onChange(event.target.value)}

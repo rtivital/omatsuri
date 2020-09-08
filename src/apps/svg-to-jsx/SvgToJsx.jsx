@@ -9,7 +9,7 @@ const svg2jsx = new Svg2jsxWorker();
 const svgProcessor = getSvgProcessor();
 
 export default function SvgToJsx() {
-  useDocumentTitle('Svg to jsx');
+  useDocumentTitle('SVG to JSX');
 
   const ls = useLocalStorage({ key: '@omatsuri/svg-to-jsx', delay: 1000 });
   const transmittedValue = useLocalStorage({ key: '@omatsuri/conversion-after-compression/jsx' });
@@ -53,7 +53,7 @@ export default function SvgToJsx() {
         onChange={handleChange}
         errors={result.error && value.trim().length > 0 ? ['input file'] : []}
         onFilesDrop={handleFilesDrop}
-        dropLabel="Drop svg file to browser window to optimize it and convert it to jsx"
+        dropLabel="Drop an SVG file to the browser window to optimize it and convert it to JSX"
       />
 
       <Output data={result} />

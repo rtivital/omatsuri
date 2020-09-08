@@ -29,7 +29,7 @@ export default function Credits() {
           >
             svgo-browser
           </a>{' '}
-          tools are used for svg compression.
+          tools are used for SVG compression.
         </li>
         <li>
           Curved page dividers app was made with help of &nbsp;
