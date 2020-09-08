@@ -16,7 +16,7 @@ const INITIAL_PROGRESS_STATE = {
 };
 
 export default function SvgCompressor() {
-  useDocumentTitle('Svg compressor');
+  useDocumentTitle('SVG compressor');
 
   const ls = useLocalStorage({ key: '@omatsuri/svg-compressor', delay: 500 });
   const [value, setValue] = useState(ls.retrieve() || '');
@@ -97,7 +97,7 @@ export default function SvgCompressor() {
         errors={errors}
         onFilesDrop={handleFilesDrop}
         formatFileName={formatFileName}
-        dropLabel="Drop one or more svg files to start compression"
+        dropLabel="Drop one or more SVG files to start compression"
       />
       <Output results={results} />
     </>

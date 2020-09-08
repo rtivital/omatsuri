@@ -45,7 +45,7 @@ export default [
     link: '/svg-compressor',
     name: 'SVG compressor',
     description:
-      'Compress svg images with svgo tool, convert to react component immediately after if needed',
+      'Compress SVG images with SVGO tool, convert to react component immediately after if needed',
     icon: svgCompression,
   },
 
@@ -53,14 +53,14 @@ export default [
     link: '/svg-to-jsx',
     name: 'SVG → JSX',
     description:
-      'Convert svg icons and illustrations to react components (or components for other libraries with jsx support)',
+      'Convert SVG icons and illustrations to react components (or components for other libraries with JSX support)',
     icon: svg2jsx,
   },
 
   {
     link: '/b64-encoding',
     name: 'Base64 encoding',
-    description: 'Convers images or files to base64, generate styles to use as background image',
+    description: 'Convert images or files to base64, generate styles to use as background image',
     icon: b64encoding,
   },
 

@@ -63,17 +63,17 @@ export default function B64Encoding() {
         onFileAdd={(file) => handleFilesDrop([file])}
         accepts={undefined}
       >
-        Drop file to browser window to convert it to base64 format
+        Drop a file to the browser window to convert it to base64 format
       </DropPlaceholder>
       {result.content && (
         <Background className={classes.wrapper}>
           <div className={classes.section}>
-            <SettingsLabel>Raw base 64</SettingsLabel>
+            <SettingsLabel>Raw base64</SettingsLabel>
             <Highlight>{result.content}</Highlight>
           </div>
 
           <div className={classes.section}>
-            <SettingsLabel>Usage with css</SettingsLabel>
+            <SettingsLabel>Use as CSS background</SettingsLabel>
             <Highlight>{generateCssExample(result.content)}</Highlight>
           </div>
         </Background>
