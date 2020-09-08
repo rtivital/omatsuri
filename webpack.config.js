@@ -80,11 +80,6 @@ module.exports = {
       },
 
       {
-        test: /\.(css)$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
-      },
-
-      {
         test: /\.(less)$/,
         use: [
           mode === 'production'
@@ -113,6 +108,22 @@ module.exports = {
             },
           },
           ...(mode === 'production' ? ['postcss-loader'] : []),
+        ],
+      },
+
+      {
+        test: /\.(css)$/,
+        use: [
+          mode === 'production'
+            ? {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath,
+              },
+            }
+            : 'style-loader',
+          'css-loader',
+          'postcss-loader',
         ],
       },
 

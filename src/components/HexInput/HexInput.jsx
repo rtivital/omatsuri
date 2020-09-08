@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { useClickOutside } from 'xooks';
 import { HexColorPicker, HexColorInput } from 'react-colorful';
-import 'react-colorful/dist/index.css';
 import classes from './HexInput.styles.less';
 
 export default function HexInput({ className, value, onChange, ...others }) {
