@@ -4,12 +4,29 @@
 
 Omatsuri is offline first PWA with 10 open source frontend focused tools. Omatsuri translates to «festival» from Japanese (お祭り) and here we have a small festival of applications. It was built with strong respect to your privacy – you will never see ads and it does not include analytics services (or actually any services at all). You are highly encouraged to explore source code and use it in your projects.
 
+## Quick links
+
+- [Contributing](./CONTRIBUTING.md)
+- [Changelog](./CHANGELOG.md)
+
 ## Key features
 
 - Offline support with service worker
 - Fast non-blocking computations with web workers
 - No tracking, no ads, no other server connections – everything runs in browser only
 - All-in-one application for everyday tasks
+
+## Getting started
+
+To get started with application locally use these commands:
+
+```sh
+# Install dependencies
+yarn
+
+# Start application, browser will open automatically
+npm start
+```
 
 ## Included Applications
 
@@ -22,6 +39,8 @@ Omatsuri is offline first PWA with 10 open source frontend focused tools. Omatsu
 - Realistic Fake Data Generator
 - HTML/CSS Symbols Collection
 - Lorem/Samuel/Poke Ipsum Generator
+- CSS Cursor Properties
+- JavaScript Events Keycodes
 
 <!-- START OF README-JOB SECTION -->
 <div align="center">
@@ -45,29 +64,3 @@ Omatsuri is offline first PWA with 10 open source frontend focused tools. Omatsu
 </div>
 <br />
 <!-- END OF README-JOB SECTION -->
-
-## Contributing
-
-Thanks for taking a look at the project and thinking about contributing!
-
-To get started with application locally use these commands:
-
-```sh
-# Install dependencies
-yarn
-
-# Start application, browser will open automatically
-npm start
-```
-
-Please make sure to use prettier and eslint while developing. Create awesome stuff and send a pull request!
-
-### Features to contribute
-
-There are a lot of missing features that can be added, let's focus on most interesting:
-
-- Full offline support with service workers
-- Dark theme support (automatically detected from user os)
-- New application – e.g. gradient generator
-
-If you decide to build one of these features please be aware of design language of the app and recreate it as similar as possible for new design elements.
