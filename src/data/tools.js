@@ -4,7 +4,7 @@ import svgCompression from '../assets/svg-compression.svg';
 import svg2jsx from '../assets/svg-to-jsx.svg';
 import symbolsCollection from '../assets/symbols-collection.svg';
 import curvedDividers from '../assets/curved-dividers.svg';
-import loremIpsum from '../assets/lorem-inpsum.svg';
+import loremIpsum from '../assets/lorem-ipsum.svg';
 import b64encoding from '../assets/b64-encoding.svg';
 import fakeDataGenerator from '../assets/fake-data-generator.svg';
 import colorShadesGenerator from '../assets/color-shades-generator.svg';
