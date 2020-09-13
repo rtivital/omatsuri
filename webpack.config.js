@@ -8,9 +8,12 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { argv } = require('yargs');
 const babelrc = require('./.babelrc');
 const toolsLinks = require('./src/data/tools-links');
 
+const { analyze } = argv;
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
 const port = 8262;
 const entry = path.join(__dirname, './src/index.jsx');
@@ -181,6 +184,7 @@ module.exports = {
         new OpenBrowserPlugin({ url: `http://localhost:${port}` }),
       ]
       : [
+        new BundleAnalyzerPlugin({ analyzerMode: analyze ? 'static' : 'disabled' }),
         new MiniCssExtractPlugin(),
         new CnameWebpackPlugin({ domain: 'omatsuri.app' }),
         new PrerenderSPAPlugin({
