@@ -1,13 +1,12 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
 import { useLocalStorage, useDocumentTitle } from 'xooks';
-import getSvgProcessor from '../../get-svg-processor';
 import SvgInput from '../../components/SvgInput/SvgInput';
 import SvgoWorker from '../../workers/svgo.worker';
+import processSvgFile from '../../utils/process-svg-file';
 import formatFileName from './format-file-name';
 import Output from './Output/Output';
 
 const svgo = new SvgoWorker();
-const svgProcessor = getSvgProcessor();
 
 const INITIAL_PROGRESS_STATE = {
   loading: false,
@@ -57,7 +56,7 @@ export default function SvgCompressor() {
 
   const handleFilesDrop = (files) => {
     incrementQueue();
-    Promise.all(files.map((file) => svgProcessor(file))).then((filesData) => {
+    Promise.all(files.map((file) => processSvgFile(file))).then((filesData) => {
       setResults((current) =>
         filesData.reduce(
           (acc, fileData, index) => {

@@ -1,12 +1,11 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { useDocumentTitle, useLocalStorage } from 'xooks';
 import SvgInput from '../../components/SvgInput/SvgInput';
-import getSvgProcessor from '../../get-svg-processor';
 import Svg2jsxWorker from '../../workers/svg-to-jsx.worker';
+import processSvgFile from '../../utils/process-svg-file';
 import Output from './Output/Output';
 
 const svg2jsx = new Svg2jsxWorker();
-const svgProcessor = getSvgProcessor();
 
 export default function SvgToJsx() {
   useDocumentTitle('SVG to JSX');
@@ -42,7 +41,7 @@ export default function SvgToJsx() {
 
   const handleFilesDrop = (files) => {
     if (files.length > 0) {
-      svgProcessor(files[0]).then((file) => handleChange(file.text));
+      processSvgFile(files[0]).then((file) => handleChange(file.text));
     }
   };
 

@@ -1,7 +1,5 @@
 import optimize from 'svgo-browser/lib/optimize';
-import getSvgProcessor from '../get-svg-processor';
-
-const svgProcessor = getSvgProcessor();
+import processSvgFile from '../utils/process-svg-file';
 
 onmessage = (event) => {
   const { file, content } = event.data;
@@ -10,7 +8,7 @@ onmessage = (event) => {
     postMessage(btoa(content));
   } else if (file) {
     if (file.type === 'image/svg+xml') {
-      svgProcessor(file)
+      processSvgFile(file)
         .then((code) => optimize(code))
         .then((code) => {
           postMessage(`data:image/svg+xml;base64,${btoa(code)}`);
