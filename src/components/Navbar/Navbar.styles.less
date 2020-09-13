@@ -81,17 +81,22 @@
 
 .footerLinks {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: -5px;
   margin-bottom: 10px;
 }
 
-.dot,
 .footerLink {
   color: @oc-gray-6;
   text-decoration: none;
   font-size: 14px;
 
-  & + & {
-    margin-left: 8px;
+  &:not(:first-of-type)::before {
+    content: '•';
+    display: inline-block;
+    margin-left: 7px;
+    margin-right: 7px;
   }
 
   &:hover {

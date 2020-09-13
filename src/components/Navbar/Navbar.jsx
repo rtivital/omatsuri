@@ -40,6 +40,22 @@ export default function Navbar({ className }) {
     </NavLink>
   ));
 
+  const links = settings.meta.map((link, index) => {
+    const { internal, label, ...linkProps } = link;
+    const Component = internal ? Link : 'a';
+
+    return (
+      <Component
+        className={classes.footerLink}
+        key={index}
+        {...linkProps}
+        target={internal ? null : '_blank'}
+      >
+        {label}
+      </Component>
+    );
+  });
+
   return (
     <Background component="nav" className={cx(classes.navbar, className)}>
       <div className={classes.inner}>
@@ -62,13 +78,14 @@ export default function Navbar({ className }) {
 
         <div className={classes.footer}>
           <div className={classes.footerLinks}>
-            <Link to="/about" className={classes.footerLink}>
+            {links}
+            {/* <Link to="/about" className={classes.footerLink}>
               About
             </Link>
             <span className={classes.dot}>•</span>
             <a className={classes.footerLink} href={settings.bugs}>
               Report an issue
-            </a>
+            </a> */}
           </div>
           <GithubButton />
         </div>

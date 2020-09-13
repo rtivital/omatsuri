@@ -3,14 +3,14 @@ export default {
   bugs: 'https://github.com/rtivital/omatsuri/issues/new',
 
   meta: [
-    { internal: true, to: '/about', label: 'About Omatsuri' },
+    { internal: true, to: '/about', label: 'About' },
     {
       href: 'https://github.com/rtivital/omatsuri/issues/new',
       label: 'Report issue',
     },
     {
       href: 'https://github.com/rtivital/omatsuri/blob/master/CONTRIBUTING.md',
-      label: 'Become contributor',
+      label: 'Contribute',
     },
     {
       href: 'https://github.com/rtivital/omatsuri/blob/master/CHANGELOG.md',
