@@ -77,16 +77,7 @@ export default function Navbar({ className }) {
         </div>
 
         <div className={classes.footer}>
-          <div className={classes.footerLinks}>
-            {links}
-            {/* <Link to="/about" className={classes.footerLink}>
-              About
-            </Link>
-            <span className={classes.dot}>•</span>
-            <a className={classes.footerLink} href={settings.bugs}>
-              Report an issue
-            </a> */}
-          </div>
+          <div className={classes.footerLinks}>{links}</div>
           <GithubButton />
         </div>
       </div>

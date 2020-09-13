@@ -14,6 +14,7 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 - Color picker in HexInput migrated from react-color to [react-colorfull](https://omgovich.github.io/react-colorful/) – improved bundle size and styles options
 - All hooks were migrated to separate package – [xooks](https://github.com/rtivital/xooks)
 - ESLint and prettier configuration migrated to separate package – [@rtivital/eslint-config](https://www.npmjs.com/package/@rtivital/eslint-config)
+- Migrate Source Sans Pro font from from npm package to Google fonts
 
 ## v1.0.0 – Initial Release – August 2020
 
