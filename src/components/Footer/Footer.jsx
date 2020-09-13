@@ -14,6 +14,22 @@ export default function Footer({ className }) {
     </Link>
   ));
 
+  const links = settings.meta.map((link, index) => {
+    const { internal, label, ...linkProps } = link;
+    const Component = internal ? Link : 'a';
+
+    return (
+      <Component
+        className={classes.link}
+        key={index}
+        {...linkProps}
+        target={internal ? null : '_blank'}
+      >
+        {label}
+      </Component>
+    );
+  });
+
   return (
     <footer className={cx(classes.footer, className)}>
       <div className={classes.inner}>
@@ -25,12 +41,7 @@ export default function Footer({ className }) {
 
           <div className={classes.links}>
             <h3 className={classes.title}>Application</h3>
-            <Link className={classes.link} to="/about">
-              About
-            </Link>
-            <a href={settings.bugs} className={classes.link}>
-              Report issue
-            </a>
+            {links}
           </div>
         </div>
 

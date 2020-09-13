@@ -1,6 +1,23 @@
 export default {
   repository: 'https://github.com/rtivital/omatsuri',
   bugs: 'https://github.com/rtivital/omatsuri/issues/new',
+
+  meta: [
+    { internal: true, to: '/about', label: 'About Omatsuri' },
+    {
+      href: 'https://github.com/rtivital/omatsuri/issues/new',
+      label: 'Report issue',
+    },
+    {
+      href: 'https://github.com/rtivital/omatsuri/blob/master/CONTRIBUTING.md',
+      label: 'Become contributor',
+    },
+    {
+      href: 'https://github.com/rtivital/omatsuri/blob/master/CHANGELOG.md',
+      label: 'Changelog',
+    },
+  ],
+
   maintainers: {
     author: {
       avatar:
