@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 
 import AppContainer from './components/AppContainer/AppContainer';
-import NotFound from './components/NotFound/NotFound';
 
 import Index from './pages/index/Index';
 import About from './pages/about/About';
+import NotFound from './pages/not-found/NotFound';
 
 import TriangleGenerator from './apps/triangle-generator/TriangleGenerator';
 import LoremIpsum from './apps/lorem-ipsum/LoremIpsum';

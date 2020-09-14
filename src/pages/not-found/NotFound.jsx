@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import settings from '../../data/settings';
-import notFound from '../../assets/not-found.svg';
+import notFound from './not-found.svg';
 import classes from './NotFound.styles.less';
 
 export default function NotFound() {
