@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Input from '../Input/Input';
-import chevronDown from '../../assets/chervons/chevron-down.svg';
 import classes from './Select.styles.less';
 
 export default function Select({ className, data, value, onChange, id, label }) {
@@ -27,7 +26,6 @@ export default function Select({ className, data, value, onChange, id, label }) 
         >
           {options}
         </Input>
-        <img className={classes.chevron} src={chevronDown} alt="" />
       </div>
     </div>
   );
