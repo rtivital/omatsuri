@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import sun from '../../assets/sun.svg';
-import moon from '../../assets/moon.svg';
+import sun from './icons/sun.svg';
+import moon from './icons/moon.svg';
 import classes from './ThemeToggle.styles.less';
 
 export default function ThemeToggle({ className, theme, onToggle, label = 'mode' }) {
