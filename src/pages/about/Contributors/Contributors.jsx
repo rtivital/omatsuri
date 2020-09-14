@@ -1,18 +1,9 @@
 import React from 'react';
-import github from '../../../assets/social/github.svg';
-import telegram from '../../../assets/social/telegram.svg';
-import twitter from '../../../assets/social/twitter.svg';
+import github from './icons/github.svg';
+import telegram from './icons/telegram.svg';
+import twitter from './icons/twitter.svg';
 import settings from '../../../data/settings';
 import classes from './Contributors.styles.less';
-
-// author: {
-//   avatar:
-//     'https://avatars0.githubusercontent.com/u/10353856?s=460&u=88394dfd67727327c1f7670a1764dc38a8a24831&v=4',
-//   name: 'Vitaly Rtishchev',
-//   tg: 'https://t.me/rtivital',
-//   github: 'rtivital',
-//   wetsite: 'https://github.com/rtivital',
-// },
 
 export default function Contributors() {
   const { author, contributors } = settings.maintainers;
