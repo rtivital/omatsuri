@@ -9,6 +9,10 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 - CSS cursors
 - JavaScript Events Codes
 
+**New features:**
+
+- Option to download unstyled svg file to curved page dividers
+
 **Migrations:**
 
 - Color picker in HexInput migrated from react-color to [react-colorfull](https://omgovich.github.io/react-colorful/) – improved bundle size and styles options
@@ -19,6 +23,7 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 
 - Migrate Source Sans Pro font from from npm package to Google fonts -> reduce loading times with cache
 - Remove unsued [faker locales](https://github.com/Marak/faker.js/issues/167#issuecomment-119373065) from fake data generator app -> reduce bundle size in half (2.2mb -> 1.31mb)
+- Replace all images used in triangle generator with single react component -> 8 less requests to load page
 
 ## v1.0.0 – Initial Release – August 2020
 

@@ -1,17 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '../../../components/Button/Button';
 import Background from '../../../components/Background/Background';
 import Highlight from '../../../components/Highlight/Highlight';
 import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
 import generateExample from './generate-example';
 import { shapes } from '../Shape/Shape';
+import * as assets from '../assets';
 import classes from './Output.styles.less';
 
 export default function Output({ values }) {
   return (
     <Background className={classes.wrapper}>
       <div className={classes.section}>
-        <SettingsLabel>HTML code</SettingsLabel>
+        <div className={classes.header}>
+          <SettingsLabel className={classes.title}>HTML code</SettingsLabel>
+          <Button component="a" href={assets[values.type]} download>
+            Download unstyled svg
+          </Button>
+        </div>
         <Highlight>{generateExample('html', values)}</Highlight>
       </div>
 
