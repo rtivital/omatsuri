@@ -1,12 +1,12 @@
 import triangleGenerator from '../assets/app-icons/triangle-generator.svg';
-import svgCompression from '../assets/app-icons/svg-compression.svg';
+import colorShadesGenerator from '../assets/app-icons/color-shades-generator.svg';
+import padeDividers from '../assets/app-icons/page-dividers.svg';
+import svgCompressor from '../assets/app-icons/svg-compressor.svg';
 import svg2jsx from '../assets/app-icons/svg-to-jsx.svg';
-import symbolsCollection from '../assets/app-icons/symbols-collection.svg';
-import curvedDividers from '../assets/app-icons/curved-dividers.svg';
+import htmlSymbols from '../assets/app-icons/html-symbols.svg';
 import loremIpsum from '../assets/app-icons/lorem-ipsum.svg';
 import b64encoding from '../assets/app-icons/b64-encoding.svg';
 import fakeDataGenerator from '../assets/app-icons/fake-data-generator.svg';
-import colorShadesGenerator from '../assets/app-icons/color-shades-generator.svg';
 import cssCursors from '../assets/app-icons/css-cursors.svg';
 import eventsKeycode from '../assets/app-icons/events-keycode.svg';
 
@@ -29,7 +29,7 @@ export default [
     link: '/page-dividers',
     name: 'Curved page dividers',
     description: 'Tool to generate curved page dividers with css and svg images',
-    icon: curvedDividers,
+    icon: padeDividers,
   },
 
   {
@@ -37,7 +37,7 @@ export default [
     name: 'SVG compressor',
     description:
       'Compress SVG images with SVGO tool, convert to react component immediately after if needed',
-    icon: svgCompression,
+    icon: svgCompressor,
   },
 
   {
@@ -67,7 +67,7 @@ export default [
     name: 'Symbols collection',
     description:
       'Collection of commonly used html symbols: arrows, marks, currency signs and many others',
-    icon: symbolsCollection,
+    icon: htmlSymbols,
   },
 
   {
