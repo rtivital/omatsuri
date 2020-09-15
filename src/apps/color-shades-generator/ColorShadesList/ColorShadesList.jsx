@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import color from 'color';
+import Color from 'color';
 import cx from 'classnames';
 import { useClipboard } from 'xooks';
 import HexInput from '../../../components/HexInput/HexInput';
@@ -8,7 +8,7 @@ import Background from '../../../components/Background/Background';
 import classes from './ColorShadesList.styles.less';
 
 function generateShades({ steps, value, saturation, darken }) {
-  let current = color(value);
+  let current = Color(value);
   const shades = [current.hex()];
   for (let i = 1; i < steps; i += 1) {
     current = current.darken(darken).desaturate(saturation);

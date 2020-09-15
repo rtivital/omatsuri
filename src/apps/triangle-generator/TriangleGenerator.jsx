@@ -1,6 +1,6 @@
 import oc from 'open-color';
 import React, { useState, useEffect } from 'react';
-import tinycolor from 'tinycolor2';
+import Color from 'color';
 import { useDocumentTitle, useLocalStorage } from 'xooks';
 import Settings from './Settings/Settings';
 import TrianglePreview from './TrianglePreview/TrianglePreview';
@@ -56,7 +56,7 @@ export default function TriangleGenerator() {
 
   const handleColorChange = (value) => {
     onColorChange(value);
-    if (tinycolor(value).isLight()) {
+    if (Color(value).isLight()) {
       setTheme('dark');
     } else {
       setTheme('light');
