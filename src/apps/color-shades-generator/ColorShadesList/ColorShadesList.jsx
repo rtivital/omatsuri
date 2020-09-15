@@ -35,12 +35,10 @@ export default function ColorShadesList({
 }) {
   const clipboardAll = useClipboard();
   const clipboard = useClipboard({ timeout: 500 });
-  const copyAll = () =>
-    clipboardAll.copy(
-      JSON.stringify(generateShades({ steps: 7, value, saturation, darken }), null, 2)
-    );
+  const values = generateShades({ steps: 7, value, saturation, darken });
+  const copyAll = () => clipboardAll.copy(JSON.stringify(values, null, 2));
 
-  const items = generateShades({ steps: 7, value, saturation, darken }).map((shade, index) => (
+  const items = values.map((shade, index) => (
     <button
       type="button"
       key={index}

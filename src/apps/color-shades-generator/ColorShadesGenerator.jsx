@@ -16,7 +16,7 @@ const defaultPalette = Object.keys(oc)
 
 const INITIAL_VALUES = {
   value: [{ color: '#ffffff', key: v4() }],
-  saturation: 0.2,
+  saturation: -0.2,
   darken: 0.1,
 };
 
