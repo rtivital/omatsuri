@@ -187,10 +187,14 @@ module.exports = {
         new BundleAnalyzerPlugin({ analyzerMode: analyze ? 'static' : 'disabled' }),
         new MiniCssExtractPlugin(),
         new CnameWebpackPlugin({ domain: 'omatsuri.app' }),
-        new PrerenderSPAPlugin({
-          staticDir: output,
-          routes: ['/', '/about', '/404', ...tools.map((tool) => tool.link)],
-        }),
+        ...(analyze
+          ? []
+          : [
+            new PrerenderSPAPlugin({
+              staticDir: output,
+              routes: ['/', '/about', '/404', ...tools.map((tool) => tool.link)],
+            }),
+          ]),
       ]),
   ],
 };

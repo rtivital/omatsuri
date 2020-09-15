@@ -11183,10 +11183,10 @@ xmlbuilder@~11.0.0:
   resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-11.0.1.tgz#be9bae1c8a046e76b31127726347d0ad7002beb3"
   integrity sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==
 
-xooks@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/xooks/-/xooks-1.1.0.tgz#9ec6442f0d433a56d670e1a95dfd35f1fe1f2eb8"
-  integrity sha512-v6cXTQzexCa0Ci55idnSnpt77NqiKnJYmuNbjqgo4cz+Ik4qPEw52TgAxq0lHFvijYabxO0/BoLxIjskqurGJQ==
+xooks@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/xooks/-/xooks-1.1.1.tgz#acb511c2e3758cd0b273c6df5d72c59a579a7bb5"
+  integrity sha512-4VXuUU5Ctzwv29zTOI09lbkxQCvBoFz2KrM7467lBiNKVeOsjWdrGqO1xlsRgxw7LXEtnRvJSycrLiSowv3N4Q==
   dependencies:
     nanoid "^3.1.12"
 
