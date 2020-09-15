@@ -11,7 +11,6 @@ Omatsuri is offline first PWA with 10 open source frontend focused tools. Omatsu
 
 ## Key features
 
-- Offline support with service worker
 - Fast non-blocking computations with web workers
 - No tracking, no ads, no other server connections – everything runs in browser only
 - All-in-one application for everyday tasks
