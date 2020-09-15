@@ -18,7 +18,11 @@ export default function EventInfo({ className, title, kbd, value, deprecation = 
           [classes.false]: !value,
         })}
       >
-        {value.toString()}
+        {value.toString() === ' ' ? (
+          <div className={classes.space}>(Space charachter)</div>
+        ) : (
+          value.toString()
+        )}
       </div>
     </div>
   );
