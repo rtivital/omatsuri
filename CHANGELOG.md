@@ -25,7 +25,8 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 - Migrate Source Sans Pro font from from npm package to Google fonts -> reduce loading times with cache
 - Remove unsued [faker locales](https://github.com/Marak/faker.js/issues/167#issuecomment-119373065) from fake data generator app -> reduce bundle size in half (2.2mb -> 1.31mb)
 - Replace all images used in triangle generator with single react component -> 8 less requests to load page
-- Remove tinycolor2 depenency -> -2kb to bundle
+- Remove tinycolor2 depenency -> -20kb to bundle
+- React react-input-slider depenency -> -60kb to bundle
 
 ## v1.0.0 – Initial Release – August 2020
 

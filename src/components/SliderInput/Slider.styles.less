@@ -1,0 +1,35 @@
+.track {
+  position: relative;
+  display: inline-block;
+  background-color: @oc-gray-2;
+  border-radius: 5px;
+  user-select: none;
+  width: 200px;
+  height: 10px;
+}
+
+.active {
+  position: absolute;
+  background-color: @oc-violet-2 !important;
+  border-radius: 5px;
+  user-select: none;
+  top: 0;
+  height: 100%;
+}
+
+.thumb {
+  position: relative;
+  display: block;
+  content: '';
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
