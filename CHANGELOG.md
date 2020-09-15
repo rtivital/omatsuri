@@ -14,6 +14,7 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 - Option to download unstyled svg file to curved page dividers
 - More symbols were added to most used symbols collection
 - Tints were added to color shades generator with variable amount of generated colors
+- New Tilt page divider available in page dividers application
 
 **Migrations:**
 

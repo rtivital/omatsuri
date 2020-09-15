@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 
 import Waves from './Waves';
 import WavesOpaque from './WavesOpaque';
+import Tilt from './Tilt';
 
 export const shapes = {
+  tilt: Tilt,
   waves: Waves,
   waves_opaque: WavesOpaque,
 };
