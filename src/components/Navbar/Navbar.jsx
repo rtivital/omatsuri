@@ -7,6 +7,7 @@ import Background from '../Background/Background';
 import GithubButton from '../GithubButton/GithubButton';
 import logoText from '../../assets/logo-text.svg';
 import toolsData from '../../data/tools';
+import appIcons from '../../assets/app-icons';
 import settings from '../../data/settings';
 import classes from './Navbar.styles.less';
 
@@ -35,7 +36,7 @@ export default function Navbar({ className }) {
       activeClassName={classes.linkActive}
       isActive={isActive.bind(this, tool.link)}
     >
-      <img className={classes.icon} src={tool.icon} alt="" />
+      <img className={classes.icon} src={appIcons[tool.link]} alt="" />
       <div className={classes.label}>{tool.name}</div>
     </NavLink>
   ));
