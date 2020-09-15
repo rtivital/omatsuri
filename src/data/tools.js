@@ -1,15 +1,14 @@
-import triangleGenerator from '../assets/triangle-generator.svg';
-// import gradientGenerator from '../assets/gradient-generator.svg';
-import svgCompression from '../assets/svg-compression.svg';
-import svg2jsx from '../assets/svg-to-jsx.svg';
-import symbolsCollection from '../assets/symbols-collection.svg';
-import curvedDividers from '../assets/curved-dividers.svg';
-import loremIpsum from '../assets/lorem-ipsum.svg';
-import b64encoding from '../assets/b64-encoding.svg';
-import fakeDataGenerator from '../assets/fake-data-generator.svg';
-import colorShadesGenerator from '../assets/color-shades-generator.svg';
-import cssCursors from '../assets/css-cursors.svg';
-import eventsKeycode from '../assets/events-keycode.svg';
+import triangleGenerator from '../assets/app-icons/triangle-generator.svg';
+import svgCompression from '../assets/app-icons/svg-compression.svg';
+import svg2jsx from '../assets/app-icons/svg-to-jsx.svg';
+import symbolsCollection from '../assets/app-icons/symbols-collection.svg';
+import curvedDividers from '../assets/app-icons/curved-dividers.svg';
+import loremIpsum from '../assets/app-icons/lorem-ipsum.svg';
+import b64encoding from '../assets/app-icons/b64-encoding.svg';
+import fakeDataGenerator from '../assets/app-icons/fake-data-generator.svg';
+import colorShadesGenerator from '../assets/app-icons/color-shades-generator.svg';
+import cssCursors from '../assets/app-icons/css-cursors.svg';
+import eventsKeycode from '../assets/app-icons/events-keycode.svg';
 
 export default [
   {
@@ -18,14 +17,6 @@ export default [
     description: 'Generate css triangles styles for elements and pseudo-elements',
     icon: triangleGenerator,
   },
-
-  // under development
-  /* {
-    link: '/gradients-generator',
-    name: 'Gradients generator',
-    description: 'Generate linear and radial gradients, includes ready to use gradients library',
-    icon: gradientGenerator,
-  },*/
 
   {
     link: '/color-shades-generator',
