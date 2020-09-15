@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useLayoutEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { useClickOutside } from 'xooks';
@@ -9,8 +9,14 @@ export default function HexInput({ className, value, onChange, ...others }) {
   const ref = useRef(null);
   const [opened, setOpened] = useState(false);
   const closePicker = () => setOpened(false);
+  const closeOnEscape = (event) => event.code === 'Escape' && closePicker();
 
   useClickOutside(ref, closePicker);
+
+  useLayoutEffect(() => {
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, []);
 
   return (
     <div className={cx(classes.wrapper, className)} ref={ref}>
