@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "start": "npm run clean && webpack-dev-server",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --progress",
     "clean": "rimraf ./dist",
     "deploy": "npm run build && gh-pages -d dist",
     "lint": "eslint src --ext jsx --ext js",
