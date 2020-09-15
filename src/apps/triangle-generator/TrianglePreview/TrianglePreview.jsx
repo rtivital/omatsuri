@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Triangle from '../Triangle/Triangle';
 import Background from '../../../components/Background/Background';
-import ThemeToggle from '../../../components/ThemeToggle/ThemeToggle';
+import ThemeToggle from './ThemeToggle/ThemeToggle';
 import directions from '../directions';
 import classes from './TrianglePreview.styles.less';
 

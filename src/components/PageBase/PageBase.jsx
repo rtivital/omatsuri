@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
-import Container from '../Container/Container';
+import Footer from './Footer/Footer';
+import Header from './Header/Header';
 import classes from './PageBase.styles.less';
 
 export default function PageBase({ children }) {
   return (
     <main className={classes.wrapper}>
-      <Container>
+      <div className={classes.container}>
         <Header />
         {children}
         <Footer />
-      </Container>
+      </div>
     </main>
   );
 }

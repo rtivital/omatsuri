@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Slider from '../Slider/Slider';
+import Slider from './Slider';
 import NumberInput from '../NumberInput/NumberInput';
 import classes from './SliderInput.styles.less';
 

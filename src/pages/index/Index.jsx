@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDocumentTitle } from 'xooks';
-import ToolCard from '../../components/ToolCard/ToolCard';
+import ToolCard from './ToolCard/ToolCard';
 import PageBase from '../../components/PageBase/PageBase';
 import toolsData from '../../data/tools';
 import classes from './Index.styles.less';

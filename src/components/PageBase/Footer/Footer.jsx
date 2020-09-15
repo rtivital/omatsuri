@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
-import GithubButton from '../GithubButton/GithubButton';
-import toolsData from '../../data/tools';
-import settings from '../../data/settings';
+import GithubButton from '../../GithubButton/GithubButton';
+import toolsData from '../../../data/tools';
+import settings from '../../../data/settings';
 import classes from './Footer.styles.less';
 
 export default function Footer({ className }) {

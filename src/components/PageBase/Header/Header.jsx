@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import GithubButton from '../GithubButton/GithubButton';
-import logoText from '../../assets/logo-text.svg';
+import GithubButton from '../../GithubButton/GithubButton';
+import logoText from '../../../assets/logo-text.svg';
 import classes from './Header.styles.less';
 
 export default function Header() {

@@ -1,7 +1,7 @@
 import oc from 'open-color';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Swatch from '../../../components/Swatch/Swatch';
+import Swatch from './Swatch/Swatch';
 import HexInput from '../../../components/HexInput/HexInput';
 import classes from './ColorPicker.styles.less';
 
@@ -21,7 +21,7 @@ const predefinedColors = [
 ];
 
 export default function ColorPicker({ value, onChange }) {
-  const swatches = predefinedColors.map(color => (
+  const swatches = predefinedColors.map((color) => (
     <Swatch className={classes.swatch} key={color} value={color} onClick={() => onChange(color)} />
   ));
 
