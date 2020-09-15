@@ -8,14 +8,21 @@ import Background from '../../../components/Background/Background';
 import classes from './ColorShadesList.styles.less';
 
 function generateShades({ steps, value, saturation, darken }) {
-  let current = Color(value);
-  const shades = [current.hex()];
+  let dark = Color(value);
+  let light = Color(value);
+
+  const shades = [dark.hex()];
+  const tints = [];
+
   for (let i = 1; i < steps; i += 1) {
-    current = current.darken(darken).desaturate(saturation);
-    shades.push(current.hex());
+    dark = dark.darken(darken).saturate(saturation);
+    light = light.lighten(darken).saturate(saturation);
+
+    dark.hex().toLowerCase() !== '#000000' && shades.push(dark.hex());
+    light.hex().toLowerCase() !== '#ffffff' && tints.push(light.hex());
   }
 
-  return shades;
+  return [...tints.reverse(), ...shades];
 }
 
 export default function ColorShadesList({
@@ -30,10 +37,10 @@ export default function ColorShadesList({
   const clipboard = useClipboard({ timeout: 500 });
   const copyAll = () =>
     clipboardAll.copy(
-      JSON.stringify(generateShades({ steps: 10, value, saturation, darken }), null, 2)
+      JSON.stringify(generateShades({ steps: 7, value, saturation, darken }), null, 2)
     );
 
-  const shades = generateShades({ steps: 10, value, saturation, darken }).map((shade, index) => (
+  const items = generateShades({ steps: 7, value, saturation, darken }).map((shade, index) => (
     <button
       type="button"
       key={index}
@@ -66,7 +73,7 @@ export default function ColorShadesList({
           )}
         </div>
       </div>
-      <div className={classes.shades}>{shades}</div>
+      <div className={classes.shades}>{items}</div>
     </Background>
   );
 }
