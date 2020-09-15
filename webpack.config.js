@@ -11,7 +11,7 @@ const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { argv } = require('yargs');
 const babelrc = require('./.babelrc');
-const toolsLinks = require('./src/data/tools-links');
+const tools = require('./src/data/tools');
 
 const { analyze } = argv;
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
@@ -189,7 +189,7 @@ module.exports = {
         new CnameWebpackPlugin({ domain: 'omatsuri.app' }),
         new PrerenderSPAPlugin({
           staticDir: output,
-          routes: ['/', '/about', '/404', ...toolsLinks],
+          routes: ['/', '/about', '/404', ...tools.map((tool) => tool.link)],
         }),
       ]),
   ],
