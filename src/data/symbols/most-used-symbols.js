@@ -1,5 +1,23 @@
 export default [
   {
+    symbol: '€',
+    entity: '&euro;',
+    name: 'Euro sign',
+    css: '\\20AC',
+  },
+  {
+    symbol: '£',
+    entity: '&pound;',
+    name: 'Pound sign',
+    css: '\\00A3',
+  },
+  {
+    symbol: '₽',
+    entity: '–',
+    name: 'Ruble sign',
+    css: '\\20BD',
+  },
+  {
     symbol: '←',
     entity: '&larr;',
     name: 'Left Arrow',
@@ -70,5 +88,23 @@ export default [
     entity: '&mdash;',
     name: 'Em Dash',
     css: '\\2014',
+  },
+  {
+    symbol: '•',
+    entity: '&bull;',
+    name: 'Bullet',
+    css: '\\2022',
+  },
+  {
+    symbol: '✓',
+    entity: '&check;',
+    name: 'Check Mark',
+    css: '\\2713',
+  },
+  {
+    symbol: '✗',
+    entity: '&cross;',
+    name: 'Ballot X',
+    css: '\\2717',
   },
 ];
