@@ -13,6 +13,7 @@ export default function CursorControl({ className, value }) {
       type="button"
       onClick={() => clipboard.copy(value)}
       style={{ cursor: value }}
+      title="Click to copy cursor value"
     >
       {value}
     </button>
