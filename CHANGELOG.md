@@ -15,6 +15,7 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 - More symbols were added to most used symbols collection
 - Tints were added to color shades generator with variable amount of generated colors
 - New Tilt page divider available in page dividers application
+- Add more correct triangle styles generation for jss
 
 **Migrations:**
 
@@ -28,7 +29,7 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 - Remove unsued [faker locales](https://github.com/Marak/faker.js/issues/167#issuecomment-119373065) from fake data generator app -> reduce bundle size in half (2.2mb -> 1.31mb)
 - Replace all images used in triangle generator with single react component -> 8 less requests to load page
 - Remove tinycolor2 depenency -> -20kb to bundle
-- React react-input-slider depenency -> -60kb to bundle
+- Remove react-input-slider depenency -> -60kb to bundle
 
 ## v1.0.0 – Initial Release – August 2020
 

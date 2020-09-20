@@ -36,7 +36,7 @@ function generateJssExample(value) {
   border-width: '${borderWidth}',
   border-color: '${borderColor}',`;
 
-  const element = `const element = {\n  ${shared}\n};`;
+  const element = `element: {\n  ${shared}\n},`;
   const pseudo = `'&::after': {\n  content: "''",\n  display: 'block',\n  ${shared}  \n},`;
 
   return [element, pseudo];
