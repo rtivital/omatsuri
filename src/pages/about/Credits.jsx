@@ -32,7 +32,7 @@ export default function Credits() {
           tools are used for SVG compression.
         </li>
         <li>
-          Curved page dividers app was made with help of &nbsp;
+          Page dividers app was made with help of &nbsp;
           <a href="https://www.shapedivider.app/" target="_balnk" rel="noopener noreferrer">
             shapedivider.app
           </a>

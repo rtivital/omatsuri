@@ -14,7 +14,7 @@ const INITIAL_VALUES = {
 };
 
 export default function PageDividers() {
-  useDocumentTitle('Curved page dividers');
+  useDocumentTitle('Page dividers');
 
   const ls = useLocalStorage({ key: '@omatsuri/page-dividers', delay: 1000 });
   const initialValues = ls.retrieve() || INITIAL_VALUES;

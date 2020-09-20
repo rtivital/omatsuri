@@ -31,7 +31,7 @@ npm start
 
 - CSS Triangle Generator
 - Color Shades Generator
-- Curved Page Dividers Generator
+- Page Dividers Generator
 - SVG compressor
 - SVG to JSX converter
 - Base64 encoder
@@ -40,4 +40,3 @@ npm start
 - Lorem/Samuel/Poke Ipsum Generator
 - CSS Cursor Properties
 - JavaScript Events Keycodes
-

@@ -57,8 +57,8 @@ module.exports = {
 
     {
       link: '/page-dividers',
-      name: 'Curved page dividers',
-      description: 'Tool to generate curved page dividers with css and svg images',
+      name: 'Page dividers',
+      description: 'Tool to generate page dividers with css and svg images',
     },
 
     {
