@@ -5,10 +5,9 @@ import cx from 'classnames';
 import Scrollbars from 'react-custom-scrollbars';
 import Background from '../Background/Background';
 import GithubButton from '../GithubButton/GithubButton';
+import settings from '../../settings';
 import logoText from '../../assets/logo-text.svg';
-import toolsData from '../../data/tools';
 import appIcons from '../../assets/app-icons';
-import settings from '../../data/settings';
 import classes from './Navbar.styles.less';
 
 const removeTrailingSlash = (path) =>
@@ -18,7 +17,9 @@ const isActive = (path, match, location) =>
   !!(match || removeTrailingSlash(path) === removeTrailingSlash(location.pathname));
 
 const findCurrentIndex = (pathname) =>
-  toolsData.findIndex((tool) => removeTrailingSlash(pathname) === removeTrailingSlash(tool.link));
+  settings.tools.findIndex(
+    (tool) => removeTrailingSlash(pathname) === removeTrailingSlash(tool.link)
+  );
 
 export default function Navbar({ className }) {
   const { pathname } = useLocation();
@@ -28,7 +29,7 @@ export default function Navbar({ className }) {
     setCurrent(findCurrentIndex(pathname));
   }, [pathname]);
 
-  const items = toolsData.map((tool) => (
+  const items = settings.tools.map((tool) => (
     <NavLink
       key={tool.name}
       to={tool.link}

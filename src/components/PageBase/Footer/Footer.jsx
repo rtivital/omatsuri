@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 import GithubButton from '../../GithubButton/GithubButton';
-import toolsData from '../../../data/tools';
-import settings from '../../../data/settings';
+import settings from '../../../settings';
 import classes from './Footer.styles.less';
 
 export default function Footer({ className }) {
-  const tools = toolsData.map((tool) => (
+  const tools = settings.tools.map((tool) => (
     <Link className={classes.link} to={tool.link} key={tool.name}>
       {tool.name}
     </Link>

@@ -11,7 +11,7 @@ const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { argv } = require('yargs');
 const babelrc = require('./.babelrc');
-const tools = require('./src/data/tools');
+const settings = require('./src/settings');
 
 const { analyze } = argv;
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
@@ -192,7 +192,7 @@ module.exports = {
           : [
             new PrerenderSPAPlugin({
               staticDir: output,
-              routes: ['/', '/about', '/404', ...tools.map((tool) => tool.link)],
+              routes: ['/', '/about', '/404', ...settings.tools.map((tool) => tool.link)],
             }),
           ]),
       ]),

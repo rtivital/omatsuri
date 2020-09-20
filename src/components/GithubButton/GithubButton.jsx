@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import settings from '../../data/settings';
+import settings from '../../settings';
 import classes from './GithubButton.styles.less';
 
 export default function GithubButton({ className }) {

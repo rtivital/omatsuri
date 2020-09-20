@@ -1,5 +1,5 @@
 import React from 'react';
-import settings from '../../data/settings';
+import settings from '../../settings';
 
 export default function Application() {
   return (

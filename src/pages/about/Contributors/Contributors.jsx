@@ -2,7 +2,7 @@ import React from 'react';
 import github from './icons/github.svg';
 import telegram from './icons/telegram.svg';
 import twitter from './icons/twitter.svg';
-import settings from '../../../data/settings';
+import settings from '../../../settings';
 import classes from './Contributors.styles.less';
 
 export default function Contributors() {
