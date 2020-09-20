@@ -2,7 +2,7 @@
 
 ![Logo](./src/assets/logo-text.svg)
 
-Omatsuri is offline first PWA with 10 open source frontend focused tools. Omatsuri translates to «festival» from Japanese (お祭り) and here we have a small festival of applications. It was built with strong respect to your privacy – you will never see ads and it does not include analytics services (or actually any services at all). You are highly encouraged to explore source code and use it in your projects.
+Omatsuri is offline first PWA with 11 open source frontend focused tools. Omatsuri translates to «festival» from Japanese (お祭り) and here we have a small festival of applications. It was built with strong respect to your privacy – you will never see ads and it does not include analytics services (or actually any services at all). You are highly encouraged to explore source code and use it in your projects.
 
 ## Quick links
 
