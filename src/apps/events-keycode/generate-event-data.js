@@ -11,6 +11,7 @@ export default function generateEventData(event) {
     ctrlKey: event.ctrlKey,
     metaKey: event.metaKey,
     shiftKey: event.shiftKey,
+    key: event.key,
   };
 
   if (!isSpecialKey(event)) {
