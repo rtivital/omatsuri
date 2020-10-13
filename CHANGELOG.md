@@ -2,6 +2,12 @@
 
 Omatsuri is a growing set of browser tools. Each month I try to add one new tool and improve UX and performance of existing ones.
 
+## v1.2.0 – November 2020
+
+**Improvements of existing applications:**
+
+- New triangles page divider in page dividers application
+
 ## v1.1.0 – September 2020
 
 **New tools:**

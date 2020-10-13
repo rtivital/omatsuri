@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 import Waves from './Waves';
 import WavesOpaque from './WavesOpaque';
 import Tilt from './Tilt';
+import Triangles from './Triangles';
 
 export const shapes = {
   tilt: Tilt,
   waves: Waves,
   waves_opaque: WavesOpaque,
+  triangles: Triangles,
 };
 
 export default function Shape({ shape, ...others }) {
