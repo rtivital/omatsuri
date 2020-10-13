@@ -15,7 +15,7 @@ export default function CssCursors() {
     ));
 
     return (
-      <div className={classes.group}>
+      <div className={classes.group} key={group.title}>
         <SettingsLabel className={classes.title}>{group.title}</SettingsLabel>
         <div className={classes.controls}>{values}</div>
       </div>
