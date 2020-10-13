@@ -79,7 +79,7 @@ export default function EventsKeycode() {
 
         <div className={classes.group}>
           <SettingsLabel>Usage</SettingsLabel>
-          <Background>
+          <Background className={classes.output}>
             <Highlight>{generateUsage(capturedEvent)}</Highlight>
           </Background>
         </div>
