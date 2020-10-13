@@ -23,14 +23,14 @@ export default function EventsKeycode() {
 
   if (!capturedEvent) {
     return (
-      <Background className={classes.wrapper}>
+      <div className={classes.wrapper}>
         <h1 className={classes.title}>Press any key to get JavaScript event keycode info</h1>
-      </Background>
+      </div>
     );
   }
 
   return (
-    <Background className={classes.wrapper}>
+    <div className={classes.wrapper}>
       <div className={classes.event}>
         <div className={classes.eventTitle}>{capturedEvent.code}</div>
         <div className={classes.group}>
@@ -79,9 +79,11 @@ export default function EventsKeycode() {
 
         <div className={classes.group}>
           <SettingsLabel>Usage</SettingsLabel>
-          <Highlight>{generateUsage(capturedEvent)}</Highlight>
+          <Background>
+            <Highlight>{generateUsage(capturedEvent)}</Highlight>
+          </Background>
         </div>
       </div>
-    </Background>
+    </div>
   );
 }

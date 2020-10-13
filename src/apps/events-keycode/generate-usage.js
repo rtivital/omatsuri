@@ -1,4 +1,8 @@
+import generateEventData from './generate-event-data';
+
 export default function generateUsage(event) {
+  const data = generateEventData(event);
+
   const modifiers = Object.entries({
     'event.altKey': event.altKey,
     'event.ctrlKey': event.ctrlKey,
@@ -12,8 +16,10 @@ export default function generateUsage(event) {
     return acc;
   }, '');
 
+  const parsedModifiers = data.code ? modifiers : modifiers.slice(4);
+
   return `window.addEventListener('keydown', (event) => {
-  if (event.code === '${event.code}'${modifiers}) {
+  if (${data.code ? `event.code === '${event.code}'` : ''}${parsedModifiers}) {
     // do your stuff
   }
 });`;
