@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -9,6 +9,8 @@ import settings from '../../settings';
 import logoText from '../../assets/logo-text.svg';
 import appIcons from '../../assets/app-icons';
 import classes from './Navbar.styles.less';
+
+const LINK_HEIGHT = 72;
 
 const removeTrailingSlash = (path) =>
   (path.slice(path.length - 1) === '/' ? path.slice(0, path.length - 1) : path);
@@ -24,9 +26,12 @@ const findCurrentIndex = (pathname) =>
 export default function Navbar({ className }) {
   const { pathname } = useLocation();
   const [current, setCurrent] = useState(findCurrentIndex(pathname));
+  const scrollbars = useRef();
 
   useEffect(() => {
-    setCurrent(findCurrentIndex(pathname));
+    const currentIndex = findCurrentIndex(pathname);
+    setCurrent(currentIndex);
+    scrollbars.current && scrollbars.current.scrollTop(currentIndex * LINK_HEIGHT);
   }, [pathname]);
 
   const items = settings.tools.map((tool) => (
@@ -65,7 +70,7 @@ export default function Navbar({ className }) {
           <Link to="/" className={classes.logo}>
             <img className={classes.logoImage} src={logoText} alt="" />
           </Link>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 262px)' }}>
+          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 262px)' }} ref={scrollbars}>
             <div className={classes.links}>
               {items}
               <div

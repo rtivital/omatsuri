@@ -13,6 +13,7 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 **Bug fixes:**
 
 - Completely remove layout shift on index and about pages
+- Fix invisible current item in navbar when loaded with one of the last applications
 
 ## v1.1.0 – September 2020
 
