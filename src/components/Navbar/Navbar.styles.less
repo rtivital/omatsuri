@@ -5,9 +5,10 @@
   margin-left: 10px;
   position: sticky;
   top: 10px;
+  flex: 0 0 340px;
 
-  @media screen and (max-width: 400px) {
-    display: none;
+  @media screen and (max-width: 765px) {
+    flex: 0 0 100px;
   }
 }
 
@@ -29,6 +30,15 @@
 
 .logoImage {
   width: 200px;
+
+  @media screen and (max-width: 765px) {
+    display: none;
+  }
+}
+
+.logoImageSmall {
+  width: 40px;
+  height: 40px;
 }
 
 .linkBackground {
@@ -77,6 +87,10 @@
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 30px;
+
+  @media screen and (max-width: 765px) {
+    display: none;
+  }
 }
 
 .footerLinks {
@@ -104,15 +118,16 @@
   }
 }
 
-.sw {
-  pointer-events: none;
+.label {
+  @media screen and (max-width: 765px) {
+    display: none;
+  }
 }
 
-.sw_ready {
-  color: @oc-green-7;
-}
+.scrollbars {
+  height: calc(100vh - 262px) !important;
 
-.sw_disabled,
-.sw_error {
-  color: @oc-red-7;
+  @media screen and (max-width: 765px) {
+    height: calc(100vh - 132px) !important;
+  }
 }

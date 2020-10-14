@@ -7,6 +7,7 @@ import Background from '../Background/Background';
 import GithubButton from '../GithubButton/GithubButton';
 import settings from '../../settings';
 import logoText from '../../assets/logo-text.svg';
+import logo from '../../assets/logo.svg';
 import appIcons from '../../assets/app-icons';
 import classes from './Navbar.styles.less';
 
@@ -69,8 +70,9 @@ export default function Navbar({ className }) {
         <div className={classes.main}>
           <Link to="/" className={classes.logo}>
             <img className={classes.logoImage} src={logoText} alt="" />
+            <img className={classes.logoImageSmall} src={logo} alt="" />
           </Link>
-          <Scrollbars style={{ width: '100%', height: 'calc(100vh - 262px)' }} ref={scrollbars}>
+          <Scrollbars className={classes.scrollbars} style={{ width: '100%' }} ref={scrollbars}>
             <div className={classes.links}>
               {items}
               <div

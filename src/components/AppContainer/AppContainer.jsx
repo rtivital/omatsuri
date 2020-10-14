@@ -6,7 +6,7 @@ import classes from './AppContainer.styles.less';
 export default function AppContainer({ children }) {
   return (
     <div className={classes.appContainer}>
-      <Navbar className={classes.navbar} />
+      <Navbar />
       <main className={classes.main}>{children}</main>
     </div>
   );
