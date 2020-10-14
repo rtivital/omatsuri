@@ -23,6 +23,7 @@ export default function LoremIpsum() {
   useEffect(() => {
     ls.save({ type, length });
     clipboard.reset();
+    return ls.cancel;
   }, [type, length]);
 
   const handleSubmit = () => {

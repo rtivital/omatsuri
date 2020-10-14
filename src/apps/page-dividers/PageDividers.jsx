@@ -28,6 +28,7 @@ export default function PageDividers() {
 
   useEffect(() => {
     ls.save({ direction, width, height, color, position, type });
+    return ls.cancel;
   }, [direction, width, height, color, position, type]);
 
   const values = { type, color, width, height, position, direction };

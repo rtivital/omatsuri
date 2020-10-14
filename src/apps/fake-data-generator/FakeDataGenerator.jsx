@@ -31,6 +31,7 @@ export default function FakeDataGenerator() {
 
   useEffect(() => {
     ls.save({ fields, amount, type });
+    return ls.cancel;
   }, [type, amount, fields]);
 
   const addField = () =>

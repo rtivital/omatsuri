@@ -42,6 +42,7 @@ export default function TriangleGenerator() {
 
   useEffect(() => {
     ls.save({ direction, width, height, color, theme });
+    return ls.cancel;
   }, [direction, width, height, color, theme]);
 
   const toggleTheme = () => setTheme((current) => (current === 'light' ? 'dark' : 'light'));

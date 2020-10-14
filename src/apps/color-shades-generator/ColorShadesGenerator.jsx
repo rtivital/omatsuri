@@ -52,6 +52,7 @@ export default function ColorShadesGenerator() {
 
   useEffect(() => {
     ls.save({ value, saturation, darken });
+    return ls.cancel;
   }, [value, saturation, darken]);
 
   const colors = value.map((color, index) => (
