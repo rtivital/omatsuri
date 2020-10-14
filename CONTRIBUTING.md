@@ -28,7 +28,7 @@ There are a lot of missing features that can be added, let's focus on most inter
 
 If you decide to build one of these features please be aware of design language of the app and recreate it as similar as possible for new design elements. Please use eslint and prettier during development. **Make sure you do not have eslint errors before submitting pull request.** You can check that by running `npm run lint` script.
 
-If you consider your contribution to be large, please add yourself to contributors list [here](./src/data/settings.js)
+If you consider your contribution to be large, please add yourself to contributors list [here](./src/settings.js)
 
 ## Previewing production builds
 
