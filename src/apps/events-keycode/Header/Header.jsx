@@ -33,11 +33,20 @@ export default function Header({ event }) {
   }
 
   const data = generateEventData(event);
-  const pressedKeys = getPressedKeys(data).map((key) => <Keycap key={key} value={key} />);
+  const pressedKeys = getPressedKeys(data).map((key, index, arr) => (
+    <div key={key} className={classes.key}>
+      <Keycap key={key} value={key} />
+      {index !== arr.length - 1 && <span className={classes.separator}>+</span>}
+    </div>
+  ));
 
   return (
     <Background className={classes.wrapper}>
       <div className={classes.keys}>{pressedKeys}</div>
+      <p className={classes.description}>
+        <b>Tip:</b> shift, control, alt and meta (cmd) keys are also captured, you can generate
+        usage with these keys combinations
+      </p>
     </Background>
   );
 }

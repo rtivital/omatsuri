@@ -7,7 +7,7 @@ const PREDEFINED_VALUES = {
   ArrowUp: '↑',
   ArrowRight: '→',
   ArrowLeft: '←',
-  ArrowDown: '←',
+  ArrowDown: '↓',
   Backspace: '⇇',
   Tab: '⇥',
   Escape: 'Esc',
