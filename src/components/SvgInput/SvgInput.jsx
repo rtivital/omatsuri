@@ -16,8 +16,10 @@ export default function SvgInput({
   dropLabel,
   formatFileName = (f) => f,
 }) {
-  const formattedErrors = errors.map((error) => (
-    <p className={classes.error}>Failed to parse or minify file {formatFileName(error)}</p>
+  const formattedErrors = errors.map((error, index) => (
+    <p className={classes.error} key={index}>
+      Failed to parse or minify file {formatFileName(error)}
+    </p>
   ));
 
   return (
