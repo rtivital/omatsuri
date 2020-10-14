@@ -16,3 +16,51 @@
 .control {
   width: 62px;
 }
+
+.shift {
+  width: 82px;
+}
+
+.alt {
+  width: 52px;
+}
+
+.meta,
+.space,
+.enter {
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    line-height: 40px;
+    color: @oc-gray-5;
+    font-size: 24px;
+  }
+}
+
+.space {
+  width: 182px;
+  position: relative;
+
+  &::before {
+    content: '[';
+    transform: rotate(-90deg);
+  }
+}
+
+.enter {
+  width: 82px;
+  &::before {
+    content: '↵';
+  }
+}
+
+.meta {
+  width: 52px;
+  &::before {
+    content: '⌘';
+  }
+}

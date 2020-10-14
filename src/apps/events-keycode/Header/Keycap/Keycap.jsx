@@ -3,6 +3,18 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import classes from './Keycap.styles.less';
 
+const PREDEFINED_VALUES = {
+  ArrowUp: '↑',
+  ArrowRight: '→',
+  ArrowLeft: '←',
+  ArrowDown: '←',
+  Backspace: '⇇',
+  Tab: '⇥',
+  Escape: 'Esc',
+  Enter: null,
+  Cmd: null,
+};
+
 export default function Keycap({ value, className }) {
   return (
     <div
@@ -19,7 +31,7 @@ export default function Keycap({ value, className }) {
         className
       )}
     >
-      {value}
+      {value in PREDEFINED_VALUES ? PREDEFINED_VALUES[value] : value}
     </div>
   );
 }
