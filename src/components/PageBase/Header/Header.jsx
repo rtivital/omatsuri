@@ -9,7 +9,7 @@ export default function Header() {
     <header className={classes.header}>
       <div className={classes.headerBody}>
         <Link to="/">
-          <img className={classes.logo} src={logoText} alt="" />
+          <img className={classes.logo} src={logoText} alt="" width={340} height={72} />
         </Link>
         <p className={classes.description}>Open source browser tools for everyday use</p>
       </div>

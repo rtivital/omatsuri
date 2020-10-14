@@ -10,6 +10,10 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 - Better code generator in event keycodes application
 - New layout and pressed keys visualization in event keycodes application
 
+**Bug fixes:**
+
+- Completely remove layout shift on index and about pages
+
 ## v1.1.0 – September 2020
 
 **New tools:**
