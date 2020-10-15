@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Color from 'color';
 import cx from 'classnames';
 import { useClipboard } from 'xooks';
+import { Scrollbars } from 'react-custom-scrollbars';
 import HexInput from '../../../components/HexInput/HexInput';
 import Background from '../../../components/Background/Background';
 import classes from './ColorShadesList.styles.less';
@@ -71,7 +72,9 @@ export default function ColorShadesList({
           )}
         </div>
       </div>
-      <div className={classes.shades}>{items}</div>
+      <Scrollbars style={{ width: '100%', height: 110 }}>
+        <div className={classes.shades}>{items}</div>
+      </Scrollbars>
     </Background>
   );
 }
