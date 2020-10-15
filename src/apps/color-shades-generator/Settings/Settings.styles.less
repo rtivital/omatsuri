@@ -4,11 +4,19 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
 }
 
 .controls {
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 1000px) {
+    margin-top: 15px;
+  }
 }
 
 .control {
