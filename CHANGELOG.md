@@ -6,6 +6,7 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 
 **Improvements of existing applications:**
 
+- Add full support for smaller screens (tested for 500px and up)
 - New triangles page divider in page dividers application
 - Better code generator in event keycodes application
 - New layout and pressed keys visualization in event keycodes application
