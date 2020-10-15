@@ -42,6 +42,7 @@ export default function Navbar({ className }) {
       className={classes.link}
       activeClassName={classes.linkActive}
       isActive={isActive.bind(this, tool.link)}
+      title={tool.name}
     >
       <img className={classes.icon} src={appIcons[tool.link]} alt="" />
       <div className={classes.label}>{tool.name}</div>
