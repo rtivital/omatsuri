@@ -22,7 +22,6 @@ After you've finished your changes please create pull request to [original repos
 
 There are a lot of missing features that can be added, let's focus on most interesting:
 
-- Full offline support with service workers
 - Dark theme support (automatically detected from user os)
 - New application – e.g. gradient generator
 
