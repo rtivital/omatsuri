@@ -70,6 +70,7 @@
     "fuse.js": "^6.4.1",
     "lorem-ipsum": "^2.0.3",
     "normalize.css": "^8.0.1",
+    "offline-plugin": "^5.0.7",
     "open-color": "^1.7.0",
     "pokeipsum": "^1.1.0",
     "prettier": "^2.1.1",

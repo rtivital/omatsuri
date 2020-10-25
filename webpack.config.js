@@ -7,11 +7,11 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
-const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+const OfflinePlugin = require('offline-plugin');
 const { argv } = require('yargs');
 const babelrc = require('./.babelrc');
-const settings = require('./src/settings');
 
 const { analyze } = argv;
 const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
@@ -187,14 +187,7 @@ module.exports = {
         new BundleAnalyzerPlugin({ analyzerMode: analyze ? 'static' : 'disabled' }),
         new MiniCssExtractPlugin(),
         new CnameWebpackPlugin({ domain: 'omatsuri.app' }),
-        ...(analyze
-          ? []
-          : [
-            new PrerenderSPAPlugin({
-              staticDir: output,
-              routes: ['/', '/about', '/404', ...settings.tools.map((tool) => tool.link)],
-            }),
-          ]),
+        new OfflinePlugin({ autoUpdate: true, appShell: '/' }),
       ]),
   ],
 };
