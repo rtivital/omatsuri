@@ -27,6 +27,7 @@ export default function HexInput({ className, value, onChange, ...others }) {
           onClick={() => setOpened((o) => !o)}
           style={{ backgroundColor: value }}
         />
+        <div className={classes.hash}>#</div>
         <HexColorInput {...others} className={classes.input} color={value} onChange={onChange} />
       </div>
       {opened && <HexColorPicker className={classes.picker} color={value} onChange={onChange} />}
