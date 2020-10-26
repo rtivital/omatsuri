@@ -14,7 +14,7 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 - New triangles page divider in page dividers application
 - Better code generator in event keycodes application
 - New layout and pressed keys visualization in event keycodes application
-- Add new more accurate icons to color shades generator, lorem ipsum and page dividers apps
+- Add new more accurate icons to color shades generator, lorem ipsum, triangle generator and page dividers apps
 
 **Bug fixes:**
 
