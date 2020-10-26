@@ -103,7 +103,7 @@
   justify-content: center;
   flex-wrap: wrap;
   margin: -5px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .footerLink {
@@ -130,9 +130,25 @@
 }
 
 .scrollbars {
-  height: calc(100vh - 262px) !important;
+  height: calc(100vh - 280px) !important;
 
   @media screen and (max-width: 765px) {
     height: calc(100vh - 132px) !important;
   }
+}
+
+.offline {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: @oc-gray-6;
+}
+
+.offlineSeparator {
+  margin-left: 7px;
+  margin-right: 7px;
+}
+
+.offlineSuccess {
+  color: @oc-teal-7;
 }

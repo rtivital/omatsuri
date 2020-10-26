@@ -27,6 +27,7 @@ const findCurrentIndex = (pathname) =>
 export default function Navbar({ className }) {
   const { pathname } = useLocation();
   const [current, setCurrent] = useState(findCurrentIndex(pathname));
+  const [offline, setOffline] = useState({ ready: false, error: false });
   const scrollbars = useRef();
 
   useEffect(() => {
@@ -34,6 +35,12 @@ export default function Navbar({ className }) {
     setCurrent(currentIndex);
     scrollbars.current && scrollbars.current.scrollTop(currentIndex * LINK_HEIGHT);
   }, [pathname]);
+
+  useEffect(() => {
+    navigator.serviceWorker.ready
+      .then(() => setOffline({ ready: true, error: false }))
+      .catch(() => setOffline({ ready: false, error: true }));
+  }, []);
 
   const items = settings.tools.map((tool) => (
     <NavLink
@@ -88,6 +95,13 @@ export default function Navbar({ className }) {
 
         <div className={classes.footer}>
           <div className={classes.footerLinks}>{links}</div>
+          {!offline.error && offline.ready && (
+            <div className={classes.offline}>
+              <span className={classes.offlineSuccess}>✓ Ready to work offline</span>
+              <span className={classes.offlineSeparator}>•</span>
+              <span className={classes.offlineDescription}>Install PWA from url bar</span>
+            </div>
+          )}
           <GithubButton />
         </div>
       </div>
