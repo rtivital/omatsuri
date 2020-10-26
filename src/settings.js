@@ -56,6 +56,12 @@ module.exports = {
     },
 
     {
+      link: '/gradient-generator',
+      name: 'Gradient generator',
+      description: 'Generate linear and radial css gradients',
+    },
+
+    {
       link: '/page-dividers',
       name: 'Page dividers',
       description: 'Tool to generate page dividers with css and svg images',

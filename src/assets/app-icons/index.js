@@ -9,6 +9,7 @@ import b64encoding from './b64-encoding.svg';
 import fakeDataGenerator from './fake-data-generator.svg';
 import cssCursors from './css-cursors.svg';
 import eventsKeycode from './events-keycode.svg';
+import gradientGenerator from './gradient-generator.svg';
 
 export default {
   '/triangle-generator': triangleGenerator,
@@ -22,4 +23,5 @@ export default {
   '/fake-data-generator': fakeDataGenerator,
   '/css-cursors': cssCursors,
   '/events-keycode': eventsKeycode,
+  '/gradient-generator': gradientGenerator,
 };
