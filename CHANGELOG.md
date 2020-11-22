@@ -2,7 +2,7 @@
 
 Omatsuri is a growing set of browser tools. Each month I try to add one new tool and improve UX and performance of existing ones.
 
-## v1.2.0 – November 2020 – Next release
+## v1.2.0 – Next release
 
 **New features:**
 
