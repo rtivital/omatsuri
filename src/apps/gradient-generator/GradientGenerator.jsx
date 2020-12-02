@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDocumentTitle, useListState } from 'xooks';
 import { v4 } from 'uuid';
 import Background from '../../components/Background/Background';
 import GradientLine from './GradientLine/GradientLine';
+import GradientPreview from './GradientPreview/GradientPreview';
 import classes from './GradientGenerator.styles.less';
 
 const DEFAULT_VALUES = [
@@ -14,10 +15,14 @@ export default function GradientGenerator() {
   useDocumentTitle('Gradient generator');
 
   const [values, handlers] = useListState(DEFAULT_VALUES);
+  const [angle] = useState(90);
 
   return (
-    <Background className={classes.wrapper}>
-      <GradientLine values={values} handlers={handlers} />
-    </Background>
+    <>
+      <GradientPreview values={values} angle={angle} className={classes.preview} />
+      <Background className={classes.controls}>
+        <GradientLine values={values} handlers={handlers} />
+      </Background>
+    </>
   );
 }
