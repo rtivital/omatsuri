@@ -8,6 +8,8 @@ export default function ColorStop({ className, value, values, handlers, lineRect
   const start = useRef({});
   const offset = useRef({});
 
+  const removeColorStop = () => handlers.remove(index);
+
   const handleChange = (val) => {
     let left = val;
     const { width } = lineRect;
@@ -23,7 +25,14 @@ export default function ColorStop({ className, value, values, handlers, lineRect
 
   const handleDrag = (event) => {
     event.preventDefault();
-    handleChange(event.clientX + start.current - offset.current);
+    const verticalPosition = event.clientY - lineRect.top;
+
+    if (values.length > 2 && (verticalPosition < -100 || verticalPosition > 120)) {
+      document.removeEventListener('mousemove', handleDrag);
+      removeColorStop();
+    } else {
+      handleChange(event.clientX + start.current - offset.current);
+    }
   };
 
   const handleDragEnd = (event) => {
@@ -87,10 +96,12 @@ ColorStop.propTypes = {
 
   handlers: PropTypes.shape({
     setState: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired,
   }).isRequired,
 
   lineRect: PropTypes.shape({
-    left: PropTypes.number,
-    width: PropTypes.number,
+    left: PropTypes.number.isRequired,
+    top: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
   }),
 };
