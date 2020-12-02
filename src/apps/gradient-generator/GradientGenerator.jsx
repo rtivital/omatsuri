@@ -3,6 +3,7 @@ import { useDocumentTitle, useListState } from 'xooks';
 import { v4 } from 'uuid';
 import Background from '../../components/Background/Background';
 import GradientLine from './GradientLine/GradientLine';
+import GradientSettings from './GradientSettings/GradientSettings';
 import GradientPreview from './GradientPreview/GradientPreview';
 import classes from './GradientGenerator.styles.less';
 
@@ -15,13 +16,20 @@ export default function GradientGenerator() {
   useDocumentTitle('Gradient generator');
 
   const [values, handlers] = useListState(DEFAULT_VALUES);
-  const [angle] = useState(90);
+  const [angle, setAngle] = useState(90);
+  const [type, setType] = useState('linear');
 
   return (
     <>
       <GradientPreview values={values} angle={angle} className={classes.preview} />
       <Background className={classes.controls}>
         <GradientLine values={values} handlers={handlers} />
+        <GradientSettings
+          type={type}
+          onTypeChange={setType}
+          angle={angle}
+          onAngleChange={setAngle}
+        />
       </Background>
     </>
   );
