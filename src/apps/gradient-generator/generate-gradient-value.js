@@ -11,4 +11,12 @@ export function generateGradientColorValues(values) {
   );
 }
 
-// export default function generateGradientValue(values, angle) {}
+export default function generateGradientValue({ values, angle, type }) {
+  const colors = generateGradientColorValues(values);
+
+  if (type === 'radial') {
+    return `radial-gradient(circle, ${colors})`;
+  }
+
+  return `linear-gradient(${angle}deg, ${colors})`;
+}

@@ -21,7 +21,7 @@ export default function GradientGenerator() {
 
   return (
     <>
-      <GradientPreview values={values} angle={angle} className={classes.preview} />
+      <GradientPreview values={values} angle={angle} type={type} className={classes.preview} />
       <Background className={classes.controls}>
         <GradientLine values={values} handlers={handlers} />
         <GradientSettings

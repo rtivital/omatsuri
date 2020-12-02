@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { generateGradientColorValues } from '../generate-gradient-value';
+import generateGradientValue from '../generate-gradient-value';
 import classes from './GradientPreview.styles.less';
 
-export default function GradientPreview({ values, angle, className }) {
-  const gradient = `linear-gradient(${angle}deg, ${generateGradientColorValues(values)})`;
+export default function GradientPreview({ values, angle, className, type }) {
+  const gradient = generateGradientValue({ angle, values, type });
 
   return <div className={cx(classes.preview, className)} style={{ backgroundImage: gradient }} />;
 }
@@ -13,6 +13,7 @@ export default function GradientPreview({ values, angle, className }) {
 GradientPreview.propTypes = {
   className: PropTypes.string,
   angle: PropTypes.number,
+  type: PropTypes.oneOf(['linear', 'radial']).isRequired,
   values: PropTypes.arrayOf(
     PropTypes.shape({
       color: PropTypes.string.isRequired,
