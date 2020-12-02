@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import classes from './ColorStop.styles.less';
 
-export default function ColorStop({ className, value, handlers, lineRect, index }) {
+export default function ColorStop({ className, value, values, handlers, lineRect, index }) {
   const handle = useRef(null);
   const start = useRef({});
   const offset = useRef({});
@@ -11,11 +11,14 @@ export default function ColorStop({ className, value, handlers, lineRect, index 
   const handleChange = (val) => {
     let left = val;
     const { width } = lineRect;
-    let dx = 0;
+    let position = 0;
     if (left < 0) left = 0;
     if (left > width) left = width;
-    dx = (left / width) * 100;
-    handlers.setItemProp(index, 'position', parseInt(dx, 10));
+    position = (left / width) * 100;
+
+    const newValues = [...values];
+    newValues[index] = { ...newValues[index], position };
+    handlers.setState(newValues.sort((a, b) => a.position - b.position));
   };
 
   const handleDrag = (event) => {
@@ -68,6 +71,14 @@ ColorStop.propTypes = {
 
   index: PropTypes.number.isRequired,
 
+  values: PropTypes.arrayOf(
+    PropTypes.shape({
+      color: PropTypes.string.isRequired,
+      position: PropTypes.number.isRequired,
+      opacity: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+
   value: PropTypes.shape({
     color: PropTypes.string.isRequired,
     position: PropTypes.number.isRequired,
@@ -75,7 +86,7 @@ ColorStop.propTypes = {
   }).isRequired,
 
   handlers: PropTypes.shape({
-    setItemProp: PropTypes.func.isRequired,
+    setState: PropTypes.func.isRequired,
   }).isRequired,
 
   lineRect: PropTypes.shape({

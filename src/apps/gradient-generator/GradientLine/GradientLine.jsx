@@ -26,6 +26,7 @@ export default function GradientLine({ values, handlers, className }) {
   const colorStops = values.map((value, index) => (
     <ColorStop
       key={value.key}
+      values={values}
       value={value}
       handlers={handlers}
       lineRect={parsedLineRect}
