@@ -13,7 +13,7 @@ export default function GradientSettings({ className, type, onTypeChange, angle,
         <Tabs
           data={[
             { value: 'linear', label: 'Linear' },
-            { type: 'radial', label: 'Radial' },
+            { value: 'radial', label: 'Radial' },
           ]}
           onTabChange={onTypeChange}
           active={type}

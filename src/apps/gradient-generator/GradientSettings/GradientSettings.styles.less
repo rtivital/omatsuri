@@ -1,14 +1,27 @@
 .settings {
   margin-top: 15px;
   display: flex;
-  align-items: flex-end;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 }
 
 .field {
   flex: 1;
+  max-width: calc(50% - 30px);
 
   & + & {
-    margin-left: 15px;
+    margin-left: 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    max-width: 100%;
+
+    & + & {
+      margin-top: 15px;
+      margin-left: 0;
+    }
   }
 }
 
