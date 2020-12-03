@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDocumentTitle, useListState } from 'xooks';
 import { v4 } from 'uuid';
 import Background from '../../components/Background/Background';
+import SettingsLabel from '../../components/SettingsLabel/SettingsLabel';
 import GradientLine from './GradientLine/GradientLine';
 import GradientColors from './GradientColors/GradientColors';
 import GradientSettings from './GradientSettings/GradientSettings';
@@ -26,13 +27,21 @@ export default function GradientGenerator() {
       <GradientPreview values={values} angle={angle} type={type} className={classes.preview} />
       <Background className={classes.controls}>
         <GradientLine values={values} handlers={handlers} />
-        <GradientColors values={values} handlers={handlers} />
-        <GradientSettings
-          type={type}
-          onTypeChange={setType}
-          angle={angle}
-          onAngleChange={setAngle}
-        />
+        <div className={classes.body}>
+          <div className={classes.column} style={{ flex: '0 0 203px' }}>
+            <SettingsLabel>Settings</SettingsLabel>
+            <GradientSettings
+              angle={angle}
+              type={type}
+              onTypeChange={setType}
+              onAngleChange={setAngle}
+            />
+          </div>
+          <div className={classes.column}>
+            <SettingsLabel>Colors</SettingsLabel>
+            <GradientColors values={values} handlers={handlers} />
+          </div>
+        </div>
       </Background>
       <GradientCode values={values} type={type} angle={angle} />
     </>

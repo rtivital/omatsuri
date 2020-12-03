@@ -25,5 +25,5 @@ export default function DirectionPicker({ className, value, onChange }) {
 DirectionPicker.propTypes = {
   className: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.oneOf(directions).isRequired,
+  value: PropTypes.oneOf(directions),
 };
