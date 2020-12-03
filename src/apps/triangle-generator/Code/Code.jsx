@@ -16,7 +16,7 @@ const languages = ['.css', '.scss', '.jss'].map((language) => ({
 export default function Code({ values }) {
   const ls = useLocalStorage({ key: '@omatsuri/triangle-generator/code', delay: 10 });
   const [language, setLanguage] = useState(ls.retrieve() || '.css');
-  const [lang, examples] = generateExample(language, values);
+  const [elementExample, pseudoExample] = generateExample(language, values)[1];
 
   const handleLanguageChange = (l) => {
     setLanguage(l);
@@ -29,12 +29,12 @@ export default function Code({ values }) {
       <div className={classes.code}>
         <div className={classes.section}>
           <div className={classes.title}>Element</div>
-          <Highlight language={lang}>{examples[0]}</Highlight>
+          <Highlight>{elementExample}</Highlight>
         </div>
 
         <div className={classes.section}>
           <div className={classes.title}>Pseudo-element</div>
-          <Highlight language={lang}>{examples[1]}</Highlight>
+          <Highlight>{pseudoExample}</Highlight>
         </div>
       </div>
     </Background>

@@ -6,6 +6,7 @@ import GradientLine from './GradientLine/GradientLine';
 import GradientColors from './GradientColors/GradientColors';
 import GradientSettings from './GradientSettings/GradientSettings';
 import GradientPreview from './GradientPreview/GradientPreview';
+import GradientCode from './GradientCode/GradientCode';
 import classes from './GradientGenerator.styles.less';
 
 const DEFAULT_VALUES = [
@@ -33,6 +34,7 @@ export default function GradientGenerator() {
           onAngleChange={setAngle}
         />
       </Background>
+      <GradientCode values={values} type={type} angle={angle} />
     </>
   );
 }
