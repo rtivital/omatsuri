@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDocumentTitle, useListState } from 'xooks';
+import React, { useState, useEffect } from 'react';
+import { useDocumentTitle, useListState, useLocalStorage } from 'xooks';
 import { v4 } from 'uuid';
 import Background from '../../components/Background/Background';
 import SettingsLabel from '../../components/SettingsLabel/SettingsLabel';
@@ -11,17 +11,29 @@ import GradientCode from './GradientCode/GradientCode';
 import GradientsGallery from './GradientsGallery/GradientsGallery';
 import classes from './GradientGenerator.styles.less';
 
-const DEFAULT_VALUES = [
-  { color: '#ed6ea0', position: 10, opacity: 100, key: v4() },
-  { color: '#ec8c69', position: 90, opacity: 100, key: v4() },
-];
+const INITIAL_VALUES = {
+  angle: 90,
+  type: 'linear',
+  values: [
+    { color: '#ed6ea0', position: 10, opacity: 100, key: v4() },
+    { color: '#ec8c69', position: 90, opacity: 100, key: v4() },
+  ],
+};
 
 export default function GradientGenerator() {
   useDocumentTitle('Gradient generator');
 
-  const [values, handlers] = useListState(DEFAULT_VALUES);
-  const [angle, setAngle] = useState(90);
-  const [type, setType] = useState('linear');
+  const ls = useLocalStorage({ key: '@omatsuri/gradient-generator', delay: 1000 });
+  const initialValues = ls.retrieve() || INITIAL_VALUES;
+
+  const [values, handlers] = useListState(initialValues.values);
+  const [angle, setAngle] = useState(initialValues.angle);
+  const [type, setType] = useState(initialValues.type);
+
+  useEffect(() => {
+    ls.save({ values, angle, type });
+    return ls.cancel;
+  }, [values, angle, type]);
 
   return (
     <>
