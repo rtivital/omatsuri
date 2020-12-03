@@ -18,17 +18,6 @@ npm start
 
 After you've finished your changes please create pull request to [original repository](https://github.com/rtivital/omatsuri). I'll review your changes and merge them if everything works fine.
 
-## Features to contribute
-
-There are a lot of missing features that can be added, let's focus on most interesting:
-
-- Dark theme support (automatically detected from user os)
-- New application – e.g. gradient generator
-
-If you decide to build one of these features please be aware of design language of the app and recreate it as similar as possible for new design elements. Please use eslint and prettier during development. **Make sure you do not have eslint errors before submitting pull request.** You can check that by running `npm run lint` script.
-
-If you consider your contribution to be large, please add yourself to contributors list [here](./src/settings.js)
-
 ## Previewing production builds
 
 Make sure that changes you've made also work in production environment. To setup it locally tun `npm run serve` script and open prompted url. This script will build project from scratch and serve it on port 6002. It may take some time, so be patient.
