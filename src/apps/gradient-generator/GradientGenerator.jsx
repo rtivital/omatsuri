@@ -8,6 +8,7 @@ import GradientColors from './GradientColors/GradientColors';
 import GradientSettings from './GradientSettings/GradientSettings';
 import GradientPreview from './GradientPreview/GradientPreview';
 import GradientCode from './GradientCode/GradientCode';
+import GradientsGallery from './GradientsGallery/GradientsGallery';
 import classes from './GradientGenerator.styles.less';
 
 const DEFAULT_VALUES = [
@@ -44,6 +45,7 @@ export default function GradientGenerator() {
         </div>
       </Background>
       <GradientCode values={values} type={type} angle={angle} />
+      <GradientsGallery handlers={handlers} />
     </>
   );
 }
