@@ -7,7 +7,11 @@ import classes from './GradientPreview.styles.less';
 export default function GradientPreview({ values, angle, className, type }) {
   const gradient = generateGradientValue({ angle, values, type });
 
-  return <div className={cx(classes.preview, className)} style={{ backgroundImage: gradient }} />;
+  return (
+    <div className={cx(classes.preview, className)}>
+      <div className={classes.body} style={{ backgroundImage: gradient }} />
+    </div>
+  );
 }
 
 GradientPreview.propTypes = {
