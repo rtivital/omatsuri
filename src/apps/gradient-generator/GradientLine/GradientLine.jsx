@@ -18,7 +18,7 @@ export default function GradientLine({ values, handlers, className }) {
     const position = parseInt((clickPosition / rect.width) * 100, 10);
     handlers.setState(
       values
-        .concat({ color: getRandomColor(), position, opacity: 1, key: v4() })
+        .concat({ color: getRandomColor(), position, opacity: 100, key: v4() })
         .sort((a, b) => a.position - b.position)
     );
   };

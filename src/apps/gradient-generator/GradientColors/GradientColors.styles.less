@@ -1,3 +1,27 @@
 .colors {
   margin-top: 30px;
 }
+
+.color {
+  display: flex;
+
+  & + & {
+    margin-top: 15px;
+  }
+}
+
+.header {
+  display: flex;
+}
+
+.label {
+  font-size: 14px;
+  margin-bottom: 7px;
+  color: @oc-gray-6;
+}
+
+.field {
+  & + & {
+    margin-left: 30px;
+  }
+}
