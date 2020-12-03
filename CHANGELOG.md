@@ -4,8 +4,9 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 
 ## v1.2.0 – Next release
 
-**New features:**
+**New features and tools:**
 
+- New tool: **Gradient generator** allows you to generate linear and radial gradients and comes with gradients gallery
 - Full offline support with [offline-plugin](https://github.com/NekR/offline-plugin) – Omatsuri can now be installed as PWA and work fully offline
 
 **Improvements of existing applications:**
