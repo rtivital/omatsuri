@@ -20,6 +20,13 @@ const ocGroups = [
 ];
 
 export default [
+  {
+    name: 'Fade in',
+    values: [
+      { color: '#000000', position: 50, opacity: 0 },
+      { color: '#000000', position: 100, opacity: 50 },
+    ],
+  },
   ...ocGroups.map((group) => ({
     name: `Open color: ${group[0]} – ${group[1]}`,
     values: [
