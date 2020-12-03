@@ -1,4 +1,33 @@
+import oc from 'open-color';
+
+const ocGroups = [
+  ['lime', 'cyan'],
+  ['yellow', 'red'],
+  ['teal', 'yellow'],
+  ['teal', 'blue'],
+  ['blue', 'cyan'],
+  ['violet', 'indigo'],
+  ['violet', 'pink'],
+  ['lime', 'teal'],
+  ['grape', 'pink'],
+  ['lime', 'blue'],
+  ['green', 'violet'],
+  ['grape', 'violet'],
+  ['pink', 'red'],
+  ['green', 'blue'],
+  ['violet', 'blue'],
+  ['orange', 'yellow'],
+];
+
 export default [
+  ...ocGroups.map((group) => ({
+    name: `Open color: ${group[0]} – ${group[1]}`,
+    values: [
+      { color: oc[group[0]][6], position: 5, opacity: 100 },
+      { color: oc[group[1]][4], position: 95, opacity: 100 },
+    ],
+  })),
+
   {
     name: 'Grass',
     values: [
@@ -39,6 +68,34 @@ export default [
     values: [
       { color: '#FBAB7E', position: 10, opacity: 100 },
       { color: '#F7CE68', position: 90, opacity: 100 },
+    ],
+  },
+  {
+    name: 'Sunset',
+    values: [
+      { color: '#FBDA61', position: 10, opacity: 100 },
+      { color: '#FF5ACD', position: 90, opacity: 100 },
+    ],
+  },
+  {
+    name: 'Spring',
+    values: [
+      { color: '#faaca8', position: 10, opacity: 100 },
+      { color: '#ddd6f3', position: 90, opacity: 100 },
+    ],
+  },
+  {
+    name: 'Cyan shine',
+    values: [
+      { color: '#2AFADF', position: 10, opacity: 100 },
+      { color: '#4C83FF', position: 90, opacity: 100 },
+    ],
+  },
+  {
+    name: 'Noir',
+    values: [
+      { color: '#4b6cb7', position: 10, opacity: 100 },
+      { color: '#182848', position: 90, opacity: 100 },
     ],
   },
   {
