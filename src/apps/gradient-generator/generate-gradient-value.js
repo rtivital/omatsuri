@@ -1,13 +1,21 @@
 import Color from 'color';
 
+function transformColor(value) {
+  if (value.opacity === 100) {
+    return value.color;
+  }
+
+  return `rgba(${Color(value.color)
+    .rgb()
+    .array()
+    .concat(value.opacity / 100)
+    .join(', ')})`;
+}
+
 export function generateGradientColorValues(values) {
   return values.reduce(
     (acc, value, index) =>
-      `${acc}rgba(${Color(value.color)
-        .rgb()
-        .array()
-        .concat(value.opacity / 100)
-        .join(', ')}) ${value.position}%${index !== values.length - 1 ? ', ' : ''}`,
+      `${acc}${transformColor(value)} ${value.position}%${index !== values.length - 1 ? ', ' : ''}`,
     ''
   );
 }
