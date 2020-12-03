@@ -3,10 +3,11 @@ import Color from 'color';
 export function generateGradientColorValues(values) {
   return values.reduce(
     (acc, value, index) =>
-      `${acc}rgba(${Color(value.color).rgb().array().concat(value.opacity)
-        .join(', ')}) ${
-        value.position
-      }%${index !== values.length - 1 ? ', ' : ''}`,
+      `${acc}rgba(${Color(value.color)
+        .rgb()
+        .array()
+        .concat(value.opacity / 100)
+        .join(', ')}) ${value.position}%${index !== values.length - 1 ? ', ' : ''}`,
     ''
   );
 }

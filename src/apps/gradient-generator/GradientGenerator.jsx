@@ -9,8 +9,8 @@ import GradientPreview from './GradientPreview/GradientPreview';
 import classes from './GradientGenerator.styles.less';
 
 const DEFAULT_VALUES = [
-  { color: '#ed6ea0', position: 10, opacity: 1, key: v4() },
-  { color: '#ec8c69', position: 100, opacity: 1, key: v4() },
+  { color: '#ed6ea0', position: 10, opacity: 100, key: v4() },
+  { color: '#ec8c69', position: 90, opacity: 100, key: v4() },
 ];
 
 export default function GradientGenerator() {
