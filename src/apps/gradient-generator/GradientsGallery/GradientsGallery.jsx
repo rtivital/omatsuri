@@ -3,37 +3,24 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { v4 } from 'uuid';
 import data from './data';
-import Background from '../../../components/Background/Background';
 import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
-import { generateGradientColorValues } from '../generate-gradient-value';
+import GradientGalleryItem from './GradientGalleryItem/GradientGalleryItem';
 import classes from './GradientsGallery.styles.less';
 
 export default function GradientsGallery({ className, handlers }) {
-  const handleGradientPick = (gradient) => {
+  const handleGradientPick = (values) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    handlers.setState(gradient.values.map((value) => ({ ...value, key: v4() })));
+    handlers.setState(values.map((value) => ({ ...value, key: v4() })));
   };
 
   const items = data.map((item) => (
-    <Background className={classes.item} key={item.name}>
-      <div className={classes.header}>
-        <div className={classes.name}>{item.name}</div>
-        <button className={classes.copy} type="button">
-          Copy CSS
-        </button>
-      </div>
-      <div
-        className={classes.preview}
-        style={{
-          backgroundImage: `linear-gradient(to bottom, ${generateGradientColorValues(
-            item.values
-          )})`,
-        }}
-      />
-      <button className={classes.control} type="button" onClick={() => handleGradientPick(item)}>
-        Open in editor
-      </button>
-    </Background>
+    <GradientGalleryItem
+      key={item.name}
+      values={item.values}
+      name={item.name}
+      onEditorOpen={handleGradientPick}
+      className={classes.item}
+    />
   ));
 
   return (
