@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import HexInput from '../../../components/HexInput/HexInput';
 import SliderInput from '../../../components/SliderInput/SliderInput';
+import X from './X';
 import classes from './GradientColors.styles.less';
 
 export default function GradientColors({ className, values, handlers }) {
@@ -23,6 +24,18 @@ export default function GradientColors({ className, values, handlers }) {
           trackSize={100}
         />
       </div>
+      {values.length > 2 && (
+        <div className={classes.field}>
+          <button
+            className={classes.remove}
+            type="button"
+            onClick={() => handlers.remove(index)}
+            title="Remove color stop"
+          >
+            <X />
+          </button>
+        </div>
+      )}
     </div>
   ));
 
@@ -51,5 +64,6 @@ GradientColors.propTypes = {
 
   handlers: PropTypes.shape({
     setItemProp: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired,
   }).isRequired,
 };
