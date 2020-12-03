@@ -20,6 +20,7 @@ export default function GradientColors({ className, values, handlers }) {
           onChange={(opacity) => handlers.setItemProp(index, 'opacity', opacity)}
           min={0}
           max={100}
+          trackSize={100}
         />
       </div>
     </div>

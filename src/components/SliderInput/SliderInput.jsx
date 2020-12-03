@@ -5,7 +5,7 @@ import Slider from './Slider';
 import NumberInput from '../NumberInput/NumberInput';
 import classes from './SliderInput.styles.less';
 
-export default function SliderInput({ className, value, onChange, min = 0, max = 100 }) {
+export default function SliderInput({ className, value, onChange, trackSize, min = 0, max = 100 }) {
   return (
     <div className={cx(classes.wrapper, className)}>
       <NumberInput
@@ -15,7 +15,7 @@ export default function SliderInput({ className, value, onChange, min = 0, max =
         min={min}
         max={max}
       />
-      <Slider min={min} max={max} value={value} onChange={onChange} />
+      <Slider min={min} max={max} value={value} onChange={onChange} trackSize={trackSize} />
     </div>
   );
 }
@@ -26,4 +26,5 @@ SliderInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   min: PropTypes.number,
   max: PropTypes.number,
+  trackSize: PropTypes.number,
 };

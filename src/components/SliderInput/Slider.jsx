@@ -21,7 +21,14 @@ function getClientPosition(e) {
   };
 }
 
-export default function Slider({ value = 50, min = 0, max = 100, step = 1, onChange }) {
+export default function Slider({
+  value = 50,
+  min = 0,
+  max = 100,
+  step = 1,
+  trackSize = 200,
+  onChange,
+}) {
   const container = useRef(null);
   const handle = useRef(null);
   const start = useRef({});
@@ -121,6 +128,7 @@ export default function Slider({ value = 50, min = 0, max = 100, step = 1, onCha
       className={classes.track}
       onTouchStart={handleTrackMouseDown}
       onMouseDown={handleTrackMouseDown}
+      style={{ width: trackSize }}
     >
       <div className={classes.active} style={{ width: `${position}%` }} />
       <div
@@ -150,4 +158,5 @@ Slider.propTypes = {
   max: PropTypes.number,
   step: PropTypes.number,
   onChange: PropTypes.func,
+  trackSize: PropTypes.number,
 };
