@@ -16,7 +16,7 @@ export default function ColorStop({ className, value, values, handlers, lineRect
     let position = 0;
     if (left < 0) left = 0;
     if (left > width) left = width;
-    position = (left / width) * 100;
+    position = parseInt((left / width) * 100, 10);
 
     const newValues = [...values];
     newValues[index] = { ...newValues[index], position };
