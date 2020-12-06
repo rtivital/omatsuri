@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+import { useTheme } from '../../../ThemeProvider';
 import SliderInput from '../../../components/SliderInput/SliderInput';
 import Background from '../../../components/Background/Background';
 import Button from '../../../components/Button/Button';
@@ -14,8 +16,10 @@ export default function Settings({
   onAllRemove,
   canRemove,
 }) {
+  const [theme] = useTheme();
+
   return (
-    <Background className={classes.wrapper}>
+    <Background className={cx(classes.wrapper, classes[theme])}>
       <div className={classes.settings}>
         <div className={classes.settingsControl}>
           <div className={classes.label}>Darken/lighten by, %</div>

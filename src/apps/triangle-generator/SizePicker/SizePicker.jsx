@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTheme } from '../../../ThemeProvider';
 import Tabs from '../../../components/Tabs/Tabs';
 import SliderInput from '../../../components/SliderInput/SliderInput';
 import classes from './SizePicker.styles.less';
@@ -12,11 +13,13 @@ export default function SizePicker({
   onWidthChange,
   onHeightChange,
 }) {
+  const [theme] = useTheme();
+
   return (
-    <div>
+    <div className={classes[theme]}>
       <div className={classes.title}>Predefined sizes</div>
       <Tabs
-        data={Object.keys(predefinedSizes).map(val => ({ value: val, label: val }))}
+        data={Object.keys(predefinedSizes).map((val) => ({ value: val, label: val }))}
         onTabChange={setPredefinedSize}
         active={activePredefinedSize}
       />

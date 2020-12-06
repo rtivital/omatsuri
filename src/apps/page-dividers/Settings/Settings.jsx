@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+import { useTheme } from '../../../ThemeProvider';
 import Tabs from '../../../components/Tabs/Tabs';
 import SliderInput from '../../../components/SliderInput/SliderInput';
 import Select from '../../../components/Select/Select';
@@ -24,8 +26,10 @@ const directionsData = ['normal', 'reverse'].map((direction) => ({
 }));
 
 export default function Settings({ values, handlers }) {
+  const [theme] = useTheme();
+
   return (
-    <Background className={classes.wrapper}>
+    <Background className={cx(classes.wrapper, classes[theme])}>
       <div className={classes.inner}>
         <div className={classes.group}>
           <div className={classes.input}>

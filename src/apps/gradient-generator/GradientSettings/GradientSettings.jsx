@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useTheme } from '../../../ThemeProvider';
 import DirectionPicker from '../../triangle-generator/DirectionPicker/DirectionPicker';
 import SliderInput from '../../../components/SliderInput/SliderInput';
 import Tabs from '../../../components/Tabs/Tabs';
@@ -18,12 +19,15 @@ const DIRECTIONS = {
 };
 
 export default function GradientSettings({ className, type, onTypeChange, angle, onAngleChange }) {
+  const [theme] = useTheme();
+
   const activeDirection =
     (type === 'linear' &&
       Object.keys(DIRECTIONS).find((direction) => DIRECTIONS[direction] === angle)) ||
     null;
+
   return (
-    <div className={cx(classes.settings, className)}>
+    <div className={cx(classes.settings, classes[theme], className)}>
       <div className={classes.field}>
         <div className={classes.label}>Gradient type</div>
         <Tabs

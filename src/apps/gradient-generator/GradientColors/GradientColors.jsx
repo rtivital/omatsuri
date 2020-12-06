@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useTheme } from '../../../ThemeProvider';
 import HexInput from '../../../components/HexInput/HexInput';
 import SliderInput from '../../../components/SliderInput/SliderInput';
 import X from './X';
 import classes from './GradientColors.styles.less';
 
 export default function GradientColors({ className, values, handlers }) {
+  const [theme] = useTheme();
+
   const items = values.map((value, index) => (
     <div className={classes.color} key={value.key}>
       <div className={classes.field}>
@@ -40,7 +43,7 @@ export default function GradientColors({ className, values, handlers }) {
   ));
 
   return (
-    <div className={cx(classes.colors, className)}>
+    <div className={cx(classes.colors, classes[theme], className)}>
       <div className={classes.header}>
         <div className={classes.label} style={{ width: 258 }}>
           Color
