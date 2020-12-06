@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useTheme } from '../../ThemeProvider';
 import classes from './Background.styles.less';
 
 export default function Background({ className, component: Element = 'div', ...others }) {
-  return <Element className={cx(classes.background, className)} {...others} />;
+  const [theme] = useTheme();
+  return <Element className={cx(classes.background, classes[theme], className)} {...others} />;
 }
 
 Background.propTypes = {

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 
+import ThemeProvider from './ThemeProvider';
 import AppContainer from './components/AppContainer/AppContainer';
 
 import Index from './pages/index/Index';
@@ -23,31 +24,33 @@ import GradientGenerator from './apps/gradient-generator/GradientGenerator';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact component={Index} />
-        <Route path="/about" exact component={About} />
-        <Route>
-          <AppContainer>
-            <Switch>
-              <Route path="/triangle-generator" exact component={TriangleGenerator} />
-              <Route path="/lorem-ipsum" exact component={LoremIpsum} />
-              <Route path="/svg-compressor" exact component={SvgCompressor} />
-              <Route path="/svg-to-jsx" exact component={SvgToJsx} />
-              <Route path="/html-symbols" exact component={HtmlSymbols} />
-              <Route path="/b64-encoding" exact component={Base64Encoding} />
-              <Route path="/color-shades-generator" exact component={ColorShadesGenerator} />
-              <Route path="/page-dividers" exact component={PageDividers} />
-              <Route path="/fake-data-generator" exact component={FakeDataGenerator} />
-              <Route path="/css-cursors" exact component={CssCursors} />
-              <Route path="/events-keycode" exact component={EventsKeycode} />
-              <Route path="/gradient-generator" exact component={GradientGenerator} />
-              <Route component={NotFound} />
-            </Switch>
-          </AppContainer>
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Index} />
+          <Route path="/about" exact component={About} />
+          <Route>
+            <AppContainer>
+              <Switch>
+                <Route path="/triangle-generator" exact component={TriangleGenerator} />
+                <Route path="/lorem-ipsum" exact component={LoremIpsum} />
+                <Route path="/svg-compressor" exact component={SvgCompressor} />
+                <Route path="/svg-to-jsx" exact component={SvgToJsx} />
+                <Route path="/html-symbols" exact component={HtmlSymbols} />
+                <Route path="/b64-encoding" exact component={Base64Encoding} />
+                <Route path="/color-shades-generator" exact component={ColorShadesGenerator} />
+                <Route path="/page-dividers" exact component={PageDividers} />
+                <Route path="/fake-data-generator" exact component={FakeDataGenerator} />
+                <Route path="/css-cursors" exact component={CssCursors} />
+                <Route path="/events-keycode" exact component={EventsKeycode} />
+                <Route path="/gradient-generator" exact component={GradientGenerator} />
+                <Route component={NotFound} />
+              </Switch>
+            </AppContainer>
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
