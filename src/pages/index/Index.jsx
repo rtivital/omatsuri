@@ -13,7 +13,7 @@ export default function Index() {
   ));
 
   return (
-    <PageBase className={classes.wrapper}>
+    <PageBase>
       <div className={classes.tools}>{tools}</div>
     </PageBase>
   );
