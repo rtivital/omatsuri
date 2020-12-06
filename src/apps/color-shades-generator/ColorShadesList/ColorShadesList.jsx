@@ -4,6 +4,7 @@ import Color from 'color';
 import cx from 'classnames';
 import { useClipboard } from 'xooks';
 import { Scrollbars } from 'react-custom-scrollbars';
+import { useTheme } from '../../../ThemeProvider';
 import HexInput from '../../../components/HexInput/HexInput';
 import Background from '../../../components/Background/Background';
 import classes from './ColorShadesList.styles.less';
@@ -34,6 +35,7 @@ export default function ColorShadesList({
   saturation,
   darken,
 }) {
+  const [theme] = useTheme();
   const clipboardAll = useClipboard();
   const clipboard = useClipboard({ timeout: 500 });
   const values = generateShades({ steps: 7, value, saturation, darken });
@@ -52,7 +54,9 @@ export default function ColorShadesList({
   ));
 
   return (
-    <Background className={cx(classes.wrapper, { [classes.copied]: clipboard.copied })}>
+    <Background
+      className={cx(classes.wrapper, classes[theme], { [classes.copied]: clipboard.copied })}
+    >
       <div className={classes.header}>
         <HexInput value={value} onChange={onChange} />
 
