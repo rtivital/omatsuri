@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useTheme } from '../../../ThemeProvider';
 import directions from '../directions';
 import Chevron from './Chevron';
 import classes from './DirectionPicker.styles.less';
 
 export default function DirectionPicker({ className, value, onChange }) {
+  const [theme] = useTheme();
+
   const contols = directions.map((direction) => (
     <button
       type="button"
@@ -19,7 +22,7 @@ export default function DirectionPicker({ className, value, onChange }) {
 
   contols.splice(4, 0, <div className={classes.blank} key="blank" />);
 
-  return <div className={cx(classes.wrapper, className)}>{contols}</div>;
+  return <div className={cx(classes.wrapper, classes[theme], className)}>{contols}</div>;
 }
 
 DirectionPicker.propTypes = {

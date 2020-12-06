@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import oc from 'open-color';
 
 const angles = {
   top: 180,
@@ -30,7 +29,7 @@ export default function Chevron({ direction }) {
           d="M3 3l30 30L63 3"
           fill="none"
           fillRule="evenodd"
-          stroke={oc.gray[7]}
+          stroke="currentColor"
           strokeLinecap="round"
           strokeWidth="6"
         />

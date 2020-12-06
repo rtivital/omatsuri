@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useTheme } from '../../ThemeProvider';
 import classes from './Button.styles.less';
 
 export default function Button({
@@ -12,10 +13,12 @@ export default function Button({
   children = null,
   ...others
 }) {
+  const [appTheme] = useTheme();
+
   return (
     <Element
       data-button
-      className={cx(classes.button, classes[theme], className)}
+      className={cx(classes.button, classes[theme], classes[appTheme], className)}
       type={type}
       ref={elementRef}
       {...others}

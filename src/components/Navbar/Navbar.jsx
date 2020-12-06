@@ -3,10 +3,12 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Scrollbars from 'react-custom-scrollbars';
+import { useTheme } from '../../ThemeProvider';
 import Background from '../Background/Background';
 import GithubButton from '../GithubButton/GithubButton';
 import settings from '../../settings';
 import logoText from '../../assets/logo-text.svg';
+import logoTextWhite from '../../assets/logo-text-white.svg';
 import logo from '../../assets/logo.svg';
 import appIcons from '../../assets/app-icons';
 import classes from './Navbar.styles.less';
@@ -25,6 +27,7 @@ const findCurrentIndex = (pathname) =>
   );
 
 export default function Navbar({ className }) {
+  const [theme] = useTheme();
   const { pathname } = useLocation();
   const [current, setCurrent] = useState(findCurrentIndex(pathname));
   const [offline, setOffline] = useState({ ready: false, error: false });
@@ -73,11 +76,15 @@ export default function Navbar({ className }) {
   });
 
   return (
-    <Background component="nav" className={cx(classes.navbar, className)}>
+    <Background component="nav" className={cx(classes.navbar, classes[theme], className)}>
       <div className={classes.inner}>
         <div className={classes.main}>
           <Link to="/" className={classes.logo}>
-            <img className={classes.logoImage} src={logoText} alt="" />
+            <img
+              className={classes.logoImage}
+              src={theme === 'light' ? logoText : logoTextWhite}
+              alt=""
+            />
             <img className={classes.logoImageSmall} src={logo} alt="" />
           </Link>
           <Scrollbars className={classes.scrollbars} style={{ width: '100%' }} ref={scrollbars}>

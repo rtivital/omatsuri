@@ -22,7 +22,7 @@
   content: '';
   width: 18px;
   height: 18px;
-  background-color: #fff;
+  background-color: @oc-white;
   border-radius: 50%;
   box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.3);
   user-select: none;
@@ -30,5 +30,18 @@
 
   &:active {
     cursor: grabbing;
+  }
+}
+
+.dark {
+  background-color: @oc-gray-7;
+
+  .active {
+    background-color: @oc-blue-8 !important;
+  }
+
+  .thumb {
+    background-color: @oc-gray-5;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5);
   }
 }

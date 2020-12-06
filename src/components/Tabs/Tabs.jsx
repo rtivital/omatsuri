@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useTheme } from '../../ThemeProvider';
 import classes from './Tabs.styles.less';
 
 export default function Tabs({ className, data, active, onTabChange }) {
-  const tabs = data.map(tab => (
+  const [theme] = useTheme();
+
+  const tabs = data.map((tab) => (
     <button
       type="button"
       key={tab.value}
@@ -17,7 +20,7 @@ export default function Tabs({ className, data, active, onTabChange }) {
     </button>
   ));
 
-  return <div className={cx(classes.tabs, className)}>{tabs}</div>;
+  return <div className={cx(classes.tabs, classes[theme], className)}>{tabs}</div>;
 }
 
 Tabs.propTypes = {

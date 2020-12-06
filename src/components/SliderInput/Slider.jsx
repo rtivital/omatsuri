@@ -1,7 +1,7 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
-
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+import { useTheme } from '../../ThemeProvider';
 import classes from './Slider.styles.less';
 
 function getClientPosition(e) {
@@ -29,6 +29,7 @@ export default function Slider({
   trackSize = 200,
   onChange,
 }) {
+  const [theme] = useTheme();
   const container = useRef(null);
   const handle = useRef(null);
   const start = useRef({});
@@ -125,7 +126,7 @@ export default function Slider({
   return (
     <div
       ref={container}
-      className={classes.track}
+      className={cx(classes.track, classes[theme])}
       onTouchStart={handleTrackMouseDown}
       onMouseDown={handleTrackMouseDown}
       style={{ width: trackSize }}
