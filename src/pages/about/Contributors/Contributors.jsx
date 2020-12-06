@@ -1,11 +1,14 @@
 import React from 'react';
+import { useTheme } from '../../../ThemeProvider';
 import github from './icons/github.svg';
+import githubWhite from './icons/github-white.svg';
 import telegram from './icons/telegram.svg';
 import twitter from './icons/twitter.svg';
 import settings from '../../../settings';
 import classes from './Contributors.styles.less';
 
 export default function Contributors() {
+  const [theme] = useTheme();
   const { author, contributors } = settings.maintainers;
 
   const contributorsItems = contributors.map((contributor, index) => (
@@ -35,7 +38,7 @@ export default function Contributors() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className={classes.icon} src={github} alt="" />
+              <img className={classes.icon} src={theme === 'light' ? github : githubWhite} alt="" />
             </a>
           )}
 
@@ -66,7 +69,7 @@ export default function Contributors() {
   ));
 
   return (
-    <div>
+    <div className={classes[theme]}>
       <h2>Contributors</h2>
       <div className={classes.author}>
         <img className={classes.image} src={author.avatar} alt="" />
@@ -90,7 +93,7 @@ export default function Contributors() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className={classes.icon} src={github} alt="" />
+              <img className={classes.icon} src={theme === 'light' ? github : githubWhite} alt="" />
             </a>
 
             <a

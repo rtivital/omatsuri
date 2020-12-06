@@ -1,5 +1,7 @@
 import React from 'react';
 import { useDocumentTitle } from 'xooks';
+import cx from 'classnames';
+import { useTheme } from '../../ThemeProvider';
 import PageBase from '../../components/PageBase/PageBase';
 import Credits from './Credits';
 import Application from './Application';
@@ -9,9 +11,11 @@ import classes from './About.styles.less';
 export default function About() {
   useDocumentTitle('About Omatsuri');
 
+  const [theme] = useTheme();
+
   return (
     <PageBase>
-      <div className={classes.about}>
+      <div className={cx(classes.about, classes[theme])}>
         <Application />
         <Contributors />
         <Credits />
