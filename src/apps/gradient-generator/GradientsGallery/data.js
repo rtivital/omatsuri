@@ -10,7 +10,6 @@ const ocGroups = [
   ['violet', 'pink'],
   ['lime', 'teal'],
   ['grape', 'pink'],
-  ['lime', 'blue'],
   ['green', 'violet'],
   ['grape', 'violet'],
   ['pink', 'red'],
