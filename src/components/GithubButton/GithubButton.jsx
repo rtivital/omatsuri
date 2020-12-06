@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useTheme } from '../../ThemeProvider';
 import settings from '../../settings';
 import classes from './GithubButton.styles.less';
 
 export default function GithubButton({ className }) {
+  const [theme] = useTheme();
+
   return (
-    <a className={cx(classes.wrapper, className)} href={settings.repository}>
+    <a className={cx(classes.wrapper, classes[theme], className)} href={settings.repository}>
       <svg
         className={classes.icon}
         xmlns="http://www.w3.org/2000/svg"
