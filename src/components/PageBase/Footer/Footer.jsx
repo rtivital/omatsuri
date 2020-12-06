@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
+import { useTheme } from '../../../ThemeProvider';
 import GithubButton from '../../GithubButton/GithubButton';
 import settings from '../../../settings';
 import classes from './Footer.styles.less';
 
 export default function Footer({ className }) {
+  const [theme] = useTheme();
+
   const tools = settings.tools.map((tool) => (
     <Link className={classes.link} to={tool.link} key={tool.name}>
       {tool.name}
@@ -30,7 +33,7 @@ export default function Footer({ className }) {
   });
 
   return (
-    <footer className={cx(classes.footer, className)}>
+    <footer className={cx(classes.footer, classes[theme], className)}>
       <div className={classes.inner}>
         <div className={classes.main}>
           <div className={classes.links}>
