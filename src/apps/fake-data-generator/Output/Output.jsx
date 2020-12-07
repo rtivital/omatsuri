@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+import { useTheme } from '../../../ThemeProvider';
 import Background from '../../../components/Background/Background';
 import Highlight from '../../../components/Highlight/Highlight';
-import classes from './Output.styles.less';
 import { generateRawData, generateJsonData } from '../generator';
+import classes from './Output.styles.less';
 
 export default function Output({ type, fields, amount, seed = null }) {
+  const [theme] = useTheme();
   const [rawData, setRawData] = useState(generateRawData());
   const [jsonData, setJsonData] = useState(generateJsonData(fields, amount));
 
@@ -22,11 +25,11 @@ export default function Output({ type, fields, amount, seed = null }) {
       </div>
     ));
 
-    return <Background className={classes.wrapper}>{items}</Background>;
+    return <Background className={cx(classes.wrapper, classes[theme])}>{items}</Background>;
   }
 
   return (
-    <Background className={classes.wrapper}>
+    <Background className={cx(classes.wrapper, classes[theme])}>
       <Highlight>{JSON.stringify(jsonData, null, 2)}</Highlight>
     </Background>
   );

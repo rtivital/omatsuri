@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+import { useTheme } from '../../../ThemeProvider';
 import Tabs from '../../../components/Tabs/Tabs';
 import Background from '../../../components/Background/Background';
 import SliderInput from '../../../components/SliderInput/SliderInput';
@@ -26,6 +28,8 @@ export default function Settings({
   onTypeChange,
   onRegenerate,
 }) {
+  const [theme] = useTheme();
+
   const schema = fields.map((field, index) => (
     <div className={classes.field} key={field.key}>
       <div className={classes.input}>
@@ -53,7 +57,7 @@ export default function Settings({
   ));
 
   return (
-    <Background className={classes.wrapper}>
+    <Background className={cx(classes.wrapper, classes[theme])}>
       <div className={classes.header}>
         <Tabs data={types} active={type} onTabChange={onTypeChange} />
         <Button onClick={onRegenerate} className={classes.regenerate}>
