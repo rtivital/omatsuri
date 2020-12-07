@@ -17,7 +17,7 @@ export default function Header() {
           <img
             className={classes.logo}
             src={theme === 'light' ? logoText : logoTextWhite}
-            alt=""
+            alt="Logo"
             width={340}
             height={72}
           />

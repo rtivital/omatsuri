@@ -13,7 +13,7 @@ export default function Contributors() {
 
   const contributorsItems = contributors.map((contributor, index) => (
     <div className={classes.author} key={index}>
-      <img className={classes.image} src={contributor.avatar} alt="" />
+      <img className={classes.image} src={contributor.avatar} alt={contributor.name} />
       <div className={classes.body}>
         <div className={classes.name}>
           <span>{contributor.name}</span>
@@ -38,7 +38,11 @@ export default function Contributors() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className={classes.icon} src={theme === 'light' ? github : githubWhite} alt="" />
+              <img
+                className={classes.icon}
+                src={theme === 'light' ? github : githubWhite}
+                alt="Github logo"
+              />
             </a>
           )}
 
@@ -49,7 +53,7 @@ export default function Contributors() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className={classes.icon} src={telegram} alt="" />
+              <img className={classes.icon} src={telegram} alt="Telegram logo" />
             </a>
           )}
 
@@ -60,7 +64,7 @@ export default function Contributors() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className={classes.icon} src={twitter} alt="" />
+              <img className={classes.icon} src={twitter} alt="Twitter logo" />
             </a>
           )}
         </div>
@@ -72,7 +76,7 @@ export default function Contributors() {
     <div className={classes[theme]}>
       <h2>Contributors</h2>
       <div className={classes.author}>
-        <img className={classes.image} src={author.avatar} alt="" />
+        <img className={classes.image} src={author.avatar} alt="Vitaly Rtishchev" />
         <div className={classes.body}>
           <div className={classes.name}>
             <span>{author.name}</span>
@@ -93,7 +97,11 @@ export default function Contributors() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className={classes.icon} src={theme === 'light' ? github : githubWhite} alt="" />
+              <img
+                className={classes.icon}
+                src={theme === 'light' ? github : githubWhite}
+                alt="Github logo"
+              />
             </a>
 
             <a
@@ -102,7 +110,7 @@ export default function Contributors() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className={classes.icon} src={telegram} alt="" />
+              <img className={classes.icon} src={telegram} alt="Telegram logo" />
             </a>
           </div>
         </div>

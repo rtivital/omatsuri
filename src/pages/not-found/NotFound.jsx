@@ -7,7 +7,7 @@ import classes from './NotFound.styles.less';
 export default function NotFound() {
   return (
     <div className={classes.wrapper}>
-      <img className={classes.image} src={notFound} alt="" />
+      <img className={classes.image} src={notFound} alt="Nothing found" />
       <h1 className={classes.title}>Congratulations!</h1>
       <p className={classes.description}>
         You&apos;ve found the 404 page. Now it&apos;s time to think about your next step. We can

@@ -55,7 +55,7 @@ export default function Navbar({ className }) {
       isActive={isActive.bind(this, tool.link)}
       title={tool.name}
     >
-      <img className={classes.icon} src={appIcons[tool.link]} alt="" />
+      <img className={classes.icon} src={appIcons[tool.link]} alt={tool.name} />
       <div className={classes.label}>{tool.name}</div>
     </NavLink>
   ));
@@ -84,9 +84,9 @@ export default function Navbar({ className }) {
             <img
               className={classes.logoImage}
               src={theme === 'light' ? logoText : logoTextWhite}
-              alt=""
+              alt="Logo"
             />
-            <img className={classes.logoImageSmall} src={logo} alt="" />
+            <img className={classes.logoImageSmall} src={logo} alt="Logo" />
           </Link>
           <Scrollbars className={classes.scrollbars} style={{ width: '100%' }} ref={scrollbars}>
             <div className={classes.links}>
