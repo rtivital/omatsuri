@@ -33,7 +33,7 @@ const templateContent = ({ htmlWebpackPlugin }) => `
     </head>
     <body>
       <noscript>
-        Enable JavaScript to use Frontend toolbox
+        Enable JavaScript to use Omatsuri
       </noscript>
 
       <div id="app"></div>
