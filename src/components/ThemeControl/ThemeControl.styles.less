@@ -1,0 +1,47 @@
+.control {
+  width: 100%;
+  height: 40px;
+  padding: 0 20px;
+  border: 0;
+  background-color: @oc-gray-0;
+  color: @oc-gray-9;
+  border-radius: 15px;
+  outline: 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: @oc-gray-1;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.controlInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.currentTheme {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.name {
+  text-transform: capitalize;
+  margin-left: 5px;
+}
+
+.dark {
+  .control {
+    background-color: @oc-gray-7;
+    color: @oc-gray-4;
+
+    &:hover {
+      background-color: @oc-gray-8;
+    }
+  }
+}

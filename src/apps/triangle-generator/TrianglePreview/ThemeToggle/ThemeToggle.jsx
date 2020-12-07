@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import sun from './icons/sun.svg';
-import moon from './icons/moon.svg';
+import ThemeControl from '../../../../components/ThemeControl/ThemeIcon';
 import classes from './ThemeToggle.styles.less';
 
 export default function ThemeToggle({ className, theme, onToggle, label = 'mode' }) {
@@ -12,17 +11,10 @@ export default function ThemeToggle({ className, theme, onToggle, label = 'mode'
       onClick={onToggle}
       className={cx(classes.control, classes[theme], className)}
     >
-      {theme === 'light' ? (
-        <>
-          <img className={classes.icon} src={moon} alt="" />
-          <div className={classes.label}>Dark {label}</div>
-        </>
-      ) : (
-        <>
-          <img className={classes.icon} src={sun} alt="" />
-          <div className={classes.label}>Light {label}</div>
-        </>
-      )}
+      <ThemeControl theme={theme === 'light' ? 'dark' : 'light'} size={18} />
+      <div className={classes.label}>
+        {theme === 'light' ? 'Dark' : 'Light'} {label}
+      </div>
     </button>
   );
 }

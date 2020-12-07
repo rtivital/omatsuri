@@ -6,6 +6,7 @@ import Scrollbars from 'react-custom-scrollbars';
 import { useTheme } from '../../ThemeProvider';
 import Background from '../Background/Background';
 import GithubButton from '../GithubButton/GithubButton';
+import ThemeControl from '../ThemeControl/ThemeControl';
 import settings from '../../settings';
 import logoText from '../../assets/logo-text.svg';
 import logoTextWhite from '../../assets/logo-text-white.svg';
@@ -101,6 +102,7 @@ export default function Navbar({ className }) {
         </div>
 
         <div className={classes.footer}>
+          <ThemeControl className={classes.themeControl} />
           <div className={classes.footerLinks}>{links}</div>
           {!offline.error && offline.ready && (
             <div className={classes.offline}>
