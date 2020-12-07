@@ -178,6 +178,30 @@ module.exports = {
         </html>
       `,
     }),
+    new HtmlWebpackPlugin({
+      filename: '404.html',
+      templateContent: ({ htmlWebpackPlugin }) => `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            ${htmlWebpackPlugin.tags.headTags}
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+            <title>Omatsuri</title>
+          </head>
+          <body>
+            <noscript>
+              Enable JavaScript to use Frontend toolbox
+            </noscript>
+
+            <div id="app"></div>
+            ${htmlWebpackPlugin.tags.bodyTags}
+          </body>
+        </html>
+      `,
+    }),
     ...(mode !== 'production'
       ? [
         new webpack.HotModuleReplacementPlugin(),
