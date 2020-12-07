@@ -12,7 +12,7 @@ export default function ToolCard({ className, name, description, link }) {
   return (
     <Link className={cx(classes.tool, classes[theme], className)} to={link}>
       <div className={classes.header}>
-        <img className={classes.icon} src={appIcons[link]} alt={name} />
+        <img className={classes.icon} src={appIcons[link]} alt={name} width="100" height="100" />
       </div>
       <div className={classes.body}>
         <h2 className={classes.name}>{name}</h2>
