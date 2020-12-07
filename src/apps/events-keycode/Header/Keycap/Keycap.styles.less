@@ -36,7 +36,6 @@
     right: 0;
     text-align: center;
     line-height: 40px;
-    color: @oc-gray-5;
     font-size: 24px;
   }
 }
@@ -62,5 +61,19 @@
   width: 52px;
   &::before {
     content: '⌘';
+  }
+}
+
+.dark {
+  background-color: @oc-gray-7;
+  border-color: @oc-gray-8;
+  color: @oc-gray-4;
+
+  &.meta,
+  &.space,
+  &.enter {
+    &::before {
+      color: @oc-gray-4;
+    }
   }
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+import { useTheme } from '../../../ThemeProvider';
 import Background from '../../../components/Background/Background';
 import generateEventData from '../generate-event-data';
 import Keycap from './Keycap/Keycap';
@@ -18,9 +20,11 @@ function getPressedKeys(event) {
 }
 
 export default function Header({ event }) {
+  const [theme] = useTheme();
+
   if (!event) {
     return (
-      <Background className={classes.wrapper}>
+      <Background className={cx(classes.wrapper, classes[theme])}>
         <div className={classes.placeholder}>
           <h1 className={classes.title}>Press any key to get JavaScript event keycode info</h1>
           <p className={classes.description}>
@@ -41,7 +45,7 @@ export default function Header({ event }) {
   ));
 
   return (
-    <Background className={classes.wrapper}>
+    <Background className={cx(classes.wrapper, classes[theme])}>
       <div className={classes.keys}>{pressedKeys}</div>
       <p className={classes.description}>
         <b>Tip:</b> shift, control, alt and meta (cmd) keys are also captured, you can generate

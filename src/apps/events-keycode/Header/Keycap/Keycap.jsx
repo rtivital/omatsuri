@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useTheme } from '../../../../ThemeProvider';
 import classes from './Keycap.styles.less';
 
 const PREDEFINED_VALUES = {
@@ -16,6 +17,8 @@ const PREDEFINED_VALUES = {
 };
 
 export default function Keycap({ value, className }) {
+  const [theme] = useTheme();
+
   return (
     <div
       className={cx(
@@ -28,6 +31,7 @@ export default function Keycap({ value, className }) {
           [classes.space]: value === ' ',
           [classes.enter]: value === 'Enter',
         },
+        classes[theme],
         className
       )}
     >

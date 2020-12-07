@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useTheme } from '../../../ThemeProvider';
 import classes from './EventInfo.styles.less';
 
 export default function EventInfo({ className, title, kbd, value, deprecation = false }) {
+  const [theme] = useTheme();
+
   return (
-    <div className={cx(classes.eventInfo, className)}>
+    <div className={cx(classes.eventInfo, classes[theme], className)}>
       <div className={classes.title}>
         {kbd && <div className={classes.kbd}>{kbd}</div>}
         <div className={classes.titleLabel}>{title}</div>
