@@ -32,3 +32,18 @@
     color: @oc-white;
   }
 }
+
+.dark {
+  background-color: @oc-gray-7;
+  border-color: @oc-gray-8;
+  color: @oc-gray-2;
+
+  &:hover {
+    background-color: @oc-gray-8;
+  }
+
+  &.active::after {
+    background-color: @oc-green-9;
+    color: @oc-gray-3;
+  }
+}
