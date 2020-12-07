@@ -8,7 +8,6 @@
   padding: 15px;
   margin: -15px;
   border-radius: 15px;
-  background-color: @oc-white;
 }
 
 .input {
@@ -114,5 +113,36 @@
 
   &:hover {
     color: @oc-gray-7;
+  }
+}
+
+.dark {
+  .name {
+    color: @oc-gray-5;
+  }
+
+  .results {
+    tr {
+      border-bottom-color: @oc-gray-7;
+    }
+
+    th {
+      background-color: @oc-gray-8;
+      border-bottom-color: @oc-gray-7;
+    }
+  }
+
+  .control {
+    background-color: @oc-gray-9;
+    color: @oc-gray-3;
+  }
+
+  .copied {
+    .symbol,
+    .control {
+      &::before {
+        background-color: @oc-green-9;
+      }
+    }
   }
 }
