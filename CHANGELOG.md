@@ -8,10 +8,11 @@ Omatsuri is a growing set of browser tools. Each month I try to add one new tool
 
 - New tool: **Gradient generator** allows you to generate linear and radial gradients and comes with gradients gallery
 - Full offline support with [offline-plugin](https://github.com/NekR/offline-plugin) – Omatsuri can now be installed as PWA and work fully offline
+- Dark theme support
 
 **Improvements of existing applications:**
 
-- Add full support for smaller screens (tested for 500px and up)
+- Add better support for smaller screens (tested for 600px and up)
 - New triangles page divider in page dividers application
 - Better code generator in event keycodes application
 - New layout and pressed keys visualization in event keycodes application
