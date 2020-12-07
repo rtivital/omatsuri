@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import { useHistory } from 'react-router-dom';
 import { useClipboard } from 'xooks';
+import { useTheme } from '../../../ThemeProvider';
 import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
 import Background from '../../../components/Background/Background';
 import Button from '../../../components/Button/Button';
@@ -10,6 +12,7 @@ import formatFileName from '../format-file-name';
 import classes from './CompressedResult.styles.less';
 
 export default function CompressedResult({ content, fileKey }) {
+  const [theme] = useTheme();
   const history = useHistory();
   const { copied, copy } = useClipboard();
 
@@ -24,7 +27,7 @@ export default function CompressedResult({ content, fileKey }) {
   };
 
   return (
-    <Background className={classes.wrapper}>
+    <Background className={cx(classes.wrapper, classes[theme])}>
       <div className={classes.preview}>
         <SettingsLabel>Preview</SettingsLabel>
         <div dangerouslySetInnerHTML={{ __html: content }} />

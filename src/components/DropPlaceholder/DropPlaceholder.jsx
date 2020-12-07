@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import { useTheme } from '../../ThemeProvider';
 import classes from './DropPlaceholder.styles.less';
 
 export default function DropPlaceholder({
@@ -9,8 +10,10 @@ export default function DropPlaceholder({
   onFileAdd,
   accepts = 'image/svg+xml',
 }) {
+  const [theme] = useTheme();
+
   return (
-    <div className={cx(classes.placeholder, className)}>
+    <div className={cx(classes.placeholder, classes[theme], className)}>
       <div className={classes.label}>{children} or</div>
       <label className={classes.inputLabel} htmlFor="file-browse">
         Upload file{' '}

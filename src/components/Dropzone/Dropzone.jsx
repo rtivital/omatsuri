@@ -1,10 +1,13 @@
 import React, { useLayoutEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+import { useTheme } from '../../ThemeProvider';
 import classes from './Dropzone.styles.less';
 
 const preventDefault = (event) => event.preventDefault();
 
 export default function Dropzone({ onDrop, accepts = ['image/svg+xml'] }) {
+  const [theme] = useTheme();
   const [dragOver, setDragOver] = useState(false);
   const dragLeaveTimeout = useRef();
   const allowAll = accepts === '*';
@@ -43,7 +46,7 @@ export default function Dropzone({ onDrop, accepts = ['image/svg+xml'] }) {
   }, []);
 
   return dragOver ? (
-    <div className={classes.wrapper}>
+    <div className={cx(classes.wrapper, classes[theme])}>
       <h1 className={classes.title}>Drop files to browser window</h1>
     </div>
   ) : null;

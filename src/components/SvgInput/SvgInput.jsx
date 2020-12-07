@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTheme } from '../../ThemeProvider';
 import Button from '../Button/Button';
 import SettingsLabel from '../SettingsLabel/SettingsLabel';
 import Background from '../Background/Background';
@@ -16,6 +17,7 @@ export default function SvgInput({
   dropLabel,
   formatFileName = (f) => f,
 }) {
+  const [theme] = useTheme();
   const formattedErrors = errors.map((error, index) => (
     <p className={classes.error} key={index}>
       Failed to parse or minify file {formatFileName(error)}
@@ -23,7 +25,7 @@ export default function SvgInput({
   ));
 
   return (
-    <>
+    <div className={classes[theme]}>
       <Dropzone onDrop={onFilesDrop} />
       <DropPlaceholder onFileAdd={(file) => onFilesDrop([file])}>{dropLabel}</DropPlaceholder>
       <Background className={classes.wrapper}>
@@ -39,7 +41,7 @@ export default function SvgInput({
         />
         {formattedErrors.length > 0 && <div className={classes.errors}>{formattedErrors}</div>}
       </Background>
-    </>
+    </div>
   );
 }
 
