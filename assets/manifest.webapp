@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "tools",
+  "name": "Omatsuri",
   "description": "Open source frontend focused tools",
   "icons": {
     "60": "/assets/firefox_app_60x60.png",
