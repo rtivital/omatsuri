@@ -26,7 +26,7 @@ export default function Footer({ className }) {
         key={index}
         {...linkProps}
         target={internal ? null : '_blank'}
-        rel={internal ? 'noopener noreferrer' : null}
+        rel={internal ? null : 'noopener noreferrer'}
       >
         {label}
       </Component>
