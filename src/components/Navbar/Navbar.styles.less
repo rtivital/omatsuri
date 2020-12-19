@@ -153,6 +153,10 @@
   color: @oc-teal-7;
 }
 
+.themeControl {
+  margin-bottom: 15px;
+}
+
 .dark {
   .link {
     color: @oc-gray-5;
@@ -170,8 +174,16 @@
   .linkBackground {
     background-color: @oc-black;
   }
-}
 
-.themeControl {
-  margin-bottom: 15px;
+  .footerLink {
+    color: @oc-gray-5;
+
+    &:hover {
+      &::before {
+        color: @oc-gray-5;
+      }
+
+      color: @oc-blue-4;
+    }
+  }
 }
