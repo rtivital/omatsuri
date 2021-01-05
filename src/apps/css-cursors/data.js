@@ -14,7 +14,7 @@ export default [
 
   { title: 'Zoom', data: ['zoom-in', 'zoom-out'] },
 
-  { title: "Dran'n'Drop", data: ['alias', 'copy', 'move', 'no-drop', 'grab', 'grabbing'] },
+  { title: "Drag'n'Drop", data: ['alias', 'copy', 'move', 'no-drop', 'grab', 'grabbing'] },
 
   {
     title: 'Resize and scroll',
