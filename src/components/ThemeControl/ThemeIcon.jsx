@@ -41,6 +41,6 @@ export default function ThemeIcon({ theme, size = 15 }) {
 }
 
 ThemeIcon.propTypes = {
-  theme: PropTypes.oneOf(['ligth', 'dark']).isRequired,
+  theme: PropTypes.oneOf(['light', 'dark']).isRequired,
   size: PropTypes.number,
 };
