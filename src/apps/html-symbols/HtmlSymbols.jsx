@@ -31,6 +31,7 @@ export default function HtmlSymbols() {
   const lsType = useLocalStorage({ key: '@omatsuri/html-symbols/type', delay: 200 });
   const [query, setQuery] = useState(lsQuery.retrieve() || '');
   const [type, setType] = useState(lsType.retrieve() || 'Most used');
+  const [copiedValue, setCopiedValue] = useState(null);
 
   const handleQueryChange = (event) => {
     setQuery(event.target.value);
@@ -42,14 +43,19 @@ export default function HtmlSymbols() {
     lsType.save(value);
   };
 
+  const handleCopy = (value) => {
+    setCopiedValue(value);
+    clipboard.copy(value)
+  }
+
   const results = searchSymbols(query, type).map((item) => (
     <tr className={classes.item} key={item.entity}>
       <td className={classes.name}>{item.name}</td>
       <td>
         <button
-          className={cx(classes.control, classes.symbol)}
+          className={cx(classes.control, classes.symbol, { [classes.copied]: item.symbol === copiedValue && clipboard.copied })}
           type="button"
-          onClick={() => clipboard.copy(item.symbol)}
+          onClick={() => handleCopy(item.symbol)}
         >
           {item.symbol}
         </button>
@@ -57,16 +63,18 @@ export default function HtmlSymbols() {
 
       <td>
         <button
-          className={classes.control}
+          className={cx(classes.control, { [classes.copied]: item.entity === copiedValue && clipboard.copied })}
           type="button"
-          onClick={() => clipboard.copy(item.entity)}
+          onClick={() => handleCopy(item.entity)}
         >
           {item.entity}
         </button>
       </td>
 
       <td>
-        <button className={classes.control} type="button" onClick={() => clipboard.copy(item.css)}>
+        <button className={cx(classes.control, { [classes.copied]: item.css === copiedValue && clipboard.copied })}
+          type="button"
+          onClick={() => handleCopy(item.css)}>
           {item.css}
         </button>
       </td>
@@ -85,7 +93,7 @@ export default function HtmlSymbols() {
           placeholder="Search symbols..."
         />
       </div>
-      <table className={cx(classes.results, { [classes.copied]: clipboard.copied })}>
+      <table className={classes.results}>
         <thead>
           <tr>
             <th>Name</th>
