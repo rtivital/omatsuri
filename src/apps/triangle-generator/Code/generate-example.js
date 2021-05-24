@@ -32,9 +32,9 @@ function generateJssExample(value) {
   const { borderWidth, borderColor } = getTriangleStyles(value);
   const shared = `width: 0,
   height: 0,
-  border-style: 'solid',
-  border-width: '${borderWidth}',
-  border-color: '${borderColor}',`;
+  borderStyle: 'solid',
+  borderWidth: '${borderWidth}',
+  borderColor: '${borderColor}',`;
 
   const element = `element: {\n  ${shared}\n},`;
   const pseudo = `'&::after': {\n  content: "''",\n  display: 'block',\n  ${shared}  \n},`;
