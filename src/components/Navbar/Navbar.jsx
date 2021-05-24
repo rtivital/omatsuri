@@ -41,9 +41,11 @@ export default function Navbar({ className }) {
   }, [pathname]);
 
   useEffect(() => {
-    navigator.serviceWorker.ready
-      .then(() => setOffline({ ready: true, error: false }))
-      .catch(() => setOffline({ ready: false, error: true }));
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.ready
+        .then(() => setOffline({ ready: true, error: false }))
+        .catch(() => setOffline({ ready: false, error: true }));
+    }
   }, []);
 
   const items = settings.tools.map((tool) => (
