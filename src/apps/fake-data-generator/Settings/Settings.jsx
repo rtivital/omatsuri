@@ -50,7 +50,7 @@ export default function Settings({
         onChange={(value) => onFieldPropChange(index, 'type', value)}
       />
 
-      <button className={classes.remove} type="button" onClick={onFieldRemove}>
+      <button className={classes.remove} type="button" onClick={() => onFieldRemove(index)}>
         Remove
       </button>
     </div>
