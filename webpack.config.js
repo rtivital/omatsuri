@@ -28,7 +28,7 @@ const templateContent = ({ htmlWebpackPlugin }) => `
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="Progressive Web Application with 12 open source frontend focused tools">
+      <meta name="description" content="Progressive Web Application with 13 open source frontend focused tools">
       <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
       <title>Omatsuri</title>
     </head>

@@ -118,5 +118,11 @@ module.exports = {
       name: 'Keyboard events codes',
       description: 'JavaScript events keycode values',
     },
+
+    {
+      link: '/url-encoding',
+      name: 'URL encoding',
+      description: 'URL encode or decode strings',
+    },
   ],
 };
