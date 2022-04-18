@@ -21,6 +21,7 @@ import FakeDataGenerator from './apps/fake-data-generator/FakeDataGenerator';
 import CssCursors from './apps/css-cursors/CssCursors';
 import EventsKeycode from './apps/events-keycode/EventsKeycode';
 import GradientGenerator from './apps/gradient-generator/GradientGenerator';
+import UrlEncoding from './apps/url-encoding/UrlEncoding';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
                 <Route path="/css-cursors" exact component={CssCursors} />
                 <Route path="/events-keycode" exact component={EventsKeycode} />
                 <Route path="/gradient-generator" exact component={GradientGenerator} />
+                <Route path="/url-encoding" exact component={UrlEncoding} />
                 <Route component={NotFound} />
               </Switch>
             </AppContainer>
