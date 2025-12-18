@@ -1,45 +1,34 @@
-# Omatsuri app
+# Mantine Vite template
 
-![Logo](./src/assets/logo-text.svg)
+## Features
 
-Omatsuri is a progressive web application with 12 open source frontend focused tools. Omatsuri translates to «festival» from Japanese (お祭り) and here we have a small festival of applications. It was built with strong respect to your privacy – you will never see ads and it does not include analytics services (or actually any services at all). You are highly encouraged to explore source code and use it in your projects.
+This template comes with the following features:
 
-## Quick links
+- [PostCSS](https://postcss.org/) with [mantine-postcss-preset](https://mantine.dev/styles/postcss-preset)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Storybook](https://storybook.js.org/)
+- [Vitest](https://vitest.dev/) setup with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+- ESLint setup with [eslint-config-mantine](https://github.com/mantinedev/eslint-config-mantine)
 
-- [Contributing](./CONTRIBUTING.md)
-- [Changelog](./CHANGELOG.md)
+## npm scripts
 
-## Key features
+## Build and dev scripts
 
-- Fast non-blocking computations with web workers
-- No tracking, no ads, no other server connections – everything runs in browser only
-- Full offline support
-- Dark theme support
-- All-in-one application for everyday tasks
+- `dev` – start development server
+- `build` – build production version of the app
+- `preview` – locally preview production build
 
-## Included Applications
+### Testing scripts
 
-- CSS Triangle Generator
-- Color Shades Generator
-- Gradient Generator
-- Page Dividers Generator
-- SVG compressor
-- SVG to JSX converter
-- Base64 encoder
-- Realistic Fake Data Generator
-- HTML/CSS Symbols Collection
-- Lorem/Samuel/Poke Ipsum Generator
-- CSS Cursor Properties
-- JavaScript Events Keycodes
+- `typecheck` – checks TypeScript types
+- `lint` – runs ESLint
+- `prettier:check` – checks files with Prettier
+- `vitest` – runs vitest tests
+- `vitest:watch` – starts vitest watch
+- `test` – runs `vitest`, `prettier:check`, `lint` and `typecheck` scripts
 
-## Local development
+### Other scripts
 
-To get started with application locally use these commands:
-
-```sh
-# Install dependencies
-yarn
-
-# Start application, browser will open automatically
-npm start
-```
+- `storybook` – starts storybook dev server
+- `storybook:build` – build production storybook bundle to `storybook-static`
+- `prettier:write` – formats all files with Prettier
