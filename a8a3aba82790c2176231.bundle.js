@@ -1,0 +1,2 @@
+onmessage=n=>{const{payload:e,content:t}=n.data;try{const n=function(n){return`import React from 'react';\n\nexport default function SvgComponent() {\n  return (\n    ${n}\n  );\n}\n`}(function(n){return n.replace(/\sclass=/g," className=").replace(/([:-]([a-z]))/g,(n,e,t)=>t.toUpperCase())}(String(t||"").trim()));postMessage({error:null,payload:e,code:n})}catch(n){postMessage({error:n,payload:e,content:null})}};
+//# sourceMappingURL=a8a3aba82790c2176231.bundle.js.map

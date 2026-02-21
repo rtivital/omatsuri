@@ -1,0 +1,2 @@
+onmessage=t=>{const{payload:a}=t.data;try{const o=String(t.data.content||"").trim();postMessage({error:null,payload:a,content:o})}catch(t){postMessage({error:t,payload:a,content:null})}};
+//# sourceMappingURL=e729fa4d3d3547f7ddaf.bundle.js.map
