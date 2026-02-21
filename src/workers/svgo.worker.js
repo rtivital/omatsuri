@@ -1,9 +1,9 @@
-import optimize from 'svgo-browser/lib/optimize';
-
-onmessage = event => {
+onmessage = (event) => {
   const { payload } = event.data;
-
-  optimize(event.data.content)
-    .then(content => postMessage({ error: null, payload, content }))
-    .catch(error => postMessage({ error, payload, content: null }));
+  try {
+    const content = String(event.data.content || '').trim();
+    postMessage({ error: null, payload, content });
+  } catch (error) {
+    postMessage({ error, payload, content: null });
+  }
 };

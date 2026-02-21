@@ -1,20 +1,21 @@
-import prettier from 'prettier/standalone';
-import prettierBabel from 'prettier/parser-babel';
-import svg2jsx from 'svg-to-jsx';
-import optimize from 'svgo-browser/lib/optimize';
+function toJsx(svg) {
+  return svg
+    .replace(/\sclass=/g, ' className=')
+    .replace(/([:-]([a-z]))/g, (_, __, char) => char.toUpperCase());
+}
 
 function generateComponent(svg) {
-  return `import React from 'react';\n\nexport default function SvgComponent() { return ${svg} }`;
+  return `import React from 'react';\n\nexport default function SvgComponent() {\n  return (\n    ${svg}\n  );\n}\n`;
 }
 
 onmessage = (event) => {
-  const { payload } = event.data;
+  const { payload, content } = event.data;
 
-  optimize(event.data.content)
-    .then((content) => svg2jsx(content))
-    .then((svg) =>
-      prettier.format(generateComponent(svg), { parser: 'babel', plugins: [prettierBabel] })
-    )
-    .then((code) => postMessage({ error: null, payload, code }))
-    .catch((error) => postMessage({ error, payload, content: null }));
+  try {
+    const svg = toJsx(String(content || '').trim());
+    const code = generateComponent(svg);
+    postMessage({ error: null, payload, code });
+  } catch (error) {
+    postMessage({ error, payload, content: null });
+  }
 };

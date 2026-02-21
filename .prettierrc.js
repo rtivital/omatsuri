@@ -1,1 +1,6 @@
-module.exports = require('@rtivital/eslint-config/.prettierrc');
+module.exports = {
+  singleQuote: true,
+  trailingComma: 'es5',
+  printWidth: 100,
+  semi: true,
+};

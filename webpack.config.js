@@ -1,22 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserJSPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CnameWebpackPlugin = require('cname-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const OfflinePlugin = require('offline-plugin');
-const { argv } = require('yargs');
-const babelrc = require('./.babelrc');
-
-const { analyze } = argv;
-const mode = process.env.NODE_ENV === 'production' ? 'production' : 'development';
+const isProduction = process.env.NODE_ENV === 'production';
+const analyze = process.argv.includes('--analyze');
 const port = 8262;
-const entry = path.join(__dirname, './src/index.jsx');
+const entry = path.join(__dirname, './src/index.tsx');
 const output = path.join(__dirname, './dist');
 const publicPath = '/';
 
@@ -44,86 +40,71 @@ const templateContent = ({ htmlWebpackPlugin }) => `
 `;
 
 module.exports = {
-  mode,
+  mode: isProduction ? 'production' : 'development',
+  devtool: isProduction ? 'source-map' : 'eval-cheap-module-source-map',
+  entry,
+
+  output: {
+    path: output,
+    filename: isProduction ? '[contenthash].bundle.js' : '[name].bundle.js',
+    publicPath,
+    clean: true,
+  },
+
+  resolve: {
+    alias: {
+      '@hooks': path.join(__dirname, './src/hooks.ts'),
+    },
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    modules: [path.join(__dirname, './node_modules')],
+  },
 
   optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    minimizer: [new TerserPlugin({}), new CssMinimizerPlugin()],
   },
 
   devServer: {
     port,
     compress: true,
-    contentBase: output,
-    publicPath,
-    stats: { colors: true },
+    static: {
+      directory: output,
+      publicPath,
+    },
+    client: {
+      overlay: true,
+    },
     hot: true,
+    open: true,
     historyApiFallback: true,
-  },
-
-  devtool: mode === 'production' ? false : 'eval',
-
-  entry:
-    mode === 'production'
-      ? entry
-      : [
-        `webpack-dev-server/client?http://localhost:${port}`,
-        'webpack/hot/only-dev-server',
-        entry,
-      ],
-
-  output: {
-    path: output,
-    filename: '[hash].bundle.js',
-    publicPath,
-  },
-
-  resolve: {
-    modules: [path.join(__dirname, './node_modules')],
-    extensions: ['.js', '.jsx'],
   },
 
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.[jt]sx?$/,
         exclude: /node_modules/,
         include: path.join(__dirname, './src'),
         use: {
-          loader: 'babel-loader',
-          options: babelrc,
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true,
+          },
         },
       },
-
       {
-        test: /\.(js|jsx)$/,
-        use: 'react-hot-loader/webpack',
-        include: /node_modules/,
-      },
-
-      {
-        test: /\.worker\.js$/,
-        use: { loader: 'worker-loader' },
-      },
-
-      {
-        test: /\.(less)$/,
+        test: /\.less$/,
         use: [
-          mode === 'production'
-            ? {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                publicPath,
-              },
-            }
-            : 'style-loader',
+          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           {
             loader: 'css-loader',
             options: {
+              esModule: false,
               modules: {
-                localIdentName:
-                  mode === 'production'
-                    ? '[hash:base64:10]'
-                    : '[path][name]__[local]--[hash:base64:5]',
+                localIdentName: isProduction
+                  ? '[hash:base64:10]'
+                  : '[path][name]__[local]--[hash:base64:5]',
+                namedExport: false,
+                exportLocalsConvention: 'as-is',
               },
             },
           },
@@ -133,35 +114,31 @@ module.exports = {
               additionalData: "@import 'open-color/open-color.less';",
             },
           },
-          ...(mode === 'production' ? ['postcss-loader'] : []),
+          ...(isProduction ? ['postcss-loader'] : []),
         ],
       },
-
       {
-        test: /\.(css)$/,
+        test: /\.css$/,
         use: [
-          mode === 'production'
-            ? {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                publicPath,
-              },
-            }
-            : 'style-loader',
-          'css-loader',
+          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false,
+            },
+          },
           'postcss-loader',
         ],
       },
-
       {
         test: /\.(svg|png|jpg|gif|woff|woff2|otf|ttf|eot)$/,
-        loader: 'file-loader',
+        type: 'asset/resource',
       },
     ],
   },
 
   plugins: [
-    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(mode) }),
+    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development') }),
     new FaviconsWebpackPlugin({
       logo: path.join(__dirname, './src/assets/logo.svg'),
       background: '#ffeeee',
@@ -180,16 +157,12 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({ templateContent }),
     new HtmlWebpackPlugin({ filename: '404.html', templateContent }),
-    ...(mode !== 'production'
+    ...(isProduction
       ? [
-        new webpack.HotModuleReplacementPlugin(),
-        new OpenBrowserPlugin({ url: `http://localhost:${port}` }),
-      ]
-      : [
-        new BundleAnalyzerPlugin({ analyzerMode: analyze ? 'static' : 'disabled' }),
-        new MiniCssExtractPlugin(),
-        new CnameWebpackPlugin({ domain: 'omatsuri.app' }),
-        new OfflinePlugin({ autoUpdate: true, appShell: '/', excludes: ['404.html', 'CNAME'] }),
-      ]),
+          new BundleAnalyzerPlugin({ analyzerMode: analyze ? 'static' : 'disabled' }),
+          new MiniCssExtractPlugin(),
+          new CnameWebpackPlugin({ domain: 'omatsuri.app' }),
+        ]
+      : [new ReactRefreshWebpackPlugin()]),
   ],
 };

@@ -1,22 +1,19 @@
-import faker from 'faker/locale/en';
+import { fakerEN as faker } from '@faker-js/faker';
 
 const generators = {
-  name: faker.name.findName,
+  name: faker.person.fullName,
   email: faker.internet.email,
-  avatar: faker.internet.avatar,
-  username: faker.internet.userName,
+  avatar: faker.image.avatar,
+  username: faker.internet.username,
   password: faker.internet.password,
-  job_title: faker.name.jobTitle,
-  phone: faker.phone.phoneNumber,
+  job_title: faker.person.jobTitle,
+  phone: faker.phone.number,
   bitcoin_address: faker.finance.bitcoinAddress,
-  company: faker.company.companyName,
-  zip: faker.address.zipCode,
-  address: () =>
-    faker.fake(
-      '{{address.cityPrefix}} {{address.city}}, {{address.streetName}}, {{random.number}}'
-    ),
+  company: faker.company.name,
+  zip: faker.location.zipCode,
+  address: () => `${faker.location.city()}, ${faker.location.street()}, ${faker.number.int(999)}`,
   date: () => faker.date.past().toISOString(),
-  city: faker.address.city,
+  city: faker.location.city,
 };
 
 export const generatorsData = Object.keys(generators).map((key) => ({

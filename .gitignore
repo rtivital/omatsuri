@@ -2,3 +2,4 @@ node_modules
 *.log
 dist
 .DS_Store
+.yarn/install-state.gz
