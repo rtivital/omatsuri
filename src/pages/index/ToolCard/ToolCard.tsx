@@ -20,4 +20,3 @@ export default function ToolCard({ className, name, description, link }) {
     </Link>
   );
 }
-

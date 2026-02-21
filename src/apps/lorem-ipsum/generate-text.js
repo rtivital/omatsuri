@@ -3,9 +3,9 @@ import pokeipsum from 'pokeipsum';
 import samuelIpsum from 'samuel-ipsum';
 
 const generators = {
-  lorem: length => loremIpsum({ count: length, units: 'paragraphs' }),
+  lorem: (length) => loremIpsum({ count: length, units: 'paragraphs' }),
   pokemon: pokeipsum.paragraphs,
-  samuel: length => samuelIpsum.generateParagraphs(length).join('\n'),
+  samuel: (length) => samuelIpsum.generateParagraphs(length).join('\n'),
 };
 
 export const AVAILABLE_GENERATORS = Object.keys(generators);

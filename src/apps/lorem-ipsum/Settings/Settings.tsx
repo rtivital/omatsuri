@@ -33,4 +33,3 @@ export default function Settings({ onTypeChange, type, length, onLengthChange, o
     </Background>
   );
 }
-

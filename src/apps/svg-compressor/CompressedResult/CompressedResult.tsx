@@ -69,4 +69,3 @@ export default function CompressedResult({ content, fileKey }) {
     </Background>
   );
 }
-

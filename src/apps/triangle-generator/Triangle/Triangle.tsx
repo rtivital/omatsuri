@@ -11,4 +11,3 @@ export default function Triangle({ width, height, color, direction }) {
     />
   );
 }
-

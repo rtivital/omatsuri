@@ -21,7 +21,11 @@ export default function B64Encoding() {
 
   const ls = useLocalStorage({ key: '@omatsuri/b64-encoding', delay: 500 });
   const transmittedValue = useLocalStorage({ key: '@omatsuri/conversion-after-compression/b64' });
-  const [result, setResult] = useState<{ loading: boolean; error: boolean | null; content: string | null }>({
+  const [result, setResult] = useState<{
+    loading: boolean;
+    error: boolean | null;
+    content: string | null;
+  }>({
     loading: false,
     error: null,
     content: ls.retrieve() || null,
@@ -45,7 +49,9 @@ export default function B64Encoding() {
 
   useLayoutEffect(() => {
     const worker = b64.current;
-    if (!worker) return undefined;
+    if (!worker) {
+      return undefined;
+    }
 
     worker.addEventListener('message', handleMessage);
     const transmittedContent = transmittedValue.retrieveAndClean();

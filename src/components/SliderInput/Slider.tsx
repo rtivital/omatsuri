@@ -50,18 +50,28 @@ export default function Slider({
 
   function getPosition() {
     let left = ((value - min) / (max - min)) * 100;
-    if (left > 100) left = 100;
-    if (left < 0) left = 0;
+    if (left > 100) {
+      left = 100;
+    }
+    if (left < 0) {
+      left = 0;
+    }
     return left;
   }
 
   function change(val: number) {
-    if (!container.current) return;
+    if (!container.current) {
+      return;
+    }
     let left = val;
     const { width } = container.current.getBoundingClientRect();
     let dx = 0;
-    if (left < 0) left = 0;
-    if (left > width) left = width;
+    if (left < 0) {
+      left = 0;
+    }
+    if (left > width) {
+      left = width;
+    }
     dx = (left / width) * (max - min);
     onChange((dx !== 0 ? Math.round(dx / step) * step : 0) + min);
   }
@@ -90,7 +100,9 @@ export default function Slider({
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
     const dom = handle.current;
-    if (!dom) return;
+    if (!dom) {
+      return;
+    }
     const clientPos = getClientPosition(e);
 
     start.current = {
@@ -112,7 +124,9 @@ export default function Slider({
 
   function handleTrackMouseDown(e: any) {
     e.preventDefault();
-    if (!container.current) return;
+    if (!container.current) {
+      return;
+    }
     const clientPos = getClientPosition(e);
     const rect = container.current.getBoundingClientRect();
 
@@ -143,6 +157,19 @@ export default function Slider({
       className={cx(classes.track, classes[theme])}
       onTouchStart={handleTrackMouseDown}
       onMouseDown={handleTrackMouseDown}
+      onKeyDown={(event) => {
+        if (event.key === 'ArrowLeft') {
+          change(value - step);
+        }
+        if (event.key === 'ArrowRight') {
+          change(value + step);
+        }
+      }}
+      role="slider"
+      tabIndex={0}
+      aria-valuemin={min}
+      aria-valuemax={max}
+      aria-valuenow={value}
       style={{ width: trackSize }}
     >
       <div className={classes.active} style={{ width: `${position}%` }} />
@@ -160,6 +187,11 @@ export default function Slider({
           e.stopPropagation();
           e.nativeEvent.stopImmediatePropagation();
         }}
+        onKeyDown={(e) => {
+          e.stopPropagation();
+        }}
+        role="button"
+        tabIndex={0}
       >
         <div className={classes.thumb} />
       </div>

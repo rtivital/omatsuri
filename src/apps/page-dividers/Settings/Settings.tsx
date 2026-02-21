@@ -93,4 +93,3 @@ export default function Settings({ values, handlers }) {
     </Background>
   );
 }
-

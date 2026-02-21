@@ -25,4 +25,3 @@ export default function CursorControl({ className, value }) {
     </button>
   );
 }
-

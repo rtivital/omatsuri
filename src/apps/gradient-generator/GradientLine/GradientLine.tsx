@@ -59,6 +59,13 @@ export default function GradientLine({ values, handlers, className }: GradientLi
           className={classes.line}
           style={{ backgroundImage: gradient }}
           onClick={handleColorAdd}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              handleColorAdd(event);
+            }
+          }}
+          role="button"
+          tabIndex={0}
           ref={(node) => node && setLineProps(JSON.stringify(node.getBoundingClientRect()))}
         />
       </div>

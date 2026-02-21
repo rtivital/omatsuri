@@ -31,4 +31,3 @@ export default function GradientGalleryItem({ className, values, name, onEditorO
     </Background>
   );
 }
-

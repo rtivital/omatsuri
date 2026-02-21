@@ -36,12 +36,18 @@ export default function ColorStop({
   const removeColorStop = () => handlers.remove(index);
 
   const handleChange = (val) => {
-    if (!lineRect) return;
+    if (!lineRect) {
+      return;
+    }
     let left = val;
     const { width } = lineRect;
     let position = 0;
-    if (left < 0) left = 0;
-    if (left > width) left = width;
+    if (left < 0) {
+      left = 0;
+    }
+    if (left > width) {
+      left = width;
+    }
     position = Math.round((left / width) * 100);
 
     const newValues = [...values];
@@ -73,7 +79,9 @@ export default function ColorStop({
     event.preventDefault();
     event.stopPropagation();
     event.nativeEvent.stopImmediatePropagation();
-    if (!lineRect) return;
+    if (!lineRect) {
+      return;
+    }
     const clientPos = event.clientX;
 
     start.current = clientPos - lineRect.left;
@@ -95,6 +103,11 @@ export default function ColorStop({
           e.stopPropagation();
           e.nativeEvent.stopImmediatePropagation();
         }}
+        onKeyDown={(e) => {
+          e.stopPropagation();
+        }}
+        role="button"
+        tabIndex={0}
       >
         <div className={classes.handleColor} style={{ backgroundColor: value.color }} />
       </div>

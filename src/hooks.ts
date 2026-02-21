@@ -26,7 +26,9 @@ export function useClickOutside(
   useEffect(() => {
     const listener = (event: MouseEvent | TouchEvent) => {
       const node = ref.current;
-      if (!node) return;
+      if (!node) {
+        return;
+      }
       if (event.target instanceof Node && !node.contains(event.target)) {
         handler();
       }
@@ -43,13 +45,16 @@ export function useClickOutside(
 }
 
 export interface LocalStorageHook<T = any> {
-  save(value: T): void;
-  retrieve(): T;
-  retrieveAndClean(): T;
-  cancel(): void;
+  save: (value: T) => void;
+  retrieve: () => T;
+  retrieveAndClean: () => T;
+  cancel: () => void;
 }
 
-export function useLocalStorage<T = any>(config: { key: string; delay?: number }): LocalStorageHook<T> {
+export function useLocalStorage<T = any>(config: {
+  key: string;
+  delay?: number;
+}): LocalStorageHook<T> {
   const { key, delay = 0 } = config;
   const [value, setValue, removeValue] = useMantineLocalStorage<T | null>({
     key,

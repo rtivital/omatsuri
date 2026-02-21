@@ -20,4 +20,3 @@ export default function Shape({ shape, ...others }) {
 
   return null;
 }
-

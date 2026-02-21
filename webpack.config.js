@@ -138,7 +138,9 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.DefinePlugin({ 'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development') }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(isProduction ? 'production' : 'development'),
+    }),
     new FaviconsWebpackPlugin({
       logo: path.join(__dirname, './src/assets/logo.svg'),
       background: '#ffeeee',

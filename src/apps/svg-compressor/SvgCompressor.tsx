@@ -47,7 +47,9 @@ export default function SvgCompressor() {
 
   useLayoutEffect(() => {
     const worker = svgo.current;
-    if (!worker) return undefined;
+    if (!worker) {
+      return undefined;
+    }
 
     worker.addEventListener('message', handleSvgoMessage);
 

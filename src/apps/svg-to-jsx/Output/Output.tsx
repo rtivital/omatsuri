@@ -20,4 +20,3 @@ export default function Output({ data }) {
 
   return null;
 }
-

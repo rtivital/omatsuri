@@ -45,15 +45,17 @@ export default function HtmlSymbols() {
 
   const handleCopy = (value) => {
     setCopiedValue(value);
-    clipboard.copy(value)
-  }
+    clipboard.copy(value);
+  };
 
   const results = searchSymbols(query, type).map((item) => (
     <tr className={classes.item} key={item.entity}>
       <td className={classes.name}>{item.name}</td>
       <td>
         <button
-          className={cx(classes.control, classes.symbol, { [classes.copied]: item.symbol === copiedValue && clipboard.copied })}
+          className={cx(classes.control, classes.symbol, {
+            [classes.copied]: item.symbol === copiedValue && clipboard.copied,
+          })}
           type="button"
           onClick={() => handleCopy(item.symbol)}
         >
@@ -63,7 +65,9 @@ export default function HtmlSymbols() {
 
       <td>
         <button
-          className={cx(classes.control, { [classes.copied]: item.entity === copiedValue && clipboard.copied })}
+          className={cx(classes.control, {
+            [classes.copied]: item.entity === copiedValue && clipboard.copied,
+          })}
           type="button"
           onClick={() => handleCopy(item.entity)}
         >
@@ -72,9 +76,13 @@ export default function HtmlSymbols() {
       </td>
 
       <td>
-        <button className={cx(classes.control, { [classes.copied]: item.css === copiedValue && clipboard.copied })}
+        <button
+          className={cx(classes.control, {
+            [classes.copied]: item.css === copiedValue && clipboard.copied,
+          })}
           type="button"
-          onClick={() => handleCopy(item.css)}>
+          onClick={() => handleCopy(item.css)}
+        >
           {item.css}
         </button>
       </td>

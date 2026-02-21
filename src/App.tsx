@@ -36,10 +36,7 @@ export default function App() {
           <Route path="/svg-to-jsx" element={withContainer(<SvgToJsx />)} />
           <Route path="/html-symbols" element={withContainer(<HtmlSymbols />)} />
           <Route path="/b64-encoding" element={withContainer(<Base64Encoding />)} />
-          <Route
-            path="/color-shades-generator"
-            element={withContainer(<ColorShadesGenerator />)}
-          />
+          <Route path="/color-shades-generator" element={withContainer(<ColorShadesGenerator />)} />
           <Route path="/page-dividers" element={withContainer(<PageDividers />)} />
           <Route path="/fake-data-generator" element={withContainer(<FakeDataGenerator />)} />
           <Route path="/css-cursors" element={withContainer(<CssCursors />)} />

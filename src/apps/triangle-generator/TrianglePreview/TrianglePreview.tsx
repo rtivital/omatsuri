@@ -20,4 +20,3 @@ export default function TrianglePreview({ values, theme, onThemeToggle }) {
     </Background>
   );
 }
-

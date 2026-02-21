@@ -33,4 +33,3 @@ export default function Output({ type, fields, amount, seed = null }) {
     </Background>
   );
 }
-

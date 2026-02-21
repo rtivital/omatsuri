@@ -14,4 +14,3 @@ export default function Preview({ text }) {
 
   return <Background className={cx(classes.wrapper, classes[theme])}>{nodes}</Background>;
 }
-

@@ -17,4 +17,3 @@ export default function ThemeToggle({ className, theme, onToggle, label = 'mode'
     </button>
   );
 }
-

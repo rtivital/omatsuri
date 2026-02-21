@@ -16,7 +16,7 @@ import classes from './Navbar.styles.less';
 const LINK_HEIGHT = 72;
 
 const removeTrailingSlash = (path) =>
-  (path.slice(path.length - 1) === '/' ? path.slice(0, path.length - 1) : path);
+  path.slice(path.length - 1) === '/' ? path.slice(0, path.length - 1) : path;
 
 const findCurrentIndex = (pathname) =>
   settings.tools.findIndex(
@@ -79,7 +79,13 @@ export default function Navbar({ className }: NavbarProps) {
     }
 
     return (
-      <a className={classes.footerLink} key={index} href={String(linkProps.href)} target="_blank">
+      <a
+        className={classes.footerLink}
+        key={index}
+        href={String(linkProps.href)}
+        target="_blank"
+        rel="noreferrer"
+      >
         {label}
       </a>
     );

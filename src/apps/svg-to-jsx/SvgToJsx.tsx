@@ -14,7 +14,11 @@ export default function SvgToJsx() {
   const ls = useLocalStorage({ key: '@omatsuri/svg-to-jsx', delay: 1000 });
   const transmittedValue = useLocalStorage({ key: '@omatsuri/conversion-after-compression/jsx' });
   const [value, setValue] = useState(transmittedValue.retrieveAndClean() || ls.retrieve() || '');
-  const [result, setResult] = useState({ loading: false, error: null, content: null as string | null });
+  const [result, setResult] = useState({
+    loading: false,
+    error: null,
+    content: null as string | null,
+  });
 
   const handleMessage = (event: MessageEvent) => {
     setResult({ loading: false, error: event.data.error, content: event.data.code });
@@ -26,7 +30,9 @@ export default function SvgToJsx() {
 
   useLayoutEffect(() => {
     const worker = svg2jsx.current;
-    if (!worker) return undefined;
+    if (!worker) {
+      return undefined;
+    }
 
     worker.addEventListener('message', handleMessage);
 
