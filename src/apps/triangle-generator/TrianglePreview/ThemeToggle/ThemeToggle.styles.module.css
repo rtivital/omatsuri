@@ -1,0 +1,25 @@
+.control {
+  appearance: none;
+  border: 0;
+  height: 36px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  outline: 0;
+  cursor: pointer;
+}
+
+.light {
+  background-color: var(--mantine-color-gray-9);
+  color: var(--mantine-color-white);
+}
+
+.dark {
+  background-color: var(--mantine-color-white);
+}
+
+.label {
+  margin-left: 10px;
+}

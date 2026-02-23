@@ -1,0 +1,15 @@
+.title {
+  font-size: 14px;
+  margin-bottom: 7px;
+  color: var(--mantine-color-gray-6);
+}
+
+.field {
+  margin-top: 15px;
+}
+
+.dark {
+  .title {
+    color: var(--mantine-color-gray-5);
+  }
+}

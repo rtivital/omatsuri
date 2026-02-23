@@ -4,7 +4,7 @@ import cx from 'clsx';
 import { useTheme } from '../../../ThemeProvider';
 import GithubButton from '../../GithubButton/GithubButton';
 import settings from '../../../settings';
-import classes from './Footer.styles.less';
+import classes from './Footer.styles.module.css';
 
 interface FooterProps {
   className?: string;

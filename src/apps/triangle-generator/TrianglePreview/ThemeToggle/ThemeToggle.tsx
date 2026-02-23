@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'clsx';
 import ThemeControl from '../../../../components/ThemeControl/ThemeIcon';
-import classes from './ThemeToggle.styles.less';
+import classes from './ThemeToggle.styles.module.css';
 
 export default function ThemeToggle({ className, theme, onToggle, label = 'mode' }) {
   return (

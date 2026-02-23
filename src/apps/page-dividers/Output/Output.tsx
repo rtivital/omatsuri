@@ -1,11 +1,11 @@
 import React from 'react';
-import Button from '../../../components/Button/Button';
+import { Button } from '@mantine/core';
 import Background from '../../../components/Background/Background';
 import Highlight from '../../../components/Highlight/Highlight';
 import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
 import generateExample from './generate-example';
 import * as assets from '../assets';
-import classes from './Output.styles.less';
+import classes from './Output.styles.module.css';
 
 export default function Output({ values }) {
   return (
@@ -13,7 +13,7 @@ export default function Output({ values }) {
       <div className={classes.section}>
         <div className={classes.header}>
           <SettingsLabel className={classes.title}>HTML code</SettingsLabel>
-          <Button component="a" href={assets[values.type]} download>
+          <Button component="a" href={assets[values.type]} download variant="light" color="violet">
             Download unstyled svg
           </Button>
         </div>

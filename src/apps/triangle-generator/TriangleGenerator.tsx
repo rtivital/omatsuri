@@ -5,7 +5,7 @@ import { useDocumentTitle, useLocalStorage } from '@hooks';
 import Settings from './Settings/Settings';
 import TrianglePreview from './TrianglePreview/TrianglePreview';
 import Code from './Code/Code';
-import classes from './TriangleGenerator.styles.less';
+import classes from './TriangleGenerator.styles.module.css';
 
 const predefinedSizes = {
   sm: { width: 10, height: 6 },

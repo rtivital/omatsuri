@@ -5,7 +5,7 @@ import { useTheme } from '../../../ThemeProvider';
 import GithubButton from '../../GithubButton/GithubButton';
 import logoText from '../../../assets/logo-text.svg';
 import logoTextWhite from '../../../assets/logo-text-white.svg';
-import classes from './Header.styles.less';
+import classes from './Header.styles.module.css';
 
 export default function Header() {
   const [theme] = useTheme();

@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'clsx';
 import { useTheme } from '../../ThemeProvider';
-import classes from './SettingsLabel.styles.less';
+import classes from './SettingsLabel.styles.module.css';
 
 interface SettingsLabelProps {
   className?: string;

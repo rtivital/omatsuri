@@ -1,10 +1,10 @@
 import React from 'react';
 import cx from 'clsx';
+import { Button } from '@mantine/core';
 import { useTheme } from '../../../ThemeProvider';
 import SliderInput from '../../../components/SliderInput/SliderInput';
 import Background from '../../../components/Background/Background';
-import Button from '../../../components/Button/Button';
-import classes from './Settings.styles.less';
+import classes from './Settings.styles.module.css';
 
 export default function Settings({
   darken,
@@ -41,11 +41,11 @@ export default function Settings({
         </div>
       </div>
       <div className={classes.controls}>
-        <Button className={classes.control} onClick={onPaletteLoad}>
+        <Button variant="light" color="violet" className={classes.control} onClick={onPaletteLoad}>
           Load default palette
         </Button>
         {canRemove && (
-          <Button className={classes.control} onClick={onAllRemove} theme="red">
+          <Button variant="light" color="red" className={classes.control} onClick={onAllRemove}>
             Remove all
           </Button>
         )}

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import cx from 'clsx';
+import { SegmentedControl, TextInput } from '@mantine/core';
 import { useDocumentTitle, useLocalStorage, useClipboard } from '@hooks';
 import { useTheme } from '../../ThemeProvider';
 import Background from '../../components/Background/Background';
-import Tabs from '../../components/Tabs/Tabs';
-import Input from '../../components/Input/Input';
 import symbols from './symbols';
-import classes from './HtmlSymbols.styles.less';
+import classes from './HtmlSymbols.styles.module.css';
 
 const typesData = Object.keys(symbols).map((tab) => ({ value: tab, label: tab }));
 
@@ -92,13 +91,12 @@ export default function HtmlSymbols() {
   return (
     <Background className={cx(classes.wrapper, classes[theme])}>
       <div className={classes.inputWrapper}>
-        <Tabs data={typesData} active={type} onTabChange={handleTypeChange} />
-        <Input
-          className={classes.input}
+        <SegmentedControl data={typesData} value={type} onChange={handleTypeChange} />
+        <TextInput
           value={query}
           onChange={handleQueryChange}
-          type="text"
           placeholder="Search symbols..."
+          classNames={{ input: classes.input }}
         />
       </div>
       <table className={classes.results}>

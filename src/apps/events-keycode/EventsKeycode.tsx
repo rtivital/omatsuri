@@ -6,7 +6,7 @@ import Highlight from '../../components/Highlight/Highlight';
 import Header from './Header/Header';
 import generateUsage from './generate-usage';
 import EventInfo from './EventInfo/EventInfo';
-import classes from './EventsKeycode.styles.less';
+import classes from './EventsKeycode.styles.module.css';
 
 export default function EventsKeycode() {
   useDocumentTitle('JavaScript events keycodes');

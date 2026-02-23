@@ -11,7 +11,7 @@ import logoText from '../../assets/logo-text.svg';
 import logoTextWhite from '../../assets/logo-text-white.svg';
 import logo from '../../assets/logo.svg';
 import appIcons from '../../assets/app-icons';
-import classes from './Navbar.styles.less';
+import classes from './Navbar.styles.module.css';
 
 const LINK_HEIGHT = 72;
 

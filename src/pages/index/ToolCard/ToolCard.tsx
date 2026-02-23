@@ -3,7 +3,7 @@ import cx from 'clsx';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../../../ThemeProvider';
 import appIcons from '../../../assets/app-icons';
-import classes from './ToolCard.styles.less';
+import classes from './ToolCard.styles.module.css';
 
 export default function ToolCard({ className, name, description, link }) {
   const [theme] = useTheme();

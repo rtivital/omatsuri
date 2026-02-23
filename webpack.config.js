@@ -92,7 +92,7 @@ module.exports = {
         },
       },
       {
-        test: /\.less$/,
+        test: /\.module\.css$/,
         use: [
           isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           {
@@ -108,17 +108,12 @@ module.exports = {
               },
             },
           },
-          {
-            loader: 'less-loader',
-            options: {
-              additionalData: "@import 'open-color/open-color.less';",
-            },
-          },
-          ...(isProduction ? ['postcss-loader'] : []),
+          'postcss-loader',
         ],
       },
       {
         test: /\.css$/,
+        exclude: /\.module\.css$/,
         use: [
           isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
           {

@@ -1,8 +1,10 @@
 import 'normalize.css';
+import '@mantine/core/styles.css';
+import '@mantine/dropzone/styles.css';
 
 import { createRoot } from 'react-dom/client';
 import App from './App';
-import './styles.less';
+import './styles.css';
 
 const container = document.getElementById('app');
 

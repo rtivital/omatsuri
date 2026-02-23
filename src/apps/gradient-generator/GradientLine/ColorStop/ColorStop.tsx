@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import cx from 'clsx';
-import classes from './ColorStop.styles.less';
+import classes from './ColorStop.styles.module.css';
 
 interface GradientValue {
   key: string;

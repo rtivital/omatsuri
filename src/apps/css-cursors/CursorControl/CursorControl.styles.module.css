@@ -1,0 +1,49 @@
+.control {
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  font-family: Monaco, monospace;
+  background-color: var(--mantine-color-white);
+  border: 1px solid var(--mantine-color-gray-4);
+  color: var(--mantine-color-gray-7);
+  border-radius: 15px;
+  outline: 0;
+  position: relative;
+
+  &:hover {
+    background-color: var(--mantine-color-gray-0);
+  }
+
+  @media screen and (max-width: 1000px) {
+    font-size: 16px;
+  }
+}
+
+.active {
+  &::after {
+    content: 'Copied';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: var(--mantine-color-green-7);
+    border-radius: 15px;
+    color: var(--mantine-color-white);
+  }
+}
+
+.dark {
+  background-color: var(--mantine-color-gray-7);
+  border-color: var(--mantine-color-gray-8);
+  color: var(--mantine-color-gray-2);
+
+  &:hover {
+    background-color: var(--mantine-color-gray-8);
+  }
+
+  &.active::after {
+    background-color: var(--mantine-color-green-9);
+    color: var(--mantine-color-gray-3);
+  }
+}

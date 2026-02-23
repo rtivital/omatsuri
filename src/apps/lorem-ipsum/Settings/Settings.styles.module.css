@@ -1,0 +1,31 @@
+.wrapper {
+  padding: 15px;
+  margin: 10px;
+}
+
+.footer {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
+}
+
+.length {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  color: var(--mantine-color-gray-6);
+  margin-right: 15px;
+}
+
+.control {
+  @media screen and (max-width: 1000px) {
+    margin-top: 15px;
+  }
+}

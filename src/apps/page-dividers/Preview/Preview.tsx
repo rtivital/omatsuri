@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'clsx';
 import Shape from '../Shape/Shape';
-import classes from './Preview.styles.less';
+import classes from './Preview.styles.module.css';
 
 export default function Preview({ values }) {
   return (

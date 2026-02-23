@@ -4,7 +4,7 @@ import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
 import DirectionPicker from '../DirectionPicker/DirectionPicker';
 import SizePicker from '../SizePicker/SizePicker';
 import ColorPicker from '../ColorPicker/ColorPicker';
-import classes from './Settings.styles.less';
+import classes from './Settings.styles.module.css';
 
 export default function Settings({ values, handlers }) {
   return (

@@ -1,11 +1,11 @@
 import oc from 'open-color';
 import React, { useState, useEffect } from 'react';
+import { Button } from '@mantine/core';
 import { v4 } from 'uuid';
 import { useDocumentTitle, useLocalStorage } from '@hooks';
-import Button from '../../components/Button/Button';
 import ColorShadesList from './ColorShadesList/ColorShadesList';
 import Settings from './Settings/Settings';
-import classes from './ColorShadesGenerator.styles.less';
+import classes from './ColorShadesGenerator.styles.module.css';
 
 const defaultPalette = Object.keys(oc)
   .filter((key) => key !== 'white' && key !== 'black')
@@ -80,7 +80,9 @@ export default function ColorShadesGenerator() {
       />
       {colors}
       <div className={classes.control}>
-        <Button onClick={addColor}>+ Add color</Button>
+        <Button variant="light" color="violet" onClick={addColor}>
+          + Add color
+        </Button>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'clsx';
 import { useTheme } from '../../../../ThemeProvider';
-import classes from './Keycap.styles.less';
+import classes from './Keycap.styles.module.css';
 
 const PREDEFINED_VALUES = {
   ArrowUp: '↑',

@@ -1,0 +1,24 @@
+.about {
+  h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: var(--mantine-color-violet-7);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.dark {
+  color: var(--mantine-color-gray-4);
+
+  a {
+    color: var(--mantine-color-blue-4);
+  }
+}

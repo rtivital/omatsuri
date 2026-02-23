@@ -5,7 +5,7 @@ import githubWhite from './icons/github-white.svg';
 import telegram from './icons/telegram.svg';
 import twitter from './icons/twitter.svg';
 import settings from '../../../settings';
-import classes from './Contributors.styles.less';
+import classes from './Contributors.styles.module.css';
 
 export default function Contributors() {
   const [theme] = useTheme();

@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'clsx';
 import { useTheme } from '../../../ThemeProvider';
-import classes from './EventInfo.styles.less';
+import classes from './EventInfo.styles.module.css';
 
 interface EventInfoProps {
   className?: string;

@@ -1,0 +1,50 @@
+.wrapper {
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1;
+  color: var(--mantine-color-gray-8);
+  letter-spacing: -1px;
+  border-radius: 15px;
+}
+
+.description {
+  color: var(--mantine-color-gray-6);
+  margin-bottom: 0;
+}
+
+.placeholder {
+  text-align: center;
+}
+
+.keys {
+  display: flex;
+}
+
+.key {
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  margin-left: 15px;
+  margin-right: 15px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.dark {
+  .title {
+    color: var(--mantine-color-gray-3);
+  }
+
+  .description {
+    color: var(--mantine-color-gray-5);
+  }
+}

@@ -3,7 +3,7 @@ import cx from 'clsx';
 import { useTheme } from '../../ThemeProvider';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
-import classes from './PageBase.styles.less';
+import classes from './PageBase.styles.module.css';
 
 interface PageBaseProps {
   children: React.ReactNode;

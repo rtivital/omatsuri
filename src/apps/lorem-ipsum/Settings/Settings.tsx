@@ -1,10 +1,9 @@
 import React from 'react';
+import { Button, SegmentedControl } from '@mantine/core';
 import SliderInput from '../../../components/SliderInput/SliderInput';
-import Button from '../../../components/Button/Button';
-import Tabs from '../../../components/Tabs/Tabs';
 import { AVAILABLE_GENERATORS } from '../generate-text';
 import Background from '../../../components/Background/Background';
-import classes from './Settings.styles.less';
+import classes from './Settings.styles.module.css';
 
 const types = AVAILABLE_GENERATORS.map((generator) => ({
   value: generator,
@@ -14,7 +13,7 @@ const types = AVAILABLE_GENERATORS.map((generator) => ({
 export default function Settings({ onTypeChange, type, length, onLengthChange, onSubmit, copied }) {
   return (
     <Background className={classes.wrapper}>
-      <Tabs data={types} active={type} onTabChange={onTypeChange} />
+      <SegmentedControl data={types} value={type} onChange={onTypeChange} size="sm" radius="md" />
       <div className={classes.footer}>
         <div className={classes.length}>
           <div className={classes.label}>Amount of paragraphs</div>
@@ -25,7 +24,8 @@ export default function Settings({ onTypeChange, type, length, onLengthChange, o
           className={classes.control}
           onClick={onSubmit}
           disabled={copied}
-          theme={copied ? 'success' : 'primary'}
+          variant="light"
+          color={copied ? 'green' : 'violet'}
         >
           {copied ? 'Copied to clipboard' : 'Generate and copy to clipboard'}
         </Button>

@@ -4,7 +4,7 @@ import { useClipboard } from '@hooks';
 import { useTheme } from '../../../../ThemeProvider';
 import Background from '../../../../components/Background/Background';
 import { generateGradientColorValues } from '../../generate-gradient-value';
-import classes from './GradientGalleryItem.styles.less';
+import classes from './GradientGalleryItem.styles.module.css';
 
 export default function GradientGalleryItem({ className, values, name, onEditorOpen }) {
   const [theme] = useTheme();

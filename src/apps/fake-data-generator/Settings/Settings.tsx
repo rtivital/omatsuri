@@ -1,15 +1,12 @@
 import React from 'react';
 import cx from 'clsx';
+import { Button, NativeSelect, SegmentedControl, TextInput } from '@mantine/core';
 import { useTheme } from '../../../ThemeProvider';
-import Tabs from '../../../components/Tabs/Tabs';
 import Background from '../../../components/Background/Background';
 import SliderInput from '../../../components/SliderInput/SliderInput';
 import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
-import Button from '../../../components/Button/Button';
-import Select from '../../../components/Select/Select';
-import Input from '../../../components/Input/Input';
 import { generatorsData } from '../generator';
-import classes from './Settings.styles.less';
+import classes from './Settings.styles.module.css';
 
 const types = [
   { value: 'default', label: 'Raw data' },
@@ -33,20 +30,20 @@ export default function Settings({
     <div className={classes.field} key={field.key}>
       <div className={classes.input}>
         <div className={classes.label}>Name</div>
-        <Input
-          className={classes.nameInput}
+        <TextInput
           value={field.name}
           onChange={(event) => onFieldPropChange(index, 'name', event.target.value)}
+          classNames={{ input: classes.nameInput }}
         />
       </div>
 
-      <Select
+      <NativeSelect
         className={classes.input}
         id={field.key}
         label="Type"
         data={generatorsData}
         value={field.type}
-        onChange={(value) => onFieldPropChange(index, 'type', value)}
+        onChange={(event) => onFieldPropChange(index, 'type', event.currentTarget.value)}
       />
 
       <button className={classes.remove} type="button" onClick={() => onFieldRemove(index)}>
@@ -58,8 +55,8 @@ export default function Settings({
   return (
     <Background className={cx(classes.wrapper, classes[theme])}>
       <div className={classes.header}>
-        <Tabs data={types} active={type} onTabChange={onTypeChange} />
-        <Button onClick={onRegenerate} className={classes.regenerate}>
+        <SegmentedControl data={types} value={type} onChange={onTypeChange} />
+        <Button variant="light" color="violet" onClick={onRegenerate} className={classes.regenerate}>
           Regenerate
         </Button>
       </div>
@@ -74,7 +71,9 @@ export default function Settings({
           </div>
           <div className={classes.footer}>
             <div className={classes.control}>
-              <Button onClick={onFieldAdd}>+ Add field</Button>
+              <Button variant="light" color="violet" onClick={onFieldAdd}>
+                + Add field
+              </Button>
             </div>
 
             <div>

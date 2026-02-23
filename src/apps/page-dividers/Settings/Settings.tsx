@@ -1,13 +1,12 @@
 import React from 'react';
 import cx from 'clsx';
+import { NativeSelect, SegmentedControl } from '@mantine/core';
 import { useTheme } from '../../../ThemeProvider';
-import Tabs from '../../../components/Tabs/Tabs';
 import SliderInput from '../../../components/SliderInput/SliderInput';
-import Select from '../../../components/Select/Select';
 import HexInput from '../../../components/HexInput/HexInput';
 import Background from '../../../components/Background/Background';
 import { shapes } from '../Shape/Shape';
-import classes from './Settings.styles.less';
+import classes from './Settings.styles.module.css';
 
 const data = Object.keys(shapes).map((shape) => ({
   value: shape,
@@ -32,20 +31,20 @@ export default function Settings({ values, handlers }) {
       <div className={classes.inner}>
         <div className={classes.group}>
           <div className={classes.input}>
-            <Select
+            <NativeSelect
               data={data}
               value={values.type}
-              onChange={handlers.onTypeChange}
+              onChange={(event) => handlers.onTypeChange(event.currentTarget.value)}
               id="shape-select"
               label="Shape type"
             />
           </div>
           <div className={classes.input}>
             <div className={classes.label}>Position</div>
-            <Tabs
+            <SegmentedControl
               data={positionsData}
-              onTabChange={handlers.onPositionChange}
-              active={values.position}
+              onChange={handlers.onPositionChange}
+              value={values.position}
             />
           </div>
         </div>
@@ -60,10 +59,10 @@ export default function Settings({ values, handlers }) {
           </div>
           <div className={classes.input}>
             <div className={classes.label}>Direction</div>
-            <Tabs
+            <SegmentedControl
               data={directionsData}
-              onTabChange={handlers.onDirectionChange}
-              active={values.direction}
+              onChange={handlers.onDirectionChange}
+              value={values.direction}
             />
           </div>
         </div>

@@ -1,0 +1,15 @@
+.gradientLine {
+  position: relative;
+}
+
+.line {
+  height: 50px;
+  border-radius: 4px;
+  cursor: copy;
+}
+
+.lineWrapper {
+  padding: 3px;
+  border-radius: 3px;
+  border: 1px solid var(--mantine-color-gray-4);
+}

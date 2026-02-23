@@ -1,0 +1,78 @@
+.wrapper {
+  position: relative;
+}
+
+.control {
+  appearance: none;
+  height: 36px;
+  width: 36px;
+  border: 1px solid var(--mantine-color-gray-5);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  outline: 0;
+  cursor: pointer;
+}
+
+.input {
+  height: 36px;
+  padding-left: 28px;
+  padding-right: 15px;
+  border: 1px solid var(--mantine-color-gray-5);
+  border-left: 0;
+  border-radius: 0 5px 5px 0;
+  background-color: var(--mantine-color-white);
+
+  &:focus {
+    outline: 0;
+    border-color: var(--mantine-color-violet-5);
+  }
+}
+
+.inputWrapper {
+  display: flex;
+  position: relative;
+}
+
+.hash {
+  font-size: 20px;
+  position: absolute;
+  left: 45px;
+  top: 6px;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.picker {
+  position: absolute !important;
+  top: 40px;
+  left: 0;
+  z-index: 10;
+  border-radius: 9px;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 2px 4px rgba(0, 0, 0, 0.03),
+    0 4px 8px rgba(0, 0, 0, 0.03),
+    0 8px 16px rgba(0, 0, 0, 0.03),
+    0 16px 32px rgba(0, 0, 0, 0.03),
+    0 32px 64px rgba(0, 0, 0, 0.03);
+}
+
+.dark {
+  .input {
+    background-color: var(--mantine-color-gray-7);
+    color: var(--mantine-color-gray-2);
+    border-color: var(--mantine-color-gray-8);
+
+    &:focus {
+      border-color: var(--mantine-color-blue-8);
+    }
+  }
+
+  .control {
+    border-color: var(--mantine-color-gray-8);
+  }
+
+  .hash {
+    color: var(--mantine-color-gray-4);
+  }
+}

@@ -1,0 +1,25 @@
+.wrapper {
+  padding: 15px;
+  margin: 10px;
+}
+
+.rawItem {
+  display: flex;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.key {
+  color: var(--mantine-color-gray-6);
+  width: 160px;
+}
+
+.dark {
+  .key {
+    color: var(--mantine-color-gray-5);
+  }
+
+  .value {
+    color: var(--mantine-color-gray-2);
+  }
+}

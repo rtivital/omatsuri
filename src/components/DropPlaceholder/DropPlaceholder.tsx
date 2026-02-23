@@ -1,7 +1,5 @@
 import React from 'react';
-import cx from 'clsx';
-import { useTheme } from '../../ThemeProvider';
-import classes from './DropPlaceholder.styles.less';
+import { Button, FileButton, Paper, Text } from '@mantine/core';
 
 interface DropPlaceholderProps {
   className?: string;
@@ -16,21 +14,25 @@ export default function DropPlaceholder({
   onFileAdd,
   accepts = 'image/svg+xml',
 }: DropPlaceholderProps) {
-  const [theme] = useTheme();
-
   return (
-    <div className={cx(classes.placeholder, classes[theme], className)}>
-      <div className={classes.label}>{children} or</div>
-      <label className={classes.inputLabel} htmlFor="file-browse">
-        Upload file{' '}
-        <input
-          className={classes.input}
-          type="file"
-          id="file-browse"
-          accept={accepts}
-          onChange={(event) => event.target.files[0] && onFileAdd(event.target.files[0])}
-        />
-      </label>
-    </div>
+    <Paper
+      className={className}
+      p="lg"
+      radius="md"
+      withBorder
+      bg="linear-gradient(-225deg, var(--mantine-color-violet-0) 0%, var(--mantine-color-cyan-0) 100%)"
+      style={{ textAlign: 'center' }}
+    >
+      <Text fw={700} mb="xs">
+        {children} or
+      </Text>
+      <FileButton accept={accepts} onChange={(file) => file && onFileAdd(file)}>
+        {(props) => (
+          <Button {...props} variant="white" color="dark">
+            Upload file
+          </Button>
+        )}
+      </FileButton>
+    </Paper>
   );
 }

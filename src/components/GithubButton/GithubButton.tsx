@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'clsx';
 import { useTheme } from '../../ThemeProvider';
 import settings from '../../settings';
-import classes from './GithubButton.styles.less';
+import classes from './GithubButton.styles.module.css';
 
 interface GithubButtonProps {
   className?: string;

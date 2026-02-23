@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 import data from './data';
 import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
 import GradientGalleryItem from './GradientGalleryItem/GradientGalleryItem';
-import classes from './GradientsGallery.styles.less';
+import classes from './GradientsGallery.styles.module.css';
 
 interface GradientsGalleryProps {
   className?: string;

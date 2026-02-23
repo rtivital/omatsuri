@@ -3,7 +3,7 @@ import cx from 'clsx';
 import Triangle from '../Triangle/Triangle';
 import Background from '../../../components/Background/Background';
 import ThemeToggle from './ThemeToggle/ThemeToggle';
-import classes from './TrianglePreview.styles.less';
+import classes from './TrianglePreview.styles.module.css';
 
 export default function TrianglePreview({ values, theme, onThemeToggle }) {
   return (

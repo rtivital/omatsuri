@@ -4,7 +4,7 @@ import { useTheme } from '../../../ThemeProvider';
 import Background from '../../../components/Background/Background';
 import generateEventData from '../generate-event-data';
 import Keycap from './Keycap/Keycap';
-import classes from './Header.styles.less';
+import classes from './Header.styles.module.css';
 
 function getPressedKeys(event) {
   const keys = [];

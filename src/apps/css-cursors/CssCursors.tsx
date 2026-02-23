@@ -4,7 +4,7 @@ import Background from '../../components/Background/Background';
 import SettingsLabel from '../../components/SettingsLabel/SettingsLabel';
 import CursorControl from './CursorControl/CursorControl';
 import data from './data';
-import classes from './CssCursors.styles.less';
+import classes from './CssCursors.styles.module.css';
 
 export default function CssCursors() {
   useDocumentTitle('CSS cursor properties');

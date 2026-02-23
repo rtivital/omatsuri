@@ -1,6 +1,6 @@
 import React from 'react';
+import { TextInput } from '@mantine/core';
 import { useIntermediateValue } from '@hooks';
-import Input from '../Input/Input';
 
 interface NumberInputProps {
   className?: string;
@@ -12,6 +12,7 @@ interface NumberInputProps {
 }
 
 export default function NumberInput({
+  className,
   value,
   onChange,
   min = 0,
@@ -26,13 +27,13 @@ export default function NumberInput({
   });
 
   return (
-    <Input
-      {...others}
-      invalid={!valid}
-      type="text"
+    <TextInput
+      {...(others as any)}
+      error={!valid || undefined}
       value={intermediateValue}
       onChange={(event) => handleChange(event.target.value)}
       onBlur={(event) => handleSubmit(event.target.value)}
+      classNames={{ input: className }}
     />
   );
 }

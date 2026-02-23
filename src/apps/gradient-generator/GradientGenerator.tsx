@@ -9,7 +9,7 @@ import GradientSettings from './GradientSettings/GradientSettings';
 import GradientPreview from './GradientPreview/GradientPreview';
 import GradientCode from './GradientCode/GradientCode';
 import GradientsGallery from './GradientsGallery/GradientsGallery';
-import classes from './GradientGenerator.styles.less';
+import classes from './GradientGenerator.styles.module.css';
 
 const INITIAL_VALUES = {
   angle: 90,

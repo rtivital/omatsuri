@@ -1,0 +1,24 @@
+.wrapper {
+  padding: 15px;
+  margin: 10px;
+
+  p {
+    color: var(--mantine-color-gray-9);
+    line-height: 1.4;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.dark {
+  p {
+    color: var(--mantine-color-gray-2);
+  }
+}

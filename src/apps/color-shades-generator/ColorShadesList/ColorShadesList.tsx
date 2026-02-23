@@ -6,7 +6,7 @@ import Scrollbars from 'react-custom-scrollbars-2';
 import { useTheme } from '../../../ThemeProvider';
 import HexInput from '../../../components/HexInput/HexInput';
 import Background from '../../../components/Background/Background';
-import classes from './ColorShadesList.styles.less';
+import classes from './ColorShadesList.styles.module.css';
 
 function generateShades({ steps, value, saturation, darken }) {
   let dark = Color(value);

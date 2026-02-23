@@ -1,14 +1,14 @@
 import React from 'react';
 import cx from 'clsx';
+import { Button } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import { useClipboard } from '@hooks';
 import { useTheme } from '../../../ThemeProvider';
 import SettingsLabel from '../../../components/SettingsLabel/SettingsLabel';
 import Background from '../../../components/Background/Background';
-import Button from '../../../components/Button/Button';
 import CopyCodeButton from '../../../components/CopyCodeButton/CopyCodeButton';
 import formatFileName from '../format-file-name';
-import classes from './CompressedResult.styles.less';
+import classes from './CompressedResult.styles.module.css';
 
 export default function CompressedResult({ content, fileKey }) {
   const [theme] = useTheme();
@@ -40,19 +40,29 @@ export default function CompressedResult({ content, fileKey }) {
           <Button
             className={classes.control}
             component="a"
-            theme="secondary"
+            variant="default"
+            color="gray"
             download={fileKey}
-            type={null}
             href={`data:image/svg+xml;charset=utf-8;base64,${btoa(content)}`}
           >
             download
           </Button>
           <div className={classes.controlsLabel}>or convert to</div>
           <div className={classes.controlsGroup}>
-            <Button className={classes.controlsGroupItem} theme="blue" onClick={convertToJsx}>
+            <Button
+              className={classes.controlsGroupItem}
+              variant="light"
+              color="blue"
+              onClick={convertToJsx}
+            >
               jsx
             </Button>
-            <Button className={classes.controlsGroupItem} theme="red" onClick={convertToB64}>
+            <Button
+              className={classes.controlsGroupItem}
+              variant="light"
+              color="red"
+              onClick={convertToB64}
+            >
               base64
             </Button>
           </div>

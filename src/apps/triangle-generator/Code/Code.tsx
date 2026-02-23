@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { SegmentedControl } from '@mantine/core';
 import { useLocalStorage } from '@hooks';
-import Tabs from '../../../components/Tabs/Tabs';
 import Background from '../../../components/Background/Background';
 import Highlight from '../../../components/Highlight/Highlight';
 import generateExample from './generate-example';
-import classes from './Code.styles.less';
+import classes from './Code.styles.module.css';
 
 const languages = ['.css', '.scss', '.jss'].map((language) => ({
   value: language,
@@ -23,7 +23,7 @@ export default function Code({ values }) {
 
   return (
     <Background className={classes.wrapper}>
-      <Tabs data={languages} active={language} onTabChange={handleLanguageChange} />
+      <SegmentedControl data={languages} value={language} onChange={handleLanguageChange} />
       <div className={classes.code}>
         <div className={classes.section}>
           <div className={classes.title}>Element</div>

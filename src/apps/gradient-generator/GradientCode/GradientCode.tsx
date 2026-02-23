@@ -3,7 +3,7 @@ import cx from 'clsx';
 import Highlight from '../../../components/Highlight/Highlight';
 import Background from '../../../components/Background/Background';
 import generateGradientValue from '../generate-gradient-value';
-import classes from './GradientCode.styles.less';
+import classes from './GradientCode.styles.module.css';
 
 interface GradientValue {
   color: string;

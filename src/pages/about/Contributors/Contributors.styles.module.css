@@ -1,0 +1,71 @@
+.author {
+  display: flex;
+
+  & + & {
+    margin-top: 30px;
+  }
+}
+
+.image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.website {
+  color: var(--mantine-color-gray-5) !important;
+
+  &:hover {
+    color: var(--mantine-color-violet-5) !important;
+  }
+}
+
+.badge {
+  display: inline-block;
+  background-color: var(--mantine-color-violet-0);
+  color: var(--mantine-color-violet-9);
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.body {
+  margin-left: 30px;
+}
+
+.social {
+  margin-top: 20px;
+  display: flex;
+}
+
+.icon {
+  width: 30px;
+}
+
+.socialLink {
+  & + & {
+    margin-left: 15px;
+  }
+}
+
+.becomeLink {
+  display: block;
+  margin-top: 15px;
+}
+
+.dark {
+  color: var(--mantine-color-gray-4);
+
+  .badge {
+    background-color: var(--mantine-color-blue-9);
+    color: var(--mantine-color-blue-0);
+  }
+}

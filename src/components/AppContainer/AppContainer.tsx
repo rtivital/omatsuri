@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'clsx';
 import { useTheme } from '../../ThemeProvider';
 import Navbar from '../Navbar/Navbar';
-import classes from './AppContainer.styles.less';
+import classes from './AppContainer.styles.module.css';
 
 interface AppContainerProps {
   children: React.ReactNode;

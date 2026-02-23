@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'clsx';
 import { useTheme } from '../../ThemeProvider';
-import classes from './Background.styles.less';
+import classes from './Background.styles.module.css';
 
 interface BackgroundProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;

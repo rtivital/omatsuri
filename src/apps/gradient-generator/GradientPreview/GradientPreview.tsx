@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'clsx';
 import generateGradientValue from '../generate-gradient-value';
-import classes from './GradientPreview.styles.less';
+import classes from './GradientPreview.styles.module.css';
 
 interface GradientValue {
   color: string;

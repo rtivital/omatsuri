@@ -1,10 +1,10 @@
 import React from 'react';
 import cx from 'clsx';
+import { SegmentedControl } from '@mantine/core';
 import { useTheme } from '../../../ThemeProvider';
 import DirectionPicker from '../../triangle-generator/DirectionPicker/DirectionPicker';
 import SliderInput from '../../../components/SliderInput/SliderInput';
-import Tabs from '../../../components/Tabs/Tabs';
-import classes from './GradientSettings.styles.less';
+import classes from './GradientSettings.styles.module.css';
 
 const DIRECTIONS = {
   'top-left': 315,
@@ -43,13 +43,13 @@ export default function GradientSettings({
     <div className={cx(classes.settings, classes[theme], className)}>
       <div className={classes.field}>
         <div className={classes.label}>Gradient type</div>
-        <Tabs
+        <SegmentedControl
           data={[
             { value: 'linear', label: 'Linear' },
             { value: 'radial', label: 'Radial' },
           ]}
-          onTabChange={onTypeChange}
-          active={type}
+          onChange={onTypeChange}
+          value={type}
         />
       </div>
 

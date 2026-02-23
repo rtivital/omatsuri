@@ -1,7 +1,7 @@
 import React from 'react';
 import Background from '../../../components/Background/Background';
 import CompressedResult from '../CompressedResult/CompressedResult';
-import classes from './Output.styles.less';
+import classes from './Output.styles.module.css';
 
 export default function Output({ results }) {
   const files = Object.keys(results).sort((a, b) => results[b].queue - results[a].queue);

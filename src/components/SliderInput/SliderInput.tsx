@@ -1,8 +1,8 @@
 import React from 'react';
 import cx from 'clsx';
-import Slider from './Slider';
+import { Slider } from '@mantine/core';
 import NumberInput from '../NumberInput/NumberInput';
-import classes from './SliderInput.styles.less';
+import classes from './SliderInput.styles.module.css';
 
 interface SliderInputProps {
   className?: string;
@@ -30,7 +30,16 @@ export default function SliderInput({
         min={min}
         max={max}
       />
-      <Slider min={min} max={max} value={value} onChange={onChange} trackSize={trackSize} />
+      <Slider
+        min={min}
+        max={max}
+        value={value}
+        onChange={onChange}
+        w={trackSize}
+        size="sm"
+        radius="xl"
+        color="violet"
+      />
     </div>
   );
 }

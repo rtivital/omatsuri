@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../Button/Button';
+import { Button } from '@mantine/core';
 
 interface CopyCodeButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   copied: boolean;
@@ -7,7 +7,7 @@ interface CopyCodeButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
 
 export default function CopyCodeButton({ copied, ...others }: CopyCodeButtonProps) {
   return (
-    <Button type="button" theme={copied ? 'success' : 'primary'} {...others}>
+    <Button type="button" variant="light" color={copied ? 'green' : 'violet'} {...others}>
       {copied ? 'Copied to clipboard' : 'Copy to clipboard'}
     </Button>
   );

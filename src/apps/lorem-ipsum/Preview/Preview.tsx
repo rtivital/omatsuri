@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'clsx';
 import { useTheme } from '../../../ThemeProvider';
 import Background from '../../../components/Background/Background';
-import classes from './Preview.styles.less';
+import classes from './Preview.styles.module.css';
 
 export default function Preview({ text }) {
   const [theme] = useTheme();

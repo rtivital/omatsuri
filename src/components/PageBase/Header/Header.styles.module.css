@@ -1,0 +1,39 @@
+.header {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--mantine-color-gray-1);
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: 850px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.logo {
+  @media screen and (max-width: 850px) {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.description {
+  margin-top: 18px;
+  margin-bottom: 0;
+  font-size: 18px;
+
+  @media screen and (max-width: 850px) {
+    margin-bottom: 18px;
+  }
+}
+
+.dark {
+  border-bottom-color: var(--mantine-color-gray-6);
+
+  .description {
+    color: var(--mantine-color-gray-1);
+  }
+}

@@ -1,12 +1,13 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
 import cx from 'clsx';
+import { Center, Text } from '@mantine/core';
+import { Dropzone as MantineDropzone } from '@mantine/dropzone';
 import { useDocumentTitle, useLocalStorage } from '@hooks';
 import Highlight from '../../components/Highlight/Highlight';
 import Background from '../../components/Background/Background';
 import SettingsLabel from '../../components/SettingsLabel/SettingsLabel';
 import DropPlaceholder from '../../components/DropPlaceholder/DropPlaceholder';
-import Dropzone from '../../components/Dropzone/Dropzone';
-import classes from './B64Encoding.styles.less';
+import classes from './B64Encoding.styles.module.css';
 
 function generateCssExample(content: string) {
   return `.element {\n  background-image: url(${content});\n}`;
@@ -74,7 +75,17 @@ export default function B64Encoding() {
 
   return (
     <>
-      <Dropzone accepts="*" onDrop={handleFilesDrop} />
+      <MantineDropzone.FullScreen
+        onDrop={handleFilesDrop}
+        activateOnClick={false}
+        styles={{ fullScreen: { backgroundColor: 'rgba(0, 255, 255, 0.9)', zIndex: 10 } }}
+      >
+        <Center h="100%">
+          <Text fz={40} fw={900} ta="center" c="dark.9" style={{ letterSpacing: -2 }}>
+            Drop files to browser window
+          </Text>
+        </Center>
+      </MantineDropzone.FullScreen>
       <DropPlaceholder
         className={cx({ [classes.fullscreenDrop]: !result.content })}
         onFileAdd={(file) => handleFilesDrop([file])}

@@ -1,0 +1,13 @@
+.background {
+  border-radius: 15px;
+}
+
+.light {
+  background-color: var(--mantine-color-white);
+  border: 1px solid var(--mantine-color-gray-1);
+}
+
+.dark {
+  background-color: var(--mantine-color-gray-9);
+  border: 1px solid var(--mantine-color-gray-9);
+}

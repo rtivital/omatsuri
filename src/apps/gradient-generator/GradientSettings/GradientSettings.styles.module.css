@@ -1,0 +1,28 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+}
+
+.field {
+  flex: 1;
+
+  & + & {
+    margin-top: 15px;
+  }
+}
+
+.label {
+  font-size: 14px;
+  margin-bottom: 7px;
+  color: var(--mantine-color-gray-6);
+}
+
+.dark {
+  .label {
+    color: var(--mantine-color-gray-5);
+  }
+}

@@ -1,15 +1,23 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
 import cx from 'clsx';
+import { ColorPicker } from '@mantine/core';
 import { useClickOutside } from '@hooks';
-import { HexColorPicker, HexColorInput } from 'react-colorful';
 import { useTheme } from '../../ThemeProvider';
-import classes from './HexInput.styles.less';
+import classes from './HexInput.styles.module.css';
 
 interface HexInputProps {
   className?: string;
   value: string;
   onChange: (value: string) => void;
   [key: string]: any;
+}
+
+function normalizeHex(value: string) {
+  if (!value) {
+    return '#';
+  }
+
+  return value.startsWith('#') ? value : `#${value}`;
 }
 
 export default function HexInput({ className, value, onChange, ...others }: HexInputProps) {
@@ -36,9 +44,22 @@ export default function HexInput({ className, value, onChange, ...others }: HexI
           style={{ backgroundColor: value }}
         />
         <div className={classes.hash}>#</div>
-        <HexColorInput {...others} className={classes.input} color={value} onChange={onChange} />
+        <input
+          {...others}
+          className={classes.input}
+          value={value.replace(/^#/, '')}
+          onChange={(event) => onChange(normalizeHex(event.currentTarget.value))}
+        />
       </div>
-      {opened && <HexColorPicker className={classes.picker} color={value} onChange={onChange} />}
+      {opened && (
+        <ColorPicker
+          className={classes.picker}
+          format="hex"
+          value={value}
+          onChange={onChange}
+          fullWidth
+        />
+      )}
     </div>
   );
 }

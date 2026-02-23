@@ -4,7 +4,7 @@ import { useTheme } from '../../../ThemeProvider';
 import HexInput from '../../../components/HexInput/HexInput';
 import SliderInput from '../../../components/SliderInput/SliderInput';
 import X from './X';
-import classes from './GradientColors.styles.less';
+import classes from './GradientColors.styles.module.css';
 
 interface GradientValue {
   key: string;

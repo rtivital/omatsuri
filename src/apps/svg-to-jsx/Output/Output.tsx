@@ -1,7 +1,7 @@
 import React from 'react';
 import Background from '../../../components/Background/Background';
 import Highlight from '../../../components/Highlight/Highlight';
-import classes from './Output.styles.less';
+import classes from './Output.styles.module.css';
 
 export default function Output({ data }) {
   if (data.loading) {

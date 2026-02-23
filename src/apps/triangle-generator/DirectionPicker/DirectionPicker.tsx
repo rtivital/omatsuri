@@ -3,7 +3,7 @@ import cx from 'clsx';
 import { useTheme } from '../../../ThemeProvider';
 import directions from '../directions';
 import Chevron from './Chevron';
-import classes from './DirectionPicker.styles.less';
+import classes from './DirectionPicker.styles.module.css';
 
 interface DirectionPickerProps {
   className?: string;

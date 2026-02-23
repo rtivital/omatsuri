@@ -1,8 +1,8 @@
 import React from 'react';
+import { SegmentedControl } from '@mantine/core';
 import { useTheme } from '../../../ThemeProvider';
-import Tabs from '../../../components/Tabs/Tabs';
 import SliderInput from '../../../components/SliderInput/SliderInput';
-import classes from './SizePicker.styles.less';
+import classes from './SizePicker.styles.module.css';
 
 export default function SizePicker({
   setPredefinedSize,
@@ -17,10 +17,10 @@ export default function SizePicker({
   return (
     <div className={classes[theme]}>
       <div className={classes.title}>Predefined sizes</div>
-      <Tabs
+      <SegmentedControl
         data={Object.keys(predefinedSizes).map((val) => ({ value: val, label: val }))}
-        onTabChange={setPredefinedSize}
-        active={activePredefinedSize}
+        onChange={setPredefinedSize}
+        value={activePredefinedSize}
       />
 
       <div className={classes.field}>

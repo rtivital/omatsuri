@@ -6,7 +6,7 @@ import PageBase from '../../components/PageBase/PageBase';
 import Credits from './Credits';
 import Application from './Application';
 import Contributors from './Contributors/Contributors';
-import classes from './About.styles.less';
+import classes from './About.styles.module.css';
 
 export default function About() {
   useDocumentTitle('About Omatsuri');

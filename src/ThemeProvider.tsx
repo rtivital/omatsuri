@@ -1,4 +1,5 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { createTheme, MantineProvider } from '@mantine/core';
 import { useColorScheme, useLocalStorage } from '@hooks';
 
 type Theme = 'light' | 'dark';
@@ -35,14 +36,51 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
     setUserTheme(theme);
   };
 
+  const resolvedTheme = userTheme || systemTheme;
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key.toLowerCase() !== 'j' || (!event.metaKey && !event.ctrlKey)) {
+        return;
+      }
+
+      const target = event.target as HTMLElement | null;
+      if (
+        target &&
+        (target.tagName === 'INPUT' ||
+          target.tagName === 'TEXTAREA' ||
+          target.tagName === 'SELECT' ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+      handleUserThemeChange(resolvedTheme === 'light' ? 'dark' : 'light');
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [resolvedTheme]);
+
   return (
-    <ThemeContext.Provider
-      value={{
-        theme: userTheme || systemTheme,
-        setTheme: handleUserThemeChange,
-      }}
+    <MantineProvider
+      forceColorScheme={resolvedTheme}
+      defaultColorScheme="auto"
+      theme={createTheme({
+        primaryColor: 'violet',
+        fontFamily: '"Source Sans Pro", sans-serif',
+        defaultRadius: 'md',
+      })}
     >
-      {children}
-    </ThemeContext.Provider>
+      <ThemeContext.Provider
+        value={{
+          theme: resolvedTheme,
+          setTheme: handleUserThemeChange,
+        }}
+      >
+        {children}
+      </ThemeContext.Provider>
+    </MantineProvider>
   );
 }

@@ -3,7 +3,7 @@ import cx from 'clsx';
 import { useClipboard } from '@hooks';
 import { useTheme } from '../../ThemeProvider';
 import CopyCodeButton from '../CopyCodeButton/CopyCodeButton';
-import classes from './Highlight.styles.less';
+import classes from './Highlight.module.css';
 
 interface HighlightProps {
   children: string;

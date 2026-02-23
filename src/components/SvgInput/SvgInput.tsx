@@ -1,12 +1,12 @@
 import React from 'react';
+import { Button, Center, Text } from '@mantine/core';
+import { Dropzone as MantineDropzone } from '@mantine/dropzone';
 import { useTheme } from '../../ThemeProvider';
-import Button from '../Button/Button';
 import SettingsLabel from '../SettingsLabel/SettingsLabel';
 import Background from '../Background/Background';
-import Dropzone from '../Dropzone/Dropzone';
 import DropPlaceholder from '../DropPlaceholder/DropPlaceholder';
 import example from './example';
-import classes from './SvgInput.styles.less';
+import classes from './SvgInput.styles.module.css';
 
 interface SvgInputProps {
   value: string;
@@ -34,12 +34,25 @@ export default function SvgInput({
 
   return (
     <div className={classes[theme]}>
-      <Dropzone onDrop={onFilesDrop} />
+      <MantineDropzone.FullScreen
+        onDrop={onFilesDrop}
+        accept={['image/svg+xml']}
+        activateOnClick={false}
+        styles={{ fullScreen: { backgroundColor: 'rgba(0, 255, 255, 0.9)', zIndex: 10 } }}
+      >
+        <Center h="100%">
+          <Text fz={40} fw={900} ta="center" c="dark.9" style={{ letterSpacing: -2 }}>
+            Drop files to browser window
+          </Text>
+        </Center>
+      </MantineDropzone.FullScreen>
       <DropPlaceholder onFileAdd={(file) => onFilesDrop([file])}>{dropLabel}</DropPlaceholder>
       <Background className={classes.wrapper}>
         <div className={classes.header}>
           <SettingsLabel className={classes.title}>Paste SVG markup</SettingsLabel>
-          <Button onClick={() => onChange(example)}>Load example</Button>
+          <Button variant="light" color="violet" onClick={() => onChange(example)}>
+            Load example
+          </Button>
         </div>
         <textarea
           placeholder="Paste SVG markup here"

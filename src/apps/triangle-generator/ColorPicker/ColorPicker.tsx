@@ -2,7 +2,7 @@ import oc from 'open-color';
 import React from 'react';
 import Swatch from './Swatch/Swatch';
 import HexInput from '../../../components/HexInput/HexInput';
-import classes from './ColorPicker.styles.less';
+import classes from './ColorPicker.styles.module.css';
 
 const predefinedColors = [
   oc.black,

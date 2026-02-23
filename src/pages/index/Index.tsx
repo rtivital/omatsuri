@@ -3,7 +3,7 @@ import { useDocumentTitle } from '@hooks';
 import ToolCard from './ToolCard/ToolCard';
 import PageBase from '../../components/PageBase/PageBase';
 import settings from '../../settings';
-import classes from './Index.styles.less';
+import classes from './Index.styles.module.css';
 
 export default function Index() {
   useDocumentTitle('Omatsuri');

@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'clsx';
 import { useClipboard } from '@hooks';
 import { useTheme } from '../../../ThemeProvider';
-import classes from './CursorControl.styles.less';
+import classes from './CursorControl.styles.module.css';
 
 export default function CursorControl({ className, value }) {
   const [theme] = useTheme();

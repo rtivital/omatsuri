@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 import { generateGradientColorValues } from '../generate-gradient-value';
 import getRandomColor from './get-random-color';
 import ColorStop from './ColorStop/ColorStop';
-import classes from './GradientLine.styles.less';
+import classes from './GradientLine.styles.module.css';
 
 interface GradientValue {
   key: string;
