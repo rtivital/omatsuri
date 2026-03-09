@@ -1,13 +1,16 @@
-const generateShape = (content) => (props) => `<div style="overflow: hidden;">
-  <svg
-    preserveAspectRatio="none"
-    viewBox="0 0 1200 120"
-    xmlns="http://www.w3.org/2000/svg"
-    ${props}
-  >
-    ${content}
-  </svg>
-</div>`;
+const generateShape = (content) => (props, isJSX) => {
+  return `
+  <div style=${isJSX ? "{{ overflow: 'hidden' }}" : '"overflow: hidden;"'}>
+    <svg
+      preserveAspectRatio="none"
+      viewBox="0 0 1200 120"
+      xmlns="http://www.w3.org/2000/svg"
+      ${props}
+    >
+      ${content}
+    </svg>
+  </div>`;
+};
 
 const shapes = {
   tilt: generateShape('<path d="M1200 120L0 16.48V0h1200v120z" />'),
@@ -49,14 +52,14 @@ function generateHtml(values) {
   const transformValue = getTransformValue(values);
   const transform = transformValue ? ` transform: ${transformValue};` : '';
   const style = `fill: ${values.color}; width: ${values.width}%; height: ${values.height}px;${transform}`;
-  return shapes[values.type](`style="${style}"`);
+  return shapes[values.type](`style="${style}"`, false);
 }
 
 function generateJSX(values) {
   const transformValue = getTransformValue(values);
   const transform = transformValue ? ` transform: '${transformValue}'` : '';
   const style = `fill: '${values.color}', width: '${values.width}%', height: ${values.height},${transform}`;
-  return shapes[values.type](`style={{ ${style} }}`);
+  return shapes[values.type](`style={{ ${style} }}`, true);
 }
 
 const types = {
